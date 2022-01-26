@@ -116,8 +116,8 @@
 	
 </div>	<div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url(img/bg.jpg)">
   <div class="container text-center">
-    <h1 class="display-2 mb-4">About</h1>
-  </div>
+                <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
+ </div>
 </div>	<section id="who-we-are" class="bg-white">
     <div class="container">
         <div class="section-content">
@@ -129,7 +129,7 @@
             <div class="row text-center">
                 <div class="col-md-4 col-sm-6" data-aos="fade-up">
                     <img class="rounded-circle" src="img/icons/animat-checkmark.gif" alt="Generic placeholder image" width="140" height="140">
-                    <h5 class="mb-4">Simple and Clean</h5>
+                    <h5 class="mb-4">Assured Service</h5>
                     <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                     <p><a class="btn btn-link" href="#" role="button">View details</a></p>
                 </div>
@@ -143,7 +143,7 @@
                 <!-- /.col-md-4 col-sm-6  -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
                     <img class="rounded-circle" src="img/icons/animat-responsive.gif" alt="Generic placeholder image" width="140" height="140">
-                    <h5 class="mb-4">Fully Responsive</h5>
+                    <h5 class="mb-4">24*7 Customer Support</h5>
                     <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. </p>
                     <p><a class="btn btn-link" href="#" role="button">View details</a></p>
                 </div>

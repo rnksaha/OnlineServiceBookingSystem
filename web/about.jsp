@@ -59,13 +59,13 @@
         <div class="collapse navbar-collapse" id="navbar-nav-header">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">Admin Panel</a>
+                    <a class="nav-link" href="admin.jsp">Admin Panel</a>
                 </li>
                 <li class="nav-item">
                             <a class="nav-link" href="signUp.jsp">Login/Sign up</a>
                         </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="blog.html">Contact</a>
+                    <a class="nav-link" href="contact.jsp">Contact</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="about.jsp">About</a>

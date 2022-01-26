@@ -29,6 +29,7 @@
         <title>urbanware</title>
     </head>
     <body>
+        
     <body data-spy="scroll" data-target="#navbar" class="static-layout">
         <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
             <div class="container">
@@ -100,7 +101,6 @@
         <div class="jumbotron d-flex align-items-center">
             <div class="container text-center">
                 <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
-                <!-- <h1 class="display-1 mb-4">URBAN<br>WARE</h1>-->
             </div>
             <div class="rectangle-1"></div>
             <div class="rectangle-2"></div>

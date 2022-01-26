@@ -50,7 +50,7 @@
         </style>
  <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center text-white" href="/">
+        <a class="navbar-brand d-flex align-items-center text-white" href="index.jsp">
             <h3 class="font-weight-bolder mb-0">URBAN WARE</h3>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
@@ -122,7 +122,7 @@
     <div class="container">
         <div class="section-content">
             <div class="title-wrap" data-aos="fade-up">
-                <h2 class="section-title">The easiest way <br>to build<b> websites online</b></h2>
+                <h1 class="section-title"><b>About Us</b></h1>
                 <p class="section-sub-title">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a <br> pharetra augue. Donec id elit non mi porta gravida at eget metus.</p>
             </div>
             
@@ -135,8 +135,8 @@
                 </div>
                 <!-- /.col-md-4 col-sm-6  -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
-                    <img class="rounded-circle" src="img/icons/animat-customize.gif" alt="Generic placeholder image" width="140" height="140">
-                    <h5 class="mb-4">Easy to Customize</h5>
+                    <img class="rounded-circle" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/4f35de89639683.5dfafaf4208fc.gif" alt="Generic placeholder image" width="140" height="140">
+                    <h5 class="mb-4">Customer Satisfaction</h5>
                     <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis.</p>
                     <p><a class="btn btn-link" href="#" role="button">View details</a></p>
                 </div>
@@ -152,14 +152,16 @@
             <!-- /.row -->
         </div>
     </div>
-</section>	<section id="skills" class="bg-white">
+</section>	
+        
+ <!--section id="skills" class="bg-white">
     <div class="container">
         <div class="section-content pt-0">
             
             <div class="row">
                 <div class="col-md-6" data-aos="fade-right">
                     <!-- Skill Item -->
-                    <div class="skill-item">
+                    <!--div class="skill-item">
                         <div class="d-flex justify-content-between">
                              <p>HTML5</p>
                             <p class="text-muted">90%</p>
@@ -170,7 +172,7 @@
                     </div>
                     <!-- End Skill Item -->
                     <!-- Skill Item -->
-                    <div class="skill-item">
+                    <!--div class="skill-item">
                         <div class="d-flex justify-content-between">
                             <p>CSS3</p>
                             <p class="text-muted">85%</p>
@@ -181,7 +183,7 @@
                     </div>
                     <!-- End Skill Item -->
                     <!-- Skill Item -->
-                    <div class="skill-item">
+                    <!--div class="skill-item">
                         <div class="d-flex justify-content-between">
                             <p>JQUERY</p>
                             <p class="text-muted">73%</p>
@@ -191,10 +193,10 @@
                         </div>
                     </div>
                     <!-- End Skill Item -->
-                </div>
-                <div class="col-md-6" data-aos="fade-left">
+                </div-->
+                <!--div class="col-md-6" data-aos="fade-left">
                     <!-- Skill Item -->
-                    <div class="skill-item">
+                    <!--div class="skill-item">
                         <div class="d-flex justify-content-between">
                             <p>Adobe Photoshop</p>
                             <p class="text-muted">80%</p>
@@ -205,7 +207,7 @@
                     </div>
                     <!-- End Skill Item -->
                     <!-- Skill Item -->
-                    <div class="skill-item">
+                    <!--div class="skill-item">
                         <div class="d-flex justify-content-between">
                             <p>Adobe Illustrator</p>
                             <p class="text-muted">60%</p>
@@ -216,7 +218,7 @@
                     </div>
                     <!-- End Skill Item -->
                     <!-- Skill Item -->
-                    <div class="skill-item">
+                    <!--div class="skill-item">
                         <div class="d-flex justify-content-between">
                             <p>Wordpress</p>
                             <p class="text-muted">55%</p>
@@ -230,7 +232,8 @@
             </div>
         </div>
     </div>
-</section>	<!-- Features Section-->
+</section-->	
+<!-- Features Section-->
 <section id="cta" class="bg-fixed overlay" style="background-image: url(img/bg.jpg);">
     <div class="container">
         <div class="section-content" data-aos="fade-up">

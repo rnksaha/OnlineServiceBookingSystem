@@ -29,6 +29,16 @@
         <title>urbanware</title>
     </head>
     <body>
+         <style>
+            @font-face {
+                font-family: myFirstFont;
+                src: url(./font/Montserrat-Light-Alt1.woff2);
+            }
+            h3 {
+                font-family: myFirstFont;
+            }
+        </style>
+        
     <body data-spy="scroll" data-target="#navbar" class="static-layout">
         <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
             <div class="container">

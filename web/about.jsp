@@ -123,29 +123,31 @@
         <div class="section-content">
             <div class="title-wrap" data-aos="fade-up">
                 <h1 class="section-title"><b>About Us</b></h1>
-                <p class="section-sub-title">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nulla vitae elit libero, a <br> pharetra augue. Donec id elit non mi porta gravida at eget metus.</p>
+                <p class="section-sub-title">Urbanware is india's largest online home services platform.Launched in 2022.Initially,urbanware operates in different cities in india.<br>Urbanware provides a platform that allows skilled and experienced professionals to connect with users who are looking for different services.<br>Our main mottos..</p>
             </div>
             
             <div class="row text-center">
                 <div class="col-md-4 col-sm-6" data-aos="fade-up">
                     <img class="rounded-circle" src="img/icons/animat-checkmark.gif" alt="Generic placeholder image" width="140" height="140">
                     <h5 class="mb-4">Assured Service</h5>
-                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <p><a class="btn btn-link" href="#" role="button">View details</a></p>
+                    <p>We are always here to provide quality and assured services.The best service, at the right time.</p>
+                    <!--p><a class="btn btn-link" href="#" role="button">View details</a></p-->
                 </div>
                 <!-- /.col-md-4 col-sm-6  -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
                     <img class="rounded-circle" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/4f35de89639683.5dfafaf4208fc.gif" alt="Generic placeholder image" width="140" height="140">
                     <h5 class="mb-4">Customer Satisfaction</h5>
-                    <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Vestibulum id ligula porta felis.</p>
-                    <p><a class="btn btn-link" href="#" role="button">View details</a></p>
+                    <p>The customer's perception is our reality. Treating every client like family. Good service is our responsibility.</p>
+                    <!--p><a class="btn btn-link" href="#" role="button">View details</a></p-->
                 </div>
                 <!-- /.col-md-4 col-sm-6  -->
                 <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
                     <img class="rounded-circle" src="img/icons/animat-responsive.gif" alt="Generic placeholder image" width="140" height="140">
                     <h5 class="mb-4">24*7 Customer Support</h5>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. </p>
-                    <p><a class="btn btn-link" href="#" role="button">View details</a></p>
+                    <p>We are here for you 24/7.</p>
+                    <p>Email: </p>
+                    <p>Contact No :</p>
+                    <!--p><a class="btn btn-link" href="#" role="button">View details</a></p-->
                 </div>
                 <!-- /.col-md-4 col-sm-6  -->
             </div>
@@ -234,7 +236,7 @@
     </div>
 </section-->	
 <!-- Features Section-->
-<section id="cta" class="bg-fixed overlay" style="background-image: url(img/bg.jpg);">
+<!--section id="cta" class="bg-fixed overlay" style="background-image: url(img/bg.jpg);">
     <div class="container">
         <div class="section-content" data-aos="fade-up">
             <div class="row">
@@ -246,7 +248,7 @@
             </div>
         </div>
     </div>
-</section>
+</section-->
 <!-- End of Features Section--></div>
 <footer class="mastfoot my-3">
     <div class="inner container">
@@ -255,8 +257,8 @@
          		
          	</div>
          	<div class="col-lg-4 col-md-12 d-flex align-items-center">
-         		<p class="mx-auto text-center mb-0">&copy; 2019 Roxy. Design by <a href="https://gettemplates.co" target="_blank">GetTemplates</a>.</p>
-         	</div>
+                    <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
+                </div>
            
             <div class="col-lg-4 col-md-12">
             	<nav class="nav nav-mastfoot justify-content-center">

@@ -10,6 +10,7 @@ package com.exavalu.OSBS.pojos;
  * @author rounak
  */
 public class User {
+
     private String emailId;
     private int roleId;
     private int status;
@@ -55,5 +56,5 @@ public class User {
     public void setStatus(int status) {
         this.status = status;
     }
-    
+
 }

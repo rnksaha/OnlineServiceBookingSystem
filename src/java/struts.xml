@@ -6,8 +6,7 @@
     <!-- Configuration for the default package. -->
     <package name="default" namespace="/" extends="struts-default">
         <action name="otprequest" class="com.exavalu.OSBS.actions.UserAction" method="otpRequest">
-            <result name="SUCCESS">/dashboard.jsp</result>
-            <result name="ERROR">/signUp.jsp</result>
+            <result name="SUCCESS">/signUp.jsp</result>
         </action>
         <action name="loginuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogin">
             <result name="LOGIN">/dashboard.jsp</result>

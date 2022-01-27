@@ -14,7 +14,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-import java.util.Random;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -22,7 +21,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.servlet.http.HttpSession;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
@@ -35,8 +34,13 @@ public class UserService {
         return i;
     }
 
-    public int sendMail(String from, String password, String to, String subject, String msg) {
+    public int sendMail(String to, String otp) {
         int i = 0;
+        String from = "urbanwareservice@gmail.com";
+        String password = "exavalu@123";
+        String subject = "OTP For Login";
+        String msg = otp;
+
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -51,29 +55,14 @@ public class UserService {
         });
 
         try {
-
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
-
-            // recipients email address
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
 
-            subject = "OTP for Login";
+            ServletActionContext.getRequest().setAttribute("otp", msg);
+            ServletActionContext.getRequest().setAttribute("email", to);
             // add the Subject of email
             message.setSubject(subject);
-
-            String Capital_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            String numbers = "0123456789";
-            String values = Capital_chars + numbers;
-
-            Random rndm_method = new Random();
-
-            char[] otp = new char[4];
-
-            for (int j = 0; j < 4; j++) {
-                otp[j] = values.charAt(rndm_method.nextInt(values.length()));
-            }
-            msg = new String(otp);
 
             // message body
             message.setText(msg);

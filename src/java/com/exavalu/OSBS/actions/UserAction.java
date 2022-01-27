@@ -11,6 +11,8 @@ import com.exavalu.OSBS.services.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
@@ -21,18 +23,14 @@ public class UserAction extends ActionSupport {
     private String emailId;
     private String otp;
     private boolean status;
+    private String generatedOTP;
 
     private String msg = "";
     private User user = new User();
     private int ctr = 0;
     private UserService userService = new UserService();
 
-    private String senderEmail;
-    private String senderPassword;
     private String receiverEmail;
-    private String subject;
-    private String message;
-    private int resp = 0;
 
     private List<City> pinCodeList = null;
     private boolean noData = false;
@@ -41,32 +39,37 @@ public class UserAction extends ActionSupport {
     public String otpRequest() throws Exception {
 
         setUserService(new UserService());
-        setSenderEmail("urbanwareservice@gmail.com");
-        setSenderPassword("exavalu@123");
+        String values = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        Random rndm_method = new Random();
+
+        char[] otp = new char[4];
+
+        for (int j = 0; j < 4; j++) {
+            otp[j] = values.charAt(rndm_method.nextInt(values.length()));
+        }
+        String generatedOTP = new String(otp);
+        setGeneratedOTP(generatedOTP);
         setReceiverEmail(getEmailId());
 
-        setResp(getUserService().sendMail(getSenderEmail(), getSenderPassword(), getReceiverEmail(), getSubject(), getMessage()));
-        setOtp(getOtp());
-        setEmailId(getEmailId());
+        getUserService().sendMail(getReceiverEmail(), getGeneratedOTP());
 
-        if (getResp() == 1) {
-            return "SUCCESS";
-        } else {
-            return "ERROR";
-        }
+        return "SUCCESS";
     }
 
     public String userLogin() throws Exception {
-        String otp1 = getOtp();
-        System.out.print("OTP" + otp1);
-        
+        setGeneratedOTP((String) ServletActionContext.getRequest().getParameter("otp"));
+        setReceiverEmail((String) ServletActionContext.getRequest().getParameter("email"));
         try {
+            if (getGeneratedOTP().equals(getOtp()) && getOtp() != null && getEmailId().equals(getReceiverEmail()) && getEmailId() != null) {
+                return "LOGIN";
+            } else {
+                return "LOGINERROR";
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
             return "LOGINERROR";
         }
-        return "LOGIN";
     }
 
     public String getPinCodes() throws Exception {
@@ -230,34 +233,6 @@ public class UserAction extends ActionSupport {
     }
 
     /**
-     * @return the senderEmail
-     */
-    public String getSenderEmail() {
-        return senderEmail;
-    }
-
-    /**
-     * @param senderEmail the senderEmail to set
-     */
-    public void setSenderEmail(String senderEmail) {
-        this.senderEmail = senderEmail;
-    }
-
-    /**
-     * @return the senderPassword
-     */
-    public String getSenderPassword() {
-        return senderPassword;
-    }
-
-    /**
-     * @param senderPassword the senderPassword to set
-     */
-    public void setSenderPassword(String senderPassword) {
-        this.senderPassword = senderPassword;
-    }
-
-    /**
      * @return the receiverEmail
      */
     public String getReceiverEmail() {
@@ -272,44 +247,16 @@ public class UserAction extends ActionSupport {
     }
 
     /**
-     * @return the subject
+     * @return the generatedOTP
      */
-    public String getSubject() {
-        return subject;
+    public String getGeneratedOTP() {
+        return generatedOTP;
     }
 
     /**
-     * @param subject the subject to set
+     * @param generatedOTP the generatedOTP to set
      */
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    /**
-     * @return the message
-     */
-    public String getMessage() {
-        return message;
-    }
-
-    /**
-     * @param message the message to set
-     */
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    /**
-     * @return the resp
-     */
-    public int getResp() {
-        return resp;
-    }
-
-    /**
-     * @param resp the resp to set
-     */
-    public void setResp(int resp) {
-        this.resp = resp;
+    public void setGeneratedOTP(String generatedOTP) {
+        this.generatedOTP = generatedOTP;
     }
 }

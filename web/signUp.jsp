@@ -10,7 +10,7 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script type="text/javascript">
             $(function () {
-                $("input[name=otp]").click(function () {
+                $("input[name=btnOtp]").click(function () {
                     $.ajax({
                         type: "POST",
                         url: "otprequest",
@@ -47,9 +47,9 @@
                     <input type="text" id="emailId" class="fadeIn second" value="emailId" name="emailId" placeholder="Enter Email">
                     <div id="dvOTP" style="display: none">
                         Enter OTP:
-                        <input type="text" id="txtPassportNumber" />
+                        <input type="text" id="otp" value="otp"/>
                     </div>
-                    <input type="button" name="otp" class="fadeIn fourth" value="otp">
+                    <input type="button" name="btnOtp" class="fadeIn fourth" value="OTP">
                     <div id="dvSubmit" style="display: none">
                         <input type="submit" class="fadeIn fourth" value="Login">
                     </div>

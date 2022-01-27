@@ -10,6 +10,8 @@ package com.exavalu.OSBS.pojos;
  * @author rounak
  */
 public class Service {
+    
+    private int serviceId;
     private String serviceName;
     private int status;
 
@@ -39,6 +41,20 @@ public class Service {
      */
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    /**
+     * @return the serviceId
+     */
+    public int getServiceId() {
+        return serviceId;
+    }
+
+    /**
+     * @param serviceId the serviceId to set
+     */
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
     }
     
 }

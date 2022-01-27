@@ -76,9 +76,9 @@
                     </a>
                 </li>
                  <li class="nav-item only-desktop">
-                    <a class="nav-link" id="side-nav-open" href="#">
-                        <span class="lnr lnr-menu"></span>
-                    </a>
+                            <a class="nav-link" id="side-nav-open" href="#">
+                                <span class="fa fa-shopping-cart"></span>
+                            </a>
                 </li>
             </ul>
         </div>
@@ -86,18 +86,15 @@
 </nav>
 
 <div id="side-nav" class="sidenav">
-	<a href="javascript:void(0)" id="side-nav-close">&times;</a>
-	
-	<div class="sidenav-content">
-		<p>
-			Kuncen WB1, Wirobrajan 10010, DIY
-		</p>
-		<p>
-			<span class="fs-16 primary-color">(+68) 120034509</span>
-		</p>
-		<p>info@yourdomain.com</p>
-	</div>
-</div><div id="side-search" class="sidenav">
+            <a href="javascript:void(0)" id="side-nav-close">&times;</a>
+            <div class="sidenav-content">
+                <p>
+                    Cart details here.
+                </p>
+            </div>
+ </div>
+
+        <div id="side-search" class="sidenav">
 	<a href="javascript:void(0)" id="side-search-close">&times;</a>
 	<div class="sidenav-content">
 		<form action="">

@@ -32,20 +32,23 @@ public class UserAction extends ActionSupport {
     private String receiverEmail;
     private String subject;
     private String message;
-    int resp = 0;
+    private int resp = 0;
 
     private List<City> pinCodeList = null;
     private boolean noData = false;
     private String cityName;
 
     public String otpRequest() throws Exception {
-        userService = new UserService();
-        senderEmail = "urbanwareservice@gmail.com";
-        senderPassword = "exavalu@123";
+        setUserService(new UserService());
+        setSenderEmail("urbanwareservice@gmail.com");
+        setSenderPassword("exavalu@123");
+        setReceiverEmail(getEmailId());
 
-        resp = userService.sendMail(senderEmail, senderPassword, receiverEmail, subject, message);
+        setResp(getUserService().sendMail(getSenderEmail(), getSenderPassword(), getReceiverEmail(), getSubject(), getMessage()));
+        setOtp(getOtp());
+        setEmailId(getEmailId());
 
-        if (resp == 1) {
+        if (getResp() == 1) {
             return "SUCCESS";
         } else {
             return "ERROR";
@@ -223,5 +226,89 @@ public class UserAction extends ActionSupport {
      */
     public void setCityName(String cityName) {
         this.cityName = cityName;
+    }
+
+    /**
+     * @return the senderEmail
+     */
+    public String getSenderEmail() {
+        return senderEmail;
+    }
+
+    /**
+     * @param senderEmail the senderEmail to set
+     */
+    public void setSenderEmail(String senderEmail) {
+        this.senderEmail = senderEmail;
+    }
+
+    /**
+     * @return the senderPassword
+     */
+    public String getSenderPassword() {
+        return senderPassword;
+    }
+
+    /**
+     * @param senderPassword the senderPassword to set
+     */
+    public void setSenderPassword(String senderPassword) {
+        this.senderPassword = senderPassword;
+    }
+
+    /**
+     * @return the receiverEmail
+     */
+    public String getReceiverEmail() {
+        return receiverEmail;
+    }
+
+    /**
+     * @param receiverEmail the receiverEmail to set
+     */
+    public void setReceiverEmail(String receiverEmail) {
+        this.receiverEmail = receiverEmail;
+    }
+
+    /**
+     * @return the subject
+     */
+    public String getSubject() {
+        return subject;
+    }
+
+    /**
+     * @param subject the subject to set
+     */
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    /**
+     * @return the message
+     */
+    public String getMessage() {
+        return message;
+    }
+
+    /**
+     * @param message the message to set
+     */
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    /**
+     * @return the resp
+     */
+    public int getResp() {
+        return resp;
+    }
+
+    /**
+     * @param resp the resp to set
+     */
+    public void setResp(int resp) {
+        this.resp = resp;
     }
 }

@@ -142,8 +142,8 @@
                     <img class="rounded-circle" src="img/icons/animat-responsive.gif" alt="Generic placeholder image" width="140" height="140">
                     <h5 class="mb-4">24*7 Customer Support</h5>
                     <p>We are here for you 24/7.</p>
-                    <p>Email: urbanwareservice@gmail.com </p>
-                    <p>Contact No: +91-11-40617777</p>
+                    <p>Email: urbanwareservice@gmail.com</p>
+                    <p>Contact No :+91-11-40517847.</p>
                     <!--p><a class="btn btn-link" href="#" role="button">View details</a></p-->
                 </div>
                 <!-- /.col-md-4 col-sm-6  -->

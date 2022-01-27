@@ -40,7 +40,7 @@
     <body data-spy="scroll" data-target="#navbar" class="static-layout">
         <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center text-white" href="/">
+                <a class="navbar-brand d-flex align-items-center text-white" href="index.jsp">
                     <h3 class="font-weight-bolder mb-0">URBAN WARE</h3>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
@@ -107,7 +107,7 @@
 
         <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url()">
             <div class="container text-center">
-                <h1 class="display-2 mb-4">SOMETHING</h1>
+                <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
             </div>
         </div>
 

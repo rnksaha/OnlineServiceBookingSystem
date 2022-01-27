@@ -11,13 +11,16 @@
         <script type="text/javascript">
             $(function () {
                 $("input[name=otp]").click(function () {
-                    alert("IN the method");
                     $.ajax({
-                        url: "<s:url action='otprequest'/>",
-                        dataType: 'json',
-                        data: {emailId: $(#emailId).text()},
-                        success: function () {
-                            alert('OTP Sent');
+                        type: "POST",
+                        url: "otprequest",
+                        data: {'emailId': $("#emailId").val()},
+
+                        success: function (result) {
+                            alert("OTP Sent");
+                        },
+                        error: function (xhr, errmsg) {
+                            alert("Empty Field");
                         }
                     });
                     $("#dvOTP").show();

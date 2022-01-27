@@ -63,25 +63,21 @@ public class UserService {
             message.setSubject(subject);
 
             String Capital_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            String Small_chars = "abcdefghijklmnopqrstuvwxyz";
             String numbers = "0123456789";
-            String symbols = "!@#$%^&*_=+-/.?<>)";
-
-            String values = Capital_chars + Small_chars
-                    + numbers + symbols;
+            String values = Capital_chars + numbers;
 
             Random rndm_method = new Random();
 
-            char[] otp = new char[6];
+            char[] otp = new char[4];
 
-            for (int j = 0; j < 6; j++) {
+            for (int j = 0; j < 4; j++) {
                 otp[j] = values.charAt(rndm_method.nextInt(values.length()));
             }
             msg = new String(otp);
 
             // message body
             message.setText(msg);
-            
+
             Transport.send(message);
             return 1;
         } catch (MessagingException e) {

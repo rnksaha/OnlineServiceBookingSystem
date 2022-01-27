@@ -39,6 +39,7 @@ public class UserAction extends ActionSupport {
     private String cityName;
 
     public String otpRequest() throws Exception {
+
         setUserService(new UserService());
         setSenderEmail("urbanwareservice@gmail.com");
         setSenderPassword("exavalu@123");
@@ -53,11 +54,12 @@ public class UserAction extends ActionSupport {
         } else {
             return "ERROR";
         }
-
     }
 
     public String userLogin() throws Exception {
-
+        String otp1 = getOtp();
+        System.out.print("OTP" + otp1);
+        
         try {
 
         } catch (Exception e) {
@@ -65,7 +67,6 @@ public class UserAction extends ActionSupport {
             return "LOGINERROR";
         }
         return "LOGIN";
-
     }
 
     public String getPinCodes() throws Exception {

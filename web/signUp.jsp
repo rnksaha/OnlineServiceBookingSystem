@@ -10,8 +10,10 @@
         <script type="text/javascript">
             $(function () {
                 $("input[name=btnOTP]").click(function () {
-                        $("#dvOTP").show();
-                        $("#dvSubmit").show();
+                    
+                    
+                    $("#dvOTP").show();
+                    $("#dvSubmit").show();
                 });
             });
         </script>
@@ -29,7 +31,7 @@
                 </div>
 
                 <!-- Login Form -->
-                <form action="index.jsp">
+                <form action="loginuser">
                     <input type="text" id="login" class="fadeIn second" name="login" placeholder="Enter Email">
                     <div id="dvOTP" style="display: none">
                         Enter OTP:
@@ -37,7 +39,7 @@
                     </div>
                     <input type="button" name="btnOTP" class="fadeIn fourth" value="Request OTP">
                     <div id="dvSubmit" style="display: none">
-                    <input type="submit" class="fadeIn fourth" value="Login">
+                        <input type="submit" class="fadeIn fourth" value="Login">
                     </div>
                 </form>
 

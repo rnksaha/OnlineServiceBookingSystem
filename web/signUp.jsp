@@ -42,18 +42,25 @@
                     <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/User_icon_2.svg" id="icon" alt="User Icon" />
                 </div>
 
+
+                <s:form action="loginuser">
+                    <s:textfield id="emailId" value="emailId" name="emailId" />
+                    <s:textfield id="otp" value="otp" name="otp" />
+                    <input type="button" name="btnOtp" class="fadeIn fourth" value="OTP" >
+                    <s:submit value="Login"/>
+                </s:form>
                 <!-- Login Form -->
-                <form action="loginuser">
-                    <input type="text" id="emailId" class="fadeIn second" value="emailId" name="emailId" placeholder="Enter Email">
-                    <div id="dvOTP" style="display: none">
-                        Enter OTP:
-                        <input type="text" id="otp" value="otp"/>
-                    </div>
-                    <input type="button" name="btnOtp" class="fadeIn fourth" value="OTP">
-                    <div id="dvSubmit" style="display: none">
-                        <input type="submit" class="fadeIn fourth" value="Login">
-                    </div>
-                </form>
+                <!--                <form action="loginuser">
+                                    <input type="text" id="emailId" class="fadeIn second" value="emailId" name="emailId" placeholder="Enter Email">
+                                    <div id="dvOTP" style="display: none">
+                                        Enter OTP:
+                                        <input type="text" id="otp" value="otp"/>
+                                    </div>
+                                    <input type="button" name="btnOtp" class="fadeIn fourth" value="OTP">
+                                    <div id="dvSubmit" style="display: none">
+                                        <input type="submit" class="fadeIn fourth" value="Login">
+                                    </div>
+                                </form>-->
 
             </div>
         </div>

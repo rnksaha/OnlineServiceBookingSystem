@@ -60,9 +60,9 @@
 
         <!-- setting variable for admin & client-->
 
-        <c:set var = "role" scope = "session" value = "${sessionScope.users.roleId()}"/>
+    <c:set var = "role" scope = "session" value = "${sessionScope.users.roleId()}"/>
 
-        <!-- setting variable for admin & client ENDS HERE-->
+    <!-- setting variable for admin & client ENDS HERE-->
 
     <body data-spy="scroll" data-target="#navbar" class="static-layout">
         <nav id="header-navbar" class="navbar navbar-expand-lg py-4">

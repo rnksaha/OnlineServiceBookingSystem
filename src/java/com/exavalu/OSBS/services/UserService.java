@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -32,6 +33,20 @@ public class UserService {
     public int registerUser(String emailId, String otp) {
         int i = 0;
         return i;
+    }
+
+    public String generateOTP() {
+        String values = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        Random rndm_method = new Random();
+
+        char[] otp = new char[4];
+
+        for (int j = 0; j < 4; j++) {
+            otp[j] = values.charAt(rndm_method.nextInt(values.length()));
+        }
+
+        String generatedOTP = new String(otp);
+        return generatedOTP;
     }
 
     public int sendMail(String to, String otp) {

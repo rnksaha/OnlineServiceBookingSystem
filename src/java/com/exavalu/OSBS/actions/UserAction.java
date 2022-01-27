@@ -11,14 +11,15 @@ import com.exavalu.OSBS.services.UserService;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import org.apache.struts2.ServletActionContext;
+import java.util.Map;
+import org.apache.struts2.dispatcher.SessionMap;
+import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author AKSHAY
  */
-public class UserAction extends ActionSupport {
+public class UserAction extends ActionSupport implements SessionAware {
 
     private String emailId;
     private String otp;
@@ -35,39 +36,43 @@ public class UserAction extends ActionSupport {
     private List<City> pinCodeList = null;
     private boolean noData = false;
     private String cityName;
+    private SessionMap<String, Object> sessionMap;
+
+    @Override
+    public void setSession(Map<String, Object> map) {
+        sessionMap = (SessionMap) map;
+    }
 
     public String otpRequest() throws Exception {
 
         setUserService(new UserService());
-        String values = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        Random rndm_method = new Random();
 
-        char[] otp = new char[4];
-
-        for (int j = 0; j < 4; j++) {
-            otp[j] = values.charAt(rndm_method.nextInt(values.length()));
-        }
-        String generatedOTP = new String(otp);
-        setGeneratedOTP(generatedOTP);
+        setGeneratedOTP(getUserService().generateOTP());
         setReceiverEmail(getEmailId());
 
+        sessionMap.put("otp", getGeneratedOTP());
+        sessionMap.put("email", getReceiverEmail());
         getUserService().sendMail(getReceiverEmail(), getGeneratedOTP());
 
         return "SUCCESS";
     }
 
     public String userLogin() throws Exception {
-        setGeneratedOTP((String) ServletActionContext.getRequest().getParameter("otp"));
-        setReceiverEmail((String) ServletActionContext.getRequest().getParameter("email"));
+
+        setGeneratedOTP((String) sessionMap.get("otp"));
+        setReceiverEmail((String) sessionMap.get("email"));
+
         try {
-            if (getGeneratedOTP().equals(getOtp()) && getOtp() != null && getEmailId().equals(getReceiverEmail()) && getEmailId() != null) {
+            if (getGeneratedOTP().equals(getOtp()) && (getOtp() != null) && getEmailId().equals(getReceiverEmail()) && (getEmailId() != null)) {
                 return "LOGIN";
             } else {
+                sessionMap.invalidate();
                 return "LOGINERROR";
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+            sessionMap.invalidate();
             return "LOGINERROR";
         }
     }

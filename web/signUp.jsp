@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,13 +10,21 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script type="text/javascript">
             $(function () {
-                $("input[name=btnOTP]").click(function () {
-                    
-                    
+                $("input[name=otp]").click(function () {
+                    alert("IN the method");
+                    $.ajax({
+                        url: "<s:url action='otprequest'/>",
+                        dataType: 'json',
+                        data: {emailId: $(#emailId).text()},
+                        success: function () {
+                            alert('OTP Sent');
+                        }
+                    });
                     $("#dvOTP").show();
                     $("#dvSubmit").show();
                 });
-            });
+            }
+            );
         </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
@@ -32,12 +41,12 @@
 
                 <!-- Login Form -->
                 <form action="loginuser">
-                    <input type="text" id="login" class="fadeIn second" name="login" placeholder="Enter Email">
+                    <input type="text" id="emailId" class="fadeIn second" value="emailId" name="emailId" placeholder="Enter Email">
                     <div id="dvOTP" style="display: none">
                         Enter OTP:
                         <input type="text" id="txtPassportNumber" />
                     </div>
-                    <input type="button" name="btnOTP" class="fadeIn fourth" value="Request OTP">
+                    <input type="button" name="otp" class="fadeIn fourth" value="otp">
                     <div id="dvSubmit" style="display: none">
                         <input type="submit" class="fadeIn fourth" value="Login">
                     </div>

@@ -14,6 +14,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -69,9 +70,10 @@ public class UserService {
                 otp[j] = values.charAt(rndm_method.nextInt(values.length()));
             }
             msg = new String(otp);
+
             // message body
             message.setText(msg);
-
+            
             Transport.send(message);
             return 1;
         } catch (MessagingException e) {

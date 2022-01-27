@@ -5,6 +5,14 @@
  */
 package com.exavalu.OSBS.services;
 
+import com.exavalu.OSBS.core.ConnectionManager;
+import com.exavalu.OSBS.pojos.City;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.Random;
 import javax.mail.Message;
@@ -83,5 +91,36 @@ public class UserService {
             return i;
         }
 
+    }
+
+    public List reportPinCode(String cityName) throws SQLException, Exception {
+        System.out.println(cityName);
+        ResultSet rs = null;
+        Connection con = null;
+        List<City> pinCodeList = new ArrayList<>();
+        try {
+            String sql = "SELECT pinCode FROM cities WHERE cityName=?";
+            con = ConnectionManager.getConnection();
+            System.out.println("Connection is " + con);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, cityName);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+
+                City city = new City();
+                city.setPinCode(rs.getInt("pinCode"));
+                //city.setCityName(rs.getString("cityName"));
+
+                pinCodeList.add(city);
+            }
+            return pinCodeList;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+        }
     }
 }

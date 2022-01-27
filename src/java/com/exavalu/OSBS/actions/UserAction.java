@@ -5,60 +5,87 @@
  */
 package com.exavalu.OSBS.actions;
 
+import com.exavalu.OSBS.pojos.City;
 import com.exavalu.OSBS.pojos.User;
 import com.exavalu.OSBS.services.UserService;
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author AKSHAY
  */
 public class UserAction extends ActionSupport {
-    
+
     private String emailId;
     private String otp;
     private boolean status;
-    
+
     private String msg = "";
     private User user = new User();
     private int ctr = 0;
     private UserService userService = new UserService();
-    
+
     private String senderEmail;
     private String senderPassword;
     private String receiverEmail;
     private String subject;
     private String message;
     private int resp = 0;
-    
+
+    private List<City> pinCodeList = null;
+    private boolean noData = false;
+    private String cityName;
+
     public String otpRequest() throws Exception {
         setUserService(new UserService());
         setSenderEmail("urbanwareservice@gmail.com");
         setSenderPassword("exavalu@123");
         setReceiverEmail(getEmailId());
-        
+
         setResp(getUserService().sendMail(getSenderEmail(), getSenderPassword(), getReceiverEmail(), getSubject(), getMessage()));
         setOtp(getOtp());
         setEmailId(getEmailId());
-        
+
         if (getResp() == 1) {
             return "SUCCESS";
         } else {
             return "ERROR";
         }
-        
+
     }
-    
+
     public String userLogin() throws Exception {
-        
+
         try {
-            
+
         } catch (Exception e) {
             e.printStackTrace();
             return "LOGINERROR";
         }
         return "LOGIN";
-        
+
+    }
+
+    public String getPinCodes() throws Exception {
+        setUserService(new UserService());
+        try {
+            setPinCodeList(new ArrayList<>());
+            setPinCodeList(getUserService().reportPinCode(getCityName()));
+
+            if (!pinCodeList.isEmpty()) {
+                setNoData(false);
+                System.out.println("Pin Codes retrieved = " + getPinCodeList().size());
+                System.out.println("setting nodata=false");
+            } else {
+                setNoData(true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "PINCODES";
     }
 
     /**
@@ -157,6 +184,48 @@ public class UserAction extends ActionSupport {
      */
     public void setEmailId(String emailId) {
         this.emailId = emailId;
+    }
+
+    /**
+     * @return the pinCodeList
+     */
+    public List<City> getPinCodeList() {
+        return pinCodeList;
+    }
+
+    /**
+     * @param pinCodeList the pinCodeList to set
+     */
+    public void setPinCodeList(List<City> pinCodeList) {
+        this.pinCodeList = pinCodeList;
+    }
+
+    /**
+     * @return the noData
+     */
+    public boolean isNoData() {
+        return noData;
+    }
+
+    /**
+     * @param noData the noData to set
+     */
+    public void setNoData(boolean noData) {
+        this.noData = noData;
+    }
+
+    /**
+     * @return the cityName
+     */
+    public String getCityName() {
+        return cityName;
+    }
+
+    /**
+     * @param cityName the cityName to set
+     */
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     /**

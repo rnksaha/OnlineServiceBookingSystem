@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,10 +27,32 @@
         <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
         <script src="./js/modernizr.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        </script>
+        <script>
+            function getPinCodes() {
+                //var cityName = document.getElementByName("selectedCity").value;
+                //alert($("#selectedCity").val());
+                $.ajax({
+                    type: "GET",
+                    url: "getPinCodes",
+                    //data: {'cityName': $("#selectedCity").text()},
+                    data: "cityName=" + $("#selectedCity").val(),
+                    success: function (result) {
+                        $('#pindivid').html(result);
+                    },
+                    error: function (xhr, errmsg) {
+                        alert("No values found..!!");
+                    }
+                });
+            }
+        </script>
+
         <title>urbanware</title>
     </head>
     <body>
-        
+
     <body data-spy="scroll" data-target="#navbar" class="static-layout">
         <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
             <div class="container">
@@ -124,7 +147,21 @@
         </div>
 
         <!-- End of Banner Section-->
-
+        
+        <!-- City and Pin Code Section-->
+        <div style="width:800px; margin:auto;">
+        <select onchange="getPinCodes()" id="selectedCity" name="selectedCity" class="form-select" aria-label="Default select example">
+            <option value="NA">
+                ----Select City Name----
+            </option>
+            <option value="Ranchi">Ranchi</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Delhi">Delhi</option>
+        </select>
+        </div>
+        <div id="pindivid" style="width:800px; margin:auto;">
+        </div>
+        <!-- End of City and Pin Code Section-->
 
         <!-- Services Section -->
         <section id="portfolio" class="bg-white">
@@ -382,55 +419,55 @@
         <!-- End of Client Section -->	
 
 
-    <!-- footer start-->
-    <footer class="mastfoot my-3">
-        <div class="inner container">
-            <div class="row">
-                <div class="col-lg-4 col-md-12 d-flex align-items-center">
+        <!-- footer start-->
+        <footer class="mastfoot my-3">
+            <div class="inner container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
+
+                    </div>
+                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                        <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-12">
+                        <nav class="nav nav-mastfoot justify-content-center">
+                            <a class="nav-link" href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="nav-link" href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a class="nav-link" href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a class="nav-link" href="#">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </nav>
+                    </div>
 
                 </div>
-                <div class="col-lg-4 col-md-12 d-flex align-items-center">
-                    <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
-                </div>
-
-                <div class="col-lg-4 col-md-12">
-                    <nav class="nav nav-mastfoot justify-content-center">
-                        <a class="nav-link" href="#">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a class="nav-link" href="#">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </nav>
-                </div>
-
             </div>
-        </div>
-    </footer>	
-    <!-- footer ends-->
+        </footer>	
+        <!-- footer ends-->
 
 
 
-    <!-- External JS -->
-    <script type="text/javascript" src="./js/jquery.js"></script>
-    <script src="./vendor/bootstrap/popper.min.js"></script>
-    <script src="./vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="./vendor/select2/select2.min.js "></script>
-    <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
-    <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
-    <script src="./vendor/isotope/isotope.min.js"></script>
-    <script src="./vendor/lightcase/lightcase.js"></script>
-    <script src="./vendor/waypoints/waypoint.min.js"></script>
-    <script src="./js/aos.js"></script>
+        <!-- External JS -->
+        <script type="text/javascript" src="./js/jquery.js"></script>
+        <script src="./vendor/bootstrap/popper.min.js"></script>
+        <script src="./vendor/bootstrap/bootstrap.min.js"></script>
+        <script src="./vendor/select2/select2.min.js "></script>
+        <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
+        <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
+        <script src="./vendor/isotope/isotope.min.js"></script>
+        <script src="./vendor/lightcase/lightcase.js"></script>
+        <script src="./vendor/waypoints/waypoint.min.js"></script>
+        <script src="./js/aos.js"></script>
 
-    <!-- Main JS -->
-    <script src="./js/app.min.js "></script>
+        <!-- Main JS -->
+        <script src="./js/app.min.js "></script>
 
-</body>
+    </body>
 </html>

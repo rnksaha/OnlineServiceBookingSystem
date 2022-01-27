@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -53,6 +56,14 @@
     </head>
     <body>
 
+
+
+        <!-- setting variable for admin & client-->
+
+        <c:set var = "role" scope = "session" value = "${sessionScope.users.roleId()}"/>
+
+        <!-- setting variable for admin & client ENDS HERE-->
+
     <body data-spy="scroll" data-target="#navbar" class="static-layout">
         <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
             <div class="container">
@@ -64,9 +75,17 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbar-nav-header">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin.jsp">Admin Panel</a>
-                        </li>
+
+
+                        <!-- Checking for admin only -->
+                        <c:if test="${role == 1}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin.jsp" >Admin Panel</a>
+                            </li>
+                        </c:if>
+                        <!-- Checking for admin only ENDS HERE -->
+
+
                         <li class="nav-item">
                             <a class="nav-link" href="signUp.jsp">Login/Sign up</a>
                         </li>
@@ -147,17 +166,17 @@
         </div>
 
         <!-- End of Banner Section-->
-        
+
         <!-- City and Pin Code Section-->
         <div style="width:800px; margin:auto;">
-        <select onchange="getPinCodes()" id="selectedCity" name="selectedCity" class="form-select" aria-label="Default select example">
-            <option value="NA">
-                ----Select City Name----
-            </option>
-            <option value="Ranchi">Ranchi</option>
-            <option value="Kolkata">Kolkata</option>
-            <option value="Delhi">Delhi</option>
-        </select>
+            <select onchange="getPinCodes()" id="selectedCity" name="selectedCity" class="form-select" aria-label="Default select example">
+                <option value="NA">
+                    ----Select City Name----
+                </option>
+                <option value="Ranchi">Ranchi</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Delhi">Delhi</option>
+            </select>
         </div>
         <div id="pindivid" style="width:800px; margin:auto;">
         </div>
@@ -189,8 +208,8 @@
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
                                                 <a class="ext-link" href="electrician.jsp" target="_blank">
-                                            <span class="lnr lnr-link"></span>
-                                        </a>
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Electricians</h4>
@@ -206,10 +225,10 @@
                                         <img src="./img/photo-6.jpg" alt="portfolio-img" class="portfolio-item">
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
-                                             
-                                        <a class="ext-link" href="plumber.jsp" target="_blank">
-                                            <span class="lnr lnr-link"></span>
-                                        </a>
+
+                                                <a class="ext-link" href="plumber.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Plumber</h4>
@@ -227,9 +246,9 @@
                                         <img src="./img/photo-2.jpg" alt="portfolio-img" class="portfolio-item">
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
-                                               <a class="ext-link" href="salon.jsp" target="_blank">
-                                            <span class="lnr lnr-link"></span>
-                                        </a> 
+                                                <a class="ext-link" href="salon.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a> 
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Salon</h4>
@@ -245,9 +264,9 @@
                                         <img src="./img/photo-7.jpg" alt="portfolio-img" class="portfolio-item">
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
-                                            <a class="ext-link" href="repair.jsp" target="_blank">
-                                            <span class="lnr lnr-link"></span>
-                                            </a>
+                                                <a class="ext-link" href="repair.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Repairs</h4>
@@ -263,9 +282,9 @@
                                         <img src="./img/photo-4.jpg" alt="portfolio-img" class="portfolio-item">
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
-                                             <a class="ext-link" href="therapy.jsp" target="_blank">
-                                            <span class="lnr lnr-link"></span>
-                                            </a>   
+                                                <a class="ext-link" href="therapy.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>   
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Therapies</h4>
@@ -282,8 +301,8 @@
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
                                                 <a class="ext-link" href="cleaning.jsp" target="_blank">
-                                            <span class="lnr lnr-link"></span>
-                                            </a>
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Cleaning and Pest Control</h4>

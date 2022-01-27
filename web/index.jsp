@@ -188,9 +188,9 @@
                                         <img src="./img/photo-1.jpg" alt="portfolio-img" class="portfolio-item">
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
-                                                <a class="img-pop" data-rel="lightcase" href="./img/photo-1.jpg" title="Photo-1">
-                                                    <span class="lnr lnr-move"></span>
-                                                </a>
+                                                <a class="ext-link" href="electrician.jsp" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                        </a>
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Electricians</h4>
@@ -206,9 +206,10 @@
                                         <img src="./img/photo-6.jpg" alt="portfolio-img" class="portfolio-item">
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
-                                                <a class="img-pop" data-rel="lightcase" href="./img/photo-6.jpg" title="Ship">
-                                                    <span class="lnr lnr-move"></span>
-                                                </a>
+                                             
+                                        <a class="ext-link" href="plumber.jsp" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                        </a>
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Plumber</h4>
@@ -226,9 +227,9 @@
                                         <img src="./img/photo-2.jpg" alt="portfolio-img" class="portfolio-item">
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
-                                                <a class="img-pop" data-rel="lightcase" href="./img/photo-2.jpg" title="Tracy Portrait">
-                                                    <span class="lnr lnr-move"></span>
-                                                </a>
+                                               <a class="ext-link" href="salon.jsp" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                        </a> 
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Salon</h4>
@@ -244,9 +245,9 @@
                                         <img src="./img/photo-7.jpg" alt="portfolio-img" class="portfolio-item">
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
-                                                <a class="img-pop" data-rel="lightcase" href="./img/photo-7.jpg" title="Guitar">
-                                                    <span class="lnr lnr-move"></span>
-                                                </a>
+                                            <a class="ext-link" href="repair.jsp" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                            </a>
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Repairs</h4>
@@ -262,9 +263,9 @@
                                         <img src="./img/photo-4.jpg" alt="portfolio-img" class="portfolio-item">
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
-                                                <a class="img-pop" data-rel="lightcase" href="./img/photo-4.jpg" title="Bookself">
-                                                    <span class="lnr lnr-move"></span>
-                                                </a>
+                                             <a class="ext-link" href="therapy.jsp" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                            </a>   
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Therapies</h4>
@@ -280,9 +281,9 @@
                                         <img src="./img/photo-9.jpg" alt="portfolio-img" class="portfolio-item">
                                         <div class="grid-info">
                                             <div class="grid-link d-flex justify-content-center">
-                                                <a class="img-pop" data-rel="lightcase" href="./img/photo-9.jpg" title="Guitar">
-                                                    <span class="lnr lnr-move"></span>
-                                                </a>
+                                                <a class="ext-link" href="cleaning.jsp" target="_blank">
+                                            <span class="lnr lnr-link"></span>
+                                            </a>
                                             </div>
                                             <div class="grid-title">
                                                 <h4>Cleaning and Pest Control</h4>

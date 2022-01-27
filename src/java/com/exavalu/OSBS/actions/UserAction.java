@@ -64,7 +64,17 @@ public class UserAction extends ActionSupport implements SessionAware {
 
         try {
             if (getGeneratedOTP().equals(getOtp()) && (getOtp() != null) && getEmailId().equals(getReceiverEmail()) && (getEmailId() != null)) {
-                return "LOGIN";
+                User user = getUserService().fetchUserDetails(getEmailId());
+                if (user.getRoleId() == '1') {
+                    return "LOGIN";
+                } else {
+                    int i = getUserService().registerUser(getEmailId());
+                    if (i == 0) {
+                        return "LOGINERROR";
+                    } else {
+                        return "LOGIN";
+                    }
+                }
             } else {
                 sessionMap.invalidate();
                 return "LOGINERROR";

@@ -7,6 +7,8 @@ package com.exavalu.OSBS.services;
 
 import com.exavalu.OSBS.core.ConnectionManager;
 import com.exavalu.OSBS.pojos.City;
+import com.exavalu.OSBS.pojos.User;
+import com.mysql.cj.protocol.Resultset;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
@@ -30,9 +34,38 @@ import org.apache.struts2.ServletActionContext;
  */
 public class UserService {
 
-    public int registerUser(String emailId, String otp) {
+    public int registerUser(String emailId) {
         int i = 0;
+
         return i;
+    }
+
+    public User fetchUserDetails(String emailId) {
+        User user = new User();
+        user.setEmailId(emailId);
+        Connection con = null;
+        try {
+            con = ConnectionManager.getConnection();
+            String sql = "";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                user.setEmailId(emailId);
+                user.setRoleId(rs.getInt("roleId"));
+            }
+            return user;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return user;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
     }
 
     public String generateOTP() {

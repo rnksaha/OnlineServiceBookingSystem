@@ -11,9 +11,10 @@ package com.exavalu.OSBS.pojos;
  */
 public class Service {
     
-    private int serviceId;
     private String serviceName;
+    private int pinCode;
     private int status;
+    private int serviceId;
 
     /**
      * @return the serviceName
@@ -41,6 +42,20 @@ public class Service {
      */
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    /**
+     * @return the pinCode
+     */
+    public int getPinCode() {
+        return pinCode;
+    }
+
+    /**
+     * @param pinCode the pinCode to set
+     */
+    public void setPinCode(int pinCode) {
+        this.pinCode = pinCode;
     }
 
     /**

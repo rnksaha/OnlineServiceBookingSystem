@@ -13,6 +13,7 @@ public class ServiceType {
     private String type;
     private double price;
     private int status;
+    private int services_serviceId;
 
     /**
      * @return the type
@@ -54,6 +55,20 @@ public class ServiceType {
      */
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    /**
+     * @return the services_serviceId
+     */
+    public int getServices_serviceId() {
+        return services_serviceId;
+    }
+
+    /**
+     * @param services_serviceId the services_serviceId to set
+     */
+    public void setServices_serviceId(int services_serviceId) {
+        this.services_serviceId = services_serviceId;
     }
     
     

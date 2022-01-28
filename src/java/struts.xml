@@ -15,5 +15,35 @@
         <action name="getPinCodes" class="com.exavalu.OSBS.actions.UserAction" method="getPinCodes">
             <result name="PINCODES">/pincodes.jsp</result>
         </action>
+        <action name="registerCity" class="com.exavalu.OSBS.actions.AdminAction" method="registerCity">
+            <result name="REGISTERCITY">/admindashboard.jsp</result>
+        </action>
+        <action name="disableCity" class="com.exavalu.OSBS.actions.AdminAction" method="disableCity">
+            <result name="DISABLECITY">/admindashboard.jsp</result>
+        </action>
+        <action name="reportCity" class="com.exavalu.OSBS.actions.AdminAction" method="reportCity">
+            <result name="REPORTCITY">/admindashboard.jsp</result>
+        </action>
+        <action name="reportOrders" class="com.exavalu.OSBS.actions.AdminAction" method="reportOrders">
+            <result name="REPORTORDERS">/admindashboard.jsp</result>
+        </action>
+        <action name="registerServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="registerServiceType">
+            <result name="REGISTERSERVICETYPE">/admindashboard.jsp</result>
+        </action>
+        <action name="deleteServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="deleteServiceType">
+            <result name="DELETESERVICETYPE">/admindashboard.jsp</result>
+        </action>
+        <action name="updateServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="updateServiceType">
+            <result name="UPDATESERVICETYPE">/admindashboard.jsp</result>
+        </action>
+        <action name="reportServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="reportServiceType">
+            <result name="REPORTSERVICETYPE">/admindashboard.jsp</result>
+        </action>
+        <action name="reportUser" class="com.exavalu.OSBS.actions.AdminAction" method="reportUser">
+            <result name="REPORTUSER">/admindashboard.jsp</result>
+        </action>
+        <action name="deleteUser" class="com.exavalu.OSBS.actions.AdminAction" method="deleteUser">
+            <result name="DELETEUSER">/admindashboard.jsp</result>
+        </action>
     </package>
 </struts>

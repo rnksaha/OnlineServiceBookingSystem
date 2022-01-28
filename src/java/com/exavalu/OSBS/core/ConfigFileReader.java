@@ -19,7 +19,7 @@ public class ConfigFileReader {
         ConfigParam configParam = new ConfigParam();
         //here I will read the file and bound the values of all params
         Properties prop = new Properties();
-        String propFileName = "erp_config.properties";
+        String propFileName = "osbs_core.properties";
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
 
         if (inputStream != null) {

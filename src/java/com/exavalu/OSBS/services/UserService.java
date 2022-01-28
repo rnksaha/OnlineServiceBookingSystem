@@ -75,11 +75,11 @@ public class UserService {
         Connection con = null;
         try {
             con = ConnectionManager.getConnection();
-            String sql = "SELECT * FROM users WHERE status==1";
+            String sql = "SELECT * FROM users WHERE status!=0";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                user.setEmailId(emailId);
+                user.setEmailId(rs.getString("emailId"));
                 user.setRoleId(rs.getInt("roleId"));
             }
             return user;

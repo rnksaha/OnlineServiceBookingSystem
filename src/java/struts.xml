@@ -45,5 +45,17 @@
         <action name="deleteUser" class="com.exavalu.OSBS.actions.AdminAction" method="deleteUser">
             <result name="DELETEUSER">/admindashboard.jsp</result>
         </action>
+        <action name="registerService" class="com.exavalu.OSBS.actions.AdminAction" method="registerService">
+            <result name="REGISTERSERVICE">/admindashboard.jsp</result>
+        </action>
+        <action name="reportService" class="com.exavalu.OSBS.actions.AdminAction" method="reportService">
+            <result name="REPORTSERVICE">/admindashboard.jsp</result>
+        </action>
+        <action name="deleteService" class="com.exavalu.OSBS.actions.AdminAction" method="deleteService">
+            <result name="DELETESERVICE">/admindashboard.jsp</result>
+        </action>
+        <action name="updateService" class="com.exavalu.OSBS.actions.AdminAction" method="updateService">
+            <result name="UPDATESERVICE">/admindashboard.jsp</result>
+        </action>
     </package>
 </struts>

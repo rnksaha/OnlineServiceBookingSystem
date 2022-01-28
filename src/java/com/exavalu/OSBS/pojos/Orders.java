@@ -10,10 +10,14 @@ package com.exavalu.OSBS.pojos;
  * @author rounak
  */
 public class Orders {
+    private int orderId;
     private String name;
     private String address;
     private String phoneNo;
     private double totalPrice;
+    private String users_emailId;
+    private String servicetype_type;
+    private int services_serviceId;
 
     /**
      * @return the name
@@ -69,6 +73,62 @@ public class Orders {
      */
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    /**
+     * @return the orderId
+     */
+    public int getOrderId() {
+        return orderId;
+    }
+
+    /**
+     * @param orderId the orderId to set
+     */
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
+    /**
+     * @return the users_emailId
+     */
+    public String getUsers_emailId() {
+        return users_emailId;
+    }
+
+    /**
+     * @param users_emailId the users_emailId to set
+     */
+    public void setUsers_emailId(String users_emailId) {
+        this.users_emailId = users_emailId;
+    }
+
+    /**
+     * @return the servicetype_type
+     */
+    public String getServicetype_type() {
+        return servicetype_type;
+    }
+
+    /**
+     * @param servicetype_type the servicetype_type to set
+     */
+    public void setServicetype_type(String servicetype_type) {
+        this.servicetype_type = servicetype_type;
+    }
+
+    /**
+     * @return the services_serviceId
+     */
+    public int getServices_serviceId() {
+        return services_serviceId;
+    }
+
+    /**
+     * @param services_serviceId the services_serviceId to set
+     */
+    public void setServices_serviceId(int services_serviceId) {
+        this.services_serviceId = services_serviceId;
     }
     
     

@@ -40,6 +40,7 @@
                 <!-- iterator here-->
                 <s:iterator value="">
 
+                    
                     <tr>
                         <td><s:property value="pinCode" /></td>
                         <td><s:property value="cityName" /></td>

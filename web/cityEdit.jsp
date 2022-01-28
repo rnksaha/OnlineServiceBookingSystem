@@ -56,7 +56,6 @@
                     <input type="text" class="form-control" name="cityName" placeholder="City Name" value='<s:property value="cityName"/>'>
                     <label for="floatingInput">City Name</label>
                 </div>
-
                 <div class="form-floating">
                     <input type="number" class="form-control" name="status" placeholder="Status" value='<s:property value="status"/>'>
                     <label for="floatingInput">Status</label>

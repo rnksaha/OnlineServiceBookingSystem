@@ -111,7 +111,9 @@
 		</form>
 	</div>
 	
-</div>	<div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url(img/bg.jpg)">
+</div>	
+        
+ <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url(img/bg.jpg)">
   <div class="container text-center">
                 <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
  </div>

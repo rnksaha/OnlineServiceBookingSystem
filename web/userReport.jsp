@@ -1,0 +1,62 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <%--<jsp:include page="admin.jsp"></jsp:include>--%>
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+
+            h2{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h2><u>City Report</u></h2>
+
+        <s:if test="noData==false">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>User Emails</th>
+                    </tr>
+                </thead>
+
+                <!-- iterator here-->
+                <s:iterator value="userList">
+
+                    <tr>
+                        <td><s:property value="emailId" /></td>
+                        <td>
+                            <a href="deleteUser.action?emailId=<s:property value="emailId"/>">
+                                <button class="button-delete">Delete User</button>
+                            </a>
+                        </td>
+                    </tr>
+                    
+                </s:iterator>
+            </table>
+        </s:if>
+        <s:else>
+            <div style="color: red;">No Data Found.</div>
+        </s:else>
+        <br>
+    </body>
+</html>

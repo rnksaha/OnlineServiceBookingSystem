@@ -151,7 +151,7 @@
                 </div>
             </div>
             <div class="col-lg-4 offset-lg-1" data-aos="fade-left">
-               <img src="img/contact.png">
+               <img src="img/feedback.png">
 
                 <ul class="list-inline py-2">
                     <!--li class="list-inline-item text-center">

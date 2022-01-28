@@ -368,8 +368,7 @@ public class AdminServices {
             ps.setInt(1, serviceId);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 0;
         } finally {
             if (con != null) {
@@ -400,8 +399,7 @@ public class AdminServices {
 
             }
             return service;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -424,8 +422,7 @@ public class AdminServices {
             System.out.println("Select SQL = " + ps);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 0;
         } finally {
             if (con != null) {

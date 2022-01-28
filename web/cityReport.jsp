@@ -27,43 +27,38 @@
     </head>
     <body>
         <h2><u>City Report</u></h2>
-        <table>
-            <tr>
-                <th>Pin Code</th>
-                <th>City Name</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>Value of pin code</td>
-                <td>Value of City Name</td>
-                <td>Value of Status</td>
-            </tr>
-            <tr>
-                <td>Value of pin code</td>
-                <td>Value of City Name</td>
-                <td>Value of Status</td>
-            </tr>
-            <tr>
-                <td>Value of pin code</td>
-                <td>Value of City Name</td>
-                <td>Value of Status</td>
-            </tr>
-            <tr>
-                <td>Value of pin code</td>
-                <td>Value of City Name</td>
-                <td>Value of Status</td>
-            </tr>
-            <tr>
-                <td>Value of pin code</td>
-                <td>Value of City Name</td>
-                <td>Value of Status</td>
-            </tr>
-            <tr>
-                <td>Value of pin code</td>
-                <td>Value of City Name</td>
-                <td>Value of Status</td>
-            </tr>
-        </table>
+
+        <s:if test="noData==false">
+
+            <table>
+                <tr>
+                    <th>Pin Code</th>
+                    <th>City Name</th>
+                    <th>Status</th>
+                </tr>
+
+                <!-- iterator here-->
+                <s:iterator value="">
+
+                    
+                    <tr>
+                        <td><s:property value="pinCode" /></td>
+                        <td><s:property value="cityName" /></td>
+                        <td><s:property value="status" /></td>
+                    </tr>
+
+                    <a href="<s:property value="pinCode"/>">
+                        <button class="button-update">Update</button>
+                    </a>
+                    <a href="<s:property value="pinCode"/>">
+                        <button class="button-delete">Delete</button>
+                    </a>
+                </s:iterator>
+            </table>
+        </s:if>
+        <s:else>
+            <div style="color: red;">No Data Found.</div>
+        </s:else>
         <br>
     </body>
 </html>

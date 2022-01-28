@@ -47,13 +47,13 @@ public class AdminServices {
         }
     }
     
-    public int disableCity(String cityName) throws Exception {
+    public int disablePin(int pinCode) throws Exception {
         Connection con = ConnectionManager.getConnection();
         int i = 0;
         try {
-            String sql = "UPDATE cities SET status = 0 WHERE cityName = ?";
+            String sql = "UPDATE cities SET status = 0 WHERE pinCode = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, cityName);
+            ps.setInt(1, pinCode);
             i = ps.executeUpdate();
             return i;
         } catch (Exception e) {

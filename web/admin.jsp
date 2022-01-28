@@ -64,15 +64,15 @@
                         </li>
                         <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Reports<i class="fas fa-angle-right"></i></a>
                             <ul class="sub-menu">
-                                <li><a href="#"> Users</a></li>
-                                <li class="sub-active"><a href="cityReport.jsp"> Cities</a></li>
+                                <li><a href="reportUser"> Users</a></li>
+                                <li class="sub-active"><a href="reportCity"> Cities</a></li>
                                 <li><a href="#"> Services</a></li>
                             </ul>
                         </li>
                         <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Register<i class="fas fa-angle-right"></i></a>
                             <ul class="sub-menu">
                                 <li><a href="#"> Users</a></li>
-                                <li class="sub-active"><a href="#"> Cities</a></li>
+                                <li class="sub-active"><a href="cityRegister.jsp"> Cities</a></li>
                                 <li><a href="#"> Services</a></li>
                             </ul>
                         </li>

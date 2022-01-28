@@ -162,7 +162,7 @@ public class UserService {
         Connection con = null;
         List<City> pinCodeList = new ArrayList<>();
         try {
-            String sql = "SELECT pinCode FROM cities WHERE cityName=?";
+            String sql = "SELECT pinCode FROM cities WHERE cityName=? AND status!=0";
             con = ConnectionManager.getConnection();
             System.out.println("Connection is " + con);
             PreparedStatement ps = con.prepareStatement(sql);

@@ -38,22 +38,27 @@
     </head>
     <body class="text-center">
         <main class="form-signin">
-            <form>
-                <p>--- logo here ---</p>
-                <h1 class="h-5 fw-normal">City Table Edit</h1>
-                <br>
+
+            <p>--- logo here ---</p>
+            <h1 class="h-5 fw-normal">City Table Edit</h1>
+            <br>
+
+            <!-- action here -->
+            <form action= method="post">
+
+
                 <div class="form-floating">
-                    <input  type="number" class="form-control" name="pinCode" placeholder="Pin Code" value="">
+                    <input type="number" class="form-control" name="pinCode" placeholder="Pin Code" value='<s:property value="pinCode"/>'>
                     <label for="floatingInput">Pin Code</label>
                 </div>
-                
+
                 <div class="form-floating">
-                    <input type="text" class="form-control" name="cityName" placeholder="City Name" value="">
+                    <input type="text" class="form-control" name="cityName" placeholder="City Name" value='<s:property value="cityName"/>'>
                     <label for="floatingInput">City Name</label>
                 </div>
 
                 <div class="form-floating">
-                    <input  type="number" class="form-control" name="status" placeholder="Status" value="">
+                    <input type="number" class="form-control" name="status" placeholder="Status" value='<s:property value="status"/>'>
                     <label for="floatingInput">Status</label>
                 </div>
 
@@ -62,6 +67,12 @@
                 &nbsp;
                 <button class="w-100 btn btn-lg btn-primary" onclick="location.href = document.referrer; return false;">Back</button>
             </form>
+            <s:if test="ctr>0">
+                <span style="color: red;"><s:property value="msg" /></span>
+            </s:if>
+            <s:else>
+                <span style="color: red;"><s:property value="msg" /></span>
+            </s:else>
         </main>
     </body>
 </html>

@@ -13,7 +13,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/style.css">
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript">
         </script>
         <script>
             $(document).ready(function () {
@@ -26,11 +26,20 @@
                     $(this).find(".fa-angle-right").css({"transform": "rotate(90deg)"});
                 });
             });
+            $(document).ready(function () {
+                $("#nav a").click(function (e) {
+                    e.preventDefault();
+                    $(".toggle").hide();
+                    var toShow = $(this).attr('href');
+                    $(toShow).show();
+                });
+            });
         </script>
     </head>
 
 
     <body>
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-12 header-part">
@@ -55,44 +64,51 @@
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="sidebar">
                     <ul class="main-menu">
                         <li class="active"><a href="#"><i class="fas fa-tasks"></i> Dashboard</a></li>
-                        <li class="main-sub-menu"><a href="#"><i class="fas fa-home"></i> Home <i class="fas fa-angle-right" ></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#p">sub home</a></li>
-                                <li><a href="#"> sub home</a></li>
-                            </ul>
-                        </li>
-                        <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Reports<i class="fas fa-angle-right"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="reportUser"> Users</a></li>
-                                <li class="sub-active"><a href="reportCity"> Cities</a></li>
-                                <li><a href="#"> Services</a></li>
-                            </ul>
-                        </li>
-                        <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Register<i class="fas fa-angle-right"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#"> Users</a></li>
-                                <li class="sub-active"><a href="cityRegister.jsp"> Cities</a></li>
-                                <li><a href="#"> Services</a></li>
-                            </ul>
-                        </li>
-                        <li class="main-sub-menu"><a href="#"><i class="fas fa-phone"></i> Contact <i class="fas fa-angle-right"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#"> sub Contact</a></li>
-                                <li><a href="#"> sub Contact</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                        <div id="nav">
+                            <li class="main-sub-menu"><a href="#"><i class="fas fa-home"></i> Home <i class="fas fa-angle-right" ></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#p">sub home</a></li>
+                                    <li><a href="#"> sub home</a></li>
+                                </ul>
+                            </li>
+                            <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Reports<i class="fas fa-angle-right"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#content1"> Users</a></li>
+                                    <li class="sub-active"><a href="#content2"> Cities</a></li>
+                                    <li><a href="#content3"> Services</a></li>
+                                    <li><a href="#content4"> Services Types</a></li>
+                                </ul>
+                            </li>
+                            <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Register<i class="fas fa-angle-right"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#"> Users</a></li>
+                                    <li class="sub-active"><a href=""> Cities</a></li>
+                                    <li><a href="#"> Services</a></li>
+                                </ul>
+                            </li>
+                            <li class="main-sub-menu"><a href="#"><i class="fas fa-phone"></i> Contact <i class="fas fa-angle-right"></i></a>
+                                <ul class="sub-menu">
+                                    <li><a href="#"> sub Contact</a></li>
+                                    <li><a href="#"> sub Contact</a></li>
+                                </ul>
+                            </li>
+                        </div>
                 </div>
-                <div class="col-lg-9 content-main">
-                    <div class="content">
-                        <h1>May be a calender or a graph</h1>
-                    </div>
-                </div>
+                </ul>
             </div>
+            <div class="col-lg-9 content-main">
+                <div id="content1" class="toggle" style="display:none"><jsp:include page="userReport.jsp" /></div>
+                <div id="content2" class="toggle" style="display:none"><jsp:include page="cityReport.jsp" /></div>
+                <div id="content3" class="toggle" style="display:none"><jsp:include page="servicesReport.jsp" /></div>
+                <div id="content4" class="toggle" style="display:none"><jsp:include page="serviceTypeReport.jsp" /></div>
+            </div>
+
         </div>
+
     </body>
 </html>

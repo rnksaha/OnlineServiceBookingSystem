@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%--<jsp:include page="admin.jsp"></jsp:include>--%>
         <style>
             table {
                 font-family: arial, sans-serif;
@@ -27,30 +26,37 @@
         </style>
     </head>
     <body>
-        
-        <h2><u>User Report</u></h2>
+        <h2><u>Service Type Report</u></h2>
 
         <s:if test="noData==false">
 
             <table>
-                <thead>
-                    <tr>
-                        <th>User Emails</th>
-                    </tr>
-                </thead>
+                <tr>
+                    <th>Service Name</th>
+                    <th>Type</th>
+                    <th>Price</th>
+                    <th>Status</th>
+                </tr>
 
                 <!-- iterator here-->
-                <s:iterator value="userList">
+                <s:iterator value="serviceTypeList">
 
-                    <tr>
-                        <td><s:property value="emailId" /></td>
-                        <td>
-                            <a href="deleteUser.action?emailId=<s:property value="emailId"/>">
-                                <button class="button-delete">Delete User</button>
-                            </a>
-                        </td>
-                    </tr>
                     
+                    <tr>
+                        <td><s:property value="serviceName" /></td>
+                        <td><s:property value="type" /></td>
+                        <td><s:property value="price" /></td>
+                        <td><s:property value="status" /></td>
+                    </tr>
+
+                    
+                    <!-- watch primary key hard coding set as serviceName -->
+                    <a href="<s:property value="serviceName"/>">
+                        <button class="button-update">Update</button>
+                    </a>
+                    <a href="<s:property value="serviceName"/>">
+                        <button class="button-delete">Delete</button>
+                    </a>
                 </s:iterator>
             </table>
         </s:if>

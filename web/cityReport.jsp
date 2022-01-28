@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <%--<jsp:include page="admin.jsp"></jsp:include>--%>
         <style>
             table {
                 font-family: arial, sans-serif;
@@ -26,33 +27,32 @@
         </style>
     </head>
     <body>
+        
         <h2><u>City Report</u></h2>
 
         <s:if test="noData==false">
 
             <table>
-                <tr>
-                    <th>Pin Code</th>
-                    <th>City Name</th>
-                    <th>Status</th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>City Name</th>
+                        <th>Pin Code</th>
+                    </tr>
+                </thead>
 
                 <!-- iterator here-->
-                <s:iterator value="">
+                <s:iterator value="cityList">
 
-                    
                     <tr>
-                        <td><s:property value="pinCode" /></td>
                         <td><s:property value="cityName" /></td>
-                        <td><s:property value="status" /></td>
+                        <td><s:property value="pinCode" /></td>
+                        <td>
+                            <a href="disablePin.action?pinCode=<s:property value="pinCode"/>">
+                                <button class="button-delete">Disable Pin</button>
+                            </a>
+                        </td>
                     </tr>
-
-                    <a href="<s:property value="pinCode"/>">
-                        <button class="button-update">Update</button>
-                    </a>
-                    <a href="<s:property value="pinCode"/>">
-                        <button class="button-delete">Delete</button>
-                    </a>
+                    
                 </s:iterator>
             </table>
         </s:if>

@@ -2,6 +2,9 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
+    <%
+
+    %>
     <head>
         <title>Admin Dashboard Design</title>
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -26,7 +29,7 @@
         </script>
     </head>
 
-    
+
     <body>
         <div class="container-fluid">
             <div class="row">

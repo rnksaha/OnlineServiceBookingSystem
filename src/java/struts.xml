@@ -12,6 +12,10 @@
             <result name="LOGIN">/index.jsp</result>
             <result name="LOGINERROR">/signUp.jsp</result>
         </action>
+        <action name="logoutuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogout">
+            <result name="LOGOUT">/index.jsp</result>
+            <result name="LOGOUTERROR">/about.jsp</result>
+        </action>
         <action name="getPinCodes" class="com.exavalu.OSBS.actions.UserAction" method="getPinCodes">
             <result name="PINCODES">/pincodes.jsp</result>
         </action>

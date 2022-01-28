@@ -65,8 +65,9 @@ public class UserAction extends ActionSupport implements SessionAware {
         try {
             if (getGeneratedOTP().equals(getOtp()) && (getOtp() != null) && getEmailId().equals(getReceiverEmail()) && (getEmailId() != null)) {
                 User user = getUserService().fetchUserDetails(getEmailId());
-                sessionMap.put("role", user.getRoleId());
-                if (user.getRoleId() == '1') {
+                if (user != null) {
+                    sessionMap.put("role", user.getRoleId());
+                    sessionMap.put("validUser", true);
                     return "LOGIN";
                 } else {
                     int i = getUserService().registerUser(getEmailId());
@@ -74,9 +75,13 @@ public class UserAction extends ActionSupport implements SessionAware {
                         sessionMap.invalidate();
                         return "LOGINERROR";
                     } else {
+//                    HttpServletResponse response = (HttpServletResponse) ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
+                        sessionMap.put("role", user.getRoleId());
+                        sessionMap.put("validUser", true);
                         return "LOGIN";
                     }
                 }
+
             } else {
                 sessionMap.invalidate();
                 return "LOGINERROR";
@@ -89,6 +94,18 @@ public class UserAction extends ActionSupport implements SessionAware {
         }
     }
 
+//    public static void setCookie(HttpServletResponse response, String name, String value, int period) {
+//
+//        try {
+//
+//            Cookie div = new Cookie(name, value);
+//            div.setMaxAge(60 * 60 * 24 * 365); // Make the cookie last a year
+//            response.addCookie(div);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
     public String getPinCodes() throws Exception {
         setUserService(new UserService());
         try {
@@ -109,6 +126,13 @@ public class UserAction extends ActionSupport implements SessionAware {
         return "PINCODES";
     }
 
+//    public int userLogout() throws Exception {
+//        int i = 0;
+//        
+//        sessionMap.invalidate();
+//        sessionMap.put("validUser", false);
+//        return i;
+//    }
     /**
      * @return the otp
      */

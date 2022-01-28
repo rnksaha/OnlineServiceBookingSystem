@@ -1,8 +1,9 @@
 <%-- 
-    Document   : contact
-    Created on : 28 Jan, 2022, 11:54:45 AM
-    Author     : PRADIP
+    Document   : feedback
+    Created on : 28 Jan, 2022, 3:27:38 PM
+    Author     : Ankit Kundu
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -124,7 +125,7 @@
                 <div class="bg-white p-5 shadow">
                     <div class="heading-section text-center">
                         <h2 class="mb-4">
-                            Contact Us
+                            Feedback
                         </h2>
                     </div>
                     <form method="post" name="contact-us" action="">
@@ -143,7 +144,7 @@
                                 <textarea class="form-control" id="message" name="message" rows="6" placeholder="Your Message ..."></textarea>
                             </div>
                             <div class="col-md-12 text-center">
-                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Send Message</button>
+                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Submit</button>
                             </div>
                         </div>
                     </form>
@@ -161,19 +162,8 @@
                         <span class="lnr fs-40 lnr-magic-wand"></span>
                         <p>Awesome design</p>
                     </li-->
-                    <li class="list-inline-item text-center">
-                        <img class="rounded-circle" src="img/icons/animat-responsive.gif" alt="Generic placeholder image" width="150" height="150">
-                    <h5 class="mb-4">24*7 Customer Support</h5>
-                    <p>We are here for you 24/7.</p>
-                    <p>Email: urbanwareservice@gmail.com</p>
-                    <p>Contact No :+91-11-40517847.</p>
-                    </li>
+                    
                 </ul>
-                
-               <p>Give your feedback.</p>
-                <a href="" class="#">
-                    <a href="feedback.jsp"><button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Feedback</button></a>
-                </a>
             </div>
         </div>
         
@@ -229,3 +219,4 @@
         <script src="./js/app.min.js "></script>
     </body>
 </html>
+

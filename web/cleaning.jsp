@@ -299,7 +299,9 @@
                 </div>
             </div>
 
-        </footer>	<!-- External JS -->
+        </footer>	
+        
+        <!-- External JS -->
         <script type="text/javascript" src="./js/jquery.js"></script>
         <script src="./vendor/bootstrap/popper.min.js"></script>
         <script src="./vendor/bootstrap/bootstrap.min.js"></script>

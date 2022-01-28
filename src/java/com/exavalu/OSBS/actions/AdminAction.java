@@ -67,20 +67,20 @@ public class AdminAction extends ActionSupport {
         return "REGISTERCITY";
     }
     
-    public String disableCity() throws Exception {
+    public String disablePin() throws Exception {
         setAdminServices(new AdminServices());
 
         try {
-            setCtr(getAdminServices().disableCity(getCityName()));
+            setCtr(getAdminServices().disablePin(getPinCode()));
             if (getCtr() > 0) {
-                setMsg("City Disabled");
+                setMsg("Pin Code Disabled");
             } else {
                 setMsg("Some error");
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "DISABLECITY";
+        return "DISABLEPIN";
     }
     
     public String reportCity() throws Exception {

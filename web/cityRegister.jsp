@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="generator" content="Hugo 0.88.1">
-        <title>cityEdit</title>
+        <title>cityRegistration</title>
 
         <link href="./css/admin-bootstrap.min.css" rel="stylesheet">
         <meta name="theme-color" content="#7952b3">
@@ -41,31 +41,20 @@
 
             <p>--- logo here ---</p>
             <h1 class="h-5 fw-normal">City Table Edit</h1>
-            <br>
-
             <!-- action here -->
-            <form action= method="post">
-
-
-                <div class="form-floating">
-                    <input type="number" class="form-control" name="pinCode" placeholder="Pin Code" value='<s:property value="pinCode"/>'>
-                    <label for="floatingInput">Pin Code</label>
+            <s:form action="registerCity" method="post">
+                <div class="form-floating">                    
+                    <s:textfield cssClass = "form-control" name="pinCode" placeholder="Pin Code" size="50"/>
                 </div>
 
                 <div class="form-floating">
-                    <input type="text" class="form-control" name="cityName" placeholder="City Name" value='<s:property value="cityName"/>'>
-                    <label for="floatingInput">City Name</label>
-                </div>
-                <div class="form-floating">
-                    <input type="number" class="form-control" name="status" placeholder="Status" value='<s:property value="status"/>'>
-                    <label for="floatingInput">Status</label>
+                    <s:textfield cssClass = "form-control" name="cityName" placeholder="City Name" />
                 </div>
 
                 <br>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Update</button>
-                &nbsp;
-                <button class="w-100 btn btn-lg btn-primary" onclick="location.href = document.referrer; return false;">Back</button>
-            </form>
+                <s:submit cssClass="w-100 btn btn-lg btn-primary" value="Register" />
+                <s:submit cssClass="w-100 btn btn-lg btn-primary" onclick="location.href = document.referrer; return false;" value="Back" />
+            </s:form>
             <s:if test="ctr>0">
                 <span style="color: red;"><s:property value="msg" /></span>
             </s:if>

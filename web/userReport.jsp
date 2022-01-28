@@ -35,20 +35,18 @@
             <table>
                 <thead>
                     <tr>
-                        <th>City Name</th>
-                        <th>Pin Code</th>
+                        <th>User Emails</th>
                     </tr>
                 </thead>
 
                 <!-- iterator here-->
-                <s:iterator value="cityList">
+                <s:iterator value="userList">
 
                     <tr>
-                        <td><s:property value="cityName" /></td>
-                        <td><s:property value="pinCode" /></td>
+                        <td><s:property value="emailId" /></td>
                         <td>
-                            <a href="disablePin.action?pinCode=<s:property value="pinCode"/>">
-                                <button class="button-delete">Disable Pin</button>
+                            <a href="deleteUser.action?emailId=<s:property value="emailId"/>">
+                                <button class="button-delete">Delete User</button>
                             </a>
                         </td>
                     </tr>

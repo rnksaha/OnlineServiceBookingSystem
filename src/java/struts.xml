@@ -16,13 +16,13 @@
             <result name="PINCODES">/pincodes.jsp</result>
         </action>
         <action name="registerCity" class="com.exavalu.OSBS.actions.AdminAction" method="registerCity">
-            <result name="REGISTERCITY">/admindashboard.jsp</result>
+            <result name="REGISTERCITY">/cityRegister.jsp</result>
         </action>
-        <action name="disableCity" class="com.exavalu.OSBS.actions.AdminAction" method="disableCity">
-            <result name="DISABLECITY">/admindashboard.jsp</result>
+        <action name="disablePin" class="com.exavalu.OSBS.actions.AdminAction" method="disablePin">
+            <result name="DISABLEPIN">/disablePin.jsp</result>
         </action>
         <action name="reportCity" class="com.exavalu.OSBS.actions.AdminAction" method="reportCity">
-            <result name="REPORTCITY">/admindashboard.jsp</result>
+            <result name="REPORTCITY">/cityReport.jsp</result>
         </action>
         <action name="reportOrders" class="com.exavalu.OSBS.actions.AdminAction" method="reportOrders">
             <result name="REPORTORDERS">/admindashboard.jsp</result>
@@ -40,10 +40,10 @@
             <result name="REPORTSERVICETYPE">/admindashboard.jsp</result>
         </action>
         <action name="reportUser" class="com.exavalu.OSBS.actions.AdminAction" method="reportUser">
-            <result name="REPORTUSER">/admindashboard.jsp</result>
+            <result name="REPORTUSER">/userReport.jsp</result>
         </action>
         <action name="deleteUser" class="com.exavalu.OSBS.actions.AdminAction" method="deleteUser">
-            <result name="DELETEUSER">/admindashboard.jsp</result>
+            <result name="DELETEUSER">/deleteUser.jsp</result>
         </action>
         <action name="registerService" class="com.exavalu.OSBS.actions.AdminAction" method="registerService">
             <result name="REGISTERSERVICE">/admindashboard.jsp</result>

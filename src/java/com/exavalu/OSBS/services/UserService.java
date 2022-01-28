@@ -8,7 +8,6 @@ package com.exavalu.OSBS.services;
 import com.exavalu.OSBS.core.ConnectionManager;
 import com.exavalu.OSBS.pojos.City;
 import com.exavalu.OSBS.pojos.User;
-import com.mysql.cj.protocol.Resultset;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,7 +35,37 @@ public class UserService {
 
     public int registerUser(String emailId) {
         int i = 0;
-
+        User user = new User();
+        user.setEmailId(emailId);
+        Connection con = null;
+        try {
+            con = ConnectionManager.getConnection();
+            String sql = "INSERT INTO users\n"
+                    + "(emailId,\n"
+                    + "roleId,\n"
+                    + "status)\n"
+                    + "VALUES\n"
+                    + "(?,?,?);";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, emailId);
+            ps.setInt(2, 2);
+            ps.setInt(3, 1);
+            int r = ps.executeUpdate();
+            if (r > 0) {
+                i = 1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return i;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
         return i;
     }
 
@@ -46,7 +75,7 @@ public class UserService {
         Connection con = null;
         try {
             con = ConnectionManager.getConnection();
-            String sql = "";
+            String sql = "SELECT * FROM users WHERE status==1";
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

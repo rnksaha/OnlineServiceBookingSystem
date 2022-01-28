@@ -9,7 +9,7 @@
             <result name="SUCCESS">/signUp.jsp</result>
         </action>
         <action name="loginuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogin">
-            <result name="LOGIN">/dashboard.jsp</result>
+            <result name="LOGIN">/index.jsp</result>
             <result name="LOGINERROR">/signUp.jsp</result>
         </action>
         <action name="getPinCodes" class="com.exavalu.OSBS.actions.UserAction" method="getPinCodes">

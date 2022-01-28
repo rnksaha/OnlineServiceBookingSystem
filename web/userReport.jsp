@@ -28,7 +28,7 @@
     </head>
     <body>
         
-        <h2><u>City Report</u></h2>
+        <h2><u>User Report</u></h2>
 
         <s:if test="noData==false">
 

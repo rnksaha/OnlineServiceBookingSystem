@@ -3,68 +3,74 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            table {
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
+        <jsp:include page="admin.jsp"></jsp:include>
+            <style>
+                table {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                }
 
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-            }
+                td, th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
 
-            tr:nth-child(even) {
-                background-color: #dddddd;
-            }
+                tr:nth-child(even) {
+                    background-color: #dddddd;
+                }
 
-            h2{
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <h2><u>Services Report</u></h2>
+                h2{
+                    text-align: center;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="col-lg-9 content-main">
+                <div class="content">
+                    <h2><u>Services Report</u></h2>
 
-        <s:if test="noData==false">
+                <s:if test="noData==false">
 
-            <table>
-                <tr>
-                    <th>Service Id</th>
-                    <th>Service Name</th>
-                    <th>Pin Code</th>
-                    <th>Status</th>
-                </tr>
+                    <table>
+                        <tr>
+                            <th>Service Id</th>
+                            <th>Service Name</th>
+                            <th>Pin Code</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
 
-                <!-- iterator here-->
-                <s:iterator value="serviceList">
-
-
-                    <tr>
-                        <td><s:property value="serviceId" /></td>
-                        <td><s:property value="serviceName" /></td>
-                        <td><s:property value="pinCode" /></td>
-                        <td><s:property value="status" /></td>
+                        <!-- iterator here-->
+                        <s:iterator value="serviceList">
 
 
-                        <td>
-                            <!-- watch primary key hard coding set as serviceName -->
-                            <a href="updateService.action?submitType=updateServicedata&serviceId=<s:property value="serviceId"/>">
-                                <button class="button-update">Update</button>
-                            </a>
-                            <a href="deleteService.action?serviceId=<s:property value="serviceId"/>">
-                                <button class="button-delete">Delete</button>
-                            </a>
-                        </td>
-                    </tr>
-                </s:iterator>
-            </table>
-        </s:if>
-        <s:else>
-            <div style="color: red;">No Data Found.</div>
-        </s:else>
-        <br>
+                            <tr>
+                                <td><s:property value="serviceId" /></td>
+                                <td><s:property value="serviceName" /></td>
+                                <td><s:property value="pinCode" /></td>
+                                <td><s:property value="status" /></td>
+
+
+                                <td>
+                                    <!-- watch primary key hard coding set as serviceName -->
+                                    <a href="updateService.action?submitType=updateServicedata&serviceId=<s:property value="serviceId"/>">
+                                        <button class="button-update">Update</button>
+                                    </a>
+                                    <a href="deleteService.action?serviceId=<s:property value="serviceId"/>">
+                                        <button class="button-delete">Delete</button>
+                                    </a>
+                                </td>
+                            </tr>
+                        </s:iterator>
+                    </table>
+                </s:if>
+                <s:else>
+                    <div style="color: red;">No Data Found.</div>
+                </s:else>
+                <br>
+            </div>
+        </div>
     </body>
 </html>

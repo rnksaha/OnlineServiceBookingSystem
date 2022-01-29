@@ -45,7 +45,11 @@
 
             <!-- action here -->
             <form action="updateService" method="post">
-
+                
+                <div class="form-floating">
+                    <input type="text" class="form-control" name="serviceId" placeholder="Service Name" value='<s:property value="serviceId"/>' readonly>
+                    <label for="floatingInput">Service Id</label>
+                </div>
 
                 <div class="form-floating">
                     <input type="text" class="form-control" name="serviceName" placeholder="Service Name" value='<s:property value="serviceName"/>'>
@@ -62,7 +66,7 @@
                 </div>
 
                 <br>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Update</button>
+                <button name="submitType" class="w-100 btn btn-lg btn-primary" type="submit">Update</button>
                 &nbsp;
                 <button class="w-100 btn btn-lg btn-primary" onclick="location.href = document.referrer; return false;">Back</button>
             </form>

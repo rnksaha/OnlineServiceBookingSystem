@@ -44,7 +44,7 @@
             <!-- action here -->
             <s:form action="registerServiceType" method="post">
                 <div class="form-floating">                    
-                    <s:textfield cssClass = "form-control" name="serviceName" placeholder="Service Name" size="50"/>
+                    <s:textfield cssClass = "form-control" name="services_serviceId" placeholder="Service Id" size="50"/>
                 </div>
 
                 <div class="form-floating">

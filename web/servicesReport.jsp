@@ -32,6 +32,7 @@
 
             <table>
                 <tr>
+                    <th>Service Id</th>
                     <th>Service Name</th>
                     <th>Pin Code</th>
                     <th>Status</th>
@@ -40,21 +41,24 @@
                 <!-- iterator here-->
                 <s:iterator value="serviceList">
 
-                    
+
                     <tr>
+                        <td><s:property value="serviceId" /></td>
                         <td><s:property value="serviceName" /></td>
                         <td><s:property value="pinCode" /></td>
                         <td><s:property value="status" /></td>
-                    </tr>
 
-                    
-                    <!-- watch primary key hard coding set as serviceName -->
-                    <a href="<s:property value="serviceName"/>">
-                        <button class="button-update">Update</button>
-                    </a>
-                    <a href="<s:property value="serviceName"/>">
-                        <button class="button-delete">Delete</button>
-                    </a>
+
+                        <td>
+                            <!-- watch primary key hard coding set as serviceName -->
+                            <a href="updateService.action?submitType=updateServicedata&serviceId=<s:property value="serviceId"/>">
+                                <button class="button-update">Update</button>
+                            </a>
+                            <a href="deleteService.action?serviceId=<s:property value="serviceId"/>">
+                                <button class="button-delete">Delete</button>
+                            </a>
+                        </td>
+                    </tr>
                 </s:iterator>
             </table>
         </s:if>

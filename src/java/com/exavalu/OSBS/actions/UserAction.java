@@ -71,17 +71,17 @@ public class UserAction extends ActionSupport implements SessionAware {
                     return "LOGIN";
                 } else {
                     int i = getUserService().registerUser(getEmailId());
-                    if (i == 0) {
-                        sessionMap.invalidate();
-                        return "LOGINERROR";
-                    } else {
-//                    HttpServletResponse response = (HttpServletResponse) ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
+                    if (i == 1) {
+                        user = getUserService().fetchUserDetails(getEmailId());
                         sessionMap.put("role", user.getRoleId());
                         sessionMap.put("validUser", true);
                         return "LOGIN";
+                    } else {
+                        sessionMap.invalidate();
+                        return "LOGINERROR";
                     }
                 }
-
+//                    HttpServletResponse response = (HttpServletResponse) ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
             } else {
                 sessionMap.invalidate();
                 return "LOGINERROR";
@@ -126,13 +126,13 @@ public class UserAction extends ActionSupport implements SessionAware {
         return "PINCODES";
     }
 
-//    public int userLogout() throws Exception {
-//        int i = 0;
-//        
-//        sessionMap.invalidate();
-//        sessionMap.put("validUser", false);
-//        return i;
-//    }
+    public String userLogout() throws Exception {
+        sessionMap.put("role", 0);
+        sessionMap.put("validUser", false);
+        sessionMap.invalidate();
+        return "LOGOUT";
+    }
+
     /**
      * @return the otp
      */

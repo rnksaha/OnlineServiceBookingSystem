@@ -3,8 +3,17 @@
 <!DOCTYPE html>
 <html>
     <%
-
+        response.setHeader("Cache-Control", "no-cache");
+        response.setHeader("Cache-Control", "no-store");
+        response.setDateHeader("Expires", 0);
+        response.setHeader("Pragma", "no-cache");
     %>
+    <c:if test="${sessionScope.validUser != true}">
+        <c:redirect url ="/signUp.jsp"></c:redirect>
+    </c:if>
+    <c:if test="${sessionScope.role != 1}">
+        <c:redirect url ="/signUp.jsp"></c:redirect>
+    </c:if>
     <head>
         <title>Admin Dashboard Design</title>
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">

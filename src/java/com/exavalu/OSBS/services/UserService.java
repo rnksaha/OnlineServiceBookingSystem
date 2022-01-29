@@ -75,8 +75,9 @@ public class UserService {
         Connection con = null;
         try {
             con = ConnectionManager.getConnection();
-            String sql = "SELECT * FROM users WHERE status!=0";
+            String sql = "SELECT * FROM users WHERE status==1 AND emailId = ?";
             PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, emailId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 user.setEmailId(rs.getString("emailId"));
@@ -90,8 +91,10 @@ public class UserService {
             if (con != null) {
                 try {
                     con.close();
+
                 } catch (SQLException ex) {
-                    Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(UserService.class
+                            .getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }

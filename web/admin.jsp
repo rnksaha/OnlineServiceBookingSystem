@@ -1,14 +1,14 @@
+<%@page import="org.apache.jasper.tagplugins.jstl.core.Redirect"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
     <%
-        response.setHeader("Cache-Control", "no-cache");
-        response.setHeader("Cache-Control", "no-store");
-        response.setDateHeader("Expires", 0);
-        response.setHeader("Pragma", "no-cache");
+        
     %>
-    <c:if test="${sessionScope.validUser != true}">
+    <c:if test="${sessionScope.role == 1}">
+    </c:if>
+    <c:if test="${sessionScope.validUser == null}">
         <c:redirect url ="/signUp.jsp"></c:redirect>
     </c:if>
     <c:if test="${sessionScope.role != 1}">

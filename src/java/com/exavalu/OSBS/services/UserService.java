@@ -75,12 +75,11 @@ public class UserService {
         Connection con = null;
         try {
             con = ConnectionManager.getConnection();
-            String sql = "SELECT * FROM users WHERE status==1 AND emailId = ?";
+            String sql = "SELECT roleId FROM users WHERE status=1 AND emailId = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, emailId);
+            ps.setString(1, user.getEmailId());
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                user.setEmailId(rs.getString("emailId"));
                 user.setRoleId(rs.getInt("roleId"));
             }
             return user;

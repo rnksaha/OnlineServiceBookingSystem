@@ -32,6 +32,7 @@
                     font-size: 3.5rem;
                 }
             }
+            
         </style>
         <!-- Custom styles for this template -->
         <link href="./css/admin-edit.css" rel="stylesheet">

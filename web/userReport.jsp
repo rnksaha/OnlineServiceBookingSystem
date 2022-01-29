@@ -36,6 +36,8 @@
                 <thead>
                     <tr>
                         <th>User Emails</th>
+                        <th>User Role Id</th>
+                        <th>User Status</th>
                     </tr>
                 </thead>
 
@@ -44,6 +46,8 @@
 
                     <tr>
                         <td><s:property value="emailId" /></td>
+                        <td><s:property value="roleId" /></td>
+                        <td><s:property value="status" /></td>
                         <td>
                             <a href="deleteUser.action?emailId=<s:property value="emailId"/>">
                                 <button class="button-delete">Delete User</button>

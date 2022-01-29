@@ -38,19 +38,19 @@
             <result name="REPORTCITY">/cityReport.jsp</result>
         </action>
         <action name="reportOrders" class="com.exavalu.OSBS.actions.AdminAction" method="reportOrders">
-            <result name="REPORTORDERS">/admindashboard.jsp</result>
+            <result name="REPORTORDERS">/orderReport.jsp</result>
         </action>
         <action name="registerServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="registerServiceType">
-            <result name="REGISTERSERVICETYPE">/admindashboard.jsp</result>
+            <result name="REGISTERSERVICETYPE">/serviceTypeRegister.jsp</result>
         </action>
         <action name="deleteServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="deleteServiceType">
-            <result name="DELETESERVICETYPE">/admindashboard.jsp</result>
+            <result name="DELETESERVICETYPE">/deleteServiceType.jsp</result>
         </action>
         <action name="updateServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="updateServiceType">
-            <result name="UPDATESERVICETYPE">/admindashboard.jsp</result>
+            <result name="UPDATESERVICETYPE">/serviceTypeEdit.jsp</result>
         </action>
         <action name="reportServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="reportServiceType">
-            <result name="REPORTSERVICETYPE">/admindashboard.jsp</result>
+            <result name="REPORTSERVICETYPE">/serviceTypeReport.jsp</result>
         </action>
         <action name="reportUser" class="com.exavalu.OSBS.actions.AdminAction" method="reportUser">
             <result name="REPORTUSER">/userReport.jsp</result>
@@ -59,16 +59,16 @@
             <result name="DELETEUSER">/deleteUser.jsp</result>
         </action>
         <action name="registerService" class="com.exavalu.OSBS.actions.AdminAction" method="registerService">
-            <result name="REGISTERSERVICE">/admindashboard.jsp</result>
+            <result name="REGISTERSERVICE">/servicesRegister.jsp</result>
         </action>
         <action name="reportService" class="com.exavalu.OSBS.actions.AdminAction" method="reportService">
-            <result name="REPORTSERVICE">/admindashboard.jsp</result>
+            <result name="REPORTSERVICE">/servicesReport.jsp</result>
         </action>
         <action name="deleteService" class="com.exavalu.OSBS.actions.AdminAction" method="deleteService">
-            <result name="DELETESERVICE">/admindashboard.jsp</result>
+            <result name="DELETESERVICE">/deleteService.jsp</result>
         </action>
         <action name="updateService" class="com.exavalu.OSBS.actions.AdminAction" method="updateService">
-            <result name="UPDATESERVICE">/admindashboard.jsp</result>
+            <result name="UPDATESERVICE">/serviceEdit.jsp</result>
         </action>
     </package>
 </struts>

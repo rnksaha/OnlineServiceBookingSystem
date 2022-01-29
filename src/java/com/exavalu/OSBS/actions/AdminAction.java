@@ -159,17 +159,17 @@ public class AdminAction extends ActionSupport {
             if (getSubmitType().equals("updateServiceTypedata")) {
                 ServiceType serviceType = getAdminServices().fetchServiceTypeDetails(getType());
                 if (serviceType != null) {
-                    services_serviceId = serviceType.getServices_serviceId();
-                    type = serviceType.getType();
-                    price = serviceType.getPrice();
-                    status = serviceType.getStatus();
+                    setServices_serviceId(serviceType.getServices_serviceId());
+                    setType(serviceType.getType());
+                    setPrice(serviceType.getPrice());
+                    setStatus(serviceType.getStatus());
                 }
             } else {
-                int i = getAdminServices().updateServiceTypeDetails(services_serviceId, type, price, status);
+                int i = getAdminServices().updateServiceTypeDetails(getServices_serviceId(), getType(), getPrice(), getStatus());
                 if (i > 0) {
-                    msg = "Service Type Updated Successfuly";
+                    setMsg("Service Type Updated Successfuly");
                 } else {
-                    msg = "error";
+                    setMsg("error");
                 }
             }
 
@@ -223,9 +223,9 @@ public class AdminAction extends ActionSupport {
         try {
             int isDeleted = getAdminServices().deleteUserDetails(getEmailId());
             if (isDeleted > 0) {
-                msg = "User deleted successfully";
+                setMsg("User deleted successfully");
             } else {
-                msg = "Some error";
+                setMsg("Some error");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -290,17 +290,17 @@ public class AdminAction extends ActionSupport {
             if (getSubmitType().equals("updateServicedata")) {
                 Service service = getAdminServices().fetchServiceDetails(getServiceId());
                 if (service != null) {
-                    serviceName = service.getServiceName();
-                    pinCode = service.getPinCode();
-                    status = service.getStatus();
-                    serviceId = service.getServiceId();
+                    setServiceName(service.getServiceName());
+                    setPinCode(service.getPinCode());
+                    setStatus(service.getStatus());
+                    setServiceId(service.getServiceId());
                 }
             } else {
-                int i = getAdminServices().updateServiceDetails(serviceName, pinCode, status, serviceId);
+                int i = getAdminServices().updateServiceDetails(getServiceName(), getPinCode(), getStatus(), getServiceId());
                 if (i > 0) {
-                    msg = "Service Updated Successfuly";
+                    setMsg("Service Updated Successfuly");
                 } else {
-                    msg = "error";
+                    setMsg("error");
                 }
             }
 

@@ -71,7 +71,7 @@ public class AdminServices {
         Connection con = null;
         List<City> cityList = new ArrayList<>();
         try {
-            String sql = "SELECT pinCode, cityName FROM cities WHERE status!=0";
+            String sql = "SELECT pinCode, cityName, status FROM cities";
             con = ConnectionManager.getConnection();
             System.out.println("Connection is " + con);
             PreparedStatement ps = con.prepareStatement(sql);
@@ -81,7 +81,7 @@ public class AdminServices {
                 City city = new City();
                 city.setPinCode(rs.getInt("pinCode"));
                 city.setCityName(rs.getString("cityName"));
-
+                city.setStatus(rs.getInt("status"));
                 cityList.add(city);
             }
             return cityList;
@@ -178,7 +178,7 @@ public class AdminServices {
         Connection con = null;
         List<ServiceType> serviceTypeList = new ArrayList<>();
         try {
-            String sql = "SELECT type, price, services_serviceId FROM servicetype WHERE status!=0";
+            String sql = "SELECT type, price, status, services_serviceId FROM servicetype";
             con = ConnectionManager.getConnection();
             System.out.println("Connection is " + con);
             PreparedStatement ps = con.prepareStatement(sql);
@@ -188,6 +188,7 @@ public class AdminServices {
                 ServiceType serviceType = new ServiceType();
                 serviceType.setType(rs.getString("type"));
                 serviceType.setPrice(rs.getDouble("price"));
+                serviceType.setStatus(rs.getInt("status"));
                 serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
                 
                 serviceTypeList.add(serviceType);
@@ -204,6 +205,7 @@ public class AdminServices {
     }
 
     public ServiceType fetchServiceTypeDetails(String type) throws SQLException, Exception {
+        System.out.println(type);
         ResultSet rs = null;
         Connection con = null;
         ServiceType serviceType = null;
@@ -264,7 +266,7 @@ public class AdminServices {
         Connection con = null;
         List<User> userList = new ArrayList<>();
         try {
-            String sql = "SELECT emailId FROM users WHERE status!=0";
+            String sql = "SELECT emailId, roleId, status FROM users";
             con = ConnectionManager.getConnection();
             System.out.println("Connection is " + con);
             PreparedStatement ps = con.prepareStatement(sql);
@@ -273,7 +275,9 @@ public class AdminServices {
 
                 User user = new User();
                 user.setEmailId(rs.getString("emailId"));
-
+                user.setRoleId(rs.getInt("roleId"));
+                user.setStatus(rs.getInt("status"));
+                
                 userList.add(user);
             }
             return userList;
@@ -311,7 +315,7 @@ public class AdminServices {
         Connection con = null;
         try {
             con = ConnectionManager.getConnection();
-            String sql = "INSERT INTO services VALUES (?,?,?)";
+            String sql = "INSERT INTO services (serviceName, pinCode, status) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, serviceName);
             ps.setInt(2, pinCode);
@@ -334,7 +338,7 @@ public class AdminServices {
         Connection con = null;
         List<Service> serviceList = new ArrayList<>();
         try {
-            String sql = "SELECT serviceName, pinCode, serviceId FROM services WHERE status!=0";
+            String sql = "SELECT serviceId, serviceName, pinCode, status FROM services";
             con = ConnectionManager.getConnection();
             System.out.println("Connection is " + con);
             PreparedStatement ps = con.prepareStatement(sql);
@@ -342,9 +346,10 @@ public class AdminServices {
             while (rs.next()) {
 
                 Service service = new Service();
+                service.setServiceId(rs.getInt("serviceId"));
                 service.setServiceName(rs.getString("serviceName"));
                 service.setPinCode(rs.getInt("pinCode"));
-                service.setServiceId(rs.getInt("serviceId"));
+                service.setStatus(rs.getInt("status"));
                 
                 serviceList.add(service);
             }
@@ -430,9 +435,4 @@ public class AdminServices {
             }
         }
     }
-
-    
-
-    
-
 }

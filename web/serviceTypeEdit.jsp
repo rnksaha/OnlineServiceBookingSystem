@@ -48,11 +48,6 @@
 
 
                 <div class="form-floating">
-                    <input type="text" class="form-control" name="serviceName" placeholder="Service Name" value='<s:property value="serviceName"/>'>
-                    <label for="floatingInput">Service Name</label>
-                </div>
-
-                <div class="form-floating">
                     <input type="text" class="form-control" name="type" placeholder="Type" value='<s:property value="type"/>'>
                     <label for="floatingInput">Type</label>
                 </div>
@@ -60,14 +55,19 @@
                     <input type="number" class="form-control" name="price" placeholder="Price" value='<s:property value="price"/>'>
                     <label for="floatingInput">Price</label>
                 </div>
-                    
-                    <div class="form-floating">
+
+                <div class="form-floating">
                     <input type="number" class="form-control" name="status" placeholder="Status" value='<s:property value="status"/>'>
                     <label for="floatingInput">Status</label>
                 </div>
 
+                <div class="form-floating">
+                    <input type="text" class="form-control" name="services_serviceId" placeholder="Service Id" value='<s:property value="services_serviceId"/>'>
+                    <label for="floatingInput">Service Id</label>
+                </div>
+
                 <br>
-                <button class="w-100 btn btn-lg btn-primary" type="submit">Update</button>
+                <button name="submitType" class="w-100 btn btn-lg btn-primary" type="submit">Update</button>
                 &nbsp;
                 <button class="w-100 btn btn-lg btn-primary" onclick="location.href = document.referrer; return false;">Back</button>
             </form>

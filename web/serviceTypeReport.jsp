@@ -32,31 +32,34 @@
 
             <table>
                 <tr>
-                    <th>Service Name</th>
                     <th>Type</th>
                     <th>Price</th>
                     <th>Status</th>
+                    <th>Service Id</th>
                 </tr>
 
                 <!-- iterator here-->
                 <s:iterator value="serviceTypeList">
 
-                    
+
                     <tr>
-                        <td><s:property value="serviceName" /></td>
                         <td><s:property value="type" /></td>
                         <td><s:property value="price" /></td>
                         <td><s:property value="status" /></td>
-                    </tr>
+                        <td><s:property value="services_serviceId" /></td>
 
-                    
-                    <!-- watch primary key hard coding set as serviceName -->
-                    <a href="<s:property value="serviceName"/>">
-                        <button class="button-update">Update</button>
-                    </a>
-                    <a href="<s:property value="serviceName"/>">
-                        <button class="button-delete">Delete</button>
-                    </a>
+
+
+                        <!-- watch primary key hard coding set as serviceName -->
+                        <td>
+                            <a href="updateServiceType.action?submitType=updateServiceTypedata&type=<s:property value="type"/>">
+                                <button class="button-update">Update</button>
+                            </a>
+                            <a href="deleteServiceType.action?type=<s:property value="type"/>">
+                                <button class="button-delete">Delete</button>
+                            </a>
+                        </td>
+                    </tr>
                 </s:iterator>
             </table>
         </s:if>

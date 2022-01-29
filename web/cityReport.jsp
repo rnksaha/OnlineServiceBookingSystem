@@ -37,6 +37,7 @@
                     <tr>
                         <th>City Name</th>
                         <th>Pin Code</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
 
@@ -46,6 +47,7 @@
                     <tr>
                         <td><s:property value="cityName" /></td>
                         <td><s:property value="pinCode" /></td>
+                        <td><s:property value="status" /></td>
                         <td>
                             <a href="disablePin.action?pinCode=<s:property value="pinCode"/>">
                                 <button class="button-delete">Disable Pin</button>

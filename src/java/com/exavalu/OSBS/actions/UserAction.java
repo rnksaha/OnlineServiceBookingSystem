@@ -10,9 +10,11 @@ import com.exavalu.OSBS.pojos.User;
 import com.exavalu.OSBS.services.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.ApplicationAware;
@@ -41,6 +43,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String cityName;
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
+    HttpSession mySession;
 
     @Override
     public void setApplication(Map<String, Object> application) {
@@ -77,13 +80,13 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         boolean admin = false;
         try {
             if (getGeneratedOTP().equals(getOtp()) && (getOtp() != null) && getEmailId().equals(getReceiverEmail()) && (getEmailId() != null)) {
+
+                map.put(getEmailId() + "session", mySession.getId());
                 User userInfo = getUserService().fetchUserDetails(getEmailId());
                 if (userInfo != null) {
                     int roleId = userInfo.getRoleId();
                     map.put("role", roleId);
                     map.put("validUser", true);
-                    sessionMap.put("role", roleId);
-                    sessionMap.put("validUser", true);
                     return "LOGIN";
                 } else {
                     int i = getUserService().registerUser(getEmailId());
@@ -92,8 +95,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                         int roleId = newUser.getRoleId();
                         map.put("role", roleId);
                         map.put("validUser", true);
-                        sessionMap.put("role", roleId);
-                        sessionMap.put("validUser", true);
                         return "LOGIN";
                     } else {
                         sessionMap.invalidate();
@@ -147,21 +148,11 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     }
 
     public String userLogout() throws Exception {
-        sessionMap.put("role", 0);
-        sessionMap.put("validUser", false);
+
         sessionMap.invalidate();
-        map.put("validUser", false);
+        map.put("validUser", null);
         map.put("role", 2);
         return "LOGOUT";
-    }
-
-    public String adminPanel() throws Exception {
-        int roleId = 1;
-        if (roleId == 1) {
-            return "ADMIN";
-        } else {
-            return "ADMINERROR";
-        }
     }
 
     /**

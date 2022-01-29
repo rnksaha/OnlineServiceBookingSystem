@@ -60,7 +60,7 @@
                         </c:if>
                         <!-- Checking for admin only ENDS HERE -->
 
-                        <c:if test="${applicationScope.validUser == false}">
+                        <c:if test="${applicationScope.validUser == null}">
                             <li class="nav-item">
                                 <a class="nav-link" href="signUp">Login/Sign up</a>
                             </li>

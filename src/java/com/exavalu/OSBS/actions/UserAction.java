@@ -8,18 +8,23 @@ package com.exavalu.OSBS.actions;
 import com.exavalu.OSBS.pojos.City;
 import com.exavalu.OSBS.pojos.User;
 import com.exavalu.OSBS.services.UserService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
+import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
+import org.apache.struts2.interceptor.ApplicationAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author AKSHAY
  */
-public class UserAction extends ActionSupport implements SessionAware {
+public class UserAction extends ActionSupport implements ApplicationAware, SessionAware {
 
     private String emailId;
     private String otp;
@@ -36,7 +41,14 @@ public class UserAction extends ActionSupport implements SessionAware {
     private List<City> pinCodeList = null;
     private boolean noData = false;
     private String cityName;
-    private SessionMap<String, Object> sessionMap;
+    private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
+    private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
+    HttpSession mySession;
+
+    @Override
+    public void setApplication(Map<String, Object> application) {
+        map = (ApplicationMap) application;
+    }
 
     @Override
     public void setSession(Map<String, Object> map) {
@@ -57,24 +69,32 @@ public class UserAction extends ActionSupport implements SessionAware {
         return "SUCCESS";
     }
 
+    public String redirectPage() throws Exception {
+        return "SUCCESS";
+    }
+
     public String userLogin() throws Exception {
 
         setGeneratedOTP((String) sessionMap.get("otp"));
         setReceiverEmail((String) sessionMap.get("email"));
-
+        boolean admin = false;
         try {
             if (getGeneratedOTP().equals(getOtp()) && (getOtp() != null) && getEmailId().equals(getReceiverEmail()) && (getEmailId() != null)) {
-                User user = getUserService().fetchUserDetails(getEmailId());
-                if (user != null) {
-                    sessionMap.put("role", user.getRoleId());
-                    sessionMap.put("validUser", true);
+
+                map.put(getEmailId() + "session", mySession.getId());
+                User userInfo = getUserService().fetchUserDetails(getEmailId());
+                if (userInfo != null) {
+                    int roleId = userInfo.getRoleId();
+                    map.put("role", roleId);
+                    map.put("validUser", true);
                     return "LOGIN";
                 } else {
                     int i = getUserService().registerUser(getEmailId());
                     if (i == 1) {
-                        user = getUserService().fetchUserDetails(getEmailId());
-                        sessionMap.put("role", user.getRoleId());
-                        sessionMap.put("validUser", true);
+                        User newUser = getUserService().fetchUserDetails(getEmailId());
+                        int roleId = newUser.getRoleId();
+                        map.put("role", roleId);
+                        map.put("validUser", true);
                         return "LOGIN";
                     } else {
                         sessionMap.invalidate();
@@ -90,6 +110,7 @@ public class UserAction extends ActionSupport implements SessionAware {
         } catch (Exception e) {
             e.printStackTrace();
             sessionMap.invalidate();
+
             return "LOGINERROR";
         }
     }
@@ -127,9 +148,10 @@ public class UserAction extends ActionSupport implements SessionAware {
     }
 
     public String userLogout() throws Exception {
-        sessionMap.put("role", 0);
-        sessionMap.put("validUser", false);
+
         sessionMap.invalidate();
+        map.put("validUser", null);
+        map.put("role", 2);
         return "LOGOUT";
     }
 

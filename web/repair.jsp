@@ -44,70 +44,7 @@
     </head>
 
     <body data-spy="scroll" data-target="#navbar" class="static-layout">
-        <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center text-white" href="index.jsp">
-                    <h3 class="font-weight-bolder mb-0">URBAN WARE</h3>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="lnr lnr-menu"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar-nav-header">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="admin.jsp">Admin Panel</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="signUp.jsp">Login/Sign up</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.jsp">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.jsp">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="side-search-open" class="nav-link" href="#">
-                                <span class="lnr lnr-magnifier"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item only-desktop">
-                            <a class="nav-link" id="side-nav-open" href="#">
-                                <span class="fa fa-shopping-cart"></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Cart-->
-        <div id="side-nav" class="sidenav">
-            <a href="javascript:void(0)" id="side-nav-close">&times;</a>
-            <div class="sidenav-content">
-                <p>
-                    Cart details here.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- search-->
-        <div id="side-search" class="sidenav">
-            <a href="javascript:void(0)" id="side-search-close">&times;</a>
-            <div class="sidenav-content">
-                <form action="">
-                    <div class="input-group md-form form-sm form-2 pl-0">
-                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="input-group-text red lighten-3" id="basic-text1">
-                                <span class="lnr lnr-magnifier"></span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>	
+        <jsp:include page="header.jsp" ></jsp:include>
 
 
 
@@ -254,9 +191,9 @@
                             <div class="part-1">
                                 <span class="new">new</span>
                                 <ul>
-                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
                                 </ul>
                             </div>
                             <div class="part-2">

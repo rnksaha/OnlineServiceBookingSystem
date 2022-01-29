@@ -2,6 +2,17 @@
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
+    <%
+        
+    %>
+    <c:if test="${sessionScope.role == 1}">
+    </c:if>
+    <c:if test="${sessionScope.validUser == null}">
+        <c:redirect url ="/signUp.jsp"></c:redirect>
+    </c:if>
+    <c:if test="${sessionScope.role != 1}">
+        <c:redirect url ="/signUp.jsp"></c:redirect>
+    </c:if>
     <head>
         <title>Admin Dashboard Design</title>
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">

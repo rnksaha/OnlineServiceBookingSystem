@@ -9,12 +9,20 @@
             <result name="SUCCESS">/signUp.jsp</result>
         </action>
         <action name="loginuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogin">
-            <result name="LOGIN">/index.jsp</result>
+            <result name="LOGIN" type="redirect">/index.jsp</result>
             <result name="LOGINERROR">/signUp.jsp</result>
+        </action>
+        <action name="signUp" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/signUp.jsp</result>
+        </action>
+        <action name="admin" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/admin.jsp</result>
+        </action>
+        <action name="index" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/index.jsp</result>
         </action>
         <action name="logoutuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogout">
             <result name="LOGOUT">/index.jsp</result>
-            <result name="LOGOUTERROR">/about.jsp</result>
         </action>
         <action name="getPinCodes" class="com.exavalu.OSBS.actions.UserAction" method="getPinCodes">
             <result name="PINCODES">/pincodes.jsp</result>

@@ -31,6 +31,10 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private boolean status;
     private String generatedOTP;
 
+    // Feedback Prameters
+    private String feedback;
+    private String users_emalId;
+
     private String msg = "";
     private User user = new User();
     private int ctr = 0;
@@ -43,8 +47,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String cityName;
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
-
-    HttpServletResponse response;
+    private HttpServletResponse response;
 
     @Override
     public void setApplication(Map<String, Object> application) {
@@ -53,7 +56,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     @Override
     public void setSession(Map<String, Object> map) {
-        sessionMap = (SessionMap) map;
+        setSessionMap((SessionMap<String, Object>) (SessionMap) map);
     }
 
     public String otpRequest() throws Exception {
@@ -63,8 +66,8 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         setGeneratedOTP(getUserService().generateOTP());
         setReceiverEmail(getEmailId());
 
-        sessionMap.put("otp", getGeneratedOTP());
-        sessionMap.put("email", getReceiverEmail());
+        getSessionMap().put("otp", getGeneratedOTP());
+        getSessionMap().put("email", getReceiverEmail());
         getUserService().sendMail(getReceiverEmail(), getGeneratedOTP());
 
         return "SUCCESS";
@@ -76,6 +79,9 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     public String userLogin() throws Exception {
 
+        setGeneratedOTP((String) getSessionMap().get("otp"));
+        setReceiverEmail((String) getSessionMap().get("email"));
+        boolean admin = false;
         setGeneratedOTP((String) sessionMap.get("otp"));
         setReceiverEmail((String) sessionMap.get("email"));
 
@@ -86,13 +92,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 User userInfo = getUserService().fetchUserDetails(getEmailId());
                 if (userInfo != null) {
                     int roleId = userInfo.getRoleId();
-                    sessionMap.put("role", roleId);
-                    sessionMap.put("validuser", true);
-                    sessionMap.put("user", userInfo);
-                    map.put("role", roleId);
-                    map.put("validUser", true);
-                    map.put("user", userInfo);
-                    ActionContext.getContext().getValueStack().push(map);
                     return "LOGIN";
                 } else {
                     int i = getUserService().registerUser(getEmailId());
@@ -102,28 +101,44 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                         sessionMap.put("role", roleId);
                         sessionMap.put("validuser", true);
                         sessionMap.put("user", userInfo);
-
                         map.put("role", roleId);
                         map.put("validUser", true);
+                        map.put("user", userInfo);
 //                        ActionContext.getContext().getValueStack().push(map);
                         return "LOGIN";
                     } else {
-                        sessionMap.invalidate();
+                        getSessionMap().invalidate();
                         return "LOGINERROR";
                     }
                 }
 //                    HttpServletResponse response = (HttpServletResponse) ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
             } else {
-                sessionMap.invalidate();
+                getSessionMap().invalidate();
                 return "LOGINERROR";
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            sessionMap.invalidate();
+            getSessionMap().invalidate();
 
             return "LOGINERROR";
         }
+    }
+
+    public String registerFeedback() throws Exception {
+        setUserService(new UserService());
+
+        try {
+            setCtr(getUserService().registerFeedback(getFeedback(), getUsers_emalId()));
+            if (getCtr() > 0) {
+                setMsg("City Registered");
+            } else {
+                setMsg("Some error");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "REGISTERFEEDBACK";
     }
 
 //    public static void setCookie(HttpServletResponse response, String name, String value, int period) {
@@ -159,12 +174,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     }
 
     public String userLogout() throws Exception {
-
-        sessionMap.put("role", 0);
-        sessionMap.put("validUser", null);
-        sessionMap.put("user", null);
-        map.put("validUser", null);
-        map.put("role", 0);
 
         return "LOGOUT";
     }
@@ -335,5 +344,68 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setGeneratedOTP(String generatedOTP) {
         this.generatedOTP = generatedOTP;
+    }
+
+    /**
+     * @return the feedback
+     */
+    public String getFeedback() {
+        return feedback;
+    }
+
+    /**
+     * @param feedback the feedback to set
+     */
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
+    /**
+     * @return the users_emalId
+     */
+    public String getUsers_emalId() {
+        return users_emalId;
+    }
+
+    /**
+     * @param users_emalId the users_emalId to set
+     */
+    public void setUsers_emalId(String users_emalId) {
+        this.users_emalId = users_emalId;
+    }
+
+    /**
+     * @return the sessionMap
+     */
+    public SessionMap<String, Object> getSessionMap() {
+        return sessionMap;
+    }
+
+    /**
+     * @param sessionMap the sessionMap to set
+     */
+    public void setSessionMap(SessionMap<String, Object> sessionMap) {
+        this.sessionMap = sessionMap;
+    }
+
+    /**
+     * @return the map
+     */
+    public ApplicationMap getMap() {
+        return map;
+    }
+
+    /**
+     * @return the response
+     */
+    public HttpServletResponse getResponse() {
+        return response;
+    }
+
+    /**
+     * @param response the response to set
+     */
+    public void setResponse(HttpServletResponse response) {
+        this.response = response;
     }
 }

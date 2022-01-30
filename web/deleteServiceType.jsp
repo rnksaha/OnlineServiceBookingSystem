@@ -11,8 +11,9 @@
         <body>
             <div class="col-lg-9 regcontent-main">
                 <div class="content">
-                    <h2>Service Type Deleted</h2>
+                    <h2>
                     <span><s:property value="msg" /></span><br><br>
+                    </h2>
                 <a href="reportServiceType">
                     <button type="button">See Updated List of Service Types</button>
                 </a>

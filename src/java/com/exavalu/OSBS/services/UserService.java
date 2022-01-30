@@ -150,7 +150,6 @@ public class UserService {
             Transport.send(message);
             return 1;
         } catch (MessagingException e) {
-            e.printStackTrace();
             return i;
         } finally {
             return i;
@@ -179,7 +178,7 @@ public class UserService {
                 pinCodeList.add(city);
             }
             return pinCodeList;
-        } catch (Exception e) {
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -187,27 +186,40 @@ public class UserService {
             }
         }
     }
-//    public int addOrders(String name, String address, String phoneNo, double totalPrice, String users) throws Exception {
-//        int i = 0;
-//        Connection con = null;
-//        try {
-//            con = ConnectionManager.getConnection();
-//            String sql = "INSERT INTO servicetype VALUES (?,?,?,?)";
-//            PreparedStatement ps = con.prepareStatement(sql);
-//            ps.setString(1, type);
-//            ps.setDouble(2, price);
-//            ps.setInt(3, 1);
-//            ps.setInt(4, services_serviceId);
-//            System.out.println("SQL for insert=" + ps);
-//            i = ps.executeUpdate();
-//            return i;
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return i;
-//        } finally {
-//            if (con != null) {
-//                con.close();
-//            }
-//        }
-//    }
+    // place order insert into method
+    public int registerOrders(String name, String address, String phoneNo, double totalPrice, String users_emailId, String servicetype_type, int services_serviceId) throws Exception {
+        int i = 0;
+        try (Connection con = ConnectionManager.getConnection()) {
+            String sql = "INSERT INTO orders VALUES (?,?,?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, name);
+            ps.setString(2, address);
+            ps.setString(3, phoneNo);
+            ps.setDouble(4, totalPrice);
+            ps.setString(5, users_emailId);
+            ps.setString(6, servicetype_type);
+            ps.setInt(7, services_serviceId);
+            
+            System.out.println("SQL for insert=" + ps);
+            i = ps.executeUpdate();
+            return i;
+        } catch (SQLException e) {
+            return i;
+        }
+   }
+    //Feedback insert into table method
+    public int registerFeedback(String feedback, String users_emaiId) throws Exception {
+        int i = 0;
+        try (Connection con = ConnectionManager.getConnection()) {
+            String sql = "INSERT INTO feedback (feedback, users_emailId) VALUES (?, ?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(2, feedback);
+            ps.setString(3, users_emaiId);
+            System.out.println("SQL for insert=" + ps);
+            i = ps.executeUpdate();
+            return i;
+        } catch (SQLException e) {
+            return i;
+        }
+    }
 }

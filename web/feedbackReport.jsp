@@ -1,3 +1,9 @@
+<%-- 
+    Document   : feedbackReport
+    Created on : 30 Jan, 2022, 12:54:52 PM
+    Author     : rounak
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
@@ -29,37 +35,26 @@
         <body>
             <div class="col-lg-9 content-main">
                 <div class="content">
-                    <h2><u>City Report</u></h2>
+                    <h2><u>Feedback Report</u></h2>
 
                 <s:if test="noData==false">
 
                     <table>
-                        <thead>
-                            <tr>
-                                <th>City Name</th>
-                                <th>Pin Code</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
+                        <tr>
+                            <th>Feedback Id</th>
+                            <th>Feedback</th>
+                            <th>User Email</th>
+                        </tr>
 
                         <!-- iterator here-->
-                        <s:iterator value="cityList">
+                        <s:iterator value="feedbackList">
+
 
                             <tr>
-                                <td><s:property value="cityName" /></td>
-                                <td><s:property value="pinCode" /></td>
-                                <td><s:property value="status" /></td>
-                                <td>
-                                    <a href="disablePin.action?pinCode=<s:property value="pinCode"/>">
-                                        <button class="button-delete">Disable Pin</button>
-                                    </a>
-                                    <a href="enablePin.action?pinCode=<s:property value="pinCode"/>">
-                                        <button class="button-delete">Enable Pin</button>
-                                    </a>
-                                </td>
+                                <td><s:property value="feedbackId" /></td>
+                                <td><p><s:property value="feedback" /></p></td>
+                                <td><s:property value="users_emalId" /></td>
                             </tr>
-
                         </s:iterator>
                     </table>
                 </s:if>

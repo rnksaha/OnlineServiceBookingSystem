@@ -22,7 +22,7 @@
 
                             <div class="form-floating">
                                 <label for="floatingInput">Type</label>
-                                <input type="text" class="form-control" name="type" placeholder="Type" value='<s:property value="type"/>'>
+                                <input type="text" class="form-control" name="type" placeholder="Type" value='<s:property value="type"/>' readonly>
                         </div>
                         <div class="form-floating">
                             <label for="floatingInput">Price</label>
@@ -36,7 +36,7 @@
 
                         <div class="form-floating">
                             <label for="floatingInput">Service Id</label>
-                            <input type="text" class="form-control" name="services_serviceId" placeholder="Service Id" value='<s:property value="services_serviceId"/>'>
+                            <input type="text" class="form-control" name="services_serviceId" placeholder="Service Id" value='<s:property value="services_serviceId"/>' readonly>
                         </div>
 
                         <br>

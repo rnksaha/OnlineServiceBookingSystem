@@ -210,4 +210,19 @@ public class UserService {
 //            }
 //        }
 //    }
+    //Feedback insert into table method
+    public int registerFeedback(String feedback, String users_emaiId) throws Exception {
+        int i = 0;
+        try (Connection con = ConnectionManager.getConnection()) {
+            String sql = "INSERT INTO feedback (feedback, users_emailId) VALUES (?, ?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(2, feedback);
+            ps.setString(3, users_emaiId);
+            System.out.println("SQL for insert=" + ps);
+            i = ps.executeUpdate();
+            return i;
+        } catch (SQLException e) {
+            return i;
+        }
+    }
 }

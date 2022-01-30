@@ -12,6 +12,7 @@ package com.exavalu.OSBS.pojos;
 public class Feedback {
     private int feedbackId;
     private String feedback;
+    private String users_emalId;
 
     /**
      * @return the feedbackId
@@ -39,6 +40,20 @@ public class Feedback {
      */
     public void setFeedback(String feedback) {
         this.feedback = feedback;
+    }
+
+    /**
+     * @return the users_emalId
+     */
+    public String getUsers_emalId() {
+        return users_emalId;
+    }
+
+    /**
+     * @param users_emalId the users_emalId to set
+     */
+    public void setUsers_emalId(String users_emalId) {
+        this.users_emalId = users_emalId;
     }
     
 }

@@ -50,8 +50,8 @@
                         <div class="header-center-part text-center">
                         </div>
                         <div class="header-right text-right">
-                            <i class="far fa-envelope"></i>
-                            <i class="far fa-bell"></i>
+<!--                            <i class="far fa-envelope"></i>
+                            <i class="far fa-bell"></i>-->
                             <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 Admin
@@ -88,11 +88,8 @@
                                 <li class="sub-active"><a href="serviceTypeRegister.jsp"> Services Types</a></li>
                             </ul>
                         </li>
-                        <li class="main-sub-menu"><a href="#"><i class="fas fa-phone"></i> Contact <i class="fas fa-angle-right"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#"> sub Contact</a></li>
-                                <li><a href="#"> sub Contact</a></li>
-                            </ul>
+                        <li class="main-sub-menu"><a href="reportFeedback"><i class="fas fa-quote-left"></i> Feedback <i class="fas fa-angle-right"></i></a>
+           
                         </li>
                     </ul>
                 </div>

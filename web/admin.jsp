@@ -88,7 +88,7 @@
                                 <li class="sub-active"><a href="serviceTypeRegister.jsp"> Services Types</a></li>
                             </ul>
                         </li>
-                        <li class="main-sub-menu"><a href="feedbackReport.jsp"><i class="fas fa-phone"></i> Feedback <i class="fas fa-angle-right"></i></a>
+                        <li class="main-sub-menu"><a href="reportFeedback"><i class="fas fa-quote-left"></i> Feedback <i class="fas fa-angle-right"></i></a>
            
                         </li>
                     </ul>

@@ -52,7 +52,7 @@
 
                             <tr>
                                 <td><s:property value="feedbackId" /></td>
-                                <td><s:property value="feedback" /></td>
+                                <td><p><s:property value="feedback" /></p></td>
                                 <td><s:property value="users_emalId" /></td>
                             </tr>
                         </s:iterator>

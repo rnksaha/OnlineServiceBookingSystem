@@ -36,6 +36,9 @@
         <action name="getPinCodes" class="com.exavalu.OSBS.actions.UserAction" method="getPinCodes">
             <result name="PINCODES">/pincodes.jsp</result>
         </action>
+        <action name="registerFeedback" class="com.exavalu.OSBS.actions.UserAction" method="registerFeedback">
+            <result name="REGISTERFEEDBACK">/feedback.jsp</result>
+        </action>
         <action name="registerCity" class="com.exavalu.OSBS.actions.AdminAction" method="registerCity">
             <interceptor-ref name="authentication"/>            
             <result name="REGISTERCITY">/cityRegister.jsp</result>

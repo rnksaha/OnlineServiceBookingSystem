@@ -64,7 +64,6 @@
                 margin: 0px auto;
             }
             </style>
-         
 
         <section id="who-we-are" class="bg-white">
                

@@ -1,16 +1,10 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>--%>
 
 <!DOCTYPE html>
 <html>
-    <%
-        response.setHeader("Cache-Control", "no-cache");
-        response.setHeader("Cache-Control", "no-store");
-        response.setDateHeader("Expires", 0);
-        response.setHeader("Pragma", "no-cache");
-    %>
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible">
@@ -56,20 +50,6 @@
                     }
                 });
             }
-            function logout() {
-                $.ajax({
-                    type: "GET",
-                    url: "logoutuser",
-//                    data: "cityName=" + $("#selectedCity").val(),
-                    success: function (result) {
-                        alert("Logged Out");
-                    },
-                    error: function (xhr, errmsg) {
-                        alert("Error in logging out");
-                    }
-                });
-            }
-
         </script>
 
         <title>urbanware</title>
@@ -80,11 +60,11 @@
 
         <!-- setting variable for admin & client-->
 
-        <%--<c:set var = "role" scope = "session" value = "${sessionScope.role}"/>--%>
+    <c:set var = "role" scope = "session" value = "${sessionScope.users.roleId()}"/>
 
-        <!-- setting variable for admin & client ENDS HERE-->
+    <!-- setting variable for admin & client ENDS HERE-->
 
-    <body>
+    <body data-spy="scroll" data-target="#navbar" class="static-layout">
         <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center text-white" href="/">
@@ -98,23 +78,17 @@
 
 
                         <!-- Checking for admin only -->
-                        <c:if test="${sessioScope.role == 1}">
+                        <c:if test="${role == 1}">
                             <li class="nav-item">
-                                <a class="nav-link" href='admin.jsp' >Admin Panel</a>
+                                <a class="nav-link" href="admin.jsp" >Admin Panel</a>
                             </li>
                         </c:if>
                         <!-- Checking for admin only ENDS HERE -->
 
-                        <c:if test="${sessionScope.validUser == null}">
-                            <li class="nav-item">
-                                <a class="nav-link" href="signUp.jsp">Login/Sign up</a>
-                            </li>
-                        </c:if>
-                        <c:if test="${sessionScope.validUser == true}">
-                            <li class="nav-item">
-                                <a class="nav-link" href='logoutuser'>Logout</a>
-                            </li>
-                        </c:if>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="signUp.jsp">Login/Sign up</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="contact.jsp">Contact</a>
                         </li>
@@ -194,22 +168,158 @@
         <!-- End of Banner Section-->
 
         <!-- City and Pin Code Section-->
-        <div style="width:800px; margin:auto;">
+        <!--div style="width:800px; margin:auto;">
             <select onchange="getPinCodes()" id="selectedCity" name="selectedCity" class="form-select" aria-label="Default select example">
                 <option value="NA">
                     ----Select City Name----
                 </option>
-                <option value="Ranchi">Ranchi</option>
+                <option value="service.jsp">Ranchi</option>
                 <option value="Kolkata">Kolkata</option>
                 <option value="Delhi">Delhi</option>
             </select>
-        </div>
-        <div id="pindivid" style="width:800px; margin:auto;">
-        </div>
+        </div-->
+        <!--div id="pindivid" style="width:800px; margin:auto;">
+        </div-->
         <!-- End of City and Pin Code Section-->
 
         <!-- Services Section -->
-        
+        <section id="portfolio" class="bg-white">
+            <div class="container">
+                <div class="section-content">
+
+                    <!-- Section Title -->
+                    <div class="title-wrap">
+                        <h2 class="section-title">Services <b>We</b> Provide</h2>
+                    </div>
+                    <!-- End of Section Title -->
+
+                    <div class="row">
+                        <!-- Service Holder -->
+                        <div class="col-md-12 portfolio-holder mt-3">
+
+                            <!-- Portfolio Content -->
+                            <div class="grid-portfolio">
+                                <div class="grid-sizer"></div>
+                                <div class="gutter-sizer"></div>
+                                <!-- Portfolio Item -->
+                                <div class="grid-item minimalism" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-1.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+                                                <a class="ext-link" href="electrician.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Electricians</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <div class="grid-item vintage" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-6.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+
+                                                <a class="ext-link" href="plumber.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Plumber</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Services Section  -->
+
+
+                                <!-- Portfolio Item -->
+                                <div class="grid-item creative grid-item-height" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-2.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+                                                <a class="ext-link" href="salon.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a> 
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Salon</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <div class="grid-item creative" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-7.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+                                                <a class="ext-link" href="repair.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Repairs</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <div class="grid-item vintage" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-4.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+                                                <a class="ext-link" href="therapy.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>   
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Therapies</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <div class="grid-item creative" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-9.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+                                                <a class="ext-link" href="cleaning.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Cleaning and Pest Control</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of Portfolio Item -->
+                            </div>
+                            <!-- End of Portfolio Content -->
+                        </div>
+                        <!-- End of Portfolio Holder -->
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- End of Service Section -->
 
         <!-- Testimonial Section-->

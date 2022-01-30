@@ -91,7 +91,7 @@
         <action name="reportFeedback" class="com.exavalu.OSBS.actions.AdminAction" method="reportFeedback">
             <result name="REPORTFEEDBACK">/feedbackReport.jsp</result>
         </action>
-        <action name="registerFeedback" class="com.exavalu.OSBS.actions.UserActon" method="registerFeedback">
+        <action name="registerFeedback" class="com.exavalu.OSBS.actions.UserAction" method="registerFeedback">
             <result name="REGISTERFEEDBACK">/feedback.jsp</result>
         </action>    
     </package>

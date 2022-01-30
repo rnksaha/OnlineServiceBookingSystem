@@ -38,8 +38,7 @@
         <action name="registerFeedback" class="com.exavalu.OSBS.actions.UserAction" method="registerFeedback">
             <result name="REGISTERFEEDBACK">/feedback.jsp</result>
         </action>
-        <action name="registerCity" class="com.exavalu.OSBS.actions.AdminAction" method="registerCity">
-            <interceptor-ref name="authentication"/>            
+        <action name="registerCity" class="com.exavalu.OSBS.actions.AdminAction" method="registerCity">           
             <result name="REGISTERCITY">/cityRegister.jsp</result>
         </action>
         <action name="disablePin" class="com.exavalu.OSBS.actions.AdminAction" method="disablePin">

@@ -34,7 +34,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     // Feedback Prameters
     private String feedback;
-    
+
     //Orders Parameters
     private String name;
     private String address;
@@ -43,8 +43,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String users_emailId;
     private String servicetype_type;
     private int services_serviceId;
-
-
 
     private String msg = "";
     private User user = new User();
@@ -152,7 +150,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         }
         return "REGISTERFEEDBACK";
     }
-     public String registerOrders() throws Exception {
+    public String registerOrders() throws Exception {
         setUserService(new UserService());
 
         try {

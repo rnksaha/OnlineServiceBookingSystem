@@ -110,7 +110,7 @@
                 
                <p>Give your feedback.</p>
                 <a href="" class="#">
-                    <a href="feedback.jsp"><button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Feedback</button></a>
+                    <a href="feedback"><button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Feedback</button></a>
                 </a>
             </div>
         </div>

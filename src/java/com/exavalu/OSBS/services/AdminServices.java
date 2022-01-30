@@ -7,6 +7,7 @@ package com.exavalu.OSBS.services;
 
 import com.exavalu.OSBS.core.ConnectionManager;
 import com.exavalu.OSBS.pojos.City;
+import com.exavalu.OSBS.pojos.Feedback;
 import com.exavalu.OSBS.pojos.Orders;
 import com.exavalu.OSBS.pojos.Service;
 import com.exavalu.OSBS.pojos.ServiceType;
@@ -26,9 +27,7 @@ public class AdminServices {
 
     public int registerCity(int pinCode, String cityName) throws Exception {
         int i = 0;
-        Connection con = null;
-        try {
-            con = ConnectionManager.getConnection();
+        try (Connection con = ConnectionManager.getConnection()) {
             String sql = "INSERT INTO cities VALUES (?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, pinCode);
@@ -37,13 +36,8 @@ public class AdminServices {
             System.out.println("SQL for insert=" + ps);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return i;
-        } finally {
-            if (con != null) {
-                con.close();
-            }
         }
     }
     
@@ -56,8 +50,7 @@ public class AdminServices {
             ps.setInt(1, pinCode);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 0;
         } finally {
             if (con != null) {
@@ -104,8 +97,7 @@ public class AdminServices {
                 cityList.add(city);
             }
             return cityList;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -139,8 +131,7 @@ public class AdminServices {
                 orderList.add(order);
             }
             return orderList;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -151,9 +142,7 @@ public class AdminServices {
 
     public int registerServiceType(int services_serviceId, String type, double price) throws Exception {
         int i = 0;
-        Connection con = null;
-        try {
-            con = ConnectionManager.getConnection();
+        try (Connection con = ConnectionManager.getConnection()) {
             String sql = "INSERT INTO servicetype VALUES (?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, type);
@@ -163,13 +152,8 @@ public class AdminServices {
             System.out.println("SQL for insert=" + ps);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return i;
-        } finally {
-            if (con != null) {
-                con.close();
-            }
         }
     }
 
@@ -182,8 +166,7 @@ public class AdminServices {
             ps.setString(1, type);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 0;
         } finally {
             if (con != null) {
@@ -213,8 +196,7 @@ public class AdminServices {
                 serviceTypeList.add(serviceType);
             }
             return serviceTypeList;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -246,8 +228,7 @@ public class AdminServices {
 
             }
             return serviceType;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -270,8 +251,7 @@ public class AdminServices {
             System.out.println("Select SQL = " + ps);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 0;
         } finally {
             if (con != null) {
@@ -300,8 +280,7 @@ public class AdminServices {
                 userList.add(user);
             }
             return userList;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -319,8 +298,7 @@ public class AdminServices {
             ps.setString(1, emailId);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 0;
         } finally {
             if (con != null) {
@@ -350,9 +328,7 @@ public class AdminServices {
 
     public int registerService(String serviceName, int pinCode) throws Exception {
         int i = 0;
-        Connection con = null;
-        try {
-            con = ConnectionManager.getConnection();
+        try (Connection con = ConnectionManager.getConnection()) {
             String sql = "INSERT INTO services (serviceName, pinCode, status) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, serviceName);
@@ -361,13 +337,8 @@ public class AdminServices {
             System.out.println("SQL for insert=" + ps);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return i;
-        } finally {
-            if (con != null) {
-                con.close();
-            }
         }
     }
 
@@ -392,8 +363,7 @@ public class AdminServices {
                 serviceList.add(service);
             }
             return serviceList;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -467,6 +437,34 @@ public class AdminServices {
             return i;
         } catch (SQLException e) {
             return 0;
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
+    //Feedback List Show 
+    public List reportFeedback() throws SQLException, Exception {
+        ResultSet rs = null;
+        Connection con = null;
+        List<Feedback> feedbackList = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM feedback";
+            con = ConnectionManager.getConnection();
+            System.out.println("Connection is " + con);
+            PreparedStatement ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+
+                Feedback feedback = new Feedback();
+                feedback.setFeedbackId(rs.getInt("feedbackId"));
+                feedback.setFeedback(rs.getString("feedback"));
+                feedback.setUsers_emalId(rs.getString("users_emailId"));
+                feedbackList.add(feedback);
+            }
+            return feedbackList;
+        } catch (SQLException e) {
+            return null;
         } finally {
             if (con != null) {
                 con.close();

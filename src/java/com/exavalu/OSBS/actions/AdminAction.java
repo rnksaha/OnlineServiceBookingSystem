@@ -52,6 +52,12 @@ public class AdminAction extends ActionSupport {
     private int serviceId;
     private List<Service> serviceList = null;
     
+    //Feedback Parameters
+    private int feedbackId;
+    private String feedback;
+    private String users_emalId;
+    private List<Feedback> feedbackList = null;
+    
     public String registerCity() throws Exception {
         setAdminServices(new AdminServices());
 
@@ -343,6 +349,25 @@ public class AdminAction extends ActionSupport {
         return "UPDATESERVICE";
     }
     
+    public String reportFeedback() throws Exception {
+        setAdminServices(new AdminServices());
+        try {
+            setFeedbackList(new ArrayList<>());
+            setFeedbackList(getAdminServices().reportFeedback());
+
+            if (!feedbackList.isEmpty()) {
+                setNoData(false);
+                System.out.println("Feedbacks retrieved = " + getFeedbackList().size());
+                System.out.println("setting nodata=false");
+            } else {
+                setNoData(true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "REPORTFEEDBACK";
+    }
+    
     
     /**
      * @return the ctr
@@ -608,6 +633,62 @@ public class AdminAction extends ActionSupport {
      */
     public void setServiceId(int serviceId) {
         this.serviceId = serviceId;
+    }
+
+    /**
+     * @return the feedbackId
+     */
+    public int getFeedbackId() {
+        return feedbackId;
+    }
+
+    /**
+     * @param feedbackId the feedbackId to set
+     */
+    public void setFeedbackId(int feedbackId) {
+        this.feedbackId = feedbackId;
+    }
+
+    /**
+     * @return the feedback
+     */
+    public String getFeedback() {
+        return feedback;
+    }
+
+    /**
+     * @param feedback the feedback to set
+     */
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
+    }
+
+    /**
+     * @return the users_emalId
+     */
+    public String getUsers_emalId() {
+        return users_emalId;
+    }
+
+    /**
+     * @param users_emalId the users_emalId to set
+     */
+    public void setUsers_emalId(String users_emalId) {
+        this.users_emalId = users_emalId;
+    }
+
+    /**
+     * @return the feedbackList
+     */
+    public List<Feedback> getFeedbackList() {
+        return feedbackList;
+    }
+
+    /**
+     * @param feedbackList the feedbackList to set
+     */
+    public void setFeedbackList(List<Feedback> feedbackList) {
+        this.feedbackList = feedbackList;
     }
 
 }

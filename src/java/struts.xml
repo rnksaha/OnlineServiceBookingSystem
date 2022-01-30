@@ -96,6 +96,9 @@
         </action>
         <action name="registerFeedback" class="com.exavalu.OSBS.actions.UserAction" method="registerFeedback">
             <result name="REGISTERFEEDBACK">/feedback.jsp</result>
+        </action> 
+        <action name="registerOrders" class="com.exavalu.OSBS.actions.UserAction" method="registerOrders">
+            <result name="REGISTERORDERS">/feedback.jsp</result>
         </action>    
     </package>
 </struts>

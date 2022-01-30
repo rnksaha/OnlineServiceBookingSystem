@@ -34,6 +34,15 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     // Feedback Prameters
     private String feedback;
     private String users_emalId;
+    
+    //Orders Parameters
+    private String name;
+    private String address;
+    private String phoneNo;
+    private double totalPrice;
+    private String users_emailId;
+    private String servicetype_type;
+    private int services_serviceId;
 
 
 
@@ -136,7 +145,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         try {
             setCtr(getUserService().registerFeedback(getFeedback(), getUsers_emalId()));
             if (getCtr() > 0) {
-                setMsg("City Registered");
+                setMsg("Feedback Registered");
             } else {
                 setMsg("Some error");
             }
@@ -144,6 +153,21 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             e.printStackTrace();
         }
         return "REGISTERFEEDBACK";
+    }
+     public String registerOrders() throws Exception {
+        setUserService(new UserService());
+
+        try {
+            setCtr(getUserService().registerOrders(getName(), getAddress(),getPhoneNo(), getTotalPrice(), getUsers_emalId(), getServicetype_type(),getServices_serviceId()));
+            if (getCtr() > 0) {
+                setMsg("Order Registered");
+            } else {
+                setMsg("Some error");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "REGISTERORDERS";
     }
 
 //    public static void setCookie(HttpServletResponse response, String name, String value, int period) {
@@ -412,5 +436,103 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setResponse(HttpServletResponse response) {
         this.response = response;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the address
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * @param address the address to set
+     */
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    /**
+     * @return the phoneNo
+     */
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    /**
+     * @param phoneNo the phoneNo to set
+     */
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    /**
+     * @return the totalPrice
+     */
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    /**
+     * @param totalPrice the totalPrice to set
+     */
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    /**
+     * @return the users_emailId
+     */
+    public String getUsers_emailId() {
+        return users_emailId;
+    }
+
+    /**
+     * @param users_emailId the users_emailId to set
+     */
+    public void setUsers_emailId(String users_emailId) {
+        this.users_emailId = users_emailId;
+    }
+
+    /**
+     * @return the servicetype_type
+     */
+    public String getServicetype_type() {
+        return servicetype_type;
+    }
+
+    /**
+     * @param servicetype_type the servicetype_type to set
+     */
+    public void setServicetype_type(String servicetype_type) {
+        this.servicetype_type = servicetype_type;
+    }
+
+    /**
+     * @return the services_serviceId
+     */
+    public int getServices_serviceId() {
+        return services_serviceId;
+    }
+
+    /**
+     * @param services_serviceId the services_serviceId to set
+     */
+    public void setServices_serviceId(int services_serviceId) {
+        this.services_serviceId = services_serviceId;
     }
 }

@@ -46,6 +46,9 @@
         <action name="enablePin" class="com.exavalu.OSBS.actions.AdminAction" method="enablePin">
             <result name="ENABLEPIN">/disablePin.jsp</result>
         </action>
+        <action name="enablePin" class="com.exavalu.OSBS.actions.AdminAction" method="enablePin">
+            <result name="ENABLEPIN">/disablePin.jsp</result>
+        </action>
         <action name="reportCity" class="com.exavalu.OSBS.actions.AdminAction" method="reportCity">
             <result name="REPORTCITY">/cityReport.jsp</result>
         </action>

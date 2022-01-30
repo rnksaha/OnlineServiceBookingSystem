@@ -36,30 +36,28 @@
 
 
     <body>
-    <c:out value="${applicationScope.validUser}"/>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 col-sm-12 col-12 header-part">
-                <div class="row">
-                    <div class="text-center logo-part">
-                        <h1>Admin Board</h1>
-                    </div>
-
-                    <div class="header-center-part text-center">
-                    </div>
-                    <div class="header-right text-right">
-                        <i class="far fa-envelope"></i>
-                        <i class="far fa-bell"></i>
-                        <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46">
-                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                            Admin
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="logoutuser">Log Out</a>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12 col-12 header-part">
+                    <div class="row">
+                        <div class="text-center logo-part">
+                            <h1>Admin Board</h1>
                         </div>
+                        <div class="header-center-part text-center">
+                        </div>
+                        <div class="header-right text-right">
+                            <!--                            <i class="far fa-envelope"></i>
+                                                        <i class="far fa-bell"></i>-->
+                            <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                Admin
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="logoutuser">Log Out</a>
+                            </div>
+                        </div>
+                        <div style="clear:both;"></div>
                     </div>
-                    <div style="clear:both;"></div>
-
                 </div>
             </div>
             <div class="row">

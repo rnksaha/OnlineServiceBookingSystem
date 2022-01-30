@@ -35,6 +35,10 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String feedback;
     private String users_emalId;
 
+    // Feedback Prameters
+    private String feedback;
+    private String users_emalId;
+
     private String msg = "";
     private User user = new User();
     private int ctr = 0;
@@ -82,9 +86,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         setGeneratedOTP((String) getSessionMap().get("otp"));
         setReceiverEmail((String) getSessionMap().get("email"));
         boolean admin = false;
-        setGeneratedOTP((String) sessionMap.get("otp"));
-        setReceiverEmail((String) sessionMap.get("email"));
-
         try {
             if (getGeneratedOTP().equals(getOtp()) && (getOtp() != null) && getEmailId().equals(getReceiverEmail()) && (getEmailId() != null)) {
 
@@ -92,6 +93,12 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 User userInfo = getUserService().fetchUserDetails(getEmailId());
                 if (userInfo != null) {
                     int roleId = userInfo.getRoleId();
+                    getMap().put("role", roleId);
+                    getMap().put("validUser", true);
+                    getMap().put("user", userInfo);
+                    map.put("role", roleId);
+                    map.put("validUser", true);
+                    map.put("user", userInfo);
                     return "LOGIN";
                 } else {
                     int i = getUserService().registerUser(getEmailId());

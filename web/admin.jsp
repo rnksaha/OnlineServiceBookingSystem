@@ -50,8 +50,8 @@
                         <div class="header-center-part text-center">
                         </div>
                         <div class="header-right text-right">
-                            <i class="far fa-envelope"></i>
-                            <i class="far fa-bell"></i>
+<!--                            <i class="far fa-envelope"></i>
+                            <i class="far fa-bell"></i>-->
                             <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 Admin

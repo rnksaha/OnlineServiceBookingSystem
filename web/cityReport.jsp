@@ -4,32 +4,32 @@
 <html>
     <head>
         <jsp:include page="admin.jsp"></jsp:include>
-        <style>
-            table {
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
+            <style>
+                table {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                }
 
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-            }
+                td, th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
 
-            tr:nth-child(even) {
-                background-color: #dddddd;
-            }
+                tr:nth-child(even) {
+                    background-color: #dddddd;
+                }
 
-            h2{
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="col-lg-9 content-main">
-            <div class="content">
-                <h2><u>City Report</u></h2>
+                h2{
+                    text-align: center;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="col-lg-9 content-main">
+                <div class="content">
+                    <h2><u>City Report</u></h2>
 
                 <s:if test="noData==false">
 
@@ -53,6 +53,9 @@
                                 <td>
                                     <a href="disablePin.action?pinCode=<s:property value="pinCode"/>">
                                         <button class="button-delete">Disable Pin</button>
+                                    </a>
+                                    <a href="enablePin.action?pinCode=<s:property value="pinCode"/>">
+                                        <button class="button-delete">Enable Pin</button>
                                     </a>
                                 </td>
                             </tr>

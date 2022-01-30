@@ -11,8 +11,9 @@
         <body>
             <div class="col-lg-9 regcontent-main">
                 <div class="content">
-                    <h2>Service Deleted</h2>
+                    <h2>
                     <span><s:property value="msg" /></span><br><br>
+                    </h2>
                 <a href="reportService">
                     <button type="button">See Updated List of Services</button>
                 </a>

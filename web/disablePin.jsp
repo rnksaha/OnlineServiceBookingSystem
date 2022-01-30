@@ -11,10 +11,11 @@
         <body>
             <div class="col-lg-9 regcontent-main">
                 <div class="content">
-                    <h2>Pin Disabled</h2>
+                    <h2>
                     <span><s:property value="msg" /></span><br><br>
+                    </h2>
                 <a href="reportCity">
-                    <button type="button">Report City</button>
+                    <button type="button">See Updated List of Cities</button>
                 </a>
             </div>
         </div>

@@ -66,6 +66,25 @@ public class AdminServices {
         }
     }
     
+    public int enablePin(int pinCode) throws Exception {
+        Connection con = ConnectionManager.getConnection();
+        int i = 0;
+        try {
+            String sql = "UPDATE cities SET status = 1 WHERE pinCode = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, pinCode);
+            i = ps.executeUpdate();
+            return i;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
+    
     public List reportCity() throws SQLException, Exception {
         ResultSet rs = null;
         Connection con = null;
@@ -266,7 +285,7 @@ public class AdminServices {
         Connection con = null;
         List<User> userList = new ArrayList<>();
         try {
-            String sql = "SELECT emailId, roleId, status FROM users";
+            String sql = "SELECT emailId, roleId, status FROM users WHERE roleId=2";
             con = ConnectionManager.getConnection();
             System.out.println("Connection is " + con);
             PreparedStatement ps = con.prepareStatement(sql);
@@ -296,6 +315,25 @@ public class AdminServices {
         int i = 0;
         try {
             String sql = "UPDATE users SET status = 0 WHERE emailId = ?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, emailId);
+            i = ps.executeUpdate();
+            return i;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return 0;
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
+    
+    public int enableUserDetails(String emailId) throws SQLException, Exception {
+        Connection con = ConnectionManager.getConnection();
+        int i = 0;
+        try {
+            String sql = "UPDATE users SET status = 1 WHERE emailId = ?";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, emailId);
             i = ps.executeUpdate();

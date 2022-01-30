@@ -33,6 +33,9 @@
         <action name="disablePin" class="com.exavalu.OSBS.actions.AdminAction" method="disablePin">
             <result name="DISABLEPIN">/disablePin.jsp</result>
         </action>
+        <action name="enablePin" class="com.exavalu.OSBS.actions.AdminAction" method="enablePin">
+            <result name="ENABLEPIN">/disablePin.jsp</result>
+        </action>
         <action name="reportCity" class="com.exavalu.OSBS.actions.AdminAction" method="reportCity">
             <result name="REPORTCITY">/cityReport.jsp</result>
         </action>
@@ -56,6 +59,9 @@
         </action>
         <action name="deleteUser" class="com.exavalu.OSBS.actions.AdminAction" method="deleteUser">
             <result name="DELETEUSER">/deleteUser.jsp</result>
+        </action>
+        <action name="enableUser" class="com.exavalu.OSBS.actions.AdminAction" method="enableUser">
+            <result name="ENABLEUSER">/deleteUser.jsp</result>
         </action>
         <action name="registerService" class="com.exavalu.OSBS.actions.AdminAction" method="registerService">
             <result name="REGISTERSERVICE">/servicesRegister.jsp</result>

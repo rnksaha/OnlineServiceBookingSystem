@@ -6,6 +6,7 @@
 package com.exavalu.OSBS.actions;
 
 import com.exavalu.OSBS.pojos.City;
+import com.exavalu.OSBS.pojos.Feedback;
 import com.exavalu.OSBS.pojos.Orders;
 import com.exavalu.OSBS.pojos.Service;
 import com.exavalu.OSBS.pojos.ServiceType;
@@ -81,6 +82,22 @@ public class AdminAction extends ActionSupport {
             e.printStackTrace();
         }
         return "DISABLEPIN";
+    }
+    
+    public String enablePin() throws Exception {
+        setAdminServices(new AdminServices());
+
+        try {
+            setCtr(getAdminServices().enablePin(getPinCode()));
+            if (getCtr() > 0) {
+                setMsg("Pin Code enabled");
+            } else {
+                setMsg("Some error");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "ENABLEPIN";
     }
     
     public String reportCity() throws Exception {
@@ -233,6 +250,21 @@ public class AdminAction extends ActionSupport {
         return "DELETEUSER";
     }
     
+    public String enableUser() throws Exception {
+        setAdminServices(new AdminServices());
+        try {
+            int isDeleted = getAdminServices().enableUserDetails(getEmailId());
+            if (isDeleted > 0) {
+                setMsg("User enabled successfully");
+            } else {
+                setMsg("Some error");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "ENABLEUSER";
+    }
+    
     public String registerService() throws Exception {
         setAdminServices(new AdminServices());
 
@@ -311,7 +343,7 @@ public class AdminAction extends ActionSupport {
         return "UPDATESERVICE";
     }
     
-
+    
     /**
      * @return the ctr
      */
@@ -577,5 +609,5 @@ public class AdminAction extends ActionSupport {
     public void setServiceId(int serviceId) {
         this.serviceId = serviceId;
     }
-    
+
 }

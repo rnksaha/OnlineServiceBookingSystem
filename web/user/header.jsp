@@ -71,10 +71,10 @@
                             </li>
                         </c:if>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.jsp">Contact</a>
+                            <a class="nav-link" href="contact">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.jsp">About</a>
+                            <a class="nav-link" href="about">About</a>
                         </li>
                         <li class="nav-item">
                             <a id="side-search-open" class="nav-link" href="#">

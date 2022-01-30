@@ -53,7 +53,7 @@
 
 
                         <!-- Checking for admin only -->
-                        <c:if test="${sessionScope.role == 1}">
+                        <c:if test="${applicationScope.role == 1}">
                             <li class="nav-item">
                                 <a class="nav-link" href='admin' >Admin Panel</a>
                             </li>

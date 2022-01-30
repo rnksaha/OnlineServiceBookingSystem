@@ -35,7 +35,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     // Feedback Prameters
     private String feedback;
     private String users_emalId;
-    
+
     //Orders Parameters
     private String name;
     private String address;
@@ -44,8 +44,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String users_emailId;
     private String servicetype_type;
     private int services_serviceId;
-
-
 
     private String msg = "";
     private User user = new User();
@@ -154,11 +152,12 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         }
         return "REGISTERFEEDBACK";
     }
-     public String registerOrders() throws Exception {
+
+    public String registerOrders() throws Exception {
         setUserService(new UserService());
 
         try {
-            setCtr(getUserService().registerOrders(getName(), getAddress(),getPhoneNo(), getTotalPrice(), getUsers_emalId(), getServicetype_type(),getServices_serviceId()));
+            setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getTotalPrice(), getUsers_emalId(), getServicetype_type(), getServices_serviceId()));
             if (getCtr() > 0) {
                 setMsg("Order Registered");
             } else {

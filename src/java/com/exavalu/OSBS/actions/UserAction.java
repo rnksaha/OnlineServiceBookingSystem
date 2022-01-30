@@ -35,9 +35,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String feedback;
     private String users_emalId;
 
-    // Feedback Prameters
-    private String feedback;
-    private String users_emalId;
+
 
     private String msg = "";
     private User user = new User();

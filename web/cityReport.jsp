@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%--<jsp:include page="admin.jsp"></jsp:include>--%>
+        <jsp:include page="admin.jsp"></jsp:include>
         <style>
             table {
                 font-family: arial, sans-serif;
@@ -27,40 +27,44 @@
         </style>
     </head>
     <body>
-        
-        <h2><u>City Report</u></h2>
+        <div class="col-lg-9 content-main">
+            <div class="content">
+                <h2><u>City Report</u></h2>
 
-        <s:if test="noData==false">
+                <s:if test="noData==false">
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>City Name</th>
-                        <th>Pin Code</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>City Name</th>
+                                <th>Pin Code</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
 
-                <!-- iterator here-->
-                <s:iterator value="cityList">
+                        <!-- iterator here-->
+                        <s:iterator value="cityList">
 
-                    <tr>
-                        <td><s:property value="cityName" /></td>
-                        <td><s:property value="pinCode" /></td>
-                        <td><s:property value="status" /></td>
-                        <td>
-                            <a href="disablePin.action?pinCode=<s:property value="pinCode"/>">
-                                <button class="button-delete">Disable Pin</button>
-                            </a>
-                        </td>
-                    </tr>
-                    
-                </s:iterator>
-            </table>
-        </s:if>
-        <s:else>
-            <div style="color: red;">No Data Found.</div>
-        </s:else>
-        <br>
+                            <tr>
+                                <td><s:property value="cityName" /></td>
+                                <td><s:property value="pinCode" /></td>
+                                <td><s:property value="status" /></td>
+                                <td>
+                                    <a href="disablePin.action?pinCode=<s:property value="pinCode"/>">
+                                        <button class="button-delete">Disable Pin</button>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </s:iterator>
+                    </table>
+                </s:if>
+                <s:else>
+                    <div style="color: red;">No Data Found.</div>
+                </s:else>
+                <br>
+            </div>
+        </div>
     </body>
 </html>

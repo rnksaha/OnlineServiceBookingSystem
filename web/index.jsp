@@ -5,12 +5,7 @@
 
 <!DOCTYPE html>
 <html>
-    <%
-        response.setHeader("Cache-Control", "no-cache");
-        response.setHeader("Cache-Control", "no-store");
-        response.setDateHeader("Expires", 0);
-        response.setHeader("Pragma", "no-cache");
-    %>
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible">
@@ -56,19 +51,7 @@
                     }
                 });
             }
-            function logout() {
-                $.ajax({
-                    type: "GET",
-                    url: "logoutuser",
-//                    data: "cityName=" + $("#selectedCity").val(),
-                    success: function (result) {
-                        alert("Logged Out");
-                    },
-                    error: function (xhr, errmsg) {
-                        alert("Error in logging out");
-                    }
-                });
-            }
+            
 
         </script>
 
@@ -81,91 +64,13 @@
         <!-- setting variable for admin & client-->
 
         <%--<c:set var = "role" scope = "session" value = "${sessionScope.role}"/>--%>
-
+        <%--<c:set var = "validUser" scope = "session" value = "${sessionScope.validUser}"/>--%>
+        <%--<c:set var = "role" scope = "session" value = "${sessionScope.role}"/>--%>
         <!-- setting variable for admin & client ENDS HERE-->
 
     <body>
-        <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
-            <div class="container">
-                <a class="navbar-brand d-flex align-items-center text-white" href="/">
-                    <h3 class="font-weight-bolder mb-0">URBAN WARE</h3>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="lnr lnr-menu"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbar-nav-header">
-                    <ul class="navbar-nav ml-auto">
+        <jsp:include page="header.jsp" ></jsp:include>
 
-
-                        <!-- Checking for admin only -->
-                        <c:if test="${sessioScope.role == 1}">
-                            <li class="nav-item">
-                                <a class="nav-link" href='admin.jsp' >Admin Panel</a>
-                            </li>
-                        </c:if>
-                        <!-- Checking for admin only ENDS HERE -->
-
-                        <c:if test="${sessionScope.validUser == null}">
-                            <li class="nav-item">
-                                <a class="nav-link" href="signUp.jsp">Login/Sign up</a>
-                            </li>
-                        </c:if>
-                        <c:if test="${sessionScope.validUser == true}">
-                            <li class="nav-item">
-                                <a class="nav-link" href='logoutuser'>Logout</a>
-                            </li>
-                        </c:if>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.jsp">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.jsp">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a id="side-search-open" class="nav-link" href="#">
-                                <span class="lnr lnr-magnifier"></span>
-                            </a>
-                        </li>
-                        <li class="nav-item only-desktop">
-                            <a class="nav-link" id="side-nav-open" href="#">
-                                <span class="fa fa-shopping-cart"></span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <!-- Cart-->
-        <div id="side-nav" class="sidenav">
-            <a href="javascript:void(0)" id="side-nav-close">&times;</a>
-            <div class="sidenav-content">
-                <p>
-                    Cart details here.
-                </p>
-            </div>
-        </div>
-
-
-        <!-- search-->
-        <div id="side-search" class="sidenav">
-            <a href="javascript:void(0)" id="side-search-close">&times;</a>
-            <div class="sidenav-content">
-                <form action="">
-                    <div class="input-group md-form form-sm form-2 pl-0">
-                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="input-group-text red lighten-3" id="basic-text1">
-                                <span class="lnr lnr-magnifier"></span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>	
-
-
-        <!-- Banner part-->
         <div class="jumbotron d-flex align-items-center">
             <div class="container text-center">
                 <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
@@ -190,7 +95,6 @@
                 <img src="img/obj_triangle.png" alt="">
             </div>
         </div>
-
         <!-- End of Banner Section-->
 
         <!-- City and Pin Code Section-->

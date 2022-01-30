@@ -50,7 +50,7 @@ background-color:#212C2E;
 color:#fff;
 width:20%;
 top:50px;
-height:625px;
+height:825px;
 position: fixed !important;
 overflow-y:auto;
 }
@@ -82,7 +82,11 @@ padding-left:40px;
 background-color:#1a2732;
 }
 .content-main{
-margin:51px 275px;
+margin:51px 345px;
+padding:15px;
+}
+.regcontent-main{
+margin:181px 345px;
 padding:15px;
 }
 .fa-angle-right{

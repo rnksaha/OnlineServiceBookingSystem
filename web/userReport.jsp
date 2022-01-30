@@ -3,64 +3,67 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <%--<jsp:include page="admin.jsp"></jsp:include>--%>
-        <style>
-            table {
-                font-family: arial, sans-serif;
-                border-collapse: collapse;
-                width: 100%;
-            }
+        <jsp:include page="admin.jsp"></jsp:include>
+            <style>
+                table {
+                    font-family: arial, sans-serif;
+                    border-collapse: collapse;
+                    width: 100%;
+                }
 
-            td, th {
-                border: 1px solid #dddddd;
-                text-align: left;
-                padding: 8px;
-            }
+                td, th {
+                    border: 1px solid #dddddd;
+                    text-align: left;
+                    padding: 8px;
+                }
 
-            tr:nth-child(even) {
-                background-color: #dddddd;
-            }
+                tr:nth-child(even) {
+                    background-color: #dddddd;
+                }
 
-            h2{
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        
-        <h2><u>User Report</u></h2>
+                h2{
+                    text-align: center;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="col-lg-9 content-main">
+                <div class="content">
+                    <h2><u>User Report</u></h2>
 
-        <s:if test="noData==false">
+                <s:if test="noData==false">
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>User Emails</th>
-                        <th>User Role Id</th>
-                        <th>User Status</th>
-                    </tr>
-                </thead>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User Emails</th>
+                                <th>User Role Id</th>
+                                <th>User Status</th>
+                            </tr>
+                        </thead>
 
-                <!-- iterator here-->
-                <s:iterator value="userList">
+                        <!-- iterator here-->
+                        <s:iterator value="userList">
 
-                    <tr>
-                        <td><s:property value="emailId" /></td>
-                        <td><s:property value="roleId" /></td>
-                        <td><s:property value="status" /></td>
-                        <td>
-                            <a href="deleteUser.action?emailId=<s:property value="emailId"/>">
-                                <button class="button-delete">Delete User</button>
-                            </a>
-                        </td>
-                    </tr>
-                    
-                </s:iterator>
-            </table>
-        </s:if>
-        <s:else>
-            <div style="color: red;">No Data Found.</div>
-        </s:else>
-        <br>
+                            <tr>
+                                <td><s:property value="emailId" /></td>
+                                <td><s:property value="roleId" /></td>
+                                <td><s:property value="status" /></td>
+                                <td>
+                                    <a href="deleteUser.action?emailId=<s:property value="emailId"/>">
+                                        <button class="button-delete">Delete User</button>
+                                    </a>
+                                </td>
+                            </tr>
+
+                        </s:iterator>
+                    </table>
+                </s:if>
+                <s:else>
+                    <div style="color: red;">No Data Found.</div>
+                </s:else>
+                <br>
+            </div>
+        </div>
     </body>
 </html>

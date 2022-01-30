@@ -81,8 +81,7 @@
                             <img class="rounded-circle" src="img/icons/animat-responsive.gif" alt="Generic placeholder image" width="140" height="140">
                             <h5 class="mb-4">24*7 Customer Support</h5>
                             <p>We are here for you 24/7.</p>
-                            <p>Email: urbanwareservice@gmail.com</p>
-                            <p>Contact No :+91-11-40517847.</p>
+                            
                             <!--p><a class="btn btn-link" href="#" role="button">View details</a></p-->
                         </div>
                         <!-- /.col-md-4 col-sm-6  -->
@@ -91,101 +90,68 @@
                 </div>
             </div>
         </section>	
+                <div class="map">
+                        
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282235.484855779!2d73.72320398541731!3d20.750205458384034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1643520056852!5m2!1sen!2sin"  width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                
 
-        <!--section id="skills" class="bg-white">
-           <div class="container">
-               <div class="section-content pt-0">
-                   
-                   <div class="row">
-                       <div class="col-md-6" data-aos="fade-right">
-        <!-- Skill Item -->
-        <!--div class="skill-item">
-            <div class="d-flex justify-content-between">
-                 <p>HTML5</p>
-                <p class="text-muted">90%</p>
-            </div>
-            <div class="progress" data-percent="90%">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 0"></div>
-            </div>
-        </div>
-        <!-- End Skill Item -->
-        <!-- Skill Item -->
-        <!--div class="skill-item">
-            <div class="d-flex justify-content-between">
-                <p>CSS3</p>
-                <p class="text-muted">85%</p>
-            </div>
-             <div class="progress" data-percent="85%">
-                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 0"></div>
-            </div>
-        </div>
-        <!-- End Skill Item -->
-        <!-- Skill Item -->
-        <!--div class="skill-item">
-            <div class="d-flex justify-content-between">
-                <p>JQUERY</p>
-                <p class="text-muted">73%</p>
-            </div>
-             <div class="progress" data-percent="73%">
-                <div class="progress-bar" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="width: 0"></div>
-            </div>
-        </div>
-        <!-- End Skill Item -->
-    </div-->
-    <!--div class="col-md-6" data-aos="fade-left">
-    <!-- Skill Item -->
-    <!--div class="skill-item">
-        <div class="d-flex justify-content-between">
-            <p>Adobe Photoshop</p>
-            <p class="text-muted">80%</p>
-        </div>
-         <div class="progress" data-percent="80%">
-            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 0"></div>
-        </div>
-    </div>
-    <!-- End Skill Item -->
-    <!-- Skill Item -->
-    <!--div class="skill-item">
-        <div class="d-flex justify-content-between">
-            <p>Adobe Illustrator</p>
-            <p class="text-muted">60%</p>
-        </div>
-         <div class="progress" data-percent="60%">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0"></div>
-        </div>
-    </div>
-    <!-- End Skill Item -->
-    <!-- Skill Item -->
-    <!--div class="skill-item">
-        <div class="d-flex justify-content-between">
-            <p>Wordpress</p>
-            <p class="text-muted">55%</p>
-        </div>
-         <div class="progress" data-percent="55%">
-            <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 0"></div>
-        </div>
-    </div>
-    <!-- End Skill Item -->
-</div>
-</div>
-</div>
-</div>
-</section-->	
-<!-- Features Section-->
-<!--section id="cta" class="bg-fixed overlay" style="background-image: url(img/bg.jpg);">
-    <div class="container">
-        <div class="section-content" data-aos="fade-up">
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <h2 class="mb-2">Make a beautiful website, or million of them</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, veritatis qui eligendi delectus quia fuga!</p>
-                    <a class="btn btn-outline-primary btn-lg">FEATURES</a>
+                <!-- City Section -->
+        <section id="client" class="overlay bg-fixed" style="background-image: url();">
+            <div class="container">
+                <div class="section-content" data-aos="fade-up">
+                    <div class="row ">
+                        <div class="col-md-12">
+                            <!-- Section Title -->
+                            <div class="title-wrap mb-5">
+                                <h2>We<span> Are</span> Available On Selected Cities</h2>
+                            </div>
+                            <!-- End of Section Title -->
+                        </div>
+                        <!-- Provide city images below -->
+                        <div class="col-md-12 client-holder">
+                            <div class="client-slider owl-carousel">
+
+                                <div class="client-item">
+                                    <img class="kolkata" src="./img/icons/kolk.png" alt="KOL">
+                                    <p style="text-align:center;">Kolkata</p>
+                                </div>
+
+                                <div class="client-item">
+                                    <img class="bangalore" src="./img/icons/bang.png" alt="BANG">
+                                    <p style="text-align:center;">Bangalore</p>
+                                </div>
+
+                                <div class="client-item">
+                                    <img class="chandigarh" src="./img/icons/ahd.png" alt="CHD">
+                                    <p style="text-align:center;">Chandigarh</p>
+                                </div>
+
+                                <div class="client-item">
+                                    <div style="width:100px;height:72px;">
+                                        <img class="kochi" src="./img/icons/koch.png" alt="KOCH">
+                                    </div>
+                                    <p style="text-align:center;">Kochi</p>
+                                </div>
+
+                                <div class="client-item">
+                                    <img class="mumbai" src="./img/icons/mumbai.png" alt="MUMBAI">
+                                    <p style="text-align:center;">Mumbai</p>
+                                </div>
+
+                                <div class="client-item">
+                                    <img class="pune" src="./img/icons/pune.png" alt="PUNE">
+                                    <p style="text-align:center;">Pune</p>
+                                </div>
+
+                            </div>
+                            <!-- End of City images-->
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-</section-->
-<!-- End of Features Section--></div>
+        </section>
+        <!-- End of Client Section -->
+</div>
 <footer class="mastfoot my-3">
     <div class="inner container">
         <div class="row">

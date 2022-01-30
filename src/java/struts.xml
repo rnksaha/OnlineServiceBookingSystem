@@ -69,5 +69,8 @@
         <action name="updateService" class="com.exavalu.OSBS.actions.AdminAction" method="updateService">
             <result name="UPDATESERVICE">/serviceEdit.jsp</result>
         </action>
+        <action name="reportFeedback" class="com.exavalu.OSBS.actions.AdminAction" method="reportFeedback">
+            <result name="REPORTFEEDBACK">/feedbackReport.jsp</result>
+        </action>    
     </package>
 </struts>

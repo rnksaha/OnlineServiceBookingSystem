@@ -7,6 +7,7 @@ package com.exavalu.OSBS.services;
 
 import com.exavalu.OSBS.core.ConnectionManager;
 import com.exavalu.OSBS.pojos.City;
+import com.exavalu.OSBS.pojos.Feedback;
 import com.exavalu.OSBS.pojos.Orders;
 import com.exavalu.OSBS.pojos.Service;
 import com.exavalu.OSBS.pojos.ServiceType;
@@ -429,6 +430,34 @@ public class AdminServices {
             return i;
         } catch (SQLException e) {
             return 0;
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
+    //Feedback List Show 
+    public List reportFeedback() throws SQLException, Exception {
+        ResultSet rs = null;
+        Connection con = null;
+        List<Feedback> feedbackList = new ArrayList<>();
+        try {
+            String sql = "SELECT* FROM feedback";
+            con = ConnectionManager.getConnection();
+            System.out.println("Connection is " + con);
+            PreparedStatement ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+
+                Feedback feedback = new Feedback();
+                feedback.setFeedbackId(rs.getInt("feedbackId"));
+                feedback.setFeedback(rs.getString("feedback"));
+                feedback.setUsers_emalId(rs.getString("users_emailId"));
+                feedbackList.add(feedback);
+            }
+            return feedbackList;
+        } catch (SQLException e) {
+            return null;
         } finally {
             if (con != null) {
                 con.close();

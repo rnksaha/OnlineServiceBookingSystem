@@ -39,7 +39,7 @@
 
     </head>
     <body>
-        <%--<c:out value="${applicationScope.user.getEmailId()}"/>--%>
+        <%--<c:out value="${sessionScope.user.getEmailId()}"/>--%>
         <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center text-white" href="index">
@@ -53,7 +53,7 @@
 
 
                         <!-- Checking for admin only -->
-                        <c:if test="${applicationScope.role == 1}">
+                        <c:if test="${sessionScope.role == 1}">
                             <li class="nav-item">
                                 <a class="nav-link" href='admin' >Admin Panel</a>
                             </li>
@@ -83,7 +83,7 @@
                         </li>
                         <c:if test="${applicationScope.validUser == true}">
                             <li class="nav-item only-desktop">
-                                <a class="nav-link" id="side-nav-open" href="#">
+                                <a class="nav-link" id="side-nav-open" href="addToCart">
                                     <span class="fa fa-shopping-cart"></span>
                                 </a>
                             </li>

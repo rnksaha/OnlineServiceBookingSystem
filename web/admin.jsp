@@ -4,16 +4,12 @@
 <!DOCTYPE html>
 <html>
     <%
-        
+
     %>
-    <c:if test="${sessionScope.role == 1}">
-    </c:if>
-    <c:if test="${sessionScope.validUser == null}">
+    <c:if test="${applicationScope.role != 1}">
         <c:redirect url ="/signUp.jsp"></c:redirect>
     </c:if>
-    <c:if test="${sessionScope.role != 1}">
-        <c:redirect url ="/signUp.jsp"></c:redirect>
-    </c:if>
+
     <head>
         <title>Admin Dashboard Design</title>
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -38,7 +34,7 @@
         </script>
     </head>
 
-    
+
     <body>
         <div class="container-fluid">
             <div class="row">
@@ -50,8 +46,8 @@
                         <div class="header-center-part text-center">
                         </div>
                         <div class="header-right text-right">
-<!--                            <i class="far fa-envelope"></i>
-                            <i class="far fa-bell"></i>-->
+                            <!--                            <i class="far fa-envelope"></i>
+                                                        <i class="far fa-bell"></i>-->
                             <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s46">
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 Admin
@@ -69,7 +65,7 @@
                     <ul class="main-menu">
                         <li class="active"><a href="#"><i class="fas fa-tasks"></i> Dashboard</a></li>
                         <li class="main-sub-menu"><a href="index.jsp"><i class="fas fa-home"></i> Home <i class="fas fa-angle-right" ></i></a>
-                        
+
                         </li>
                         <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Reports<i class="fas fa-angle-right"></i></a>
                             <ul class="sub-menu">
@@ -89,11 +85,13 @@
                             </ul>
                         </li>
                         <li class="main-sub-menu"><a href="reportFeedback"><i class="fas fa-quote-left"></i> Feedback <i class="fas fa-angle-right"></i></a>
-           
+
                         </li>
                     </ul>
+
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

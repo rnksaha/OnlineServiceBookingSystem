@@ -30,7 +30,11 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String otp;
     private boolean status;
     private String generatedOTP;
-    
+
+    // Feedback Prameters
+    private String feedback;
+    private String users_emalId;
+
     // Feedback Prameters
     private String feedback;
     private String users_emalId;
@@ -92,15 +96,22 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                     getMap().put("role", roleId);
                     getMap().put("validUser", true);
                     getMap().put("user", userInfo);
+                    map.put("role", roleId);
+                    map.put("validUser", true);
+                    map.put("user", userInfo);
                     return "LOGIN";
                 } else {
                     int i = getUserService().registerUser(getEmailId());
                     if (i == 1) {
                         User newUser = getUserService().fetchUserDetails(getEmailId());
                         int roleId = newUser.getRoleId();
-                        getMap().put("role", roleId);
-                        getMap().put("validUser", true);
-                        getMap().put("user", userInfo);
+                        sessionMap.put("role", roleId);
+                        sessionMap.put("validuser", true);
+                        sessionMap.put("user", userInfo);
+                        map.put("role", roleId);
+                        map.put("validUser", true);
+                        map.put("user", userInfo);
+//                        ActionContext.getContext().getValueStack().push(map);
                         return "LOGIN";
                     } else {
                         getSessionMap().invalidate();
@@ -120,6 +131,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             return "LOGINERROR";
         }
     }
+
     public String registerFeedback() throws Exception {
         setUserService(new UserService());
 
@@ -170,9 +182,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     public String userLogout() throws Exception {
 
-        getSessionMap().invalidate();
-        getMap().put("validUser", null);
-        getMap().put("role", 2);
         return "LOGOUT";
     }
 

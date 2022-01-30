@@ -68,15 +68,8 @@
                             <form method="post" name="contact-us" action="">
                                 <div class="row">
                                     <div class="col-md-12 form-group">
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                                    </div>
-                                    <div class="col-md-12 form-group">
                                         <input type="text" class="form-control" id="email" name="email" placeholder="Email">
                                     </div>
-                                    <div class="col-md-12 form-group">
-                                        <input type="tel" id="phone" class="form-control" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="Phone no">
-                                    </div>
-
                                     <div class="col-md-12 form-group">
                                         <textarea class="form-control" id="message" name="message" rows="6" placeholder="Your Message ..."></textarea>
                                     </div>

@@ -54,13 +54,20 @@
             <div class="container text-center">
                 <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
             </div>
-        </div>	<section id="who-we-are" class="bg-white">
+
+        </div>	
+        
+        <section id="who-we-are" class="bg-white">
+                <div class="map"> 
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282235.484855779!2d73.72320398541731!3d20.750205458384034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1643520056852!5m2!1sen!2sin"  width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             <div class="container">
                 <div class="section-content">
                     <div class="title-wrap" data-aos="fade-up">
                         <h1 class="section-title"><b>About Us</b></h1>
                         <p class="section-sub-title">Urbanware is india's largest online home services platform.Launched in 2022.Initially,urbanware operates in different cities in india.<br>Urbanware provides a platform that allows skilled and experienced professionals to connect with users who are looking for different services.<br>Our main mottos..</p>
                     </div>
+                    
 
                     <div class="row text-center">
                         <div class="col-md-4 col-sm-6" data-aos="fade-up">
@@ -90,10 +97,7 @@
                 </div>
             </div>
         </section>	
-                <div class="map">
-                        
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15282235.484855779!2d73.72320398541731!3d20.750205458384034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30635ff06b92b791%3A0xd78c4fa1854213a6!2sIndia!5e0!3m2!1sen!2sin!4v1643520056852!5m2!1sen!2sin"  width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-                    </div>
+                
                 
 
                 <!-- City Section -->

@@ -6,7 +6,6 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -76,7 +75,6 @@
                                         </div>
                                         <div class="col-md-12 text-center">
                                             <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Submit</button>
-                                        <%--<s:submit cssClass="btn btn-primary btn-shadow btn-lg" value="Register" />--%>
                                     </div>
                                 </div>
                                 <form>

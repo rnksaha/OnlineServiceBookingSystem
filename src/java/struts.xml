@@ -24,6 +24,9 @@
         <action name="signUp" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/user/signUp.jsp</result>
         </action>
+        <action name="feedback" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/feedback.jsp</result>
+        </action>
         <action name="about" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/user/about.jsp</result>
         </action>

@@ -6,6 +6,7 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -46,107 +47,108 @@
             }
         </style>
         <jsp:include page="header.jsp" ></jsp:include>
-        <!--Banner Section-->
+            <!--Banner Section-->
 
-        <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url()">
-            <div class="container text-center">
-                <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
+            <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url()">
+                <div class="container text-center">
+                    <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
+                </div>
             </div>
-        </div>
 
-        <!-- Reservation Section -->
-        <section id="reservation" class="bg-white section-content">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-5 offset-lg-1 mb-5 mb-lg-0" data-aos="fade-right">
-                        <div class="bg-white p-5 shadow">
-                            <div class="heading-section text-center">
-                                <h2 class="mb-4">
-                                    Feedback
-                                </h2>
-                            </div>
-                            <form method="post" name="contact-us" action="">
-                                <div class="row">
-                                    <div class="col-md-12 form-group">
-                                        <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                                    </div>
-                                    <div class="col-md-12 form-group">
-                                        <textarea class="form-control" id="message" name="message" rows="6" placeholder="Your Message ..."></textarea>
-                                    </div>
-                                    <div class="col-md-12 text-center">
-                                        <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Submit</button>
+            <!-- Reservation Section -->
+            <section id="reservation" class="bg-white section-content">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-5 offset-lg-1 mb-5 mb-lg-0" data-aos="fade-right">
+                            <div class="bg-white p-5 shadow">
+                                <div class="heading-section text-center">
+                                    <h2 class="mb-4">
+                                        Feedback
+                                    </h2>
+                                </div>
+                                <form action="registerFeedback" method="post" name="contact-us">
+                                    <div class="row">
+                                        <div class="col-md-12 form-group">
+                                            <input type="text" class="form-control" name="users_emailId" placeholder="Email">
+                                        </div>
+                                        <div class="col-md-12 form-group">
+                                            <textarea class="form-control" name="feedback" rows="6" placeholder="Your Message ..."></textarea>
+                                        </div>
+                                        <div class="col-md-12 text-center">
+                                            <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Submit</button>
+                                        <%--<s:submit cssClass="btn btn-primary btn-shadow btn-lg" value="Register" />--%>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 offset-lg-1" data-aos="fade-left">
-                        <img src="img/feedback.png">
+                                <form>
+                                    </div>
+                                    </div>
+                                    <div class="col-lg-4 offset-lg-1" data-aos="fade-left">
+                                        <img src="img/feedback.png">
 
-                        <ul class="list-inline py-2">
-                            <!--li class="list-inline-item text-center">
-                                <span class="lnr fs-40 lnr-rocket"></span>
-                                <p>Fast delivery</p>
-                            </li-->
-                            <!--li class="list-inline-item text-center">
-                                <span class="lnr fs-40 lnr-magic-wand"></span>
-                                <p>Awesome design</p>
-                            </li-->
+                                        <ul class="list-inline py-2">
+                                            <!--li class="list-inline-item text-center">
+                                                <span class="lnr fs-40 lnr-rocket"></span>
+                                                <p>Fast delivery</p>
+                                            </li-->
+                                            <!--li class="list-inline-item text-center">
+                                                <span class="lnr fs-40 lnr-magic-wand"></span>
+                                                <p>Awesome design</p>
+                                            </li-->
 
-                        </ul>
-                    </div>
-                </div>
+                                        </ul>
+                                    </div>
+                                    </div>
 
-            </div>
-        </section>
-        <!--footer start-->
-        <footer class="mastfoot my-3">
-            <div class="inner container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                                    </div>
+                                    </section>
+                                    <!--footer start-->
+                                    <footer class="mastfoot my-3">
+                                        <div class="inner container">
+                                            <div class="row">
+                                                <div class="col-lg-4 col-md-12 d-flex align-items-center">
 
-                    </div>
-                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
-                        <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
-                    </div>
+                                                </div>
+                                                <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                                                    <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
+                                                </div>
 
-                    <div class="col-lg-4 col-md-12">
-                        <nav class="nav nav-mastfoot justify-content-center">
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </nav>
-                    </div>
+                                                <div class="col-lg-4 col-md-12">
+                                                    <nav class="nav nav-mastfoot justify-content-center">
+                                                        <a class="nav-link" href="#">
+                                                            <i class="fab fa-facebook-f"></i>
+                                                        </a>
+                                                        <a class="nav-link" href="#">
+                                                            <i class="fab fa-twitter"></i>
+                                                        </a>
+                                                        <a class="nav-link" href="#">
+                                                            <i class="fab fa-instagram"></i>
+                                                        </a>
+                                                        <a class="nav-link" href="#">
+                                                            <i class="fab fa-linkedin"></i>
+                                                        </a>
+                                                    </nav>
+                                                </div>
 
-                </div>
-            </div>
+                                            </div>
+                                        </div>
 
-        </footer>
-        <!--footer end-->
+                                    </footer>
+                                    <!--footer end-->
 
-        <!-- External JS -->
-        <script type="text/javascript" src="./js/jquery.js"></script>
-        <script src="./vendor/bootstrap/popper.min.js"></script>
-        <script src="./vendor/bootstrap/bootstrap.min.js"></script>
-        <script src="./vendor/select2/select2.min.js "></script>
-        <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
-        <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
-        <script src="./vendor/isotope/isotope.min.js"></script>
-        <script src="./vendor/lightcase/lightcase.js"></script>
-        <script src="./vendor/waypoints/waypoint.min.js"></script>
-        <script src="./js/aos.js"></script>
+                                    <!-- External JS -->
+                                    <script type="text/javascript" src="./js/jquery.js"></script>
+                                    <script src="./vendor/bootstrap/popper.min.js"></script>
+                                    <script src="./vendor/bootstrap/bootstrap.min.js"></script>
+                                    <script src="./vendor/select2/select2.min.js "></script>
+                                    <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
+                                    <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
+                                    <script src="./vendor/isotope/isotope.min.js"></script>
+                                    <script src="./vendor/lightcase/lightcase.js"></script>
+                                    <script src="./vendor/waypoints/waypoint.min.js"></script>
+                                    <script src="./js/aos.js"></script>
 
-        <!-- Main JS -->
-        <script src="./js/app.min.js "></script>
-    </body>
-</html>
+                                    <!-- Main JS -->
+                                    <script src="./js/app.min.js "></script>
+                                    </body>
+                                    </html>
 

@@ -34,7 +34,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     // Feedback Prameters
     private String feedback;
-    private String users_emalId;
     
     //Orders Parameters
     private String name;
@@ -141,9 +140,8 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     public String registerFeedback() throws Exception {
         setUserService(new UserService());
-
         try {
-            setCtr(getUserService().registerFeedback(getFeedback(), getUsers_emalId()));
+            setCtr(getUserService().registerFeedback(getFeedback(), getUsers_emailId()));
             if (getCtr() > 0) {
                 setMsg("Feedback Registered");
             } else {
@@ -158,7 +156,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         setUserService(new UserService());
 
         try {
-            setCtr(getUserService().registerOrders(getName(), getAddress(),getPhoneNo(), getTotalPrice(), getUsers_emalId(), getServicetype_type(),getServices_serviceId()));
+            setCtr(getUserService().registerOrders(getName(), getAddress(),getPhoneNo(), getTotalPrice(), getUsers_emailId(), getServicetype_type(),getServices_serviceId()));
             if (getCtr() > 0) {
                 setMsg("Order Registered");
             } else {
@@ -418,19 +416,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         this.feedback = feedback;
     }
 
-    /**
-     * @return the users_emalId
-     */
-    public String getUsers_emalId() {
-        return users_emalId;
-    }
-
-    /**
-     * @param users_emalId the users_emalId to set
-     */
-    public void setUsers_emalId(String users_emalId) {
-        this.users_emalId = users_emalId;
-    }
 
     /**
      * @return the response

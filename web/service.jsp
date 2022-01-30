@@ -1,4 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>--%>
@@ -51,8 +50,6 @@
                     }
                 });
             }
-            
-
         </script>
 
         <title>urbanware</title>
@@ -63,14 +60,86 @@
 
         <!-- setting variable for admin & client-->
 
-        <%--<c:set var = "role" scope = "session" value = "${sessionScope.role}"/>--%>
-        <%--<c:set var = "validUser" scope = "session" value = "${sessionScope.validUser}"/>--%>
-        <%--<c:set var = "role" scope = "session" value = "${sessionScope.role}"/>--%>
-        <!-- setting variable for admin & client ENDS HERE-->
+    <c:set var = "role" scope = "session" value = "${sessionScope.users.roleId()}"/>
 
-    <body>
-        <jsp:include page="header.jsp" ></jsp:include>
+    <!-- setting variable for admin & client ENDS HERE-->
 
+    <body data-spy="scroll" data-target="#navbar" class="static-layout">
+        <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center text-white" href="/">
+                    <h3 class="font-weight-bolder mb-0">URBAN WARE</h3>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-nav-header" aria-controls="navbar-nav-header" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="lnr lnr-menu"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbar-nav-header">
+                    <ul class="navbar-nav ml-auto">
+
+
+                        <!-- Checking for admin only -->
+                        <c:if test="${role == 1}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="admin.jsp" >Admin Panel</a>
+                            </li>
+                        </c:if>
+                        <!-- Checking for admin only ENDS HERE -->
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="signUp.jsp">Login/Sign up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.jsp">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.jsp">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="side-search-open" class="nav-link" href="#">
+                                <span class="lnr lnr-magnifier"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item only-desktop">
+                            <a class="nav-link" id="side-nav-open" href="#">
+                                <span class="fa fa-shopping-cart"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Cart-->
+        <div id="side-nav" class="sidenav">
+            <a href="javascript:void(0)" id="side-nav-close">&times;</a>
+            <div class="sidenav-content">
+                <p>
+                    Cart details here.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- search-->
+        <div id="side-search" class="sidenav">
+            <a href="javascript:void(0)" id="side-search-close">&times;</a>
+            <div class="sidenav-content">
+                <form action="">
+                    <div class="input-group md-form form-sm form-2 pl-0">
+                        <input class="form-control my-0 py-1 red-border" type="text" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="input-group-text red lighten-3" id="basic-text1">
+                                <span class="lnr lnr-magnifier"></span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>	
+
+
+        <!-- Banner part-->
         <div class="jumbotron d-flex align-items-center">
             <div class="container text-center">
                 <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
@@ -95,25 +164,162 @@
                 <img src="img/obj_triangle.png" alt="">
             </div>
         </div>
+
         <!-- End of Banner Section-->
 
         <!-- City and Pin Code Section-->
-        <div style="width:800px; margin:auto;">
+        <!--div style="width:800px; margin:auto;">
             <select onchange="getPinCodes()" id="selectedCity" name="selectedCity" class="form-select" aria-label="Default select example">
                 <option value="NA">
                     ----Select City Name----
                 </option>
-                <option value="Ranchi">Ranchi</option>
+                <option value="service.jsp">Ranchi</option>
                 <option value="Kolkata">Kolkata</option>
                 <option value="Delhi">Delhi</option>
             </select>
-        </div>
-        <div id="pindivid" style="width:800px; margin:auto;">
-        </div>
+        </div-->
+        <!--div id="pindivid" style="width:800px; margin:auto;">
+        </div-->
         <!-- End of City and Pin Code Section-->
 
         <!-- Services Section -->
-        
+        <section id="portfolio" class="bg-white">
+            <div class="container">
+                <div class="section-content">
+
+                    <!-- Section Title -->
+                    <div class="title-wrap">
+                        <h2 class="section-title">Services <b>We</b> Provide</h2>
+                    </div>
+                    <!-- End of Section Title -->
+
+                    <div class="row">
+                        <!-- Service Holder -->
+                        <div class="col-md-12 portfolio-holder mt-3">
+
+                            <!-- Portfolio Content -->
+                            <div class="grid-portfolio">
+                                <div class="grid-sizer"></div>
+                                <div class="gutter-sizer"></div>
+                                <!-- Portfolio Item -->
+                                <div class="grid-item minimalism" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-1.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+                                                <a class="ext-link" href="electrician.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Electricians</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <div class="grid-item vintage" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-6.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+
+                                                <a class="ext-link" href="plumber.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Plumber</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- Services Section  -->
+
+
+                                <!-- Portfolio Item -->
+                                <div class="grid-item creative grid-item-height" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-2.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+                                                <a class="ext-link" href="salon.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a> 
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Salon</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <div class="grid-item creative" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-7.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+                                                <a class="ext-link" href="repair.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Repairs</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <div class="grid-item vintage" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-4.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+                                                <a class="ext-link" href="therapy.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>   
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Therapies</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of Portfolio Item -->
+                                <!-- Portfolio Item -->
+                                <div class="grid-item creative" data-aos="fade-up">
+                                    <div class="grid-item-wrapper">
+                                        <img src="./img/photo-9.jpg" alt="portfolio-img" class="portfolio-item">
+                                        <div class="grid-info">
+                                            <div class="grid-link d-flex justify-content-center">
+                                                <a class="ext-link" href="cleaning.jsp" target="_blank">
+                                                    <span class="lnr lnr-link"></span>
+                                                </a>
+                                            </div>
+                                            <div class="grid-title">
+                                                <h4>Cleaning and Pest Control</h4>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- End of Portfolio Item -->
+                            </div>
+                            <!-- End of Portfolio Content -->
+                        </div>
+                        <!-- End of Portfolio Holder -->
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- End of Service Section -->
 
         <!-- Testimonial Section-->

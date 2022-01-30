@@ -69,7 +69,7 @@
                     <s:form action="loginuser">                        
                         <s:textfield id="emailId" placeholder="Enter Email" value="emailId"  name="emailId" />
                         <s:textfield id="otp" value="otp" placeholder="Enter OTP" name="otp" />
-                        <input type="button"  name="btnOtp" value="GET OTP">
+                        <input type="button" id="btnOtp"  name="btnOtp" value="GET OTP">
                         <s:submit value="Login"/>
                     </s:form>
                 </div>

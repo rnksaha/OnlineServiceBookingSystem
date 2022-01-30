@@ -39,7 +39,7 @@
 
     </head>
     <body>
-
+        <%--<c:out value="${applicationScope.user.getEmailId()}"/>--%>
         <nav id="header-navbar" class="navbar navbar-expand-lg py-4">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center text-white" href="index">

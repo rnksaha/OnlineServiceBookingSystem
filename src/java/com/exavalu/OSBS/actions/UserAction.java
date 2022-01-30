@@ -10,11 +10,11 @@ import com.exavalu.OSBS.pojos.User;
 import com.exavalu.OSBS.services.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.request;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.ApplicationAware;
@@ -24,7 +24,7 @@ import org.apache.struts2.interceptor.SessionAware;
  *
  * @author AKSHAY
  */
-public class UserAction extends ActionSupport implements ApplicationAware, SessionAware {
+public class UserAction extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 
     private String emailId;
     private String otp;
@@ -43,7 +43,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String cityName;
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
-    HttpSession mySession;
+    HttpServletResponse response;
 
     @Override
     public void setApplication(Map<String, Object> application) {
@@ -81,12 +81,13 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         try {
             if (getGeneratedOTP().equals(getOtp()) && (getOtp() != null) && getEmailId().equals(getReceiverEmail()) && (getEmailId() != null)) {
 
-                map.put(getEmailId() + "session", mySession.getId());
+//                map.put(getEmailId() + "session", mySession.getId());
                 User userInfo = getUserService().fetchUserDetails(getEmailId());
                 if (userInfo != null) {
                     int roleId = userInfo.getRoleId();
                     map.put("role", roleId);
                     map.put("validUser", true);
+                    map.put("user", userInfo);
                     return "LOGIN";
                 } else {
                     int i = getUserService().registerUser(getEmailId());
@@ -95,6 +96,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                         int roleId = newUser.getRoleId();
                         map.put("role", roleId);
                         map.put("validUser", true);
+                        map.put("user", userInfo);
                         return "LOGIN";
                     } else {
                         sessionMap.invalidate();

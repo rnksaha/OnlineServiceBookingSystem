@@ -116,6 +116,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             return "LOGINERROR";
         }
     }
+    
 
 //    public static void setCookie(HttpServletResponse response, String name, String value, int period) {
 //

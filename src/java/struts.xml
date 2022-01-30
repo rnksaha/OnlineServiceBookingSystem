@@ -5,39 +5,40 @@
 <struts>
     <!-- Configuration for the default package. -->
     <package name="default" namespace="/" extends="struts-default">
-        <interceptors>
-            <interceptor name="authentication" class="com.exavalu.OSBS.interceptor.LoginInterceptor"></interceptor>
-            <!--            <interceptor-stack name="secureStack">
-                <interceptor-ref name="authenticationInterceptor"/>
-                <interceptor-ref name="defaultStack"/>
-            </interceptor-stack>-->
-        </interceptors>
         <action name="otprequest" class="com.exavalu.OSBS.actions.UserAction" method="otpRequest">
             <result name="SUCCESS">/signUp.jsp</result>
         </action>
         <action name="loginuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogin">
-            <!--<interceptor-ref name="authentication"/>-->
-            <result name="LOGIN" type="redirect">/index.jsp</result>
-            <result name="LOGINERROR" type="redirect">/signUp.jsp</result>
+            <result name="LOGIN" >/index.jsp</result>
+            <result name="LOGINERROR" >/signUp.jsp</result>
+        </action>
+        
+        <action name="electrician" class="com.exavalu.OSBS.actions.UserAction" method="service">
+            <result name="SUCCESS">/electrician.jsp</result>
         </action>
         <action name="signUp" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/signUp.jsp</result>
         </action>
         <action name="admin" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
-            <!--<interceptor-ref name="authentication"/>-->
-            <result name="SUCCESS" type="redirect">/admin.jsp</result>
+            <result name="SUCCESS" >/admin.jsp</result>
         </action>
         <action name="index" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
-            <result name="SUCCESS" type="redirect">/index.jsp</result>
+            <result name="SUCCESS" >/index.jsp</result>
         </action>
         <action name="logoutuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogout">
             <result name="LOGOUT">/index.jsp</result>
         </action>
+        <action name="cart" class="com.exavalu.OSBS.actions.UserAction" method="viewCart">
+            <result name="CARTEMPTY">/index.jsp</result>
+            <result name="CART">/cart.jsp</result>
+        </action>
         <action name="getPinCodes" class="com.exavalu.OSBS.actions.UserAction" method="getPinCodes">
             <result name="PINCODES">/pincodes.jsp</result>
         </action>
-        <action name="registerCity" class="com.exavalu.OSBS.actions.AdminAction" method="registerCity">
-            <interceptor-ref name="authentication"/>            
+        <action name="registerFeedback" class="com.exavalu.OSBS.actions.UserAction" method="registerFeedback">
+            <result name="REGISTERFEEDBACK">/feedback.jsp</result>
+        </action>    
+        <action name="registerCity" class="com.exavalu.OSBS.actions.AdminAction" method="registerCity">        
             <result name="REGISTERCITY">/cityRegister.jsp</result>
         </action>
         <action name="disablePin" class="com.exavalu.OSBS.actions.AdminAction" method="disablePin">
@@ -67,6 +68,15 @@
         <action name="reportServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="reportServiceType">
             <result name="REPORTSERVICETYPE">/serviceTypeReport.jsp</result>
         </action>
+        <action name="cityRegister" class="com.exavalu.OSBS.actions.AdminAction" method="redirectPage">
+            <result name="SUCCESS" >/cityRegister.jsp</result>
+        </action>
+        <action name="servicesRegister" class="com.exavalu.OSBS.actions.AdminAction" method="redirectPage">
+            <result name="SUCCESS" >/servicesRegister.jsp</result>
+        </action>
+        <action name="serviceTypeRegister" class="com.exavalu.OSBS.actions.AdminAction" method="redirectPage">
+            <result name="SUCCESS" >/serviceTypeRegister.jsp</result>
+        </action>        
         <action name="reportUser" class="com.exavalu.OSBS.actions.AdminAction" method="reportUser">
             <result name="REPORTUSER">/userReport.jsp</result>
         </action>
@@ -91,8 +101,5 @@
         <action name="reportFeedback" class="com.exavalu.OSBS.actions.AdminAction" method="reportFeedback">
             <result name="REPORTFEEDBACK">/feedbackReport.jsp</result>
         </action>
-        <action name="registerFeedback" class="com.exavalu.OSBS.actions.UserActon" method="registerFeedback">
-            <result name="REGISTERFEEDBACK">/feedback.jsp</result>
-        </action>    
     </package>
 </struts>

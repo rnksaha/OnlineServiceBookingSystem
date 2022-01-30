@@ -7,6 +7,7 @@ package com.exavalu.OSBS.actions;
 
 import com.exavalu.OSBS.pojos.City;
 import com.exavalu.OSBS.pojos.User;
+import com.exavalu.OSBS.pojos.ServiceType;
 import com.exavalu.OSBS.services.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -35,10 +36,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String feedback;
     private String users_emalId;
 
-    // Feedback Prameters
-    private String feedback;
-    private String users_emalId;
-
     private String msg = "";
     private User user = new User();
     private int ctr = 0;
@@ -60,7 +57,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     @Override
     public void setSession(Map<String, Object> map) {
-        setSessionMap((SessionMap<String, Object>) (SessionMap) map);
+        sessionMap = (SessionMap) map;
     }
 
     public String otpRequest() throws Exception {
@@ -70,8 +67,8 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         setGeneratedOTP(getUserService().generateOTP());
         setReceiverEmail(getEmailId());
 
-        getSessionMap().put("otp", getGeneratedOTP());
-        getSessionMap().put("email", getReceiverEmail());
+        sessionMap.put("otp", getGeneratedOTP());
+        sessionMap.put("email", getReceiverEmail());
         getUserService().sendMail(getReceiverEmail(), getGeneratedOTP());
 
         return "SUCCESS";
@@ -83,9 +80,8 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     public String userLogin() throws Exception {
 
-        setGeneratedOTP((String) getSessionMap().get("otp"));
-        setReceiverEmail((String) getSessionMap().get("email"));
-        boolean admin = false;
+        setGeneratedOTP((String) sessionMap.get("otp"));
+        setReceiverEmail((String) sessionMap.get("email"));
         try {
             if (getGeneratedOTP().equals(getOtp()) && (getOtp() != null) && getEmailId().equals(getReceiverEmail()) && (getEmailId() != null)) {
 
@@ -93,9 +89,9 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 User userInfo = getUserService().fetchUserDetails(getEmailId());
                 if (userInfo != null) {
                     int roleId = userInfo.getRoleId();
-                    getMap().put("role", roleId);
-                    getMap().put("validUser", true);
-                    getMap().put("user", userInfo);
+                    sessionMap.put("role", roleId);
+                    sessionMap.put("validuser", true);
+                    sessionMap.put("user", userInfo);
                     map.put("role", roleId);
                     map.put("validUser", true);
                     map.put("user", userInfo);
@@ -114,19 +110,19 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 //                        ActionContext.getContext().getValueStack().push(map);
                         return "LOGIN";
                     } else {
-                        getSessionMap().invalidate();
+                        sessionMap.invalidate();
                         return "LOGINERROR";
                     }
                 }
 //                    HttpServletResponse response = (HttpServletResponse) ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
             } else {
-                getSessionMap().invalidate();
+                sessionMap.invalidate();
                 return "LOGINERROR";
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            getSessionMap().invalidate();
+            sessionMap.invalidate();
 
             return "LOGINERROR";
         }
@@ -180,7 +176,36 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         return "PINCODES";
     }
 
+    public String service() throws Exception {
+        UserService ob = new UserService();
+        try {
+            ArrayList<ServiceType> type = ob.fetchServiceDetails();
+            sessionMap.put("serviceType", type);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "SUCCESS";
+    }
+
+    public String setService() throws Exception {
+        sessionMap.put("service", true);
+        return "SUCCESS";
+    }
+
+    public String viewCart() throws Exception {
+        if (sessionMap.get("cart") == null) {
+            return "CARTEMPTY";
+        }
+        return "CART";
+    }
+
     public String userLogout() throws Exception {
+
+        sessionMap.invalidate();
+        map.put("role", 0);
+        map.put("validUser", null);
+        map.put("user", null);
 
         return "LOGOUT";
     }
@@ -379,27 +404,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setUsers_emalId(String users_emalId) {
         this.users_emalId = users_emalId;
-    }
-
-    /**
-     * @return the sessionMap
-     */
-    public SessionMap<String, Object> getSessionMap() {
-        return sessionMap;
-    }
-
-    /**
-     * @param sessionMap the sessionMap to set
-     */
-    public void setSessionMap(SessionMap<String, Object> sessionMap) {
-        this.sessionMap = sessionMap;
-    }
-
-    /**
-     * @return the map
-     */
-    public ApplicationMap getMap() {
-        return map;
     }
 
     /**

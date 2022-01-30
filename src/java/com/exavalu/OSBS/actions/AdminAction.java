@@ -27,37 +27,41 @@ public class AdminAction extends ActionSupport {
     private String msg = "";
     private boolean noData = false;
     private String submitType;
-    
+
     // City Parameters
     private int pinCode;
     private String cityName;
     private List<City> cityList = null;
-    
+
     // Order Parameters
     private List<Orders> orderList = null;
-    
+
     // Service type Parameters
     private int services_serviceId;
     private String type;
     private double price;
     private int status;
     private List<ServiceType> serviceTypeList = null;
-    
+
     //User Parameters
     private List<User> userList = null;
     private String emailId;
-    
+
     // Services Parameters
     private String serviceName;
     private int serviceId;
     private List<Service> serviceList = null;
-    
+
     //Feedback Parameters
     private int feedbackId;
     private String feedback;
     private String users_emalId;
     private List<Feedback> feedbackList = null;
-    
+
+    public String redirectPage() throws Exception {
+        return "SUCCESS";
+    }
+
     public String registerCity() throws Exception {
         setAdminServices(new AdminServices());
 
@@ -73,7 +77,7 @@ public class AdminAction extends ActionSupport {
         }
         return "REGISTERCITY";
     }
-    
+
     public String disablePin() throws Exception {
         setAdminServices(new AdminServices());
 
@@ -89,7 +93,7 @@ public class AdminAction extends ActionSupport {
         }
         return "DISABLEPIN";
     }
-    
+
     public String enablePin() throws Exception {
         setAdminServices(new AdminServices());
 
@@ -105,7 +109,7 @@ public class AdminAction extends ActionSupport {
         }
         return "ENABLEPIN";
     }
-    
+
     public String reportCity() throws Exception {
         setAdminServices(new AdminServices());
         try {
@@ -124,7 +128,7 @@ public class AdminAction extends ActionSupport {
         }
         return "REPORTCITY";
     }
-    
+
     public String reportOrders() throws Exception {
         setAdminServices(new AdminServices());
         try {
@@ -143,7 +147,7 @@ public class AdminAction extends ActionSupport {
         }
         return "REPORTORDERS";
     }
-    
+
     public String registerServiceType() throws Exception {
         setAdminServices(new AdminServices());
 
@@ -159,7 +163,7 @@ public class AdminAction extends ActionSupport {
         }
         return "REGISTERSERVICETYPE";
     }
-    
+
     public String deleteServiceType() throws Exception {
         setAdminServices(new AdminServices());
 
@@ -175,7 +179,7 @@ public class AdminAction extends ActionSupport {
         }
         return "DELETESERVICETYPE";
     }
-    
+
     public String updateServiceType() throws Exception {
         setAdminServices(new AdminServices());
         try {
@@ -202,7 +206,7 @@ public class AdminAction extends ActionSupport {
 
         return "UPDATESERVICETYPE";
     }
-    
+
     public String reportServiceType() throws Exception {
         setAdminServices(new AdminServices());
         try {
@@ -221,7 +225,7 @@ public class AdminAction extends ActionSupport {
         }
         return "REPORTSERVICETYPE";
     }
-    
+
     public String reportUser() throws Exception {
         setAdminServices(new AdminServices());
         try {
@@ -240,7 +244,7 @@ public class AdminAction extends ActionSupport {
         }
         return "REPORTUSER";
     }
-    
+
     public String deleteUser() throws Exception {
         setAdminServices(new AdminServices());
         try {
@@ -255,7 +259,7 @@ public class AdminAction extends ActionSupport {
         }
         return "DELETEUSER";
     }
-    
+
     public String enableUser() throws Exception {
         setAdminServices(new AdminServices());
         try {
@@ -270,7 +274,7 @@ public class AdminAction extends ActionSupport {
         }
         return "ENABLEUSER";
     }
-    
+
     public String registerService() throws Exception {
         setAdminServices(new AdminServices());
 
@@ -286,7 +290,7 @@ public class AdminAction extends ActionSupport {
         }
         return "REGISTERSERVICE";
     }
-    
+
     public String reportService() throws Exception {
         setAdminServices(new AdminServices());
         try {
@@ -305,7 +309,7 @@ public class AdminAction extends ActionSupport {
         }
         return "REPORTSERVICE";
     }
-    
+
     public String deleteService() throws Exception {
         setAdminServices(new AdminServices());
 
@@ -321,7 +325,7 @@ public class AdminAction extends ActionSupport {
         }
         return "DELETESERVICE";
     }
-    
+
     public String updateService() throws Exception {
         setAdminServices(new AdminServices());
         try {
@@ -348,7 +352,7 @@ public class AdminAction extends ActionSupport {
 
         return "UPDATESERVICE";
     }
-    
+
     public String reportFeedback() throws Exception {
         setAdminServices(new AdminServices());
         try {
@@ -367,8 +371,7 @@ public class AdminAction extends ActionSupport {
         }
         return "REPORTFEEDBACK";
     }
-    
-    
+
     /**
      * @return the ctr
      */

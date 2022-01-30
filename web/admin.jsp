@@ -1,15 +1,12 @@
 <%@page import="org.apache.jasper.tagplugins.jstl.core.Redirect"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
-    <%
-
-    %>
     <c:if test="${applicationScope.role != 1}">
         <c:redirect url ="/signUp.jsp"></c:redirect>
     </c:if>
-
     <head>
         <title>Admin Dashboard Design</title>
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -63,8 +60,8 @@
             <div class="row">
                 <div class="sidebar">
                     <ul class="main-menu">
-                        <li class="active"><a href="#"><i class="fas fa-tasks"></i> Dashboard</a></li>
-                        <li class="main-sub-menu"><a href="index.jsp"><i class="fas fa-home"></i> Home <i class="fas fa-angle-right" ></i></a>
+                        <li class="active"><a href="admin"><i class="fas fa-tasks"></i> Dashboard</a></li>
+                        <li class="main-sub-menu"><a href="index"><i class="fas fa-home"></i> Home <i class="fas fa-angle-right" ></i></a>
 
                         </li>
                         <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Reports<i class="fas fa-angle-right"></i></a>
@@ -79,9 +76,9 @@
                         <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Register<i class="fas fa-angle-right"></i></a>
                             <ul class="sub-menu">
                                 <li><a href="#"> Admin</a></li>
-                                <li class="sub-active"><a href="cityRegister.jsp"> Cities</a></li>
-                                <li class="sub-active"><a href="servicesRegister.jsp"> Services</a></li>
-                                <li class="sub-active"><a href="serviceTypeRegister.jsp"> Services Types</a></li>
+                                <li class="sub-active"><a href="cityRegister"> Cities</a></li>
+                                <li class="sub-active"><a href="servicesRegister"> Services</a></li>
+                                <li class="sub-active"><a href="serviceTypeRegister"> Services Types</a></li>
                             </ul>
                         </li>
                         <li class="main-sub-menu"><a href="reportFeedback"><i class="fas fa-quote-left"></i> Feedback <i class="fas fa-angle-right"></i></a>

@@ -43,6 +43,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String cityName;
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
+
     HttpServletResponse response;
 
     @Override
@@ -77,7 +78,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
         setGeneratedOTP((String) sessionMap.get("otp"));
         setReceiverEmail((String) sessionMap.get("email"));
-        boolean admin = false;
+
         try {
             if (getGeneratedOTP().equals(getOtp()) && (getOtp() != null) && getEmailId().equals(getReceiverEmail()) && (getEmailId() != null)) {
 
@@ -85,18 +86,26 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 User userInfo = getUserService().fetchUserDetails(getEmailId());
                 if (userInfo != null) {
                     int roleId = userInfo.getRoleId();
+                    sessionMap.put("role", roleId);
+                    sessionMap.put("validuser", true);
+                    sessionMap.put("user", userInfo);
                     map.put("role", roleId);
                     map.put("validUser", true);
                     map.put("user", userInfo);
+                    ActionContext.getContext().getValueStack().push(map);
                     return "LOGIN";
                 } else {
                     int i = getUserService().registerUser(getEmailId());
                     if (i == 1) {
                         User newUser = getUserService().fetchUserDetails(getEmailId());
                         int roleId = newUser.getRoleId();
+                        sessionMap.put("role", roleId);
+                        sessionMap.put("validuser", true);
+                        sessionMap.put("user", userInfo);
+
                         map.put("role", roleId);
                         map.put("validUser", true);
-                        map.put("user", userInfo);
+//                        ActionContext.getContext().getValueStack().push(map);
                         return "LOGIN";
                     } else {
                         sessionMap.invalidate();
@@ -151,9 +160,12 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     public String userLogout() throws Exception {
 
-        sessionMap.invalidate();
+        sessionMap.put("role", 0);
+        sessionMap.put("validUser", null);
+        sessionMap.put("user", null);
         map.put("validUser", null);
-        map.put("role", 2);
+        map.put("role", 0);
+
         return "LOGOUT";
     }
 

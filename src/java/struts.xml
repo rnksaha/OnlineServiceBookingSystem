@@ -5,21 +5,30 @@
 <struts>
     <!-- Configuration for the default package. -->
     <package name="default" namespace="/" extends="struts-default">
+        <interceptors>
+            <interceptor name="authentication" class="com.exavalu.OSBS.interceptor.LoginInterceptor"></interceptor>
+            <!--            <interceptor-stack name="secureStack">
+                <interceptor-ref name="authenticationInterceptor"/>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>-->
+        </interceptors>
         <action name="otprequest" class="com.exavalu.OSBS.actions.UserAction" method="otpRequest">
             <result name="SUCCESS">/signUp.jsp</result>
         </action>
         <action name="loginuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogin">
+            <!--<interceptor-ref name="authentication"/>-->
             <result name="LOGIN" type="redirect">/index.jsp</result>
-            <result name="LOGINERROR">/signUp.jsp</result>
+            <result name="LOGINERROR" type="redirect">/signUp.jsp</result>
         </action>
         <action name="signUp" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/signUp.jsp</result>
         </action>
         <action name="admin" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
-            <result name="SUCCESS">/admin.jsp</result>
+            <!--<interceptor-ref name="authentication"/>-->
+            <result name="SUCCESS" type="redirect">/admin.jsp</result>
         </action>
         <action name="index" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
-            <result name="SUCCESS">/index.jsp</result>
+            <result name="SUCCESS" type="redirect">/index.jsp</result>
         </action>
         <action name="logoutuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogout">
             <result name="LOGOUT">/index.jsp</result>
@@ -28,6 +37,7 @@
             <result name="PINCODES">/pincodes.jsp</result>
         </action>
         <action name="registerCity" class="com.exavalu.OSBS.actions.AdminAction" method="registerCity">
+            <interceptor-ref name="authentication"/>            
             <result name="REGISTERCITY">/cityRegister.jsp</result>
         </action>
         <action name="disablePin" class="com.exavalu.OSBS.actions.AdminAction" method="disablePin">

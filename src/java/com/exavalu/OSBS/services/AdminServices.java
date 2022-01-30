@@ -27,9 +27,7 @@ public class AdminServices {
 
     public int registerCity(int pinCode, String cityName) throws Exception {
         int i = 0;
-        Connection con = null;
-        try {
-            con = ConnectionManager.getConnection();
+        try (Connection con = ConnectionManager.getConnection()) {
             String sql = "INSERT INTO cities VALUES (?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, pinCode);
@@ -38,13 +36,8 @@ public class AdminServices {
             System.out.println("SQL for insert=" + ps);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return i;
-        } finally {
-            if (con != null) {
-                con.close();
-            }
         }
     }
     
@@ -57,8 +50,7 @@ public class AdminServices {
             ps.setInt(1, pinCode);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 0;
         } finally {
             if (con != null) {
@@ -86,8 +78,7 @@ public class AdminServices {
                 cityList.add(city);
             }
             return cityList;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -121,8 +112,7 @@ public class AdminServices {
                 orderList.add(order);
             }
             return orderList;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -133,9 +123,7 @@ public class AdminServices {
 
     public int registerServiceType(int services_serviceId, String type, double price) throws Exception {
         int i = 0;
-        Connection con = null;
-        try {
-            con = ConnectionManager.getConnection();
+        try (Connection con = ConnectionManager.getConnection()) {
             String sql = "INSERT INTO servicetype VALUES (?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, type);
@@ -145,13 +133,8 @@ public class AdminServices {
             System.out.println("SQL for insert=" + ps);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return i;
-        } finally {
-            if (con != null) {
-                con.close();
-            }
         }
     }
 
@@ -164,8 +147,7 @@ public class AdminServices {
             ps.setString(1, type);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 0;
         } finally {
             if (con != null) {
@@ -195,8 +177,7 @@ public class AdminServices {
                 serviceTypeList.add(serviceType);
             }
             return serviceTypeList;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -228,8 +209,7 @@ public class AdminServices {
 
             }
             return serviceType;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -252,8 +232,7 @@ public class AdminServices {
             System.out.println("Select SQL = " + ps);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 0;
         } finally {
             if (con != null) {
@@ -282,8 +261,7 @@ public class AdminServices {
                 userList.add(user);
             }
             return userList;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {
@@ -301,8 +279,7 @@ public class AdminServices {
             ps.setString(1, emailId);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return 0;
         } finally {
             if (con != null) {
@@ -313,9 +290,7 @@ public class AdminServices {
 
     public int registerService(String serviceName, int pinCode) throws Exception {
         int i = 0;
-        Connection con = null;
-        try {
-            con = ConnectionManager.getConnection();
+        try (Connection con = ConnectionManager.getConnection()) {
             String sql = "INSERT INTO services (serviceName, pinCode, status) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, serviceName);
@@ -324,13 +299,8 @@ public class AdminServices {
             System.out.println("SQL for insert=" + ps);
             i = ps.executeUpdate();
             return i;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return i;
-        } finally {
-            if (con != null) {
-                con.close();
-            }
         }
     }
 
@@ -355,8 +325,7 @@ public class AdminServices {
                 serviceList.add(service);
             }
             return serviceList;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             return null;
         } finally {
             if (con != null) {

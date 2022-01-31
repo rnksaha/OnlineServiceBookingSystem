@@ -303,7 +303,7 @@ public class UserService {
         Connection con = null;
         List<ServiceType> serviceTypeList = new ArrayList<>();
         try {
-            String sql = "SELECT type, price FROM servicetype WHERE services_serviceId=?";
+            String sql = "SELECT type, price, services_serviceId FROM servicetype WHERE services_serviceId=?";
             con = ConnectionManager.getConnection();
             System.out.println("Connection is " + con);
             PreparedStatement ps = con.prepareStatement(sql);
@@ -314,6 +314,7 @@ public class UserService {
                 ServiceType serviceType = new ServiceType();
                 serviceType.setType(rs.getString("type"));
                 serviceType.setPrice(rs.getDouble("price"));
+                serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
                 
                 serviceTypeList.add(serviceType);
             }

@@ -26,10 +26,10 @@ CREATE TABLE `feedback` (
   `feedbackId` int NOT NULL AUTO_INCREMENT,
   `feedback` varchar(200) NOT NULL,
   `users_emailId` varchar(50) NOT NULL,
-  PRIMARY KEY (`feedbackId`,`users_emailId`),
+  PRIMARY KEY (`feedbackId`),
   KEY `fk_feedback_users1_idx` (`users_emailId`),
   CONSTRAINT `fk_feedback_users1` FOREIGN KEY (`users_emailId`) REFERENCES `users` (`emailId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `feedback` (
 
 LOCK TABLES `feedback` WRITE;
 /*!40000 ALTER TABLE `feedback` DISABLE KEYS */;
+INSERT INTO `feedback` VALUES (1,'Very good website. Service delivered on time and the professional was well trained and well behaved. Will book again in future!','abc@gmail.com'),(2,'Very Good','bca@gmail.com'),(4,'Nice','sommojeetc@gmail.com'),(5,'Superb Service','bca@gmail.com'),(6,'Great experience!','abc@gmail.com');
 /*!40000 ALTER TABLE `feedback` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-28 11:20:33
+-- Dump completed on 2022-01-31 14:31:48

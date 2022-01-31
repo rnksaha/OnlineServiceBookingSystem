@@ -63,7 +63,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     private int serviceId;
     private List<ServiceType> serviceTypeList;
-    
+
     @Override
     public void setApplication(Map<String, Object> application) {
         map = (ApplicationMap) application;
@@ -224,9 +224,10 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     public String addToCart() throws Exception {
 
-        ArrayList<Integer> cart = (ArrayList) sessionMap.get("cart");
-        cart.add(getcId());
-        cart.add(1);
+        //ArrayList<Integer> cart =(ArrayList) sessionMap.get("cart");
+        ArrayList<Integer> cart = new ArrayList<>();
+        cart.add(getServices_serviceId());
+        System.out.println(cart);
         sessionMap.put("cart", cart);
 
         return "CARTADDED";
@@ -248,7 +249,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
         return "LOGOUT";
     }
-    
+
     public String salon() throws Exception {
         setUserService(new UserService());
         try {

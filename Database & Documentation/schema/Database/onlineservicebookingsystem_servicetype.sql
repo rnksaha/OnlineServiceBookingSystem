@@ -39,6 +39,7 @@ CREATE TABLE `servicetype` (
 
 LOCK TABLES `servicetype` WRITE;
 /*!40000 ALTER TABLE `servicetype` DISABLE KEYS */;
+INSERT INTO `servicetype` VALUES ('Beard Trim',65,1,3),('Facial',80,1,3),('Hair Cut',100,1,3),('Pipes Installation',500,1,2),('Special Hair Style',150,1,3);
 /*!40000 ALTER TABLE `servicetype` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-28 11:20:41
+-- Dump completed on 2022-01-31 14:31:48

@@ -76,7 +76,7 @@
             <result name="CART">/user/cart.jsp</result>
         </action>
         <action name="addToCart" class="com.exavalu.OSBS.actions.UserAction" method="addToCart">
-            <result name="CARTADDED">/user/cleaning.jsp</result>
+            <result name="CARTADDED">/user/salon.jsp</result>
         </action>
         <action name="getPinCodes" class="com.exavalu.OSBS.actions.UserAction" method="getPinCodes">
             <result name="PINCODES">/user/pincodes.jsp</result>

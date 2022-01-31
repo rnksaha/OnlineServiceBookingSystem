@@ -36,6 +36,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES ('abc@gmail.com',2,1),('bca@gmail.com',2,1),('exavalu@rediffmail.com',2,1),('mr.rounaksaha@gmail.com',2,1),('sommojeetc@gmail.com',1,1),('urbanwareservice@gmail.com',1,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-28 11:20:45
+-- Dump completed on 2022-01-31 14:31:47

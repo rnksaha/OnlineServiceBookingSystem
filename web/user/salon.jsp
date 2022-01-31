@@ -41,6 +41,30 @@
                 text-align: center;
             }
         </style>
+        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+        </script>
+        <script>
+            function addToCart(services_serviceId) {
+                //var cityName = document.getElementByName("selectedCity").value;
+                //alert($("#selectedCity").val());
+                $.ajax({
+                    type: "GET",
+                    url: "addToCart",
+                    //data: {'cityName': $("#selectedCity").text()},
+                    data: "services_serviceId=" + services_serviceId,
+                    success: function (result) {
+//                        $('#result').html(result);
+                        alert("Item Added!!");
+                    },
+                    error: function (xhr, errmsg) {
+                        alert("No values found..!!");
+                    }
+                });
+            }
+            
+
+        </script>
 
     </head>
 
@@ -73,7 +97,7 @@
                             <div id="product-1" class="single-product">
                                 <div class="part-1">
                                     <ul>
-                                        <li><a id="" href="addToCart.action?cId=3"><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a id="" onclick="addToCart(<s:property value="services_serviceId"/>)" href="#"/><i class="fas fa-shopping-cart"></i></a></li>
                                         <li><a href="#"><i class="fas fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fas fa-plus"></i></a></li>
                                     </ul>

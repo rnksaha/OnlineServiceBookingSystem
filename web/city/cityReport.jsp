@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <jsp:include page="admin.jsp"></jsp:include>
+        <jsp:include page="/admin/admin.jsp"></jsp:include>
             <style>
                 table {
                     font-family: arial, sans-serif;

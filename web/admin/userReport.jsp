@@ -52,10 +52,10 @@
                                 <td><s:property value="status" /></td>
                                 <td>
                                     <a href="deleteUser.action?emailId=<s:property value="emailId"/>">
-                                        <button class="button-delete">Disable User</button>
+                                        <button class="btn btn-outline-danger">Disable User</button>
                                     </a>
                                     <a href="enableUser.action?emailId=<s:property value="emailId"/>">
-                                        <button class="button-delete">Enable User</button>
+                                        <button class="btn btn-outline-primary">Enable User</button>
                                     </a>
                                 </td>
                             </tr>

@@ -52,10 +52,10 @@
                                 <td><s:property value="status" /></td>
                                 <td>
                                     <a href="disablePin.action?pinCode=<s:property value="pinCode"/>">
-                                        <button class="button-delete">Disable Pin</button>
+                                        <button class="btn btn-outline-danger">Disable Pin</button>
                                     </a>
                                     <a href="enablePin.action?pinCode=<s:property value="pinCode"/>">
-                                        <button class="button-delete">Enable Pin</button>
+                                        <button class="btn btn-outline-primary">Enable Pin</button>
                                     </a>
                                 </td>
                             </tr>

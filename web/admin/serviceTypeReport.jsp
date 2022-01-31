@@ -57,10 +57,10 @@
                                 <!-- watch primary key hard coding set as serviceName -->
                                 <td>
                                     <a href="updateServiceType.action?submitType=updateServiceTypedata&type=<s:property value="type"/>">
-                                        <button class="button-update">Update</button>
+                                        <button class="btn btn-outline-primary">Update</button>
                                     </a>
                                     <a href="deleteServiceType.action?type=<s:property value="type"/>">
-                                        <button class="button-delete">Delete</button>
+                                        <button class="btn btn-outline-danger">Delete</button>
                                     </a>
                                 </td>
                             </tr>

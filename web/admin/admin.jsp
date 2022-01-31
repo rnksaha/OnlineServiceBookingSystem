@@ -76,9 +76,9 @@
                         <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Register<i class="fas fa-angle-right"></i></a>
                             <ul class="sub-menu">
                                 <li><a href="#"> Admin</a></li>
-                                <li class="sub-active"><a href="cityRegister"> Cities</a></li>
-                                <li class="sub-active"><a href="servicesRegister"> Services</a></li>
-                                <li class="sub-active"><a href="serviceTypeRegister"> Services Types</a></li>
+                                <li class="sub-active"><a href="cityRegister.jsp"> Cities</a></li>
+                                <li class="sub-active"><a href="servicesRegister.jsp"> Services</a></li>
+                                <li class="sub-active"><a href="serviceTypeRegister.jsp"> Services Types</a></li>
                             </ul>
                         </li>
                         <li class="main-sub-menu"><a href="reportFeedback"><i class="fas fa-quote-left"></i> Feedback <i class="fas fa-angle-right"></i></a>

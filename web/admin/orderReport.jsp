@@ -60,12 +60,12 @@
 
 
                             <!-- watch primary key hard coding set as email ID -->
-                            <a href="<s:property value="emailId"/>">
+<!--                            <a href="<s:property value="emailId"/>">
                                 <button class="button-update">Update</button>
                             </a>
                             <a href="<s:property value="emailId"/>">
                                 <button class="button-delete">Delete</button>
-                            </a>
+                            </a>-->
                         </s:iterator>
                     </table>
                 </s:if>

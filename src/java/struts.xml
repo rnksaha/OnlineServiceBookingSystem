@@ -76,7 +76,6 @@
             <result name="CART"></result>
         </action>
         <action name="addToCart" class="com.exavalu.OSBS.actions.UserAction" method="addToCart">
-            <result name="CARTINVALID">/user/signUp.jsp</result>
             <result name="CARTADDED"></result>
         </action>
         <action name="getPinCodes" class="com.exavalu.OSBS.actions.UserAction" method="getPinCodes">

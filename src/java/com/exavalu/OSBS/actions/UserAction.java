@@ -223,17 +223,15 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     }
 
     public String addToCart() throws Exception {
-        if (sessionMap.get("validUser") == null) {
-            return "CARTINVALID";
-        } else {
-            ArrayList<Integer> cartVal = (ArrayList) sessionMap.get("cartVal");
-//        ArrayList<Integer> cart = new ArrayList<>();
-            cartVal.add(getServices_serviceId());
-            System.out.println(cartVal);
-            sessionMap.put("cartVal", cartVal);
 
-            return "CARTADDED";
-        }
+//        ArrayList<Integer> cart = (ArrayList) sessionMap.get("cart");
+        ArrayList<Integer> cart = new ArrayList<>();
+        cart.add(getServices_serviceId());
+        System.out.println(cart);
+
+        sessionMap.put("cart", cart);
+
+        return "CARTADDED";
     }
 
     public String viewCart() throws Exception {

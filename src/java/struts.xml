@@ -21,6 +21,9 @@
         <action name="service" class="com.exavalu.OSBS.actions.UserAction" method="service">
             <result name="SUCCESS">/user/service.jsp</result>
         </action>
+        <action name="showService" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/service.jsp</result>
+        </action>
         <action name="electrician" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/user/electrician.jsp</result>
         </action>
@@ -65,6 +68,9 @@
         <action name="cart" class="com.exavalu.OSBS.actions.UserAction" method="viewCart">
             <result name="CARTEMPTY">/user/index.jsp</result>
             <result name="CART">/user/cart.jsp</result>
+        </action>
+        <action name="addToCart" class="com.exavalu.OSBS.actions.UserAction" method="addToCart">
+            <result name="CARTADDED"></result>
         </action>
         <action name="getPinCodes" class="com.exavalu.OSBS.actions.UserAction" method="getPinCodes">
             <result name="PINCODES">/user/pincodes.jsp</result>

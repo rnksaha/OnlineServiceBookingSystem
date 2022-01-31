@@ -34,6 +34,22 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>urbanware</title>
 
+        <script>
+            function addToCart(cId) {
+                $.ajax({
+                    type: "GET",
+                    url: "addToCart",
+                    //data: {'cityName': $("#selectedCity").text()},
+                    data: "cId=" + $("#cId").val(),
+                    success: function (result) {
+                        $('#pindivid').html(result);
+                    },
+                    error: function (xhr, errmsg) {
+                        alert("No values found..!!");
+                    }
+                });
+            }
+        </script>
         <style>
             @import url("./css/cleaning.css");
             .my-class {
@@ -71,7 +87,7 @@
                         <div id="product-1" class="single-product">
                             <div class="part-1">
                                 <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                    <li><a id=""><i class="fas fa-shopping-cart"></i></a></li>
                                     <li><a href="#"><i class="fas fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fas fa-plus"></i></a></li>
                                 </ul>
@@ -134,54 +150,54 @@
                             </div>
                         </div>
                     </div>
-        </section>
-        <!-- End of Blog Section -->
-        <footer class="mastfoot my-3">
-            <div class="inner container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                    </section>
+                    <!-- End of Blog Section -->
+                    <footer class="mastfoot my-3">
+                        <div class="inner container">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 d-flex align-items-center">
 
-                    </div>
-                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
-                        <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
-                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                                    <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
+                                </div>
 
-                    <div class="col-lg-4 col-md-12">
-                        <nav class="nav nav-mastfoot justify-content-center">
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </nav>
-                    </div>
+                                <div class="col-lg-4 col-md-12">
+                                    <nav class="nav nav-mastfoot justify-content-center">
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                    </nav>
+                                </div>
 
-                </div>
-            </div>
+                            </div>
+                        </div>
 
-        </footer>	
+                    </footer>	
 
-        <!-- External JS -->
-        <script type="text/javascript" src="./js/jquery.js"></script>
-        <script src="./vendor/bootstrap/popper.min.js"></script>
-        <script src="./vendor/bootstrap/bootstrap.min.js"></script>
-        <script src="./vendor/select2/select2.min.js "></script>
-        <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
-        <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
-        <script src="./vendor/isotope/isotope.min.js"></script>
-        <script src="./vendor/lightcase/lightcase.js"></script>
-        <script src="./vendor/waypoints/waypoint.min.js"></script>
-        <script src="./js/aos.js"></script>
+                    <!-- External JS -->
+                    <script type="text/javascript" src="./js/jquery.js"></script>
+                    <script src="./vendor/bootstrap/popper.min.js"></script>
+                    <script src="./vendor/bootstrap/bootstrap.min.js"></script>
+                    <script src="./vendor/select2/select2.min.js "></script>
+                    <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
+                    <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
+                    <script src="./vendor/isotope/isotope.min.js"></script>
+                    <script src="./vendor/lightcase/lightcase.js"></script>
+                    <script src="./vendor/waypoints/waypoint.min.js"></script>
+                    <script src="./js/aos.js"></script>
 
-        <!-- Main JS -->
-        <script src="./js/app.min.js "></script>
-    </body>
-</html>
+                    <!-- Main JS -->
+                    <script src="./js/app.min.js "></script>
+                    </body>
+                    </html>
 

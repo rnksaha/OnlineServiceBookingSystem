@@ -27,6 +27,8 @@ import org.apache.struts2.interceptor.SessionAware;
  */
 public class UserAction extends ActionSupport implements ApplicationAware, SessionAware, Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private String emailId;
     private String otp;
     private boolean status;
@@ -43,6 +45,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String users_emailId;
     private String servicetype_type;
     private int services_serviceId;
+    private int cId;
 
     private String msg = "";
     private User user = new User();
@@ -150,11 +153,12 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         }
         return "REGISTERFEEDBACK";
     }
+
     public String registerOrders() throws Exception {
         setUserService(new UserService());
 
         try {
-            setCtr(getUserService().registerOrders(getName(), getAddress(),getPhoneNo(), getTotalPrice(), getUsers_emailId(), getServicetype_type(),getServices_serviceId()));
+            setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getTotalPrice(), getUsers_emailId(), getServicetype_type(), getServices_serviceId()));
             if (getCtr() > 0) {
                 setMsg("Order Registered");
             } else {
@@ -213,6 +217,16 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     public String setService() throws Exception {
         sessionMap.put("service", true);
         return "SUCCESS";
+    }
+
+    public String addToCart() throws Exception {
+
+        ArrayList<Integer> cart = (ArrayList) sessionMap.get("cart");
+        cart.add(getcId());
+        cart.add(1);
+        sessionMap.put("cart", cart);
+
+        return "CARTADDED";
     }
 
     public String viewCart() throws Exception {
@@ -414,7 +428,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         this.feedback = feedback;
     }
 
-
     /**
      * @return the response
      */
@@ -525,5 +538,19 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setServices_serviceId(int services_serviceId) {
         this.services_serviceId = services_serviceId;
+    }
+
+    /**
+     * @return the cId
+     */
+    public int getcId() {
+        return cId;
+    }
+
+    /**
+     * @param cId the cId to set
+     */
+    public void setcId(int cId) {
+        this.cId = cId;
     }
 }

@@ -21,6 +21,12 @@
         <action name="service" class="com.exavalu.OSBS.actions.UserAction" method="service">
             <result name="SUCCESS">/user/service.jsp</result>
         </action>
+        <action name="electrician" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/electrician.jsp</result>
+        </action>
+        <action name="plumber" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/plumber.jsp</result>
+        </action>
         <action name="signUp" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/user/signUp.jsp</result>
         </action>

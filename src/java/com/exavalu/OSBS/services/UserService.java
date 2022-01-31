@@ -14,7 +14,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
@@ -34,7 +33,7 @@ import org.apache.struts2.ServletActionContext;
  * @author AKSHAY
  */
 public class UserService {
-
+    
     public int registerUser(String emailId) {
         int i = 0;
         User user = new User();
@@ -70,7 +69,7 @@ public class UserService {
         }
         return i;
     }
-
+    
     public User fetchUserDetails(String emailId) {
         User user = new User();
         user.setEmailId(emailId);
@@ -92,7 +91,7 @@ public class UserService {
             if (con != null) {
                 try {
                     con.close();
-
+                    
                 } catch (SQLException ex) {
                     Logger.getLogger(UserService.class
                             .getName()).log(Level.SEVERE, null, ex);
@@ -100,28 +99,28 @@ public class UserService {
             }
         }
     }
-
+    
     public String generateOTP() {
         String values = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         Random rndm_method = new Random();
-
+        
         char[] otp = new char[4];
-
+        
         for (int j = 0; j < 4; j++) {
             otp[j] = values.charAt(rndm_method.nextInt(values.length()));
         }
-
+        
         String generatedOTP = new String(otp);
         return generatedOTP;
     }
-
+    
     public int sendMail(String to, String otp) {
         int i = 0;
         String from = "urbanwareservice@gmail.com";
         String password = "exavalu@123";
         String subject = "OTP For Login";
         String msg = otp;
-
+        
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -135,12 +134,12 @@ public class UserService {
                 return new PasswordAuthentication(from, password);
             }
         });
-
+        
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-
+            
             ServletActionContext.getRequest().setAttribute("otp", msg);
             ServletActionContext.getRequest().setAttribute("email", to);
             // add the Subject of email
@@ -148,7 +147,7 @@ public class UserService {
 
             // message body
             message.setText(msg);
-
+            
             Transport.send(message);
             return 1;
         } catch (MessagingException e) {
@@ -156,9 +155,9 @@ public class UserService {
         } finally {
             return i;
         }
-
+        
     }
-
+    
     public List reportPinCode(String cityName) throws SQLException, Exception {
         System.out.println(cityName);
         ResultSet rs = null;
@@ -172,7 +171,7 @@ public class UserService {
             ps.setString(1, cityName);
             rs = ps.executeQuery();
             while (rs.next()) {
-
+                
                 City city = new City();
                 city.setPinCode(rs.getInt("pinCode"));
                 //city.setCityName(rs.getString("cityName"));
@@ -209,7 +208,7 @@ public class UserService {
             ps.setString(5, users_emailId);
             ps.setString(6, servicetype_type);
             ps.setInt(7, services_serviceId);
-
+            
             System.out.println("SQL for insert=" + ps);
             i = ps.executeUpdate();
             return i;
@@ -253,10 +252,10 @@ public class UserService {
             }
         }
     }
-
+    
     public ArrayList<ServiceType> fetchServiceDetails() throws Exception {
         ServiceType serviceType = new ServiceType();
-
+        
         Connection con = null;
         int serviceId = 0;
         ArrayList<ServiceType> type = new ArrayList<ServiceType>();
@@ -272,23 +271,18 @@ public class UserService {
 //            }
 //            ps = null;
 //            rs = null;
-            String sql1 = "SELECT type,price,image FROM serviceType WHERE services_serviceId = ?";
+            String sql1 = "SELECT type,price FROM serviceType WHERE services_serviceId = ?";
             PreparedStatement ps = con.prepareStatement(sql1);
             ps.setInt(1, 3);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 serviceType.setType(rs.getString("type"));
                 serviceType.setPrice(rs.getDouble("price"));
-                serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
-//                serviceType.setImage(rs.getBinaryStream("image"));
-//                serviceType.setImgData(rs.getBytes("img"));
-//                String encode = Base64.getEncoder().encodeToString(serviceType.getImgData());
-//                serviceType.setEncode(encode);
 
                 type.add(serviceType);
             }
             return type;
-
+            
         } catch (SQLException e) {
             e.printStackTrace();
             return type;
@@ -301,7 +295,7 @@ public class UserService {
                 }
             }
         }
-
+        
     }
 
     public List salon(int serviceId) throws Exception {
@@ -321,7 +315,7 @@ public class UserService {
                 serviceType.setType(rs.getString("type"));
                 serviceType.setPrice(rs.getDouble("price"));
                 serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
-
+                
                 serviceTypeList.add(serviceType);
             }
             return serviceTypeList;

@@ -36,7 +36,17 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-
+        <script>
+            $(".side-nav-open").click(function (e) {
+                $.ajax({
+                    type: "GET",
+                    url: "viewCart",
+                    success: function () {
+                        alert("Cart Viewing");
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
         <%--<c:out value="${sessionScope.user.getEmailId()}"/>--%>
@@ -101,10 +111,11 @@
                         <c:out value="Cart Is Empty"></c:out>
                     </c:if>
                     <c:if test="${sessionScope.cart != null}">
-                        <c:forEach items="${sessionScope.cart}" var="item">
-                            <c:out value="${item}"></c:out>
-                        </c:forEach>
-                        <c:redirect url="viewCart"></c:redirect>
+                        <c:out value="Cart Is Full"></c:out>
+                        <%--<c:forEach items="${sessionScope.cart}" var="item">--%>
+                        <%--<c:out value="${item}"></c:out>--%>
+                        <%--</c:forEach>--%>
+                        <%--<c:redirect url="viewCart"></c:redirect>--%>
                     </c:if>
                     <a class="navbar-brand d-flex align-items-center text-white" href="cart">
                         <h3 class="font-weight-bolder mb-0">VIEW CART</h3>

@@ -101,7 +101,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
 //                map.put(getEmailId() + "session", mySession.getId());
                 User userInfo = getUserService().fetchUserDetails(getEmailId());
-                if (userInfo != null) {
+                if (userInfo.getRoleId() == 1 || userInfo.getRoleId() == 2) {
                     int roleId = userInfo.getRoleId();
                     sessionMap.put("role", roleId);
                     sessionMap.put("validuser", true);
@@ -223,14 +223,17 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     }
 
     public String addToCart() throws Exception {
+        if (sessionMap.get("validUser") == null) {
+            return "CARTINVALID";
+        } else {
+            ArrayList<Integer> cartVal = (ArrayList) sessionMap.get("cartVal");
+//        ArrayList<Integer> cart = new ArrayList<>();
+            cartVal.add(getServices_serviceId());
+            System.out.println(cartVal);
+            sessionMap.put("cartVal", cartVal);
 
-        //ArrayList<Integer> cart =(ArrayList) sessionMap.get("cart");
-        ArrayList<Integer> cart = new ArrayList<>();
-        cart.add(getServices_serviceId());
-        System.out.println(cart);
-        sessionMap.put("cart", cart);
-
-        return "CARTADDED";
+            return "CARTADDED";
+        }
     }
 
     public String viewCart() throws Exception {

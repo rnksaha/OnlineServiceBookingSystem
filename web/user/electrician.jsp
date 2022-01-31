@@ -29,7 +29,7 @@
         <title>urbanware</title>
 
         <style>
-            @import url("./css/product.css");
+            @import url("./css/electrician.css");
             .my-class {
                 text-align: center;
             }
@@ -54,8 +54,8 @@
                 <div class="row justify-content-center text-center">
                     <div class="col-md-8 col-lg-6">
                         <div class="header">
-                            <h3>Featured Product</h3>
-                            <h2>Popular Products</h2>
+                            <h3>Featured Services</h3>
+                            <h2>Popular Services</h2>
                         </div>
                     </div>
                 </div>
@@ -71,9 +71,9 @@
                                 </ul>
                             </div>
                             <div class="part-2">
-                                <h3 class="product-title">Here Product Title</h3>
-                                <h4 class="product-old-price">$79.99</h4>
-                                <h4 class="product-price">$49.99</h4>
+                                <h3 class="product-title">Fix Light Issue</h3>
+                                <h4 class="product-old-price">$3.99</h4>
+                                <h4 class="product-price">$2.99</h4>
                             </div>
                         </div>
                     </div>
@@ -89,8 +89,8 @@
                                 </ul>
                             </div>
                             <div class="part-2">
-                                <h3 class="product-title">Here Product Title</h3>
-                                <h4 class="product-price">$49.99</h4>
+                                <h3 class="product-title">Fix Main Electric Service Meter Issue</h3>
+                                <h4 class="product-price">$4.99</h4>
                             </div>
                         </div>
                     </div>
@@ -105,9 +105,9 @@
                                 </ul>
                             </div>
                             <div class="part-2">
-                                <h3 class="product-title">Here Product Title</h3>
-                                <h4 class="product-old-price">$79.99</h4>
-                                <h4 class="product-price">$49.99</h4>
+                                <h3 class="product-title">Fix Electric Service-line Issue</h3>
+                                <h4 class="product-old-price">$12.99</h4>
+                                <h4 class="product-price">$9.99</h4>
                             </div>
                         </div>
                     </div>
@@ -123,81 +123,15 @@
                                 </ul>
                             </div>
                             <div class="part-2">
-                                <h3 class="product-title">Here Product Title</h3>
-                                <h4 class="product-price">$49.99</h4>
+                                <h3 class="product-title">Plug-in/plug-out Socket Issue</h3>
+                                <h4 class="product-price">$3.99</h4>
                             </div>
                         </div>
                     </div>
                     <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-1" class="single-product">
-                            <div class="part-1">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Here Product Title</h3>
-                                <h4 class="product-old-price">$79.99</h4>
-                                <h4 class="product-price">$49.99</h4>
-                            </div>
-                        </div>
-                    </div>
+                   
                     <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-2" class="single-product">
-                            <div class="part-1">
-                                <span class="discount">15% off</span>
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Here Product Title</h3>
-                                <h4 class="product-price">$49.99</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-3" class="single-product">
-                            <div class="part-1">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Here Product Title</h3>
-                                <h4 class="product-old-price">$79.99</h4>
-                                <h4 class="product-price">$49.99</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-4" class="single-product">
-                            <div class="part-1">
-                                <span class="new">new</span>
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Here Product Title</h3>
-                                <h4 class="product-price">$49.99</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    
         </section>
         <!-- End of Blog Section -->
         <footer class="mastfoot my-3">

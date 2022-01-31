@@ -48,7 +48,7 @@ public class UserTest {
         String result = instance.getEmailId();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -61,7 +61,7 @@ public class UserTest {
         User instance = new User();
         instance.setEmailId(emailId);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -75,7 +75,7 @@ public class UserTest {
         int result = instance.getRoleId();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -88,7 +88,7 @@ public class UserTest {
         User instance = new User();
         instance.setRoleId(roleId);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -102,7 +102,7 @@ public class UserTest {
         int result = instance.getStatus();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -115,7 +115,7 @@ public class UserTest {
         User instance = new User();
         instance.setStatus(status);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

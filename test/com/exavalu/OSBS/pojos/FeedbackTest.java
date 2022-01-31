@@ -48,7 +48,7 @@ public class FeedbackTest {
         int result = instance.getFeedbackId();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -61,7 +61,7 @@ public class FeedbackTest {
         Feedback instance = new Feedback();
         instance.setFeedbackId(feedbackId);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -75,7 +75,7 @@ public class FeedbackTest {
         String result = instance.getFeedback();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
 
     /**
@@ -88,7 +88,7 @@ public class FeedbackTest {
         Feedback instance = new Feedback();
         instance.setFeedback(feedback);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }

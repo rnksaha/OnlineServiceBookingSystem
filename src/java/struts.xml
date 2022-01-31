@@ -1,0 +1,142 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="otprequest" class="com.exavalu.OSBS.actions.UserAction" method="otpRequest">
+            <result name="SUCCESS">/user/signUp.jsp</result>
+        </action>
+        <action name="loginuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogin">
+            <result name="LOGIN" >/user/index.jsp</result>
+            <result name="LOGINERROR" >/user/signUp.jsp</result>
+        </action>
+        <action name="registerFeedback" class="com.exavalu.OSBS.actions.UserAction" method="registerFeedback">
+            <result name="REGISTERFEEDBACK">/user/feedback.jsp</result>
+        </action> 
+        <action name="registerOrders" class="com.exavalu.OSBS.actions.UserAction" method="registerOrders">
+            <result name="REGISTERORDERS">/user/feedback.jsp</result>
+        </action>  
+        <action name="service" class="com.exavalu.OSBS.actions.UserAction" method="service">
+            <result name="SUCCESS">/user/service.jsp</result>
+        </action>
+        <action name="showService" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/service.jsp</result>
+        </action>
+        <action name="electrician" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/electrician.jsp</result>
+        </action>
+        <action name="plumber" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/plumber.jsp</result>
+        </action>
+        
+        <action name="salon" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/salon.jp</result>
+        </action>
+        <action name="repair" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/repair.jsp</result>
+        </action>
+        <action name="therapy" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/therapy.jsp</result>
+        </action>
+        
+        <action name="cleaning" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/cleaning.jsp</result>
+        </action>
+        <action name="signUp" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/signUp.jsp</result>
+        </action>
+        <action name="feedback" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/feedback.jsp</result>
+        </action>
+        <action name="about" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/about.jsp</result>
+        </action>
+        <action name="contact" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/contact.jsp</result>
+        </action>
+        <action name="admin" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS" >/admin/admin.jsp</result>
+        </action>
+        <action name="index" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS" >/user/index.jsp</result>
+        </action>
+        <action name="logoutuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogout">
+            <result name="LOGOUT">/user/index.jsp</result>
+        </action>
+        <action name="cart" class="com.exavalu.OSBS.actions.UserAction" method="viewCart">
+            <result name="CARTEMPTY">/user/index.jsp</result>
+            <result name="CART">/user/cart.jsp</result>
+        </action>
+        <action name="addToCart" class="com.exavalu.OSBS.actions.UserAction" method="addToCart">
+            <result name="CARTADDED"></result>
+        </action>
+        <action name="getPinCodes" class="com.exavalu.OSBS.actions.UserAction" method="getPinCodes">
+            <result name="PINCODES">/user/pincodes.jsp</result>
+        </action>
+        <action name="registerFeedback" class="com.exavalu.OSBS.actions.UserAction" method="registerFeedback">
+            <result name="REGISTERFEEDBACK">/user/feedback.jsp</result>
+        </action>
+        <action name="registerCity" class="com.exavalu.OSBS.actions.AdminAction" method="registerCity">           
+            <result name="REGISTERCITY">/city/cityRegister.jsp</result>
+        </action>
+        <action name="disablePin" class="com.exavalu.OSBS.actions.AdminAction" method="disablePin">
+            <result name="DISABLEPIN">/admin/disablePin.jsp</result>
+        </action>
+        <action name="enablePin" class="com.exavalu.OSBS.actions.AdminAction" method="enablePin">
+            <result name="ENABLEPIN">/admin/disablePin.jsp</result>
+        </action>
+        <action name="reportCity" class="com.exavalu.OSBS.actions.AdminAction" method="reportCity">
+            <result name="REPORTCITY">/city/cityReport.jsp</result>
+        </action>
+        <action name="reportOrders" class="com.exavalu.OSBS.actions.AdminAction" method="reportOrders">
+            <result name="REPORTORDERS">/admin/orderReport.jsp</result>
+        </action>
+        <action name="registerServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="registerServiceType">
+            <result name="REGISTERSERVICETYPE">/services/serviceTypeRegister.jsp</result>
+        </action>
+        <action name="deleteServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="deleteServiceType">
+            <result name="DELETESERVICETYPE">/services/deleteServiceType.jsp</result>
+        </action>
+        <action name="updateServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="updateServiceType">
+            <result name="UPDATESERVICETYPE">/services/serviceTypeEdit.jsp</result>
+        </action>
+        <action name="reportServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="reportServiceType">
+            <result name="REPORTSERVICETYPE">/admin/serviceTypeReport.jsp</result>
+        </action>
+        <action name="cityRegister" class="com.exavalu.OSBS.actions.AdminAction" method="redirectPage">
+            <result name="SUCCESS" >/city/cityRegister.jsp</result>
+        </action>
+        <action name="servicesRegister" class="com.exavalu.OSBS.actions.AdminAction" method="redirectPage">
+            <result name="SUCCESS" >/services/servicesRegister.jsp</result>
+        </action>
+        <action name="serviceTypeRegister" class="com.exavalu.OSBS.actions.AdminAction" method="redirectPage">
+            <result name="SUCCESS" >/services/serviceTypeRegister.jsp</result>
+        </action>        
+        <action name="reportUser" class="com.exavalu.OSBS.actions.AdminAction" method="reportUser">
+            <result name="REPORTUSER">/admin/userReport.jsp</result>
+        </action>
+        <action name="deleteUser" class="com.exavalu.OSBS.actions.AdminAction" method="deleteUser">
+            <result name="DELETEUSER">/admin/deleteUser.jsp</result>
+        </action>
+        <action name="enableUser" class="com.exavalu.OSBS.actions.AdminAction" method="enableUser">
+            <result name="ENABLEUSER">/admin/deleteUser.jsp</result>
+        </action>
+        <action name="registerService" class="com.exavalu.OSBS.actions.AdminAction" method="registerService">
+            <result name="REGISTERSERVICE">/services/servicesRegister.jsp</result>
+        </action>
+        <action name="reportService" class="com.exavalu.OSBS.actions.AdminAction" method="reportService">
+            <result name="REPORTSERVICE">/admin/servicesReport.jsp</result>
+        </action>
+        <action name="deleteService" class="com.exavalu.OSBS.actions.AdminAction" method="deleteService">
+            <result name="DELETESERVICE">/services/deleteService.jsp</result>
+        </action>
+        <action name="updateService" class="com.exavalu.OSBS.actions.AdminAction" method="updateService">
+            <result name="UPDATESERVICE">/services/serviceEdit.jsp</result>
+        </action>
+        <action name="reportFeedback" class="com.exavalu.OSBS.actions.AdminAction" method="reportFeedback">
+            <result name="REPORTFEEDBACK">/admin/feedbackReport.jsp</result>
+        </action>  
+    </package>
+</struts>

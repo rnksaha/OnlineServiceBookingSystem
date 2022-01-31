@@ -98,7 +98,7 @@
         <!-- End of Banner Section-->
 
         <!-- City and Pin Code Section-->
-        <div style="width:800px; margin:auto;">
+        <div style="width:200px; margin:auto;">
             <select onchange="getPinCodes()" id="selectedCity" name="selectedCity" class="form-select" aria-label="Default select example">
                 <option value="NA">
                     ----Select City Name----
@@ -108,7 +108,7 @@
                 <option value="Delhi">Delhi</option>
             </select>
         </div>
-        <div id="pindivid" style="width:800px; margin:auto;">
+        <div style="width:200px; margin:auto;" id="pindivid" style="width:800px; margin:auto;">
         </div>
         <!-- End of City and Pin Code Section-->
 

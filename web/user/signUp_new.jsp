@@ -57,7 +57,7 @@
                 text-align: center;
             }
             .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-                background-color: #1a1c56 !important;
+                background-color: #433782 !important;
             }
         </style>
     </head>
@@ -79,8 +79,8 @@
                 <h1 class="mb-3 font-weight-normal">
                     Sign In
                 </h1>
-                <s:textfield id="emailId" cssClass = "form-control" value="emailId" placeholder="Email" size="50"/>
-                <s:textfield id="otp" cssClass = "form-control"  value="otp" name="otp" placeholder="OTP" />
+                <s:textfield id="emailId" cssClass = "form-control"   value="emailId" placeholder="Email" size="50"/>
+                <s:textfield id="otp" cssClass = "form-control"  name="otp" placeholder="OTP" />
                 <s:submit cssClass="w-100 btn btn-lg btn-primary"  value="Login"/>
                 <s:submit cssClass="w-100 btn btn-lg btn-primary"  name="btnOtp" value="GET OTP"/>
             </s:form>

@@ -48,7 +48,7 @@ public class CityTest {
         String result = instance.getCityName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -61,7 +61,7 @@ public class CityTest {
         City instance = new City();
         instance.setCityName(cityName);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -75,7 +75,7 @@ public class CityTest {
         int result = instance.getPinCode();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,7 +88,7 @@ public class CityTest {
         City instance = new City();
         instance.setPinCode(pinCode);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
     
 }

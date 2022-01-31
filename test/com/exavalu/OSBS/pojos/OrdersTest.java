@@ -48,7 +48,7 @@ public class OrdersTest {
         String result = instance.getName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -61,7 +61,7 @@ public class OrdersTest {
         Orders instance = new Orders();
         instance.setName(name);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -75,7 +75,7 @@ public class OrdersTest {
         String result = instance.getAddress();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,7 +88,7 @@ public class OrdersTest {
         Orders instance = new Orders();
         instance.setAddress(address);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -102,7 +102,7 @@ public class OrdersTest {
         String result = instance.getPhoneNo();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -115,7 +115,7 @@ public class OrdersTest {
         Orders instance = new Orders();
         instance.setPhoneNo(phoneNo);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -129,7 +129,7 @@ public class OrdersTest {
         double result = instance.getTotalPrice();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -142,7 +142,7 @@ public class OrdersTest {
         Orders instance = new Orders();
         instance.setTotalPrice(totalPrice);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
     
 }

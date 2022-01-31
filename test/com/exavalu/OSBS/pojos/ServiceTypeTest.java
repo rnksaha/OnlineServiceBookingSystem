@@ -48,7 +48,7 @@ public class ServiceTypeTest {
         String result = instance.getType();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -61,7 +61,7 @@ public class ServiceTypeTest {
         ServiceType instance = new ServiceType();
         instance.setType(type);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -75,7 +75,7 @@ public class ServiceTypeTest {
         double result = instance.getPrice();
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,7 +88,7 @@ public class ServiceTypeTest {
         ServiceType instance = new ServiceType();
         instance.setPrice(price);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -102,7 +102,7 @@ public class ServiceTypeTest {
         int result = instance.getStatus();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -115,7 +115,7 @@ public class ServiceTypeTest {
         ServiceType instance = new ServiceType();
         instance.setStatus(status);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
     
 }

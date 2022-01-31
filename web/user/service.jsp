@@ -55,356 +55,367 @@
         <title>urbanware</title>
     </head>
     <body>
-        <jsp:include page="header.jsp"/>
-        <!-- Banner part-->
-        <div class="jumbotron d-flex align-items-center">
-            <div class="container text-center">
-                <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
-            </div>
-            <div class="rectangle-1"></div>
-            <div class="rectangle-2"></div>
-            <div class="rectangle-transparent-1"></div>
-            <div class="rectangle-transparent-2"></div>
-            <div class="circle-1"></div>
-            <div class="circle-2"></div>
-            <div class="circle-3"></div>
-            <div class="triangle triangle-1">
-                <img src="img/obj_triangle.png" alt="">
-            </div>
-            <div class="triangle triangle-2">
-                <img src="img/obj_triangle.png" alt="">
-            </div>
-            <div class="triangle triangle-3">
-                <img src="img/obj_triangle.png" alt="">
-            </div>
-            <div class="triangle triangle-4">
-                <img src="img/obj_triangle.png" alt="">
+
+
+
+        <!-- setting variable for admin & client-->
+
+    
+
+    <!-- setting variable for admin & client ENDS HERE-->
+
+    <jsp:include page="header.jsp" ></jsp:include>
+
+
+    <!-- Banner part-->
+    <div class="jumbotron d-flex align-items-center">
+        <div class="container text-center">
+            <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
+        </div>
+        <div class="rectangle-1"></div>
+        <div class="rectangle-2"></div>
+        <div class="rectangle-transparent-1"></div>
+        <div class="rectangle-transparent-2"></div>
+        <div class="circle-1"></div>
+        <div class="circle-2"></div>
+        <div class="circle-3"></div>
+        <div class="triangle triangle-1">
+            <img src="img/obj_triangle.png" alt="">
+        </div>
+        <div class="triangle triangle-2">
+            <img src="img/obj_triangle.png" alt="">
+        </div>
+        <div class="triangle triangle-3">
+            <img src="img/obj_triangle.png" alt="">
+        </div>
+        <div class="triangle triangle-4">
+            <img src="img/obj_triangle.png" alt="">
+        </div>
+    </div>
+
+    <!-- End of Banner Section-->
+
+    <!-- City and Pin Code Section-->
+    <!--div style="width:800px; margin:auto;">
+        <select onchange="getPinCodes()" id="selectedCity" name="selectedCity" class="form-select" aria-label="Default select example">
+            <option value="NA">
+                ----Select City Name----
+            </option>
+            <option value="service.jsp">Ranchi</option>
+            <option value="Kolkata">Kolkata</option>
+            <option value="Delhi">Delhi</option>
+        </select>
+    </div-->
+    <!--div id="pindivid" style="width:800px; margin:auto;">
+    </div-->
+    <!-- End of City and Pin Code Section-->
+
+    <!-- Services Section -->
+    <section id="portfolio" class="bg-white">
+        <div class="container">
+            <div class="section-content">
+
+                <!-- Section Title -->
+                <div class="title-wrap">
+                    <h2 class="section-title">Services <b>We</b> Provide</h2>
+                </div>
+                <!-- End of Section Title -->
+
+                <div class="row">
+                    <!-- Service Holder -->
+                    <div class="col-md-12 portfolio-holder mt-3">
+
+                        <!-- Portfolio Content -->
+                        <div class="grid-portfolio">
+                            <div class="grid-sizer"></div>
+                            <div class="gutter-sizer"></div>
+                            <!-- Portfolio Item -->
+                            <div class="grid-item minimalism" data-aos="fade-up">
+                                <div class="grid-item-wrapper">
+                                    <img src="./img/e1.png" alt="portfolio-img" class="portfolio-item">
+                                    <div class="grid-info">
+                                        <div class="grid-link d-flex justify-content-center">
+                                            <a class="ext-link" href="electrician" target="_blank">
+                                                <span class="lnr lnr-link"></span>
+                                            </a>
+                                        </div>
+                                        <div class="grid-title">
+                                            <h4>Electricians</h4>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End of Portfolio Item -->
+                            <!-- Portfolio Item -->
+                            <div class="grid-item vintage" data-aos="fade-up">
+                                <div class="grid-item-wrapper">
+                                    <img src="./img/p1.jpg" alt="portfolio-img" class="portfolio-item">
+                                    <div class="grid-info">
+                                        <div class="grid-link d-flex justify-content-center">
+
+                                            <a class="ext-link" href="plumber" target="_blank">
+                                                <span class="lnr lnr-link"></span>
+                                            </a>
+                                        </div>
+                                        <div class="grid-title">
+                                            <h4>Plumber</h4>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Services Section  -->
+
+
+                            <!-- Portfolio Item -->
+                            <div class="grid-item creative grid-item-height" data-aos="fade-up">
+                                <div class="grid-item-wrapper">
+                                    <img src="./img/s2.jpg" alt="portfolio-img" class="portfolio-item">
+                                    <div class="grid-info">
+                                        <div class="grid-link d-flex justify-content-center">
+                                            <a class="ext-link" href="salon" target="_blank">
+                                                <span class="lnr lnr-link"></span>
+                                            </a> 
+                                        </div>
+                                        <div class="grid-title">
+                                            <h4>Salon</h4>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End of Portfolio Item -->
+                            <!-- Portfolio Item -->
+                            <div class="grid-item creative" data-aos="fade-up">
+                                <div class="grid-item-wrapper">
+                                    <img src="./img/r1.jpg" alt="portfolio-img" class="portfolio-item">
+                                    <div class="grid-info">
+                                        <div class="grid-link d-flex justify-content-center">
+                                            <a class="ext-link" href="repair" target="_blank">
+                                                <span class="lnr lnr-link"></span>
+                                            </a>
+                                        </div>
+                                        <div class="grid-title">
+                                            <h4>Repairs</h4>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End of Portfolio Item -->
+                            <!-- Portfolio Item -->
+                            <div class="grid-item vintage" data-aos="fade-up">
+                                <div class="grid-item-wrapper">
+                                    <img src="./img/t1.jpg" alt="portfolio-img" class="portfolio-item">
+                                    <div class="grid-info">
+                                        <div class="grid-link d-flex justify-content-center">
+                                            <a class="ext-link" href="therapy" target="_blank">
+                                                <span class="lnr lnr-link"></span>
+                                            </a>   
+                                        </div>
+                                        <div class="grid-title">
+                                            <h4>Therapies</h4>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End of Portfolio Item -->
+                            <!-- Portfolio Item -->
+                            <div class="grid-item creative" data-aos="fade-up">
+                                <div class="grid-item-wrapper">
+                                    <img src="./img/c2.jpg" alt="portfolio-img" class="portfolio-item">
+                                    <div class="grid-info">
+                                        <div class="grid-link d-flex justify-content-center">
+                                            <a class="ext-link" href="cleaning" target="_blank">
+                                                <span class="lnr lnr-link"></span>
+                                            </a>
+                                        </div>
+                                        <div class="grid-title">
+                                            <h4>Cleaning and Pest Control</h4>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- End of Portfolio Item -->
+                        </div>
+                        <!-- End of Portfolio Content -->
+                    </div>
+                    <!-- End of Portfolio Holder -->
+                </div>
             </div>
         </div>
+    </section>
+    <!-- End of Service Section -->
 
-        <!-- End of Banner Section-->
-
-        <!-- City and Pin Code Section-->
-        <!--div style="width:800px; margin:auto;">
-            <select onchange="getPinCodes()" id="selectedCity" name="selectedCity" class="form-select" aria-label="Default select example">
-                <option value="NA">
-                    ----Select City Name----
-                </option>
-                <option value="service.jsp">Ranchi</option>
-                <option value="Kolkata">Kolkata</option>
-                <option value="Delhi">Delhi</option>
-            </select>
-        </div-->
-        <!--div id="pindivid" style="width:800px; margin:auto;">
-        </div-->
-        <!-- End of City and Pin Code Section-->
-
-        <!-- Services Section -->
-        <section id="portfolio" class="bg-white">
-            <div class="container">
-                <div class="section-content">
-
-                    <!-- Section Title -->
-                    <div class="title-wrap">
-                        <h2 class="section-title">Services <b>We</b> Provide</h2>
-                    </div>
-                    <!-- End of Section Title -->
-
-                    <div class="row">
-                        <!-- Service Holder -->
-                        <div class="col-md-12 portfolio-holder mt-3">
-
-                            <!-- Portfolio Content -->
-                            <div class="grid-portfolio">
-                                <div class="grid-sizer"></div>
-                                <div class="gutter-sizer"></div>
-                                <!-- Portfolio Item -->
-                                <div class="grid-item minimalism" data-aos="fade-up">
-                                    <div class="grid-item-wrapper">
-                                        <img src="./img/photo-1.jpg" alt="portfolio-img" class="portfolio-item">
-                                        <div class="grid-info">
-                                            <div class="grid-link d-flex justify-content-center">
-                                                <a class="ext-link" href="electrician.jsp" target="_blank">
-                                                    <span class="lnr lnr-link"></span>
-                                                </a>
-                                            </div>
-                                            <div class="grid-title">
-                                                <h4>Electricians</h4>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!-- End of Portfolio Item -->
-                                <!-- Portfolio Item -->
-                                <div class="grid-item vintage" data-aos="fade-up">
-                                    <div class="grid-item-wrapper">
-                                        <img src="./img/photo-6.jpg" alt="portfolio-img" class="portfolio-item">
-                                        <div class="grid-info">
-                                            <div class="grid-link d-flex justify-content-center">
-
-                                                <a class="ext-link" href="plumber.jsp" target="_blank">
-                                                    <span class="lnr lnr-link"></span>
-                                                </a>
-                                            </div>
-                                            <div class="grid-title">
-                                                <h4>Plumber</h4>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!-- Services Section  -->
-
-
-                                <!-- Portfolio Item -->
-                                <div class="grid-item creative grid-item-height" data-aos="fade-up">
-                                    <div class="grid-item-wrapper">
-                                        <img src="./img/photo-2.jpg" alt="portfolio-img" class="portfolio-item">
-                                        <div class="grid-info">
-                                            <div class="grid-link d-flex justify-content-center">
-                                                <a class="ext-link" href="salon.jsp" target="_blank">
-                                                    <span class="lnr lnr-link"></span>
-                                                </a> 
-                                            </div>
-                                            <div class="grid-title">
-                                                <h4>Salon</h4>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!-- End of Portfolio Item -->
-                                <!-- Portfolio Item -->
-                                <div class="grid-item creative" data-aos="fade-up">
-                                    <div class="grid-item-wrapper">
-                                        <img src="./img/photo-7.jpg" alt="portfolio-img" class="portfolio-item">
-                                        <div class="grid-info">
-                                            <div class="grid-link d-flex justify-content-center">
-                                                <a class="ext-link" href="repair.jsp" target="_blank">
-                                                    <span class="lnr lnr-link"></span>
-                                                </a>
-                                            </div>
-                                            <div class="grid-title">
-                                                <h4>Repairs</h4>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!-- End of Portfolio Item -->
-                                <!-- Portfolio Item -->
-                                <div class="grid-item vintage" data-aos="fade-up">
-                                    <div class="grid-item-wrapper">
-                                        <img src="./img/photo-4.jpg" alt="portfolio-img" class="portfolio-item">
-                                        <div class="grid-info">
-                                            <div class="grid-link d-flex justify-content-center">
-                                                <a class="ext-link" href="therapy.jsp" target="_blank">
-                                                    <span class="lnr lnr-link"></span>
-                                                </a>   
-                                            </div>
-                                            <div class="grid-title">
-                                                <h4>Therapies</h4>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!-- End of Portfolio Item -->
-                                <!-- Portfolio Item -->
-                                <div class="grid-item creative" data-aos="fade-up">
-                                    <div class="grid-item-wrapper">
-                                        <img src="./img/photo-9.jpg" alt="portfolio-img" class="portfolio-item">
-                                        <div class="grid-info">
-                                            <div class="grid-link d-flex justify-content-center">
-                                                <a class="ext-link" href="cleaning.jsp" target="_blank">
-                                                    <span class="lnr lnr-link"></span>
-                                                </a>
-                                            </div>
-                                            <div class="grid-title">
-                                                <h4>Cleaning and Pest Control</h4>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <!-- End of Portfolio Item -->
-                            </div>
-                            <!-- End of Portfolio Content -->
-                        </div>
-                        <!-- End of Portfolio Holder -->
-                    </div>
+    <!-- Testimonial Section-->
+    <section id="testimonial" class="section-padding bg-fixed bg-white overlay" style="background-image: url(./img/bg-white.jpg);">
+        <div class="container">
+            <div class="section-content" data-aos="fade-up">
+                <div class="heading-section text-center">
+                    <h2>
+                        User Testimonials
+                    </h2>
                 </div>
-            </div>
-        </section>
-        <!-- End of Service Section -->
-
-        <!-- Testimonial Section-->
-        <section id="testimonial" class="section-padding bg-fixed bg-white overlay" style="background-image: url(./img/bg-white.jpg);">
-            <div class="container">
-                <div class="section-content" data-aos="fade-up">
-                    <div class="heading-section text-center">
-                        <h2>
-                            User Testimonials
-                        </h2>
-                    </div>
-                    <div class="row">
-                        <!-- Testimonial -->
-                        <div class="testi-content testi-carousel owl-carousel">
-                            <div class="testi-item text-center">
-                                <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                                <h4 class="testi-text"><b>URBAN WARE</b> <br>Some Feedback here</h4>
-                                <div class="testi-meta-inner d-flex justify-content-center align-items-center">
-                                    <div class="testi-img mr-2">
-                                        <img src="./img/testi-1.jpg" alt="">
-                                    </div>
-                                    <div class="testi-details">
-                                        <p class="testi-author mb-0 font-weight-bolder">John Doe</p>
-                                        <p class="testi-desc mb-0">Web Designer</p>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="testi-item text-center">
-                                <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                                <h4 class="testi-text">Some Feedback here <br> Some Feedback here.</h4>
-                                <div class="testi-meta-inner d-flex justify-content-center align-items-center">
-                                    <div class="testi-img mr-2">
-                                        <img src="./img/testi-1.jpg" alt="">
-                                    </div>
-                                    <div class="testi-details">
-                                        <p class="testi-author mb-0 font-weight-bolder">Philip Doe</p>
-                                        <p class="testi-desc mb-0">Web Designer</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="testi-item text-center">
-                                <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                                <h4 class="testi-text">Some Feedback here <br> Some Feedback here.</h4>
-                                <div class="testi-meta-inner d-flex justify-content-center align-items-center">
-                                    <div class="testi-img mr-2">
-                                        <img src="./img/testi-1.jpg" alt="">
-                                    </div>
-                                    <div class="testi-details">
-                                        <p class="testi-author mb-0 font-weight-bolder">Alex Doe</p>
-                                        <p class="testi-desc mb-0">Web Designer</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Testimonial -->
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End of Testimonial Section-->	
-
-        <!-- City Section -->
-        <section id="client" class="overlay bg-fixed" style="background-image: url();">
-            <div class="container">
-                <div class="section-content" data-aos="fade-up">
-                    <div class="row ">
-                        <div class="col-md-12">
-                            <!-- Section Title -->
-                            <div class="title-wrap mb-5">
-                                <h2>We<span> Are</span> Available On Selected Cities</h2>
-                            </div>
-                            <!-- End of Section Title -->
-                        </div>
-                        <!-- Provide city images below -->
-                        <div class="col-md-12 client-holder">
-                            <div class="client-slider owl-carousel">
-
-                                <div class="client-item">
-                                    <img class="kolkata" src="./img/icons/kolk.png" alt="KOL">
-                                    <p style="text-align:center;">Kolkata</p>
-                                </div>
-
-                                <div class="client-item">
-                                    <img class="bangalore" src="./img/icons/bang.png" alt="BANG">
-                                    <p style="text-align:center;">Bangalore</p>
-                                </div>
-
-                                <div class="client-item">
-                                    <img class="chandigarh" src="./img/icons/ahd.png" alt="CHD">
-                                    <p style="text-align:center;">Chandigarh</p>
-                                </div>
-
-                                <div class="client-item">
-                                    <div style="width:100px;height:72px;">
-                                        <img class="kochi" src="./img/icons/koch.png" alt="KOCH">
-                                    </div>
-                                    <p style="text-align:center;">Kochi</p>
-                                </div>
-
-                                <div class="client-item">
-                                    <img class="mumbai" src="./img/icons/mumbai.png" alt="MUMBAI">
-                                    <p style="text-align:center;">Mumbai</p>
-                                </div>
-
-                                <div class="client-item">
-                                    <img class="pune" src="./img/icons/pune.png" alt="PUNE">
-                                    <p style="text-align:center;">Pune</p>
-                                </div>
-
-                            </div>
-                            <!-- End of City images-->
-                        </div>
-                    </div>
-                </div>
-        </section>
-        <!-- End of Client Section -->	
-
-
-        <!-- footer start-->
-        <footer class="mastfoot my-3">
-            <div class="inner container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                    <!-- Testimonial -->
+                    <div class="testi-content testi-carousel owl-carousel">
+                        <div class="testi-item text-center">
+                            <i class="testi-icon fa fa-3x fa-quote-left"></i>
+                            <h4 class="testi-text"><br>"I received excellent service for my first haircut at urbanware."</h4>
+                            <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                                <div class="testi-img mr-2">
+                                    <img src="./img/photo-1587778082149-bd5b1bf5d3fa.jpg" alt="">
+                                </div>
+                                <div class="testi-details">
+                                    <p class="testi-author mb-0 font-weight-bolder">John Gupta</p>
+                                    <p class="testi-desc mb-0">Customer</p>
+                                </div>
+                            </div>
 
+                        </div>
+                        <div class="testi-item text-center">
+                            <i class="testi-icon fa fa-3x fa-quote-left"></i>
+                            <h4 class="testi-text">"I want to express my appreciation and satisfaction for the work and results of my house cleaning."</h4>
+                            <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                                <div class="testi-img mr-2">
+                                    <img src="./img/testi-1.jpg" alt="">
+                                </div>
+                                <div class="testi-details">
+                                    <p class="testi-author mb-0 font-weight-bolder">Riya Dey</p>
+                                    <p class="testi-desc mb-0">Customer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testi-item text-center">
+                            <i class="testi-icon fa fa-3x fa-quote-left"></i>
+                            <h4 class="testi-text">"Excellent service from therapist."</h4>
+                            <div class="testi-meta-inner d-flex justify-content-center align-items-center">
+                                <div class="testi-img mr-2">
+                                    <img src="./img/images.jpg" alt="">
+                                </div>
+                                <div class="testi-details">
+                                    <p class="testi-author mb-0 font-weight-bolder">Rony Ray</p>
+                                    <p class="testi-desc mb-0">Customer</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
-                        <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
-                    </div>
-
-                    <div class="col-lg-4 col-md-12">
-                        <nav class="nav nav-mastfoot justify-content-center">
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </nav>
-                    </div>
-
+                    <!-- End of Testimonial -->
                 </div>
             </div>
-        </footer>	
-        <!-- footer ends-->
+        </div>
+    </section>
+    <!-- End of Testimonial Section-->	
+
+    <!-- City Section -->
+    <section id="client" class="overlay bg-fixed" style="background-image: url();">
+        <div class="container">
+            <div class="section-content" data-aos="fade-up">
+                <div class="row ">
+                    <div class="col-md-12">
+                        <!-- Section Title -->
+                        <div class="title-wrap mb-5">
+                            <h2>We<span> Are</span> Available On Selected Cities</h2>
+                        </div>
+                        <!-- End of Section Title -->
+                    </div>
+                    <!-- Provide city images below -->
+                    <div class="col-md-12 client-holder">
+                        <div class="client-slider owl-carousel">
+
+                            <div class="client-item">
+                                <img class="kolkata" src="./img/icons/kolk.png" alt="KOL">
+                                <p style="text-align:center;">Kolkata</p>
+                            </div>
+
+                            <div class="client-item">
+                                <img class="bangalore" src="./img/icons/bang.png" alt="BANG">
+                                <p style="text-align:center;">Bangalore</p>
+                            </div>
+
+                            <div class="client-item">
+                                <img class="chandigarh" src="./img/icons/ahd.png" alt="CHD">
+                                <p style="text-align:center;">Chandigarh</p>
+                            </div>
+
+                            <div class="client-item">
+                                <div style="width:100px;height:72px;">
+                                    <img class="kochi" src="./img/icons/koch.png" alt="KOCH">
+                                </div>
+                                <p style="text-align:center;">Kochi</p>
+                            </div>
+
+                            <div class="client-item">
+                                <img class="mumbai" src="./img/icons/mumbai.png" alt="MUMBAI">
+                                <p style="text-align:center;">Mumbai</p>
+                            </div>
+
+                            <div class="client-item">
+                                <img class="pune" src="./img/icons/pune.png" alt="PUNE">
+                                <p style="text-align:center;">Pune</p>
+                            </div>
+
+                        </div>
+                        <!-- End of City images-->
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- End of Client Section -->	
+
+
+    <!-- footer start-->
+    <footer class="mastfoot my-3">
+        <div class="inner container">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 d-flex align-items-center">
+
+                </div>
+                <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                    <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
+                </div>
+
+                <div class="col-lg-4 col-md-12">
+                    <nav class="nav nav-mastfoot justify-content-center">
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a class="nav-link" href="#">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+    </footer>	
+    <!-- footer ends-->
 
 
 
-        <!-- External JS -->
-        <script type="text/javascript" src="./js/jquery.js"></script>
-        <script src="./vendor/bootstrap/popper.min.js"></script>
-        <script src="./vendor/bootstrap/bootstrap.min.js"></script>
-        <script src="./vendor/select2/select2.min.js "></script>
-        <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
-        <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
-        <script src="./vendor/isotope/isotope.min.js"></script>
-        <script src="./vendor/lightcase/lightcase.js"></script>
-        <script src="./vendor/waypoints/waypoint.min.js"></script>
-        <script src="./js/aos.js"></script>
+    <!-- External JS -->
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script src="./vendor/bootstrap/popper.min.js"></script>
+    <script src="./vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="./vendor/select2/select2.min.js "></script>
+    <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
+    <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./vendor/isotope/isotope.min.js"></script>
+    <script src="./vendor/lightcase/lightcase.js"></script>
+    <script src="./vendor/waypoints/waypoint.min.js"></script>
+    <script src="./js/aos.js"></script>
 
-        <!-- Main JS -->
-        <script src="./js/app.min.js "></script>
+    <!-- Main JS -->
+    <script src="./js/app.min.js "></script>
 
-    </body>
+</body>
 </html>

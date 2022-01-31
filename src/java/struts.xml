@@ -18,8 +18,28 @@
         <action name="registerOrders" class="com.exavalu.OSBS.actions.UserAction" method="registerOrders">
             <result name="REGISTERORDERS">/user/feedback.jsp</result>
         </action>  
-        <action name="electrician" class="com.exavalu.OSBS.actions.UserAction" method="service">
+        <action name="service" class="com.exavalu.OSBS.actions.UserAction" method="service">
+            <result name="SUCCESS">/user/service.jsp</result>
+        </action>
+        <action name="electrician" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/user/electrician.jsp</result>
+        </action>
+        <action name="plumber" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/plumber.jsp</result>
+        </action>
+        
+        <action name="salon" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/salon.jp</result>
+        </action>
+        <action name="repair" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/repair.jsp</result>
+        </action>
+        <action name="therapy" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/therapy.jsp</result>
+        </action>
+        
+        <action name="cleaning" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS">/user/cleaning.jsp</result>
         </action>
         <action name="signUp" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/user/signUp.jsp</result>

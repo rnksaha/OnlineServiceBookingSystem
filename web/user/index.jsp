@@ -130,41 +130,41 @@
                         <div class="testi-content testi-carousel owl-carousel">
                             <div class="testi-item text-center">
                                 <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                                <h4 class="testi-text"><b>URBAN WARE</b> <br>Some Feedback here</h4>
+                                <h4 class="testi-text"><br>"I received excellent service for my first haircut at urbanware."</h4>
                                 <div class="testi-meta-inner d-flex justify-content-center align-items-center">
                                     <div class="testi-img mr-2">
-                                        <img src="./img/testi-1.jpg" alt="">
+                                        <img src="./img/photo-1587778082149-bd5b1bf5d3fa.jpg" alt="">
                                     </div>
                                     <div class="testi-details">
-                                        <p class="testi-author mb-0 font-weight-bolder">John Doe</p>
-                                        <p class="testi-desc mb-0">Web Designer</p>
+                                        <p class="testi-author mb-0 font-weight-bolder">John Gupta</p>
+                                        <p class="testi-desc mb-0">Customer</p>
                                     </div>
                                 </div>
 
                             </div>
                             <div class="testi-item text-center">
                                 <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                                <h4 class="testi-text">Some Feedback here <br> Some Feedback here.</h4>
+                                <h4 class="testi-text">"I want to express my appreciation and satisfaction for the work and results of my house cleaning."</h4>
                                 <div class="testi-meta-inner d-flex justify-content-center align-items-center">
                                     <div class="testi-img mr-2">
                                         <img src="./img/testi-1.jpg" alt="">
                                     </div>
                                     <div class="testi-details">
-                                        <p class="testi-author mb-0 font-weight-bolder">Philip Doe</p>
-                                        <p class="testi-desc mb-0">Web Designer</p>
+                                        <p class="testi-author mb-0 font-weight-bolder">Riya Dey</p>
+                                        <p class="testi-desc mb-0">Customer</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="testi-item text-center">
                                 <i class="testi-icon fa fa-3x fa-quote-left"></i>
-                                <h4 class="testi-text">Some Feedback here <br> Some Feedback here.</h4>
+                                <h4 class="testi-text">"Excellent service from therapist."</h4>
                                 <div class="testi-meta-inner d-flex justify-content-center align-items-center">
                                     <div class="testi-img mr-2">
-                                        <img src="./img/testi-1.jpg" alt="">
+                                        <img src="./img/images.jpg" alt="">
                                     </div>
                                     <div class="testi-details">
-                                        <p class="testi-author mb-0 font-weight-bolder">Alex Doe</p>
-                                        <p class="testi-desc mb-0">Web Designer</p>
+                                        <p class="testi-author mb-0 font-weight-bolder">Rony Ray</p>
+                                        <p class="testi-desc mb-0">Customer</p>
                                     </div>
                                 </div>
                             </div>

@@ -67,7 +67,7 @@
         </action>
         <action name="cart" class="com.exavalu.OSBS.actions.UserAction" method="viewCart">
             <result name="CARTEMPTY">/user/index.jsp</result>
-            <result name="CART">/user/cart.jsp</result>
+            <result name="CART"></result>
         </action>
         <action name="addToCart" class="com.exavalu.OSBS.actions.UserAction" method="addToCart">
             <result name="CARTADDED"></result>

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
     <c:if test="${applicationScope.role != 1}">
-        <c:redirect url ="/signUp.jsp"></c:redirect>
+        <c:redirect url ="signUp"></c:redirect>
     </c:if>
     <head>
         <title>Admin Dashboard Design</title>

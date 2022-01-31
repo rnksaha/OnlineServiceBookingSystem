@@ -1,18 +1,37 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
+    <%
+        response.setHeader("Cache-Control", "no-cache");
+        response.setHeader("Cache-Control", "no-store");
+        response.setDateHeader("Expires", 0);
+        response.setHeader("Pragma", "no-cache");
+    %>
     <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="./css/signUp.css" />
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script type="text/javascript">
+        <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="vendor/select2/select2.min.css">
+        <link rel="stylesheet" href="vendor/owlcarousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="vendor/lightcase/lightcase.css">
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400|Work+Sans:300,400,700" rel="stylesheet">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/style.min.css">
+        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+        <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+
+        <script type="text/javascript">
             $(function () {
                 $("input[name=btnOtp]").click(function () {
                     $.ajax({
@@ -30,60 +49,35 @@
                     $("#dvSubmit").show();
                 });
             });
-
-            $('#otp').resetForm();
-
         </script>
-
-        <title>Sign Up</title>
-
         <style>
-            @-webkit-keyframes fadein {
-                from { opacity: 0; }
-                to   { opacity: 1; }
+            @font-face {
+                font-family: myFirstFont;
+                src: url(./font/Montserrat-Light-Alt1.woff2);
             }
-
-            .signUp {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-                min-height: 100vh;
-            }
-            .sign {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
-            }
-            .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-                background-color: #1a1c56 !important;
+            h3 {
+                font-family: myFirstFont;
             }
         </style>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Login</title>
     </head>
     <body>
-        <!-- Optional JavaScript; choose one of the two! -->
+        <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url()">
+            <div class="container text-center">
+                <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
+            </div>
+            <div class="wrapper fadeInDown">
+                <div id="formContent">                   
 
-        <!-- Option 1: Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-        <!-- Option 2: Separate Popper and Bootstrap JS -->
-        <!--
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-        -->
-
-
-        <div class="signUp text-center">
-            <s:form action="loginuser" cssClass="max-width:300px;margin:auto;">
-                <h1 class="mb-3 font-weight-normal">
-                    Sign In
-                </h1>
-                <s:textfield id="emailId" cssClass = "form-control" value="emailId" placeholder="Email" size="50"/>
-                <s:textfield id="otp" cssClass = "form-control"  value="otp" name="otp" placeholder="OTP" />
-                <s:submit cssClass="w-100 btn btn-lg btn-primary"  value="Login"/>
-                <s:submit cssClass="w-100 btn btn-lg btn-primary"  name="btnOtp" value="GET OTP"/>
-            </s:form>
-        </div>       
+                    <s:form action="loginuser">                        
+                        <s:textfield id="emailId" placeholder="Enter Email" value="emailId"  name="emailId" />
+                        <s:textfield id="otp" value="otp" placeholder="Enter OTP" name="otp" />
+                        <input type="button" id="btnOtp"  name="btnOtp" value="GET OTP">
+                        <s:submit value="Login"/>
+                    </s:form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

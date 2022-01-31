@@ -282,10 +282,6 @@ public class UserService {
                 serviceType.setType(rs.getString("type"));
                 serviceType.setPrice(rs.getDouble("price"));
                 serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
-//                serviceType.setImage(rs.getBinaryStream("image"));
-//                serviceType.setImgData(rs.getBytes("img"));
-//                String encode = Base64.getEncoder().encodeToString(serviceType.getImgData());
-//                serviceType.setEncode(encode);
 
                 type.add(serviceType);
             }

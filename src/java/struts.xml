@@ -32,7 +32,7 @@
         </action>
         
         <action name="salon" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
-            <result name="SUCCESS">/user/salon.jp</result>
+            <result name="SUCCESS">/user/salon.jsp</result>
         </action>
         <action name="repair" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/user/repair.jsp</result>

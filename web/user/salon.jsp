@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,8 +67,27 @@
                     </div>
                 </div>
                 <div class="row">
+                    
+                    <s:iterator value="serviceTypeList">
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-1" class="single-product">
+                                <div class="part-1">
+                                    <ul>
+                                        <li><a id="" href="addToCart.action?cId=3"><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="part-2">
+                                    <h3 class="product-title"><s:property value="type" /></h3>
+                                    <h4 class="product-price"><s:property value="price" /></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </s:iterator>
+                    
                     <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
+<!--                    <div class="col-md-6 col-lg-4 col-xl-3">
                         <div id="product-1" class="single-product">
                             <div class="part-1">
                                 <ul>
@@ -83,7 +103,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Single Product -->
+                     Single Product 
                     <div class="col-md-6 col-lg-4 col-xl-3">
                         <div id="product-2" class="single-product">
                             <div class="part-1">
@@ -100,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Single Product -->
+                     Single Product 
                     <div class="col-md-6 col-lg-4 col-xl-3">
                         <div id="product-3" class="single-product">
                             <div class="part-1">
@@ -117,7 +137,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Single Product -->
+                     Single Product 
                     <div class="col-md-6 col-lg-4 col-xl-3">
                         <div id="product-4" class="single-product">
                             <div class="part-1">
@@ -133,7 +153,7 @@
                                 <h4 class="product-price">$9.99</h4>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                     <!-- Single Product -->
         </section>
         <!-- End of Blog Section -->

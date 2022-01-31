@@ -297,4 +297,33 @@ public class UserService {
         }
         
     }
+
+    public List salon(int serviceId) throws Exception {
+        ResultSet rs = null;
+        Connection con = null;
+        List<ServiceType> serviceTypeList = new ArrayList<>();
+        try {
+            String sql = "SELECT type, price FROM servicetype WHERE services_serviceId=?";
+            con = ConnectionManager.getConnection();
+            System.out.println("Connection is " + con);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, serviceId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+
+                ServiceType serviceType = new ServiceType();
+                serviceType.setType(rs.getString("type"));
+                serviceType.setPrice(rs.getDouble("price"));
+                
+                serviceTypeList.add(serviceType);
+            }
+            return serviceTypeList;
+        } catch (SQLException e) {
+            return null;
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
 }

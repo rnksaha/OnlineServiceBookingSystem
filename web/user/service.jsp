@@ -174,7 +174,7 @@
                                     <img src="./img/s2.jpg" alt="portfolio-img" class="portfolio-item">
                                     <div class="grid-info">
                                         <div class="grid-link d-flex justify-content-center">
-                                            <a class="ext-link" href="salon" target="_blank">
+                                            <a class="ext-link" href="salon.action?serviceId=3" target="_blank">
                                                 <span class="lnr lnr-link"></span>
                                             </a> 
                                         </div>

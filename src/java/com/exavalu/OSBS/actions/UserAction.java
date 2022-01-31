@@ -61,6 +61,9 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
     private HttpServletResponse response;
 
+    private int serviceId;
+    private List<ServiceType> serviceTypeList;
+    
     @Override
     public void setApplication(Map<String, Object> application) {
         map = (ApplicationMap) application;
@@ -244,6 +247,25 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         map.put("user", null);
 
         return "LOGOUT";
+    }
+    
+    public String salon() throws Exception {
+        setUserService(new UserService());
+        try {
+            setServiceTypeList(new ArrayList<>());
+            setServiceTypeList(getUserService().salon(getServiceId()));
+
+            if (!serviceTypeList.isEmpty()) {
+                setNoData(false);
+                System.out.println("Service Types retrieved = " + getServiceTypeList().size());
+                System.out.println("setting nodata=false");
+            } else {
+                setNoData(true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "SALON";
     }
 
     /**
@@ -552,5 +574,33 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setcId(int cId) {
         this.cId = cId;
+    }
+
+    /**
+     * @return the serviceId
+     */
+    public int getServiceId() {
+        return serviceId;
+    }
+
+    /**
+     * @param serviceId the serviceId to set
+     */
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    /**
+     * @return the serviceTypeList
+     */
+    public List<ServiceType> getServiceTypeList() {
+        return serviceTypeList;
+    }
+
+    /**
+     * @param serviceTypeList the serviceTypeList to set
+     */
+    public void setServiceTypeList(List<ServiceType> serviceTypeList) {
+        this.serviceTypeList = serviceTypeList;
     }
 }

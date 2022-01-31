@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,92 +65,92 @@
 
 
 
-        <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url()">
-            <div class="container text-center">
-                <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
-            </div>
-        </div>
-
-        <!-- SOMETHING Section -->
-        <section class="section-products">
-            <div class="container">
-                <div class="row justify-content-center text-center">
-                    <div class="col-md-8 col-lg-6">
-                        <div class="header">
-                            <h3>Featured Services</h3>
-                            <h2>Popular Services</h2>
-                        </div>
-                    </div>
+            <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url()">
+                <div class="container text-center">
+                    <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
                 </div>
-                <div class="row">
-                    <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-1" class="single-product">
-                            <div class="part-1">
-                                <ul>
-                                    <li><a id="" href="addToCart.action?cId=3><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Total Steam Cleaning</h3>
-                                <h4 class="product-old-price">$39.99</h4>
-                                <h4 class="product-price">$19.99</h4>
+            </div>
+
+            <!-- SOMETHING Section -->
+            <section class="section-products">
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-md-8 col-lg-6">
+                            <div class="header">
+                                <h3>Featured Services</h3>
+                                <h2>Popular Services</h2>
                             </div>
                         </div>
                     </div>
-                    <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-2" class="single-product">
-                            <div class="part-1">
-                                <span class="discount">15% off</span>
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Kitchen Cleaning</h3>
-                                <h4 class="product-price">$10.99</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-3" class="single-product">
-                            <div class="part-1">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Workspace Cleaning</h3>
-                                <h4 class="product-old-price">$89.99</h4>
-                                <h4 class="product-price">$49.69</h4>
+                    <div class="row">
+                        Single Product 
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-1" class="single-product">
+                                <div class="part-1">
+                                    <ul>
+                                        <li><a id="" href="addToCart.action?cId=3"><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="part-2">
+                                    <h3 class="product-title">Total Steam Cleaning</h3>
+                                    <h4 class="product-old-price">$39.99</h4>
+                                    <h4 class="product-price">$19.99</h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-4" class="single-product">
-                            <div class="part-1">
-                                <span class="new">new</span>
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Bathroom Cleaning</h3>
-                                <h4 class="product-price">$8.99</h4>
+                        Single Product 
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-2" class="single-product">
+                                <div class="part-1">
+                                    <span class="discount">15% off</span>
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="part-2">
+                                    <h3 class="product-title">Kitchen Cleaning</h3>
+                                    <h4 class="product-price">$10.99</h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                        Single Product 
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-3" class="single-product">
+                                <div class="part-1">
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="part-2">
+                                    <h3 class="product-title">Workspace Cleaning</h3>
+                                    <h4 class="product-old-price">$89.99</h4>
+                                    <h4 class="product-price">$49.69</h4>
+                                </div>
+                            </div>
+                        </div>
+                        Single Product 
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-4" class="single-product">
+                                <div class="part-1">
+                                    <span class="new">new</span>
+                                    <ul>
+                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="part-2">
+                                    <h3 class="product-title">Bathroom Cleaning</h3>
+                                    <h4 class="product-price">$8.99</h4>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                     <!-- End of Blog Section -->
                     <footer class="mastfoot my-3">

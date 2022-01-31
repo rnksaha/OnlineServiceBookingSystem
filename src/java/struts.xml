@@ -18,8 +18,8 @@
         <action name="registerOrders" class="com.exavalu.OSBS.actions.UserAction" method="registerOrders">
             <result name="REGISTERORDERS">/user/feedback.jsp</result>
         </action>  
-        <action name="electrician" class="com.exavalu.OSBS.actions.UserAction" method="service">
-            <result name="SUCCESS">/user/electrician.jsp</result>
+        <action name="service" class="com.exavalu.OSBS.actions.UserAction" method="service">
+            <result name="SUCCESS">/user/service.jsp</result>
         </action>
         <action name="signUp" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/user/signUp.jsp</result>

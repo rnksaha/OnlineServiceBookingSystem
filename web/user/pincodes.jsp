@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 
@@ -8,7 +9,7 @@
         <option value="pinCode"><s:property value="pinCode" /></option>
     </s:iterator>
 </select>
-
+<c:redirect url="service" />
 <%--<jsp:include page="service.jsp" ></jsp:include>--%>
 
 

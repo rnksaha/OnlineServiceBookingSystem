@@ -51,8 +51,17 @@
                     }
                 });
             }
-            
-
+            ;
+//            function showService() {
+//                $.ajax({
+//                    type: "POST",
+//                    url: "service",
+//                    data: "pincode" : document.getElementById("pindivid"),
+//                            success: function (data) {
+//                                $("#fetchHere").html(data);
+//                            }
+//                });
+//            }
         </script>
 
         <title>urbanware</title>
@@ -98,7 +107,7 @@
         <!-- End of Banner Section-->
 
         <!-- City and Pin Code Section-->
-        <div style="width:800px; margin:auto;">
+        <div style="width:800px; margin:auto; top: 10px">
             <select onchange="getPinCodes()" id="selectedCity" name="selectedCity" class="form-select" aria-label="Default select example">
                 <option value="NA">
                     ----Select City Name----
@@ -106,6 +115,7 @@
                 <option value="Ranchi">Ranchi</option>
                 <option value="Kolkata">Kolkata</option>
                 <option value="Delhi">Delhi</option>
+
             </select>
         </div>
         <div id="pindivid" style="width:800px; margin:auto;">
@@ -113,7 +123,7 @@
         <!-- End of City and Pin Code Section-->
 
         <!-- Services Section -->
-        
+
         <!-- End of Service Section -->
 
         <!-- Testimonial Section-->

@@ -87,7 +87,7 @@
                         <div id="product-1" class="single-product">
                             <div class="part-1">
                                 <ul>
-                                    <li><a id="" href="addToCart.action?cId=3><i class="fas fa-shopping-cart"></i></a></li>
+                                    <li><a id="" href="addToCart.action?cId=3"><i class="fas fa-shopping-cart"></i></a></li>
                                     <li><a href="#"><i class="fas fa-heart"></i></a></li>
                                     <li><a href="#"><i class="fas fa-plus"></i></a></li>
                                 </ul>

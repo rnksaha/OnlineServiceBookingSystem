@@ -49,7 +49,16 @@
                             <tr>
                                 <td><s:property value="type" /></td>
                                 <td><s:property value="price" /></td>
-                                <td><s:property value="status" /></td>
+                                <s:set var="stat" value="status"/>
+                                <td>
+                                    <%--<s:property value="status" />--%>
+                                    <s:if test="#stat==0">
+                                        Inactive
+                                    </s:if>
+                                    <s:if test="#stat==1">
+                                        Active
+                                    </s:if>
+                                </td>
                                 <td><s:property value="services_serviceId" /></td>
 
 

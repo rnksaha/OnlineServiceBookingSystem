@@ -33,10 +33,11 @@ import org.apache.struts2.ServletActionContext;
  * @author AKSHAY
  */
 public class UserService {
-    
+
     public int registerUser(String emailId) {
         int i = 0;
         User user = new User();
+        System.out.print("REGISTERING");
         user.setEmailId(emailId);
         Connection con = null;
         try {
@@ -69,18 +70,19 @@ public class UserService {
         }
         return i;
     }
-    
+
     public User fetchUserDetails(String emailId) {
         User user = new User();
-        user.setEmailId(emailId);
+
         Connection con = null;
         try {
             con = ConnectionManager.getConnection();
             String sql = "SELECT roleId FROM users WHERE status=1 AND emailId = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, user.getEmailId());
+            ps.setString(1, emailId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                user.setEmailId(emailId);
                 user.setRoleId(rs.getInt("roleId"));
             }
             return user;
@@ -91,7 +93,7 @@ public class UserService {
             if (con != null) {
                 try {
                     con.close();
-                    
+
                 } catch (SQLException ex) {
                     Logger.getLogger(UserService.class
                             .getName()).log(Level.SEVERE, null, ex);
@@ -99,28 +101,28 @@ public class UserService {
             }
         }
     }
-    
+
     public String generateOTP() {
         String values = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         Random rndm_method = new Random();
-        
+
         char[] otp = new char[4];
-        
+
         for (int j = 0; j < 4; j++) {
             otp[j] = values.charAt(rndm_method.nextInt(values.length()));
         }
-        
+
         String generatedOTP = new String(otp);
         return generatedOTP;
     }
-    
-    public int sendMail(String to, String otp) {
+
+    public int sendMail(String to, String mssg) {
         int i = 0;
         String from = "urbanwareservice@gmail.com";
         String password = "exavalu@123";
         String subject = "OTP For Login";
-        String msg = otp;
-        
+        String msg = mssg;
+
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -134,12 +136,12 @@ public class UserService {
                 return new PasswordAuthentication(from, password);
             }
         });
-        
+
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(from));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(to));
-            
+
             ServletActionContext.getRequest().setAttribute("otp", msg);
             ServletActionContext.getRequest().setAttribute("email", to);
             // add the Subject of email
@@ -147,7 +149,7 @@ public class UserService {
 
             // message body
             message.setText(msg);
-            
+
             Transport.send(message);
             return 1;
         } catch (MessagingException e) {
@@ -155,9 +157,9 @@ public class UserService {
         } finally {
             return i;
         }
-        
+
     }
-    
+
     public List reportPinCode(String cityName) throws SQLException, Exception {
         System.out.println(cityName);
         ResultSet rs = null;
@@ -171,7 +173,7 @@ public class UserService {
             ps.setString(1, cityName);
             rs = ps.executeQuery();
             while (rs.next()) {
-                
+
                 City city = new City();
                 city.setPinCode(rs.getInt("pinCode"));
                 //city.setCityName(rs.getString("cityName"));
@@ -194,23 +196,26 @@ public class UserService {
     }
 
     // place order insert into method
-    public int registerOrders(String name, String address, String phoneNo, double totalPrice, String users_emailId, String servicetype_type, int services_serviceId) throws Exception {
+    public int registerOrders(String name, String address, String phoneNo, double totalPrice, String users_emailId, ArrayList<ServiceType> cart) throws Exception {
         int i = 0;
         Connection con = null;
         try {
             con = ConnectionManager.getConnection();
-            String sql = "INSERT INTO orders VALUES (?,?,?,?,?,?,?)";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setString(2, address);
-            ps.setString(3, phoneNo);
-            ps.setDouble(4, totalPrice);
-            ps.setString(5, users_emailId);
-            ps.setString(6, servicetype_type);
-            ps.setInt(7, services_serviceId);
-            
-            System.out.println("SQL for insert=" + ps);
-            i = ps.executeUpdate();
+            int csize = cart.size();
+            for (int k = 0; k < csize; k++) {
+                String sql = "INSERT INTO orders (name,address,phoneNo,totalPrice,users_emailId,servicetype_type) VALUES (?,?,?,?,?,?)";
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setString(1, name);
+                ps.setString(2, address);
+                ps.setString(3, phoneNo);
+                ps.setDouble(4, totalPrice);
+                ps.setString(5, users_emailId);
+                ps.setString(6, cart.get(i).getType());
+                //ps.setInt(7, services_serviceId);
+
+                System.out.println("SQL for insert=" + ps);
+                i = ps.executeUpdate();
+            }
             return i;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -252,10 +257,10 @@ public class UserService {
             }
         }
     }
-    
+
     public ArrayList<ServiceType> fetchServiceDetails() throws Exception {
         ServiceType serviceType = new ServiceType();
-        
+
         Connection con = null;
         int serviceId = 0;
         ArrayList<ServiceType> type = new ArrayList<ServiceType>();
@@ -279,10 +284,11 @@ public class UserService {
                 serviceType.setType(rs.getString("type"));
                 serviceType.setPrice(rs.getDouble("price"));
 
+                //serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
                 type.add(serviceType);
             }
             return type;
-            
+
         } catch (SQLException e) {
             e.printStackTrace();
             return type;
@@ -295,6 +301,86 @@ public class UserService {
                 }
             }
         }
-        
+
     }
+
+    public List<ServiceType> salon(int serviceId) throws Exception {
+        ResultSet rs = null;
+        Connection con = null;
+        List<ServiceType> serviceTypeList = new ArrayList<>();
+        try {
+            String sql = "SELECT type, price, services_serviceId FROM servicetype WHERE services_serviceId=?";
+            con = ConnectionManager.getConnection();
+            System.out.println("Connection is " + con);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, serviceId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+
+                ServiceType serviceType = new ServiceType();
+                serviceType.setType(rs.getString("type"));
+                serviceType.setPrice(rs.getDouble("price"));
+                serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
+
+                serviceTypeList.add(serviceType);
+            }
+            return serviceTypeList;
+        } catch (SQLException e) {
+            return null;
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
+
+    public ServiceType fetchServiceTypeDetails(String type) throws Exception {
+        ServiceType serviceType = new ServiceType();
+
+        Connection con = null;
+//        int serviceId = 0;
+//        ArrayList<ServiceType> type = new ArrayList<ServiceType>();
+        try {
+            con = ConnectionManager.getConnection();
+            String sql1 = "SELECT type, price FROM serviceType WHERE type = ?";
+            PreparedStatement ps = con.prepareStatement(sql1);
+            ps.setString(1, type);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                serviceType.setType(rs.getString("type"));
+                serviceType.setPrice(rs.getDouble("price"));
+                //serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
+
+//                type.add(serviceType);
+            }
+            return serviceType;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return serviceType;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
+    }
+
+    public int fetchCartDetails(String type, ArrayList<ServiceType> cart) throws Exception {
+        int exist = 0;
+        int k = cart.size();
+        for (int i = 0; i < k; i++) {
+            if (cart.get(i).getType().equals(type)) {
+                exist = 1;
+                break;
+            }
+        }
+
+        return exist;
+    }
+
 }

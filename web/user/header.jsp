@@ -6,6 +6,7 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 
@@ -36,7 +37,24 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+            $(".side-nav-open").click(function (e) {
+                $.ajax({
+                    type: "GET",
+                    url: "viewCart",
+                    success: function () {
+                        alert("Cart Viewing");
+                    }
+                });
+            });
 
+            $(document).ready(function () {
+                setInterval(function () {
+                    $("#cartView").load(window.location.href + " #cartView");
+                }, 1000);
+            });
+
+        </script>
     </head>
     <body>
         <%--<c:out value="${sessionScope.user.getEmailId()}"/>--%>
@@ -62,7 +80,7 @@
 
                         <c:if test="${applicationScope.validUser == null}">
                             <li class="nav-item">
-                                <a class="nav-link" href="signUp">Login/Sign up</a>
+                                <a class="nav-link" href="loginuser">Login/Sign up</a>
                             </li>
                         </c:if>
                         <c:if test="${applicationScope.validUser == true}">
@@ -95,24 +113,52 @@
         <!-- Cart-->
         <div id="side-nav" class="sidenav">
             <a href="javascript:void(0)" id="side-nav-close">&times;</a>
-            <div class="sidenav-content">
+            <div class="sidenav-content" id="cartView">
                 <p>
-                    <c:if test="${sessionScope.cart == null}">
+                    <c:if test="${sessionScope.cartList == null}">
                         <c:out value="Cart Is Empty"></c:out>
                     </c:if>
-                    <c:if test="${sessionScope.cart != null}">
-                        <c:forEach items="${sessionScope.cart}" var="item">
-                            <c:out value="${item}"></c:out>
-                        </c:forEach>
-                        <c:redirect url="viewCart"></c:redirect>
-                    </c:if>
-                    <a class="navbar-brand d-flex align-items-center text-white" href="cart">
-                        <h3 class="font-weight-bolder mb-0">VIEW CART</h3>
-                    </a>
+                    <c:if test="${sessionScope.cartList != null}">
+
+
+                    <table class="table-sm">
+                        <thead>
+                            <tr>
+                                <th>Service Type</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+
+                        <!-- iterator here-->
+                        <tbody>
+                            <c:forEach items="${sessionScope.cartList}" var="item">
+                                <tr>
+                                    <td><c:out value="${item.getType()}"></c:out></td>
+                                    <td><c:out value="${item.getPrice()}"></c:out></td>
+                                    </tr>
+                            </c:forEach>
+
+                            <tr>
+                                <td>Total Amount :  <c:out value="${sessionScope.total}"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </c:if>
+
                 </p>
             </div>
-        </div>
 
+            <s:form action="registerOrders" method="post" style="max-width:250px;margin:auto;">
+                <s:textfield cssClass = "form-control size: 10px" name="name" placeholder="Name" size="50"/>
+                <s:textfield cssClass = "form-control" name="address" placeholder="Address" />
+                <s:textfield cssClass = "form-control" name="phoneNo" placeholder="Phone Number" />
+                <s:textfield cssClass = "form-control" name="users_emailId" placeholder="Email Address" />
+                <s:submit cssClass="w-100 btn btn-lg btn-primary" value="PLACE ORDER">
+                </s:submit>
+            </s:form>
+
+        </div>
+        <!--registerOrders-->
 
         <!-- search-->
         <div id="side-search" class="sidenav">

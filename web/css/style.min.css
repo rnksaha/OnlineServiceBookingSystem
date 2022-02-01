@@ -562,7 +562,7 @@ section {
   color: #fff; }
 
 .sidenav-content {
-  padding: 8px 32px;
+  padding: 8px 20px;
   transform: translateY(20px);
   opacity: 0;
   transition: transform 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86); }

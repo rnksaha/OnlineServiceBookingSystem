@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,6 +41,29 @@
                 text-align: center;
             }
         </style>
+        <script>
+            function addToCart(type) {
+                //var cityName = document.getElementByName("selectedCity").value;
+                //alert($("#selectedCity").val());
+//                alert();
+                $.ajax({
+                    type: "GET",
+                    url: "addToCart",
+                    //data: {'cityName': $("#selectedCity").text()},
+                    data: "type=" + type,
+                    success: function (result) {
+//                        $('#result').html(result);
+                        alert("Item Added!!");
+                    },
+                    error: function (xhr, errmsg) {
+                        alert("No values found..!!");
+                    }
+                }
+                );
+            }
+
+
+        </script>
 
     </head>
 
@@ -66,122 +90,69 @@
                     </div>
                 </div>
                 <div class="row">
-                    <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-1" class="single-product">
-                            <div class="part-1">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Fix Tap Issue</h3>
-                                <h4 class="product-old-price">$8.99</h4>
-                                <h4 class="product-price">$4.99</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-2" class="single-product">
-                            <div class="part-1">
-                                <span class="discount">15% off</span>
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Fix Leaky Pipe</h3>
-                                <h4 class="product-price">$5.99</h4>
+                    <s:iterator value="serviceTypeList">
+                        <div class="col-md-6 col-lg-4 col-xl-3">
+                            <div id="product-1" class="single-product">
+                                <div class="part-1">
+                                    <ul>
+                                        <li><a id="" onclick="addToCart('<s:property value="type"/>')" href="#"/><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                                <div class="part-2">
+                                    <h3 class="product-title"><s:property value="type" /></h3>
+                                    <h4 class="product-price"><s:property value="price" /></h4>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-3" class="single-product">
-                            <div class="part-1">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Fix Low Water Pressure</h3>
-                                <h4 class="product-old-price">$6.99</h4>
-                                <h4 class="product-price">$3.99</h4>
+                    </s:iterator>
+
+                    </section>
+                    <!-- End of Blog Section -->
+                    <footer class="mastfoot my-3">
+                        <div class="inner container">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 d-flex align-items-center">
+
+                                </div>
+                                <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                                    <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
+                                </div>
+
+                                <div class="col-lg-4 col-md-12">
+                                    <nav class="nav nav-mastfoot justify-content-center">
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                    </nav>
+                                </div>
+
                             </div>
                         </div>
-                    </div>
-                    <!-- Single Product -->
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-4" class="single-product">
-                            <div class="part-1">
-                                <span class="new">new</span>
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Fix Sump Pump Failure</h3>
-                                <h4 class="product-price">$6.99</h4>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Product -->
-                    
-        </section>
-        <!-- End of Blog Section -->
-        <footer class="mastfoot my-3">
-            <div class="inner container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
 
-                    </div>
-                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
-                        <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
-                    </div>
+                    </footer>	<!-- External JS -->
+                    <script type="text/javascript" src="./js/jquery.js"></script>
+                    <script src="./vendor/bootstrap/popper.min.js"></script>
+                    <script src="./vendor/bootstrap/bootstrap.min.js"></script>
+                    <script src="./vendor/select2/select2.min.js "></script>
+                    <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
+                    <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
+                    <script src="./vendor/isotope/isotope.min.js"></script>
+                    <script src="./vendor/lightcase/lightcase.js"></script>
+                    <script src="./vendor/waypoints/waypoint.min.js"></script>
+                    <script src="./js/aos.js"></script>
 
-                    <div class="col-lg-4 col-md-12">
-                        <nav class="nav nav-mastfoot justify-content-center">
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </nav>
-                    </div>
-
-                </div>
-            </div>
-
-        </footer>	<!-- External JS -->
-        <script type="text/javascript" src="./js/jquery.js"></script>
-        <script src="./vendor/bootstrap/popper.min.js"></script>
-        <script src="./vendor/bootstrap/bootstrap.min.js"></script>
-        <script src="./vendor/select2/select2.min.js "></script>
-        <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
-        <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
-        <script src="./vendor/isotope/isotope.min.js"></script>
-        <script src="./vendor/lightcase/lightcase.js"></script>
-        <script src="./vendor/waypoints/waypoint.min.js"></script>
-        <script src="./js/aos.js"></script>
-
-        <!-- Main JS -->
-        <script src="./js/app.min.js "></script>
-    </body>
-</html>
-
+                    <!-- Main JS -->
+                    <script src="./js/app.min.js "></script>
+                    </body>
+                    </html>

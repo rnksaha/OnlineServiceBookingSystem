@@ -15,6 +15,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
@@ -46,7 +47,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String servicetype_type;
     private int services_serviceId;
     private int cId;
-
+    private String type;
     private String msg = "";
     private User user = new User();
     private int ctr = 0;
@@ -60,6 +61,12 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private SessionMap<String, Object> sessionMap = (SessionMap) ActionContext.getContext().getSession();
     private ApplicationMap map = (ApplicationMap) ActionContext.getContext().getApplication();
     private HttpServletResponse response;
+
+    private int serviceId;
+    private List<ServiceType> serviceTypeList;
+
+    private List<ServiceType> cartList;
+    private Double total;
 
     @Override
     public void setApplication(Map<String, Object> application) {
@@ -98,7 +105,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
 //                map.put(getEmailId() + "session", mySession.getId());
                 User userInfo = getUserService().fetchUserDetails(getEmailId());
-                if (userInfo != null) {
+                if (userInfo.getRoleId() == 1 || userInfo.getRoleId() == 2) {
                     int roleId = userInfo.getRoleId();
                     sessionMap.put("role", roleId);
                     sessionMap.put("validuser", true);
@@ -132,7 +139,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
             sessionMap.invalidate();
 
             return "LOGINERROR";
@@ -149,25 +155,32 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REGISTERFEEDBACK";
     }
 
     public String registerOrders() throws Exception {
-        setUserService(new UserService());
-
-        try {
-            setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getTotalPrice(), getUsers_emailId(), getServicetype_type(), getServices_serviceId()));
-            if (getCtr() > 0) {
-                setMsg("Order Registered");
-            } else {
-                setMsg("Some error");
+        if (sessionMap.get("cartList") == null) {
+            return "CARTEMPTY";
+        } else {
+            setUserService(new UserService());
+            setTotalPrice((double) sessionMap.get("total"));
+            try {
+                setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getTotalPrice(), getUsers_emailId(), (ArrayList<ServiceType>) sessionMap.get("cart")));
+                if (getCtr() > 0) {
+                    getUserService().sendMail(getUsers_emailId(), "ORDER REGISTERED");
+                    setMsg("Order Registered");
+                    sessionMap.put("cart", null);
+                    sessionMap.put("cartList", null);
+                    sessionMap.put("total", null);
+                } else {
+                    setMsg("Some error");
+                }
+            } catch (Exception e) {
             }
-        } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REGISTERORDERS";
+
     }
 
 //    public static void setCookie(HttpServletResponse response, String name, String value, int period) {
@@ -196,7 +209,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 setNoData(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
 
         return "PINCODES";
@@ -208,7 +220,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             ArrayList<ServiceType> type = ob.fetchServiceDetails();
             sessionMap.put("serviceType", type);
         } catch (Exception e) {
-            e.printStackTrace();
         }
 
         return "SUCCESS";
@@ -220,18 +231,67 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     }
 
     public String addToCart() throws Exception {
+        int i = 0;
+        Double total = 0.0;
+//        ArrayList<Integer> cart = (ArrayList) sessionMap.get("cart");
+        //ArrayList<ServiceType> cart = new ArrayList<>();
+        if (sessionMap.get("cart") == null) {
+            ArrayList<ServiceType> cart = new ArrayList<>();
+            cart.add(getUserService().fetchServiceTypeDetails(getType()));
+            System.out.println(cart);
+            total += cart.get(i).getPrice();
+            sessionMap.put("i", i);
+            sessionMap.put("total", total);
+            sessionMap.put("cart", cart);
+            setCartList(new ArrayList<>());
+            setCartList(cart);
+            sessionMap.put("cartList", getCartList());
+        } else {
+            int k = getUserService().fetchCartDetails(getType(), (ArrayList<ServiceType>) sessionMap.get("cart"));
+            if (k == 1) {
+                return "CARTEXIST";
+            }
+            ArrayList<ServiceType> cart = (ArrayList) sessionMap.get("cart");
+            cart.add(getUserService().fetchServiceTypeDetails(getType()));
+            System.out.println(cart);
+            total = (Double) sessionMap.get("total");
+            i = (Integer) sessionMap.get("i");
+            i++;
+            total += cart.get(i).getPrice();
+            sessionMap.put("total", total);
+            sessionMap.put("cart", cart);
+            sessionMap.put("i", i);
+            setCartList(new ArrayList<>());
+            setCartList(cart);
+            sessionMap.put("cartList", getCartList());
+        }
 
-        ArrayList<Integer> cart = (ArrayList) sessionMap.get("cart");
-        cart.add(getcId());
-        cart.add(1);
-        sessionMap.put("cart", cart);
-
+        //System.out.println(getServices_serviceId());
+        //cart.add(getUserService().fetchServiceTypeDetails(getType()));
         return "CARTADDED";
     }
 
     public String viewCart() throws Exception {
         if (sessionMap.get("cart") == null) {
             return "CARTEMPTY";
+        }
+        ArrayList<ServiceType> cart = (ArrayList) sessionMap.get("cart");
+        setTotal((Double) sessionMap.get("total"));
+        System.out.println(total);
+        try {
+            setCartList(new ArrayList<>());
+            setCartList(cart);
+
+            if (!cartList.isEmpty()) {
+                setNoData(false);
+                System.out.println("Items in cart = " + getCartList().size());
+                System.out.println("The 1st item in cart is: " + getCartList().get(0).getType());
+                System.out.println("setting nodata=false");
+            } else {
+                setNoData(true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return "CART";
     }
@@ -244,6 +304,24 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         map.put("user", null);
 
         return "LOGOUT";
+    }
+
+    public String salon() throws Exception {
+        setUserService(new UserService());
+        try {
+            setServiceTypeList(new ArrayList<>());
+            setServiceTypeList(getUserService().salon(getServiceId()));
+
+            if (!serviceTypeList.isEmpty()) {
+                setNoData(false);
+                System.out.println("Service Types retrieved = " + getServiceTypeList().size());
+                System.out.println("setting nodata=false");
+            } else {
+                setNoData(true);
+            }
+        } catch (Exception e) {
+        }
+        return "SALON";
     }
 
     /**
@@ -552,5 +630,75 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setcId(int cId) {
         this.cId = cId;
+    }
+
+    /**
+     * @return the serviceId
+     */
+    public int getServiceId() {
+        return serviceId;
+    }
+
+    /**
+     * @param serviceId the serviceId to set
+     */
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    /**
+     * @return the serviceTypeList
+     */
+    public List<ServiceType> getServiceTypeList() {
+        return serviceTypeList;
+    }
+
+    /**
+     * @param serviceTypeList the serviceTypeList to set
+     */
+    public void setServiceTypeList(List<ServiceType> serviceTypeList) {
+        this.serviceTypeList = serviceTypeList;
+    }
+
+    /**
+     * @return the type
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    /**
+     * @return the cartList
+     */
+    public List<ServiceType> getCartList() {
+        return cartList;
+    }
+
+    /**
+     * @param cartList the cartList to set
+     */
+    public void setCartList(List<ServiceType> cartList) {
+        this.cartList = cartList;
+    }
+
+    /**
+     * @return the total
+     */
+    public Double getTotal() {
+        return total;
+    }
+
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(Double total) {
+        this.total = total;
     }
 }

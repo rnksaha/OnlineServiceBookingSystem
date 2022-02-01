@@ -49,7 +49,16 @@
                             <tr>
                                 <td><s:property value="cityName" /></td>
                                 <td><s:property value="pinCode" /></td>
-                                <td><s:property value="status" /></td>
+                                <s:set var="stat" value="status"/>
+                                <td>
+                                    <%--<s:property value="status" />--%>
+                                    <s:if test="#stat==0">
+                                        Inactive
+                                    </s:if>
+                                    <s:if test="#stat==1">
+                                        Active
+                                    </s:if>
+                                </td>
                                 <td>
                                     <a href="disablePin.action?pinCode=<s:property value="pinCode"/>">
                                         <button class="btn btn-outline-danger">Disable Pin</button>

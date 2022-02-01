@@ -46,7 +46,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private String servicetype_type;
     private int services_serviceId;
     private int cId;
-
+    private String type;
     private String msg = "";
     private User user = new User();
     private int ctr = 0;
@@ -226,7 +226,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
 //        ArrayList<Integer> cart = (ArrayList) sessionMap.get("cart");
         ArrayList<Integer> cart = new ArrayList<>();
-        cart.add(getServices_serviceId());
+        cart.add(getServices_serviceId(), getType());
         System.out.println(cart);
 
         sessionMap.put("cart", cart);
@@ -604,5 +604,19 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setServiceTypeList(List<ServiceType> serviceTypeList) {
         this.serviceTypeList = serviceTypeList;
+    }
+
+    /**
+     * @return the type
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(String type) {
+        this.type = type;
     }
 }

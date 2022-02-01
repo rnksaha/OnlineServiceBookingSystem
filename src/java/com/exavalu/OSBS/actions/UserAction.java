@@ -73,7 +73,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     public void setSession(Map<String, Object> map) {
         sessionMap = (SessionMap) map;
     }
-
+    
     public String otpRequest() throws Exception {
 
         setUserService(new UserService());

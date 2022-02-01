@@ -45,11 +45,28 @@
 
                         <!-- iterator here-->
                         <s:iterator value="userList">
-
                             <tr>
                                 <td><s:property value="emailId" /></td>
-                                <td><s:property value="roleId" /></td>
-                                <td><s:property value="status" /></td>
+                                <s:set var="role" value="roleId"/>
+                                <td>
+                                    <%--<s:property value="status" />--%>
+                                    <s:if test="#role==1">
+                                        Admin
+                                    </s:if>
+                                    <s:if test="#role==2">
+                                        Client
+                                    </s:if>
+                                </td>
+                                <s:set var="stat" value="status"/>
+                                <td>
+                                    <%--<s:property value="status" />--%>
+                                    <s:if test="#stat==0">
+                                        Inactive
+                                    </s:if>
+                                    <s:if test="#stat==1">
+                                        Active
+                                    </s:if>
+                                </td>
                                 <td>
                                     <a href="deleteUser.action?emailId=<s:property value="emailId"/>">
                                         <button class="btn btn-outline-danger">Disable User</button>
@@ -59,7 +76,6 @@
                                     </a>
                                 </td>
                             </tr>
-
                         </s:iterator>
                     </table>
                 </s:if>

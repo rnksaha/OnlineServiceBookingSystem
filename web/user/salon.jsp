@@ -52,7 +52,7 @@
                     type: "GET",
                     url: "addToCart",
                     //data: {'cityName': $("#selectedCity").text()},
-                    data: {"services_serviceId=": services_serviceId, "type=": type, },
+                    data: {"services_serviceId": services_serviceId, "type": type},
                     success: function (result) {
 //                        $('#result').html(result);
                         alert("Item Added!!");

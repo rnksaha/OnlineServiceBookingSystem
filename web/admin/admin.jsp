@@ -61,7 +61,7 @@
                 <div class="sidebar">
                     <ul class="main-menu">
                         <li class="active"><a href="admin"><i class="fas fa-tasks"></i> Dashboard</a></li>
-                        <li class="main-sub-menu"><a href="index"><i class="fas fa-home"></i> Home <i class="fas fa-angle-right" ></i></a>
+                        <li class="main-sub-menu"><a href="index"><i class="fas fa-home"></i> Home </a>
 
                         </li>
                         <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Reports<i class="fas fa-angle-right"></i></a>
@@ -75,13 +75,13 @@
                         </li>
                         <li class="main-sub-menu"><a href="#"><i class="fas fa-images"></i> Register<i class="fas fa-angle-right"></i></a>
                             <ul class="sub-menu">
-                                <li><a href="#"> Admin</a></li>
+                                <!--<li><a href="#"> Admin</a></li>-->
                                 <li class="sub-active"><a href="cityRegister.jsp"> Cities</a></li>
                                 <li class="sub-active"><a href="servicesRegister.jsp"> Services</a></li>
                                 <li class="sub-active"><a href="serviceTypeRegister.jsp"> Services Types</a></li>
                             </ul>
                         </li>
-                        <li class="main-sub-menu"><a href="reportFeedback"><i class="fas fa-quote-left"></i> Feedback <i class="fas fa-angle-right"></i></a>
+                        <li class="main-sub-menu"><a href="reportFeedback"><i class="fas fa-quote-left"></i> Feedback </a>
 
                         </li>
                     </ul>

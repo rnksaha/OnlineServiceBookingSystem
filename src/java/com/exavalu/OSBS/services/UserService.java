@@ -196,12 +196,12 @@ public class UserService {
     }
 
     // place order insert into method
-    public int registerOrders(String name, String address, String phoneNo, double totalPrice, String users_emailId, String servicetype_type, int services_serviceId) throws Exception {
+    public int registerOrders(String name, String address, String phoneNo, double totalPrice, String users_emailId, String servicetype_type) throws Exception {
         int i = 0;
         Connection con = null;
         try {
             con = ConnectionManager.getConnection();
-            String sql = "INSERT INTO orders VALUES (?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO orders VALUES (?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, name);
             ps.setString(2, address);
@@ -209,7 +209,7 @@ public class UserService {
             ps.setDouble(4, totalPrice);
             ps.setString(5, users_emailId);
             ps.setString(6, servicetype_type);
-            ps.setInt(7, services_serviceId);
+            //ps.setInt(7, services_serviceId);
 
             System.out.println("SQL for insert=" + ps);
             i = ps.executeUpdate();

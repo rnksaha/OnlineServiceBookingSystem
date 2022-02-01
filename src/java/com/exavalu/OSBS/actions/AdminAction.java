@@ -73,7 +73,6 @@ public class AdminAction extends ActionSupport {
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REGISTERCITY";
     }
@@ -89,7 +88,6 @@ public class AdminAction extends ActionSupport {
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "DISABLEPIN";
     }
@@ -105,7 +103,6 @@ public class AdminAction extends ActionSupport {
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "ENABLEPIN";
     }
@@ -124,7 +121,6 @@ public class AdminAction extends ActionSupport {
                 setNoData(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REPORTCITY";
     }
@@ -143,7 +139,6 @@ public class AdminAction extends ActionSupport {
                 setNoData(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REPORTORDERS";
     }
@@ -159,7 +154,6 @@ public class AdminAction extends ActionSupport {
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REGISTERSERVICETYPE";
     }
@@ -175,7 +169,6 @@ public class AdminAction extends ActionSupport {
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "DELETESERVICETYPE";
     }
@@ -201,7 +194,6 @@ public class AdminAction extends ActionSupport {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
         }
 
         return "UPDATESERVICETYPE";
@@ -221,7 +213,6 @@ public class AdminAction extends ActionSupport {
                 setNoData(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REPORTSERVICETYPE";
     }
@@ -240,7 +231,6 @@ public class AdminAction extends ActionSupport {
                 setNoData(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REPORTUSER";
     }
@@ -260,7 +250,6 @@ public class AdminAction extends ActionSupport {
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "DELETEUSER";
     }
@@ -275,7 +264,6 @@ public class AdminAction extends ActionSupport {
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "ENABLEUSER";
     }
@@ -291,7 +279,6 @@ public class AdminAction extends ActionSupport {
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REGISTERSERVICE";
     }
@@ -310,7 +297,6 @@ public class AdminAction extends ActionSupport {
                 setNoData(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REPORTSERVICE";
     }
@@ -326,7 +312,6 @@ public class AdminAction extends ActionSupport {
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "DELETESERVICE";
     }
@@ -352,7 +337,6 @@ public class AdminAction extends ActionSupport {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
         }
 
         return "UPDATESERVICE";
@@ -372,7 +356,6 @@ public class AdminAction extends ActionSupport {
                 setNoData(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REPORTFEEDBACK";
     }

@@ -36,19 +36,24 @@
         <title>urbanware</title>
 
         <script>
-            function addToCart(cId) {
+            function addToCart(type) {
+                //var cityName = document.getElementByName("selectedCity").value;
+                //alert($("#selectedCity").val());
+//                alert();
                 $.ajax({
                     type: "GET",
                     url: "addToCart",
                     //data: {'cityName': $("#selectedCity").text()},
-                    data: "cId=" + $("#cId").val(),
+                    data: "type=" + type,
                     success: function (result) {
-                        $('#pindivid').html(result);
+//                        $('#result').html(result);
+                        alert("Item Added!!");
                     },
                     error: function (xhr, errmsg) {
                         alert("No values found..!!");
                     }
-                });
+                }
+                );
             }
         </script>
         <style>
@@ -83,74 +88,24 @@
                         </div>
                     </div>
                     <div class="row">
-                        Single Product 
+                    <s:iterator value="serviceTypeList">
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div id="product-1" class="single-product">
                                 <div class="part-1">
                                     <ul>
-                                        <li><a id="" href="addToCart.action?cId=3"><i class="fas fa-shopping-cart"></i></a></li>
-<!--                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>-->
-                                    </ul>
-                                </div>
-                                <div class="part-2">
-                                    <h3 class="product-title">Total Steam Cleaning</h3>
-                                    <h4 class="product-old-price">$39.99</h4>
-                                    <h4 class="product-price">$19.99</h4>
-                                </div>
-                            </div>
-                        </div>
-                        Single Product 
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div id="product-2" class="single-product">
-                                <div class="part-1">
-                                    <span class="discount">15% off</span>
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a id="" onclick="addToCart('<s:property value="type"/>')" href="#"/><i class="fas fa-shopping-cart"></i></a></li>
                                         <li><a href="#"><i class="fas fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fas fa-plus"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="part-2">
-                                    <h3 class="product-title">Kitchen Cleaning</h3>
-                                    <h4 class="product-price">$10.99</h4>
+                                    <h3 class="product-title"><s:property value="type" /></h3>
+                                    <h4 class="product-price"><s:property value="price" /></h4>
                                 </div>
                             </div>
                         </div>
-                        Single Product 
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div id="product-3" class="single-product">
-                                <div class="part-1">
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                                <div class="part-2">
-                                    <h3 class="product-title">Workspace Cleaning</h3>
-                                    <h4 class="product-old-price">$89.99</h4>
-                                    <h4 class="product-price">$49.69</h4>
-                                </div>
-                            </div>
-                        </div>
-                        Single Product 
-                        <div class="col-md-6 col-lg-4 col-xl-3">
-                            <div id="product-4" class="single-product">
-                                <div class="part-1">
-                                    <span class="new">new</span>
-                                    <ul>
-                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-<!--                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>-->
-                                    </ul>
-                                </div>
-                                <div class="part-2">
-                                    <h3 class="product-title">Bathroom Cleaning</h3>
-                                    <h4 class="product-price">$8.99</h4>
-                                </div>
-                            </div>
-                        </div>
+                    </s:iterator>
+
                     </section>
                     <!-- End of Blog Section -->
                     <footer class="mastfoot my-3">

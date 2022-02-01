@@ -64,10 +64,10 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     private int serviceId;
     private List<ServiceType> serviceTypeList;
-    
+
     private List<ServiceType> cartList;
     private Double total;
-    
+
     @Override
     public void setApplication(Map<String, Object> application) {
         map = (ApplicationMap) application;
@@ -161,9 +161,9 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     public String registerOrders() throws Exception {
         setUserService(new UserService());
-
+        setTotalPrice((double) sessionMap.get("total"));
         try {
-            setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getTotalPrice(), getUsers_emailId(), getServicetype_type()));
+            setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getTotalPrice(), getUsers_emailId(), (ArrayList<ServiceType>) sessionMap.get("cart")));
             if (getCtr() > 0) {
                 setMsg("Order Registered");
             } else {
@@ -222,7 +222,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     }
 
     public String addToCart() throws Exception {
-        int i=0;
+        int i = 0;
         Double total = 0.0;
 //        ArrayList<Integer> cart = (ArrayList) sessionMap.get("cart");
         //ArrayList<ServiceType> cart = new ArrayList<>();
@@ -230,23 +230,33 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             ArrayList<ServiceType> cart = new ArrayList<>();
             cart.add(getUserService().fetchServiceTypeDetails(getType()));
             System.out.println(cart);
-            total+= cart.get(i).getPrice();
+            total += cart.get(i).getPrice();
             sessionMap.put("i", i);
             sessionMap.put("total", total);
             sessionMap.put("cart", cart);
+            setCartList(new ArrayList<>());
+            setCartList(cart);
+            sessionMap.put("cartList", getCartList());
         } else {
+            int k = getUserService().fetchCartDetails(getType(), (ArrayList<ServiceType>) sessionMap.get("cart"));
+            if (k == 1) {
+                return "CARTEXIST";
+            }
             ArrayList<ServiceType> cart = (ArrayList) sessionMap.get("cart");
             cart.add(getUserService().fetchServiceTypeDetails(getType()));
             System.out.println(cart);
-            total = (Double)sessionMap.get("total");
+            total = (Double) sessionMap.get("total");
             i = (Integer) sessionMap.get("i");
             i++;
-            total+= cart.get(i).getPrice();
+            total += cart.get(i).getPrice();
             sessionMap.put("total", total);
             sessionMap.put("cart", cart);
             sessionMap.put("i", i);
+            setCartList(new ArrayList<>());
+            setCartList(cart);
+            sessionMap.put("cartList", getCartList());
         }
-        
+
         //System.out.println(getServices_serviceId());
         //cart.add(getUserService().fetchServiceTypeDetails(getType()));
         return "CARTADDED";
@@ -257,7 +267,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             return "CARTEMPTY";
         }
         ArrayList<ServiceType> cart = (ArrayList) sessionMap.get("cart");
-        setTotal((Double)sessionMap.get("total"));
+        setTotal((Double) sessionMap.get("total"));
         System.out.println(total);
         try {
             setCartList(new ArrayList<>());
@@ -266,7 +276,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             if (!cartList.isEmpty()) {
                 setNoData(false);
                 System.out.println("Items in cart = " + getCartList().size());
-                System.out.println("The 1st item in cart is: "+getCartList().get(0).getType());
+                System.out.println("The 1st item in cart is: " + getCartList().get(0).getType());
                 System.out.println("setting nodata=false");
             } else {
                 setNoData(true);

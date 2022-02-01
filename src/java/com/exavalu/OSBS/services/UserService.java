@@ -196,23 +196,26 @@ public class UserService {
     }
 
     // place order insert into method
-    public int registerOrders(String name, String address, String phoneNo, double totalPrice, String users_emailId, String servicetype_type) throws Exception {
+    public int registerOrders(String name, String address, String phoneNo, double totalPrice, String users_emailId, ArrayList<ServiceType> cart) throws Exception {
         int i = 0;
         Connection con = null;
         try {
             con = ConnectionManager.getConnection();
-            String sql = "INSERT INTO orders VALUES (?,?,?,?,?,?)";
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, name);
-            ps.setString(2, address);
-            ps.setString(3, phoneNo);
-            ps.setDouble(4, totalPrice);
-            ps.setString(5, users_emailId);
-            ps.setString(6, servicetype_type);
-            //ps.setInt(7, services_serviceId);
+            int csize = cart.size();
+            for (int k = 0; k < csize; k++) {
+                String sql = "INSERT INTO orders (name,address,phoneNo,totalPrice,users_emailId,servicetype_type) VALUES (?,?,?,?,?,?)";
+                PreparedStatement ps = con.prepareStatement(sql);
+                ps.setString(1, name);
+                ps.setString(2, address);
+                ps.setString(3, phoneNo);
+                ps.setDouble(4, totalPrice);
+                ps.setString(5, users_emailId);
+                ps.setString(6, cart.get(i).getType());
+                //ps.setInt(7, services_serviceId);
 
-            System.out.println("SQL for insert=" + ps);
-            i = ps.executeUpdate();
+                System.out.println("SQL for insert=" + ps);
+                i = ps.executeUpdate();
+            }
             return i;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -282,7 +285,6 @@ public class UserService {
                 serviceType.setPrice(rs.getDouble("price"));
 
                 //serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
-
                 type.add(serviceType);
             }
             return type;
@@ -367,4 +369,18 @@ public class UserService {
         }
 
     }
+
+    public int fetchCartDetails(String type, ArrayList<ServiceType> cart) throws Exception {
+        int exist = 0;
+        int k = cart.size();
+        for (int i = 0; i < k; i++) {
+            if (cart.get(i).getType().equals(type)) {
+                exist = 1;
+                break;
+            }
+        }
+
+        return exist;
+    }
+
 }

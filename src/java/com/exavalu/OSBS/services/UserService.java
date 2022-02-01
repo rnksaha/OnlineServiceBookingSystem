@@ -116,12 +116,12 @@ public class UserService {
         return generatedOTP;
     }
 
-    public int sendMail(String to, String otp) {
+    public int sendMail(String to, String mssg) {
         int i = 0;
         String from = "urbanwareservice@gmail.com";
         String password = "exavalu@123";
         String subject = "OTP For Login";
-        String msg = otp;
+        String msg = mssg;
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");

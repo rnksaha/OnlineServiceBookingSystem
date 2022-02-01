@@ -24,11 +24,11 @@
         <action name="showService" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/user/service.jsp</result>
         </action>
-        <action name="electrician" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
-            <result name="SUCCESS">/user/electrician.jsp</result>
+        <action name="electrician" class="com.exavalu.OSBS.actions.UserAction" method="salon">
+            <result name="SALON">/user/electrician.jsp</result>
         </action>
-        <action name="plumber" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
-            <result name="SUCCESS">/user/plumber.jsp</result>
+        <action name="plumber" class="com.exavalu.OSBS.actions.UserAction" method="salon">
+            <result name="SALON">/user/plumber.jsp</result>
         </action>
         
         <!--        <action name="salon" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
@@ -37,15 +37,15 @@
         <action name="salon" class="com.exavalu.OSBS.actions.UserAction" method="salon">
             <result name="SALON">/user/salon.jsp</result>
         </action>
-        <action name="repair" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
-            <result name="SUCCESS">/user/repair.jsp</result>
+        <action name="repair" class="com.exavalu.OSBS.actions.UserAction" method="salon">
+            <result name="SALON">/user/repair.jsp</result>
         </action>
-        <action name="therapy" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
-            <result name="SUCCESS">/user/therapy.jsp</result>
+        <action name="therapy" class="com.exavalu.OSBS.actions.UserAction" method="salon">
+            <result name="SALON">/user/therapy.jsp</result>
         </action>
         
-        <action name="cleaning" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
-            <result name="SUCCESS">/user/cleaning.jsp</result>
+        <action name="cleaning" class="com.exavalu.OSBS.actions.UserAction" method="salon">
+            <result name="SALON">/user/cleaning.jsp</result>
         </action>
         <!--        <action name="cleaning" class="com.exavalu.OSBS.actions.UserAction" method="cleaning">
             <result name="CLEANING">/user/cleaning.jsp</result>

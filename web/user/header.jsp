@@ -147,6 +147,7 @@
 
                 </p>
             </div>
+
             <s:form action="registerOrders" method="post" style="max-width:250px;margin:auto;">
                 <s:textfield cssClass = "form-control size: 10px" name="name" placeholder="Name" size="50"/>
                 <s:textfield cssClass = "form-control" name="address" placeholder="Address" />
@@ -155,6 +156,7 @@
                 <s:submit cssClass="w-100 btn btn-lg btn-primary" value="PLACE ORDER">
                 </s:submit>
             </s:form>
+
         </div>
         <!--registerOrders-->
 

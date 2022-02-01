@@ -160,22 +160,27 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     }
 
     public String registerOrders() throws Exception {
-        setUserService(new UserService());
-        setTotalPrice((double) sessionMap.get("total"));
-        try {
-            setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getTotalPrice(), getUsers_emailId(), (ArrayList<ServiceType>) sessionMap.get("cart")));
-            if (getCtr() > 0) {
-                getUserService().sendMail(getUsers_emailId(), "ORDER REGISTERED");
-                setMsg("Order Registered");
-                sessionMap.put("cart", null);
-                sessionMap.put("cartList", null);
-                sessionMap.put("total", null);
-            } else {
-                setMsg("Some error");
+        if (sessionMap.get("cartList") == null) {
+            return "CARTEMPTY";
+        } else {
+            setUserService(new UserService());
+            setTotalPrice((double) sessionMap.get("total"));
+            try {
+                setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getTotalPrice(), getUsers_emailId(), (ArrayList<ServiceType>) sessionMap.get("cart")));
+                if (getCtr() > 0) {
+                    getUserService().sendMail(getUsers_emailId(), "ORDER REGISTERED");
+                    setMsg("Order Registered");
+                    sessionMap.put("cart", null);
+                    sessionMap.put("cartList", null);
+                    sessionMap.put("total", null);
+                } else {
+                    setMsg("Some error");
+                }
+            } catch (Exception e) {
             }
-        } catch (Exception e) {
         }
         return "REGISTERORDERS";
+
     }
 
 //    public static void setCookie(HttpServletResponse response, String name, String value, int period) {

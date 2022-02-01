@@ -32,7 +32,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 
         <script type="text/javascript">
-
             $(function () {
                 $("input[name=btnOtp]").click(function () {
                     $.ajax({
@@ -50,7 +49,6 @@
                     $("#dvSubmit").show();
                 });
             });
-
         </script>
         <style>
             @font-face {
@@ -72,7 +70,7 @@
             <div class="wrapper fadeInDown">
                 <div id="formContent">                   
 
-                    <s:form action="loginuser">                        
+                    <s:form action="loginuser" cssClass="">                        
                         <s:textfield id="emailId" placeholder="Enter Email" value="emailId"  name="emailId" />
                         <s:textfield id="otp" value="otp" placeholder="Enter OTP" name="otp" />
                         <input type="button" id="btnOtp"  name="btnOtp" value="GET OTP">

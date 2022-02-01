@@ -31,7 +31,7 @@
             <result name="SUCCESS">/user/plumber.jsp</result>
         </action>
         
-<!--        <action name="salon" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+        <!--        <action name="salon" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/user/salon.jp</result>
         </action>-->
         <action name="salon" class="com.exavalu.OSBS.actions.UserAction" method="salon">
@@ -47,7 +47,7 @@
         <action name="cleaning" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS">/user/cleaning.jsp</result>
         </action>
-<!--        <action name="cleaning" class="com.exavalu.OSBS.actions.UserAction" method="cleaning">
+        <!--        <action name="cleaning" class="com.exavalu.OSBS.actions.UserAction" method="cleaning">
             <result name="CLEANING">/user/cleaning.jsp</result>
         </action>-->
         <action name="signUp" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
@@ -73,10 +73,10 @@
         </action>
         <action name="cart" class="com.exavalu.OSBS.actions.UserAction" method="viewCart">
             <result name="CARTEMPTY">/user/index.jsp</result>
-            <result name="CART">/user/cart.jsp</result>
+            <result name="CART"></result>
         </action>
         <action name="addToCart" class="com.exavalu.OSBS.actions.UserAction" method="addToCart">
-            <result name="CARTADDED">/user/salon.jsp</result>
+            <result name="CARTADDED" type="redirect">/user/salon.jsp</result>
         </action>
         <action name="getPinCodes" class="com.exavalu.OSBS.actions.UserAction" method="getPinCodes">
             <result name="PINCODES">/user/pincodes.jsp</result>

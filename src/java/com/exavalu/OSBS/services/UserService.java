@@ -37,6 +37,7 @@ public class UserService {
     public int registerUser(String emailId) {
         int i = 0;
         User user = new User();
+        System.out.print("REGISTERING");
         user.setEmailId(emailId);
         Connection con = null;
         try {
@@ -72,15 +73,16 @@ public class UserService {
 
     public User fetchUserDetails(String emailId) {
         User user = new User();
-        user.setEmailId(emailId);
+
         Connection con = null;
         try {
             con = ConnectionManager.getConnection();
             String sql = "SELECT roleId FROM users WHERE status=1 AND emailId = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1, user.getEmailId());
+            ps.setString(1, emailId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
+                user.setEmailId(emailId);
                 user.setRoleId(rs.getInt("roleId"));
             }
             return user;
@@ -278,6 +280,8 @@ public class UserService {
             while (rs.next()) {
                 serviceType.setType(rs.getString("type"));
                 serviceType.setPrice(rs.getDouble("price"));
+
+                serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
 
                 type.add(serviceType);
             }

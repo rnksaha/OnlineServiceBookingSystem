@@ -98,7 +98,7 @@
         <!-- End of Banner Section-->
 
         <!-- City and Pin Code Section-->
-        <div style="width:200px; margin:auto;">
+        <div style="width:200px; margin:auto; color: purple">
             <select onchange="getPinCodes()" id="selectedCity" name="selectedCity" class="form-select" aria-label="Default select example">
                 <option value="NA">
                     ----Select City Name----

@@ -111,10 +111,10 @@
                         <c:out value="Cart Is Empty"></c:out>
                     </c:if>
                     <c:if test="${sessionScope.cart != null}">
-                        <c:out value="Cart Is Full"></c:out>
-                        <%--<c:forEach items="${sessionScope.cart}" var="item">--%>
-                        <%--<c:out value="${item}"></c:out>--%>
-                        <%--</c:forEach>--%>
+                        <%--<c:out value="Cart Is Full"></c:out>--%>
+                        <c:forEach items="${sessionScope.cart}" var="item">
+                            <c:out value="${item.getType()}"></c:out>
+                        </c:forEach>
                         <%--<c:redirect url="viewCart"></c:redirect>--%>
                     </c:if>
                     <a class="navbar-brand d-flex align-items-center text-white" href="cart">

@@ -48,11 +48,12 @@
             function addToCart(services_serviceId, type) {
                 //var cityName = document.getElementByName("selectedCity").value;
                 //alert($("#selectedCity").val());
+//                alert();
                 $.ajax({
                     type: "GET",
                     url: "addToCart",
                     //data: {'cityName': $("#selectedCity").text()},
-                    data: {"services_serviceId": services_serviceId, "type": type},
+                    data: {services_serviceId: services_serviceId, type: type},
                     success: function (result) {
 //                        $('#result').html(result);
                         alert("Item Added!!");
@@ -99,7 +100,7 @@
                             <div id="product-1" class="single-product">
                                 <div class="part-1">
                                     <ul>
-                                        <li><a id="" onclick="addToCart(<s:property value="services_serviceId"/><s:property value="type"/>)" href="#"/><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a id="" onclick="addToCart(<s:property value="services_serviceId"/>,<s:property value="type"/>)" href="#"/><i class="fas fa-shopping-cart"></i></a></li>
                                         <li><a href="#"><i class="fas fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fas fa-plus"></i></a></li>
                                     </ul>

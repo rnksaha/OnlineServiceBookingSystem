@@ -225,8 +225,9 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     public String addToCart() throws Exception {
 
 //        ArrayList<Integer> cart = (ArrayList) sessionMap.get("cart");
-        ArrayList<Integer> cart = new ArrayList<>();
-        cart.add(getServices_serviceId(), getType());
+        ArrayList<ServiceType> cart = new ArrayList<>();
+        System.out.println(getType());
+        cart.add(getUserService().fetchServiceTypeDetails(getServices_serviceId(), getType()));
         System.out.println(cart);
 
         sessionMap.put("cart", cart);

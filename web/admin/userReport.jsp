@@ -45,7 +45,6 @@
 
                         <!-- iterator here-->
                         <s:iterator value="userList">
-
                             <tr>
                                 <td><s:property value="emailId" /></td>
                                 <s:set var="role" value="roleId"/>

@@ -161,7 +161,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         setUserService(new UserService());
 
         try {
-            setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getTotalPrice(), getUsers_emailId(), getServicetype_type(), getServices_serviceId()));
+            setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getTotalPrice(), getUsers_emailId(), getServicetype_type()));
             if (getCtr() > 0) {
                 setMsg("Order Registered");
             } else {

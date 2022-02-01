@@ -281,7 +281,7 @@ public class UserService {
                 serviceType.setType(rs.getString("type"));
                 serviceType.setPrice(rs.getDouble("price"));
 
-                serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
+                //serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
 
                 type.add(serviceType);
             }
@@ -340,14 +340,14 @@ public class UserService {
 //        ArrayList<ServiceType> type = new ArrayList<ServiceType>();
         try {
             con = ConnectionManager.getConnection();
-            String sql1 = "SELECT price,image FROM serviceType WHERE type = ?";
+            String sql1 = "SELECT type, price FROM serviceType WHERE type = ?";
             PreparedStatement ps = con.prepareStatement(sql1);
             ps.setString(1, type);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 serviceType.setType(type);
                 serviceType.setPrice(rs.getDouble("price"));
-                serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
+                //serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
 
 //                type.add(serviceType);
             }

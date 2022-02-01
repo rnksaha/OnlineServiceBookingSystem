@@ -73,7 +73,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     public void setSession(Map<String, Object> map) {
         sessionMap = (SessionMap) map;
     }
-    
+
     public String otpRequest() throws Exception {
 
         setUserService(new UserService());
@@ -220,13 +220,24 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     public String addToCart() throws Exception {
 
 //        ArrayList<Integer> cart = (ArrayList) sessionMap.get("cart");
-        ArrayList<ServiceType> cart = new ArrayList<>();
-        System.out.println(getType());
-        cart.add(getUserService().fetchServiceTypeDetails(getType()));
-        System.out.println(cart);
+        //ArrayList<ServiceType> cart = new ArrayList<>();
+        if (sessionMap.get("cart") == null) {
+            ArrayList<ServiceType> cart = new ArrayList<>();
+            cart.add(getUserService().fetchServiceTypeDetails(getType()));
+            System.out.println(cart);
 
-        sessionMap.put("cart", cart);
+            sessionMap.put("cart", cart);
+        }
+        else{
+            ArrayList<ServiceType> cart = (ArrayList) sessionMap.get("cart");
+            cart.add(getUserService().fetchServiceTypeDetails(getType()));
+            System.out.println(cart);
 
+            sessionMap.put("cart", cart);
+        }
+
+        //System.out.println(getServices_serviceId());
+        //cart.add(getUserService().fetchServiceTypeDetails(getType()));
         return "CARTADDED";
     }
 

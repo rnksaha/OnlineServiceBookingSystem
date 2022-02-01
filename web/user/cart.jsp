@@ -13,7 +13,24 @@
 
     </head>
     <body>
-        <jsp:include page="header.jsp" ></jsp:include>
-        
+        <%--<jsp:include page="header.jsp" ></jsp:include>--%>
+        <table>
+            <thead>
+                <tr>
+                    <th>Service Type</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <!-- iterator here-->
+            <s:iterator value="cartList">
+
+                <tr>
+                    <td><s:property value="type" /></td>
+                <td><s:property value="price" /></td>
+                </tr>
+
+            </s:iterator>
+        </table>
     </body>
 </html>

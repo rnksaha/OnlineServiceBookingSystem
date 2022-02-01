@@ -63,6 +63,8 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     private int serviceId;
     private List<ServiceType> serviceTypeList;
+    
+    private List<ServiceType> cartList;
 
     @Override
     public void setApplication(Map<String, Object> application) {
@@ -227,8 +229,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             System.out.println(cart);
 
             sessionMap.put("cart", cart);
-        }
-        else{
+        } else {
             ArrayList<ServiceType> cart = (ArrayList) sessionMap.get("cart");
             cart.add(getUserService().fetchServiceTypeDetails(getType()));
             System.out.println(cart);
@@ -244,6 +245,22 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     public String viewCart() throws Exception {
         if (sessionMap.get("cart") == null) {
             return "CARTEMPTY";
+        }
+        ArrayList<ServiceType> cart = (ArrayList) sessionMap.get("cart");
+        try {
+            setCartList(new ArrayList<>());
+            setCartList(cart);
+
+            if (!cartList.isEmpty()) {
+                setNoData(false);
+                System.out.println("Items in cart = " + getCartList().size());
+                System.out.println("The 1st item in cart is: "+getCartList().get(0).getType());
+                System.out.println("setting nodata=false");
+            } else {
+                setNoData(true);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return "CART";
     }
@@ -624,5 +641,19 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setType(String type) {
         this.type = type;
+    }
+
+    /**
+     * @return the cartList
+     */
+    public List<ServiceType> getCartList() {
+        return cartList;
+    }
+
+    /**
+     * @param cartList the cartList to set
+     */
+    public void setCartList(List<ServiceType> cartList) {
+        this.cartList = cartList;
     }
 }

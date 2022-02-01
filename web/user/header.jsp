@@ -92,7 +92,7 @@
                             </a>
                         </li>
                         <li class="nav-item only-desktop">
-                            <a class="nav-link" id="side-nav-open" href="#">
+                            <a class="nav-link" id="side-nav-open" href="cart">
                                 <span class="fa fa-shopping-cart"></span>
                             </a>
                         </li>

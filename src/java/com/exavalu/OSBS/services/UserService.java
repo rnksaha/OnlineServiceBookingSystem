@@ -345,7 +345,7 @@ public class UserService {
             ps.setString(1, type);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                serviceType.setType(type);
+                serviceType.setType(rs.getString("type"));
                 serviceType.setPrice(rs.getDouble("price"));
                 //serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
 

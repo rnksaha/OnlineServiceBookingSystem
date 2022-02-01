@@ -265,7 +265,7 @@ public class AdminServices {
         Connection con = null;
         List<User> userList = new ArrayList<>();
         try {
-            String sql = "SELECT emailId, roleId, status FROM users WHERE roleId=2";
+            String sql = "SELECT emailId, roleId, status FROM users";
             con = ConnectionManager.getConnection();
             System.out.println("Connection is " + con);
             PreparedStatement ps = con.prepareStatement(sql);
@@ -319,6 +319,33 @@ public class AdminServices {
         } catch (Exception e) {
             e.printStackTrace();
             return 0;
+        } finally {
+            if (con != null) {
+                con.close();
+            }
+        }
+    }
+    
+    public User fetchRoleId(String emailId) throws SQLException, Exception {
+        ResultSet rs = null;
+        Connection con = null;
+        User user = null;
+        try {
+            con = ConnectionManager.getConnection();
+            String sql = "SELECT roleId FROM users WHERE emailId=?";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, emailId);
+            System.out.println("Select SQL = " + ps);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                user = new User();
+                user.setRoleId(rs.getInt("roleId"));
+
+            }
+            return user;
+        } catch (SQLException e) {
+            return null;
         } finally {
             if (con != null) {
                 con.close();

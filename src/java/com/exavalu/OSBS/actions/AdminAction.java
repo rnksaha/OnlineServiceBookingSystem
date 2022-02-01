@@ -248,9 +248,14 @@ public class AdminAction extends ActionSupport {
     public String deleteUser() throws Exception {
         setAdminServices(new AdminServices());
         try {
+            User user = getAdminServices().fetchRoleId(getEmailId());
+            if(user.getRoleId()==1){
+                setMsg("You Can't disable Admin!");
+                return "DELETEUSER";
+            }
             int isDeleted = getAdminServices().deleteUserDetails(getEmailId());
             if (isDeleted > 0) {
-                setMsg("User deleted successfully");
+                setMsg("User disabled successfully");
             } else {
                 setMsg("Some error");
             }

@@ -302,7 +302,7 @@ public class UserService {
 
     }
 
-    public List salon(int serviceId) throws Exception {
+    public List<ServiceType> salon(int serviceId) throws Exception {
         ResultSet rs = null;
         Connection con = null;
         List<ServiceType> serviceTypeList = new ArrayList<>();
@@ -330,5 +330,41 @@ public class UserService {
                 con.close();
             }
         }
+    }
+
+    public ServiceType fetchServiceTypeDetails(String type) throws Exception {
+        ServiceType serviceType = new ServiceType();
+
+        Connection con = null;
+//        int serviceId = 0;
+//        ArrayList<ServiceType> type = new ArrayList<ServiceType>();
+        try {
+            con = ConnectionManager.getConnection();
+            String sql1 = "SELECT price,image FROM serviceType WHERE type = ?";
+            PreparedStatement ps = con.prepareStatement(sql1);
+            ps.setString(1, type);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                serviceType.setType(type);
+                serviceType.setPrice(rs.getDouble("price"));
+                serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
+
+//                type.add(serviceType);
+            }
+            return serviceType;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return serviceType;
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (SQLException ex) {
+                    Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+
     }
 }

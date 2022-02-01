@@ -107,13 +107,14 @@
             <a href="javascript:void(0)" id="side-nav-close">&times;</a>
             <div class="sidenav-content">
                 <p>
-                    <c:if test="${sessionScope.cart == null}">
+                    <c:if test="${sessionScope.cartList == null}">
                         <c:out value="Cart Is Empty"></c:out>
                     </c:if>
-                    <c:if test="${sessionScope.cart != null}">
+                    <c:if test="${sessionScope.cartList != null}">
                         <%--<c:out value="Cart Is Full"></c:out>--%>
-                        <c:forEach items="${sessionScope.cart}" var="item">
-                            <c:out value="${item}"></c:out>
+                        <c:forEach items="${sessionScope.cartList}" var="item">
+                            <c:out value="${item.getType()}"></c:out>
+                            <c:out value="${item.getPrice()}"></c:out>
                         </c:forEach>
                         <%--<c:redirect url="viewCart"></c:redirect>--%>
                     </c:if>

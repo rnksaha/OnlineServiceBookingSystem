@@ -15,6 +15,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.dispatcher.ApplicationMap;
 import org.apache.struts2.dispatcher.SessionMap;
@@ -65,7 +66,8 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private List<ServiceType> serviceTypeList;
     
     private List<ServiceType> cartList;
-
+    private Double total;
+    
     @Override
     public void setApplication(Map<String, Object> application) {
         map = (ApplicationMap) application;
@@ -220,23 +222,31 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     }
 
     public String addToCart() throws Exception {
-
+        int i=0;
+        Double total = 0.0;
 //        ArrayList<Integer> cart = (ArrayList) sessionMap.get("cart");
         //ArrayList<ServiceType> cart = new ArrayList<>();
         if (sessionMap.get("cart") == null) {
             ArrayList<ServiceType> cart = new ArrayList<>();
             cart.add(getUserService().fetchServiceTypeDetails(getType()));
             System.out.println(cart);
-
+            total+= cart.get(i).getPrice();
+            sessionMap.put("i", i);
+            sessionMap.put("total", total);
             sessionMap.put("cart", cart);
         } else {
             ArrayList<ServiceType> cart = (ArrayList) sessionMap.get("cart");
             cart.add(getUserService().fetchServiceTypeDetails(getType()));
             System.out.println(cart);
-
+            total = (Double)sessionMap.get("total");
+            i = (Integer) sessionMap.get("i");
+            i++;
+            total+= cart.get(i).getPrice();
+            sessionMap.put("total", total);
             sessionMap.put("cart", cart);
+            sessionMap.put("i", i);
         }
-
+        
         //System.out.println(getServices_serviceId());
         //cart.add(getUserService().fetchServiceTypeDetails(getType()));
         return "CARTADDED";
@@ -247,6 +257,8 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             return "CARTEMPTY";
         }
         ArrayList<ServiceType> cart = (ArrayList) sessionMap.get("cart");
+        setTotal((Double)sessionMap.get("total"));
+        System.out.println(total);
         try {
             setCartList(new ArrayList<>());
             setCartList(cart);
@@ -655,5 +667,19 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setCartList(List<ServiceType> cartList) {
         this.cartList = cartList;
+    }
+
+    /**
+     * @return the total
+     */
+    public Double getTotal() {
+        return total;
+    }
+
+    /**
+     * @param total the total to set
+     */
+    public void setTotal(Double total) {
+        this.total = total;
     }
 }

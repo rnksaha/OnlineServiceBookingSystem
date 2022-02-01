@@ -70,7 +70,7 @@
             <div class="wrapper fadeInDown">
                 <div id="formContent">                   
 
-                    <s:form action="loginuser">                        
+                    <s:form action="loginuser" cssClass="">                        
                         <s:textfield id="emailId" placeholder="Enter Email" value="emailId"  name="emailId" />
                         <s:textfield id="otp" value="otp" placeholder="Enter OTP" name="otp" />
                         <input type="button" id="btnOtp"  name="btnOtp" value="GET OTP">

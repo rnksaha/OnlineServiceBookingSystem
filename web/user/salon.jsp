@@ -41,28 +41,30 @@
                 text-align: center;
             }
         </style>
-        
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
         </script>
         <script>
-            function addToCart(services_serviceId) {
+            function addToCart(services_serviceId, type) {
                 //var cityName = document.getElementByName("selectedCity").value;
                 //alert($("#selectedCity").val());
                 $.ajax({
                     type: "GET",
                     url: "addToCart",
                     //data: {'cityName': $("#selectedCity").text()},
-                    data: "services_serviceId=" + services_serviceId,
+                    data: {"services_serviceId=": services_serviceId, "type=": type, },
                     success: function (result) {
 //                        $('#result').html(result);
                         alert("Item Added!!");
-                    },
+                    }
+                    ,
                     error: function (xhr, errmsg) {
                         alert("No values found..!!");
                     }
-                });
+                }
+                );
             }
-            
+
 
         </script>
 
@@ -73,31 +75,31 @@
 
 
 
-        <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url()">
-            <div class="container text-center">
-                <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
+            <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url()">
+                <div class="container text-center">
+                    <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
+                </div>
             </div>
-        </div>
 
-        <!-- SOMETHING Section -->
-        <section class="section-products">
-            <div class="container">
-                <div class="row justify-content-center text-center">
-                    <div class="col-md-8 col-lg-6">
-                        <div class="header">
-                            <h3>Featured Services</h3>
-                            <h2>Popular Services</h2>
+            <!-- SOMETHING Section -->
+            <section class="section-products">
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-md-8 col-lg-6">
+                            <div class="header">
+                                <h3>Featured Services</h3>
+                                <h2>Popular Services</h2>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    
+                    <div class="row">
+
                     <s:iterator value="serviceTypeList">
                         <div class="col-md-6 col-lg-4 col-xl-3">
                             <div id="product-1" class="single-product">
                                 <div class="part-1">
                                     <ul>
-                                        <li><a id="" onclick="addToCart(<s:property value="services_serviceId"/>)" href="#"/><i class="fas fa-shopping-cart"></i></a></li>
+                                        <li><a id="" onclick="addToCart(<s:property value="services_serviceId"/><s:property value="type"/>)" href="#"/><i class="fas fa-shopping-cart"></i></a></li>
                                         <li><a href="#"><i class="fas fa-heart"></i></a></li>
                                         <li><a href="#"><i class="fas fa-plus"></i></a></li>
                                     </ul>
@@ -109,122 +111,122 @@
                             </div>
                         </div>
                     </s:iterator>
-                    
+
                     <!-- Single Product -->
-<!--                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-1" class="single-product">
-                            <div class="part-1">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Beard Trim</h3>
-                                <h4 class="product-old-price">$79.99</h4>
-                                <h4 class="product-price">$1.99</h4>
-                            </div>
-                        </div>
-                    </div>
-                     Single Product 
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-2" class="single-product">
-                            <div class="part-1">
-                                <span class="discount">15% off</span>
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Hair Cleaning</h3>
-                                <h4 class="product-price">$7.59</h4>
-                            </div>
-                        </div>
-                    </div>
-                     Single Product 
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-3" class="single-product">
-                            <div class="part-1">
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Hair Waxing</h3>
-                                <h4 class="product-old-price">$79.99</h4>
-                                <h4 class="product-price">$15.99</h4>
-                            </div>
-                        </div>
-                    </div>
-                     Single Product 
-                    <div class="col-md-6 col-lg-4 col-xl-3">
-                        <div id="product-4" class="single-product">
-                            <div class="part-1">
-                                <span class="new">new</span>
-                                <ul>
-                                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="part-2">
-                                <h3 class="product-title">Hair Cut</h3>
-                                <h4 class="product-price">$9.99</h4>
-                            </div>
-                        </div>
-                    </div>-->
+                    <!--                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div id="product-1" class="single-product">
+                                                <div class="part-1">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="part-2">
+                                                    <h3 class="product-title">Beard Trim</h3>
+                                                    <h4 class="product-old-price">$79.99</h4>
+                                                    <h4 class="product-price">$1.99</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         Single Product 
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div id="product-2" class="single-product">
+                                                <div class="part-1">
+                                                    <span class="discount">15% off</span>
+                                                    <ul>
+                                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="part-2">
+                                                    <h3 class="product-title">Hair Cleaning</h3>
+                                                    <h4 class="product-price">$7.59</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         Single Product 
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div id="product-3" class="single-product">
+                                                <div class="part-1">
+                                                    <ul>
+                                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="part-2">
+                                                    <h3 class="product-title">Hair Waxing</h3>
+                                                    <h4 class="product-old-price">$79.99</h4>
+                                                    <h4 class="product-price">$15.99</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         Single Product 
+                                        <div class="col-md-6 col-lg-4 col-xl-3">
+                                            <div id="product-4" class="single-product">
+                                                <div class="part-1">
+                                                    <span class="new">new</span>
+                                                    <ul>
+                                                        <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                                        <li><a href="#"><i class="fas fa-plus"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="part-2">
+                                                    <h3 class="product-title">Hair Cut</h3>
+                                                    <h4 class="product-price">$9.99</h4>
+                                                </div>
+                                            </div>
+                                        </div>-->
                     <!-- Single Product -->
-        </section>
-        <!-- End of Blog Section -->
-        <footer class="mastfoot my-3">
-            <div class="inner container">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                    </section>
+                    <!-- End of Blog Section -->
+                    <footer class="mastfoot my-3">
+                        <div class="inner container">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-12 d-flex align-items-center">
 
-                    </div>
-                    <div class="col-lg-4 col-md-12 d-flex align-items-center">
-                        <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
-                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-12 d-flex align-items-center">
+                                    <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
+                                </div>
 
-                    <div class="col-lg-4 col-md-12">
-                        <nav class="nav nav-mastfoot justify-content-center">
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a class="nav-link" href="#">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                        </nav>
-                    </div>
+                                <div class="col-lg-4 col-md-12">
+                                    <nav class="nav nav-mastfoot justify-content-center">
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-facebook-f"></i>
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-twitter"></i>
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-instagram"></i>
+                                        </a>
+                                        <a class="nav-link" href="#">
+                                            <i class="fab fa-linkedin"></i>
+                                        </a>
+                                    </nav>
+                                </div>
 
-                </div>
-            </div>
+                            </div>
+                        </div>
 
-        </footer>	<!-- External JS -->
-        <script type="text/javascript" src="./js/jquery.js"></script>
-        <script src="./vendor/bootstrap/popper.min.js"></script>
-        <script src="./vendor/bootstrap/bootstrap.min.js"></script>
-        <script src="./vendor/select2/select2.min.js "></script>
-        <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
-        <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
-        <script src="./vendor/isotope/isotope.min.js"></script>
-        <script src="./vendor/lightcase/lightcase.js"></script>
-        <script src="./vendor/waypoints/waypoint.min.js"></script>
-        <script src="./js/aos.js"></script>
+                    </footer>	<!-- External JS -->
+                    <script type="text/javascript" src="./js/jquery.js"></script>
+                    <script src="./vendor/bootstrap/popper.min.js"></script>
+                    <script src="./vendor/bootstrap/bootstrap.min.js"></script>
+                    <script src="./vendor/select2/select2.min.js "></script>
+                    <script src="./vendor/owlcarousel/owl.carousel.min.js"></script>
+                    <script src="./vendor/stellar/jquery.stellar.js" type="text/javascript" charset="utf-8"></script>
+                    <script src="./vendor/isotope/isotope.min.js"></script>
+                    <script src="./vendor/lightcase/lightcase.js"></script>
+                    <script src="./vendor/waypoints/waypoint.min.js"></script>
+                    <script src="./js/aos.js"></script>
 
-        <!-- Main JS -->
-        <script src="./js/app.min.js "></script>
-    </body>
-</html>
+                    <!-- Main JS -->
+                    <script src="./js/app.min.js "></script>
+                    </body>
+                    </html>
 

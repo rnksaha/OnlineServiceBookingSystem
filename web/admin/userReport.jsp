@@ -48,9 +48,17 @@
 
                             <tr>
                                 <td><s:property value="emailId" /></td>
-                                <td><s:property value="roleId" /></td>
+                                <s:set var="role" value="roleId"/>
+                                <td>
+                                    <%--<s:property value="status" />--%>
+                                    <s:if test="#role==1">
+                                        Admin
+                                    </s:if>
+                                    <s:if test="#role==2">
+                                        Client
+                                    </s:if>
+                                </td>
                                 <s:set var="stat" value="status"/>
-
                                 <td>
                                     <%--<s:property value="status" />--%>
                                     <s:if test="#stat==0">

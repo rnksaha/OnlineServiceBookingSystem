@@ -99,11 +99,13 @@
                                 <span class="lnr lnr-magnifier"></span>
                             </a>
                         </li>
-                        <li class="nav-item only-desktop">
-                            <a class="nav-link" id="side-nav-open" href="#">
-                                <span class="fa fa-shopping-cart"></span>
-                            </a>
-                        </li>
+                        <c:if test="${applicationScope.validUser == true}">
+                            <li class="nav-item only-desktop">
+                                <a class="nav-link" id="side-nav-open" href="#">
+                                    <span class="fa fa-shopping-cart"></span>
+                                </a>
+                            </li>
+                        </c:if>
 
                     </ul>
                 </div>

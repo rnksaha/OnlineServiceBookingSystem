@@ -16,6 +16,7 @@
             <result name="REGISTERFEEDBACK">/user/feedback.jsp</result>
         </action> 
         <action name="registerOrders" class="com.exavalu.OSBS.actions.UserAction" method="registerOrders">
+            <result name="CARTEMPTY">/user/index.jsp</result>
             <result name="REGISTERORDERS">/user/feedback.jsp</result>
         </action>  
         <action name="service" class="com.exavalu.OSBS.actions.UserAction" method="service">
@@ -97,7 +98,6 @@
             <result name="REPORTCITY">/city/cityReport.jsp</result>
         </action>
         <action name="reportOrders" class="com.exavalu.OSBS.actions.AdminAction" method="reportOrders">
-            <result name="CARTEMPTY">/user/index.jsp</result>
             <result name="REPORTORDERS">/admin/orderReport.jsp</result>
         </action>
         <action name="registerServiceType" class="com.exavalu.OSBS.actions.AdminAction" method="registerServiceType">

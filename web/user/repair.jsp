@@ -90,8 +90,8 @@
                                 <span class="discount">15% off</span>
                                 <ul>
                                     <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>
+<!--                                    <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                    <li><a href="#"><i class="fas fa-plus"></i></a></li>-->
                                 </ul>
                             </div>
                             <div class="part-2">

@@ -64,7 +64,7 @@
 
         <!-- setting variable for admin & client ENDS HERE-->
 
-        <jsp:include page="header.jsp" ></jsp:include>
+        <%--<jsp:include page="header.jsp" ></jsp:include>--%>
 
 
         <!-- Banner part-->

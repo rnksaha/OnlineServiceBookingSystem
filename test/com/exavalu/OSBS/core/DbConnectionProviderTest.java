@@ -47,7 +47,7 @@ public class DbConnectionProviderTest {
         DbConnectionProvider result = DbConnectionProvider.getInstance();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -59,7 +59,7 @@ public class DbConnectionProviderTest {
         DbConnectionProvider instance = null;
         instance.getDbConnection();
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
     
 }

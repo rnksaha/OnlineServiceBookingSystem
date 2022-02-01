@@ -14,7 +14,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 import java.util.Properties;
 import java.util.Random;
@@ -274,13 +273,14 @@ public class UserService {
 //            }
 //            ps = null;
 //            rs = null;
-            String sql1 = "SELECT type,price,image FROM serviceType WHERE services_serviceId = ?";
+            String sql1 = "SELECT type,price FROM serviceType WHERE services_serviceId = ?";
             PreparedStatement ps = con.prepareStatement(sql1);
             ps.setInt(1, 3);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 serviceType.setType(rs.getString("type"));
                 serviceType.setPrice(rs.getDouble("price"));
+
                 serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
 
                 type.add(serviceType);

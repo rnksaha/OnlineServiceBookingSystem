@@ -61,7 +61,7 @@ public class ConfigParamTest {
         ConfigParam instance = new ConfigParam();
         instance.setUserid(userid);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -75,7 +75,7 @@ public class ConfigParamTest {
         String result = instance.getPassword();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -88,7 +88,7 @@ public class ConfigParamTest {
         ConfigParam instance = new ConfigParam();
         instance.setPassword(password);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -102,7 +102,7 @@ public class ConfigParamTest {
         String result = instance.getHost();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -115,7 +115,7 @@ public class ConfigParamTest {
         ConfigParam instance = new ConfigParam();
         instance.setHost(host);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -129,7 +129,7 @@ public class ConfigParamTest {
         String result = instance.getPort();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -142,7 +142,7 @@ public class ConfigParamTest {
         ConfigParam instance = new ConfigParam();
         instance.setPort(port);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -156,7 +156,7 @@ public class ConfigParamTest {
         String result = instance.getDbName();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
 
     /**
@@ -169,7 +169,7 @@ public class ConfigParamTest {
         ConfigParam instance = new ConfigParam();
         instance.setDbName(dbName);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        fail("The test case is a prototype.");
     }
     
 }

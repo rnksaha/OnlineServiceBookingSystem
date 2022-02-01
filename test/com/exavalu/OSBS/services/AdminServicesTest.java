@@ -42,6 +42,7 @@ public class AdminServicesTest {
 
     /**
      * Test of registerCity method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testRegisterCity() throws Exception {
@@ -58,6 +59,7 @@ public class AdminServicesTest {
 
     /**
      * Test of disablePin method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testDisablePin() throws Exception {
@@ -73,6 +75,7 @@ public class AdminServicesTest {
 
     /**
      * Test of enablePin method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testEnablePin() throws Exception {
@@ -88,6 +91,7 @@ public class AdminServicesTest {
 
     /**
      * Test of reportCity method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testReportCity() throws Exception {
@@ -102,6 +106,7 @@ public class AdminServicesTest {
 
     /**
      * Test of reportOrders method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testReportOrders() throws Exception {
@@ -116,6 +121,7 @@ public class AdminServicesTest {
 
     /**
      * Test of registerServiceType method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testRegisterServiceType() throws Exception {
@@ -133,6 +139,7 @@ public class AdminServicesTest {
 
     /**
      * Test of deleteServiceType method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testDeleteServiceType() throws Exception {
@@ -148,6 +155,7 @@ public class AdminServicesTest {
 
     /**
      * Test of reportServiceType method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testReportServiceType() throws Exception {
@@ -162,6 +170,7 @@ public class AdminServicesTest {
 
     /**
      * Test of fetchServiceTypeDetails method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testFetchServiceTypeDetails() throws Exception {
@@ -177,6 +186,7 @@ public class AdminServicesTest {
 
     /**
      * Test of updateServiceTypeDetails method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testUpdateServiceTypeDetails() throws Exception {
@@ -195,6 +205,7 @@ public class AdminServicesTest {
 
     /**
      * Test of reportUser method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testReportUser() throws Exception {
@@ -209,6 +220,7 @@ public class AdminServicesTest {
 
     /**
      * Test of deleteUserDetails method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testDeleteUserDetails() throws Exception {
@@ -224,6 +236,7 @@ public class AdminServicesTest {
 
     /**
      * Test of enableUserDetails method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testEnableUserDetails() throws Exception {
@@ -239,6 +252,7 @@ public class AdminServicesTest {
 
     /**
      * Test of registerService method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testRegisterService() throws Exception {
@@ -255,6 +269,7 @@ public class AdminServicesTest {
 
     /**
      * Test of reportService method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testReportService() throws Exception {
@@ -269,6 +284,7 @@ public class AdminServicesTest {
 
     /**
      * Test of deleteService method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testDeleteService() throws Exception {
@@ -284,6 +300,7 @@ public class AdminServicesTest {
 
     /**
      * Test of fetchServiceDetails method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testFetchServiceDetails() throws Exception {
@@ -299,6 +316,7 @@ public class AdminServicesTest {
 
     /**
      * Test of updateServiceDetails method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testUpdateServiceDetails() throws Exception {
@@ -317,6 +335,7 @@ public class AdminServicesTest {
 
     /**
      * Test of reportFeedback method, of class AdminServices.
+     * @throws java.lang.Exception
      */
     @Test
     public void testReportFeedback() throws Exception {

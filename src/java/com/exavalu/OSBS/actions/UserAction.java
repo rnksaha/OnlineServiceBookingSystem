@@ -73,7 +73,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     public void setSession(Map<String, Object> map) {
         sessionMap = (SessionMap) map;
     }
-
+    
     public String otpRequest() throws Exception {
 
         setUserService(new UserService());
@@ -135,7 +135,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
             sessionMap.invalidate();
 
             return "LOGINERROR";
@@ -152,7 +151,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REGISTERFEEDBACK";
     }
@@ -168,7 +166,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 setMsg("Some error");
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "REGISTERORDERS";
     }
@@ -199,7 +196,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 setNoData(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
 
         return "PINCODES";
@@ -211,7 +207,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             ArrayList<ServiceType> type = ob.fetchServiceDetails();
             sessionMap.put("serviceType", type);
         } catch (Exception e) {
-            e.printStackTrace();
         }
 
         return "SUCCESS";
@@ -266,7 +261,6 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 setNoData(true);
             }
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return "SALON";
     }

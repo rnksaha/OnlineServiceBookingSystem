@@ -222,7 +222,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 //        ArrayList<Integer> cart = (ArrayList) sessionMap.get("cart");
         ArrayList<ServiceType> cart = new ArrayList<>();
         System.out.println(getType());
-        cart.add(getUserService().fetchServiceTypeDetails(getServices_serviceId(), getType()));
+        cart.add(getUserService().fetchServiceTypeDetails(getType()));
         System.out.println(cart);
 
         sessionMap.put("cart", cart);

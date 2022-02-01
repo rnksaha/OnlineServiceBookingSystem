@@ -332,7 +332,7 @@ public class UserService {
         }
     }
 
-    public ServiceType fetchServiceTypeDetails(int serviceId, String type) throws Exception {
+    public ServiceType fetchServiceTypeDetails(String type) throws Exception {
         ServiceType serviceType = new ServiceType();
 
         Connection con = null;
@@ -340,13 +340,12 @@ public class UserService {
 //        ArrayList<ServiceType> type = new ArrayList<ServiceType>();
         try {
             con = ConnectionManager.getConnection();
-            String sql1 = "SELECT type,price,image FROM serviceType WHERE services_serviceId = ?";
+            String sql1 = "SELECT price,image FROM serviceType WHERE type = ?";
             PreparedStatement ps = con.prepareStatement(sql1);
-            ps.setInt(1, serviceId);
-            ps.setString(2, type);
+            ps.setString(1, type);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                serviceType.setType(rs.getString("type"));
+                serviceType.setType(type);
                 serviceType.setPrice(rs.getDouble("price"));
                 serviceType.setServices_serviceId(rs.getInt("services_serviceId"));
 

@@ -76,7 +76,6 @@
                                     </a>
                                 </td>
                             </tr>
-
                         </s:iterator>
                     </table>
                 </s:if>

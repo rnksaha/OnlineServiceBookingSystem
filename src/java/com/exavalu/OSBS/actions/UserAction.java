@@ -161,7 +161,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     public String registerOrders() throws Exception {
         if (sessionMap.get("cartList") == null) {
             return "CARTEMPTY";
-        } else {
+        } else {   
             setUserService(new UserService());
             setTotalPrice((double) sessionMap.get("total"));
             try {

@@ -28,17 +28,17 @@
                         </div>
                         <div class="form-floating">
                             <label for="floatingInput">Price</label>
-                            <input type="number" class="form-control" name="price" placeholder="Price" value='<s:property value="price"/>'>
+                            <input type="number" min="1" onkeyup="if(this.value<0){this.value= this.value * -1}" class="form-control" name="price" placeholder="Price" value='<s:property value="price"/>'>
                         </div>
 
                         <div class="form-floating">
                             <label for="floatingInput">Status</label>
-                            <input type="number" class="form-control" name="status" placeholder="Status" value='<s:property value="status"/>'>
+                            <input type="number" min="0" max="1" onkeyup="if(this.value<0){this.value= this.value * -1}" class="form-control" name="status" placeholder="Status" value='<s:property value="status"/>'>
                         </div>
 
                         <div class="form-floating">
                             <label for="floatingInput">Service Id</label>
-                            <input type="text" class="form-control" name="services_serviceId" placeholder="Service Id" value='<s:property value="services_serviceId"/>' readonly>
+                            <input type="number" min="0" onkeyup="if(this.value<0){this.value= this.value * -1}" class="form-control" name="services_serviceId" placeholder="Service Id" value='<s:property value="services_serviceId"/>' readonly>
                         </div>
 
                         <br>

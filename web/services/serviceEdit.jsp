@@ -23,7 +23,7 @@
 
                             <div class="form-floating">
                                 <label for="floatingInput">Service Id</label>
-                                <input type="text" class="form-control" name="serviceId" placeholder="Service Name" value='<s:property value="serviceId"/>' readonly>
+                                <input type="number" min="0" onkeyup="if(this.value<0){this.value= this.value * -1}" class="form-control" name="serviceId" placeholder="Service Name" value='<s:property value="serviceId"/>' readonly>
                         </div>
 
                         <div class="form-floating">
@@ -33,11 +33,11 @@
 
                         <div class="form-floating">
                             <label for="floatingInput">Pin Code</label>
-                            <input type="number" class="form-control" name="pinCode" placeholder="Pin Code" value='<s:property value="pinCode"/>'>
+                            <input type="number" min="100000" max="999999" onkeyup="if(this.value<0){this.value= this.value * -1}" class="form-control" name="pinCode" placeholder="Pin Code" value='<s:property value="pinCode"/>'>
                         </div>
                         <div class="form-floating">
                             <label for="floatingInput">Status</label>
-                            <input type="number" class="form-control" name="status" placeholder="Status" value='<s:property value="status"/>'>
+                            <input type="number" min="0" max="1" onkeyup="if(this.value<0){this.value= this.value * -1}" class="form-control" name="status" placeholder="Status" value='<s:property value="status"/>'>
                         </div>
 
                         <br>

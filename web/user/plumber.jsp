@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="org.apache.log4j.Logger" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,6 +69,7 @@
     </head>
 
     <body data-spy="scroll" data-target="#navbar" class="static-layout">
+        <% Logger log = Logger.getLogger("plumber.jsp"); %>
         <jsp:include page="header.jsp" ></jsp:include>
 
 

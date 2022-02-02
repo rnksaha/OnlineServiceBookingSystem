@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="org.apache.log4j.Logger" %>
 <html lang="en">
     <link type="text/css" rel="stylesheet" id="dark-mode-custom-link">
     <link type="text/css" rel="stylesheet" id="dark-mode-general-link">
@@ -37,6 +38,7 @@
         <link href="./css/admin-edit.css" rel="stylesheet">
     </head>
     <body class="text-center">
+        <% Logger log = Logger.getLogger("cityEdit.jsp"); %>
         <main class="form-signin">
 
             <p>--- logo here ---</p>

@@ -23,14 +23,14 @@ DROP TABLE IF EXISTS `services`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `services` (
+  `serviceId` int NOT NULL AUTO_INCREMENT,
   `serviceName` varchar(100) NOT NULL,
   `pinCode` int NOT NULL,
   `status` int NOT NULL,
-  `serviceId` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`serviceId`),
   KEY `pinCode_idx` (`pinCode`),
   CONSTRAINT `pinCode` FOREIGN KEY (`pinCode`) REFERENCES `cities` (`pinCode`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,6 +39,7 @@ CREATE TABLE `services` (
 
 LOCK TABLES `services` WRITE;
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
+INSERT INTO `services` VALUES (1,'Electrician',700001,1),(2,'Plumber',700002,1),(3,'Saloon',834001,1),(4,'Repairs',110002,1),(5,'Therapies',110001,1),(6,'Cleaning and Pest Control',834002,1);
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-28 11:20:49
+-- Dump completed on 2022-02-02 12:36:03

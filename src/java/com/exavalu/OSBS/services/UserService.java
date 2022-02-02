@@ -196,7 +196,7 @@ public class UserService {
     }
 
     // place order insert into method
-    public int registerOrders(String name, String address, String phoneNo, double totalPrice, String users_emailId, ArrayList<ServiceType> cart) throws Exception {
+    public int registerOrders(String name, String address, String phoneNo, double grandTotal, String users_emailId, ArrayList<ServiceType> cart) throws Exception {
         int i = 0;
         Connection con = null;
         try {
@@ -208,7 +208,7 @@ public class UserService {
                 ps.setString(1, name);
                 ps.setString(2, address);
                 ps.setString(3, phoneNo);
-                ps.setDouble(4, totalPrice);
+                ps.setDouble(4, grandTotal);
                 ps.setString(5, users_emailId);
                 ps.setString(6, cart.get(i).getType());
                 //ps.setInt(7, services_serviceId);

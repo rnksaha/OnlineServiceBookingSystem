@@ -66,6 +66,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
 
     private List<ServiceType> cartList;
     private Double total;
+    private Double grandTotal;
 
     @Override
     public void setApplication(Map<String, Object> application) {
@@ -164,14 +165,16 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         } else {   
             setUserService(new UserService());
             setTotalPrice((double) sessionMap.get("total"));
+            setGrandTotal(getTotalPrice()+getTotalPrice()*0.05);
+            sessionMap.put("grandTotal", getGrandTotal());
             try {
-                setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getTotalPrice(), getUsers_emailId(), (ArrayList<ServiceType>) sessionMap.get("cart")));
+                setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getGrandTotal(), getUsers_emailId(), (ArrayList<ServiceType>) sessionMap.get("cart")));
                 if (getCtr() > 0) {
                     getUserService().sendMail(getUsers_emailId(), "ORDER REGISTERED");
                     setMsg("Order Registered");
-                    sessionMap.put("cart", null);
-                    sessionMap.put("cartList", null);
-                    sessionMap.put("total", null);
+//                    sessionMap.put("cart", null);
+//                    sessionMap.put("cartList", null);
+//                    sessionMap.put("total", null);
                 } else {
                     setMsg("Some error");
                 }
@@ -699,5 +702,19 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setTotal(Double total) {
         this.total = total;
+    }
+
+    /**
+     * @return the grandTotal
+     */
+    public Double getGrandTotal() {
+        return grandTotal;
+    }
+
+    /**
+     * @param grandTotal the grandTotal to set
+     */
+    public void setGrandTotal(Double grandTotal) {
+        this.grandTotal = grandTotal;
     }
 }

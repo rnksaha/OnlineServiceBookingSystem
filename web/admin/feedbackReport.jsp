@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="org.apache.log4j.Logger" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,6 +34,7 @@
             </style>
         </head>
         <body>
+            <% Logger log = Logger.getLogger("feedbackReport.jsp"); %>
             <div class="col-lg-9 content-main">
                 <div class="content">
                     <h2><u>Feedback Report</u></h2>

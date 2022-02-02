@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="org.apache.log4j.Logger" %>
 <!DOCTYPE html>
 <html>
     <%
@@ -63,6 +64,7 @@
         <title>Login</title>
     </head>
     <body>
+        <% Logger log = Logger.getLogger("signUp.jsp"); %>
         <div class="jumbotron jumbotron-single d-flex align-items-center" style="background-image: url()">
             <div class="container text-center">
                 <h1 class="display-1 mb-4">URBAN<br>WARE</h1>

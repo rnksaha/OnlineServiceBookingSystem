@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="org.apache.log4j.Logger" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +10,7 @@
         
     </head>
     <body>
+        <% Logger log = Logger.getLogger("serviceTypeRegister.jsp"); %>
         <div class="col-lg-9 regcontent-main">
             <div class="content">
                 <div class="text-center mt-3">
@@ -17,8 +19,8 @@
                         Service Type Register
                     </h1>
                     <s:textfield cssClass = "form-control" name="type" placeholder="Type" />
-                    <s:textfield cssClass = "form-control" name="price" placeholder="Price" />
-                    <s:textfield cssClass = "form-control" name="services_serviceId" placeholder="Service Id" size="50"/>
+                    <s:textfield cssClass = "form-control" name="price" value="" placeholder="Price" />
+                    <s:textfield cssClass = "form-control" name="services_serviceId" value="" placeholder="Service Id" size="50"/>
                     <s:submit cssClass="w-100 btn btn-lg btn-primary" value="Register" />
                 </s:form>
                 <s:if test="ctr>0">

@@ -69,6 +69,9 @@
         <action name="index" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS" >/user/index.jsp</result>
         </action>
+        <action name="clearSession" class="com.exavalu.OSBS.actions.UserAction" method="clearSession">
+            <result name="SUCCESS" >/user/index.jsp</result>
+        </action>
         <action name="logoutuser" class="com.exavalu.OSBS.actions.UserAction" method="userLogout">
             <result name="LOGOUT">/user/index.jsp</result>
         </action>

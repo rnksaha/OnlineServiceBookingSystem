@@ -39,7 +39,7 @@ CREATE TABLE `servicetype` (
 
 LOCK TABLES `servicetype` WRITE;
 /*!40000 ALTER TABLE `servicetype` DISABLE KEYS */;
-INSERT INTO `servicetype` VALUES ('AC Repair',1500,1,4),('Beard Trim',65,1,3),('Bed Bugs Control',400,1,6),('Cognitive Behavioral Therapy',1500,1,5),('Facial',80,1,3),('Family Therapy',5000,1,5),('Full House Cleaning',4500,1,6),('Geyser Installation',400,1,2),('Hair Cut',100,1,3),('Inverter Connection',150,1,1),('Laptop/Computer Repair',1000,1,4),('Massage',1000,1,5),('Meter Installation',300,1,1),('Mobile Repair',500,1,4),('Mosquito Control',350,1,6),('Pipes Installation',500,1,2),('Psychodynamic Therapy',2500,1,5),('Rat and Mole Control',375,1,6),('Special Hair Style',150,1,3),('Switch Board Installation',175,1,1),('Tap Replacement',150,1,2),('TV Repair',2000,1,4),('Water Filtration',350,1,2),('Wiring',200,1,1);
+INSERT INTO `servicetype` VALUES ('AC Repair',1500,1,4),('Beard Trim',65,1,3),('Bed Bugs Control',400,1,6),('Cognitive Behavioral Therapy',1500,1,5),('Facial',80,1,3),('Family Therapy',5000,1,5),('Full House Cleaning',4500,1,6),('Geyser Installation',400,1,2),('Hair Cut',100,1,3),('Inverter Connection',150,1,1),('Laptop/Computer Repair',1000,1,4),('Massage',1000,1,5),('Meter Installation',300,1,1),('Mobile Repair',500,1,4),('Mosquito Control',350,1,6),('Pipes Installation',500,1,2),('Psychodynamic Therapy',2500,1,5),('Rat and Mole Control',375,1,6),('Special Hair Style',150,1,3),('Switch Board Installation',175,1,1),('Tap Replacement',150,1,2),('testType',100,1,7),('TV Repair',2000,1,4),('Water Filtration',350,1,2),('Wiring',200,1,1);
 /*!40000 ALTER TABLE `servicetype` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-02 12:36:03
+-- Dump completed on 2022-02-02 17:19:54

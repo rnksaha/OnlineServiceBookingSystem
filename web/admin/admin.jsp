@@ -62,7 +62,7 @@
             <div class="row">
                 <div class="sidebar">
                     <ul class="main-menu">
-                        <li class="active"><a href="admin"><i class="fas fa-tasks"></i> Dashboard</a></li>
+                        <!--<li class="active"><a href="admin"><i class="fas fa-tasks"></i> Dashboard</a></li>-->
                         <li class="main-sub-menu"><a href="index"><i class="fas fa-home"></i> Home </a>
 
                         </li>

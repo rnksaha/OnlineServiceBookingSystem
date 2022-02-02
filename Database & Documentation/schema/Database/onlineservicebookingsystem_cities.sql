@@ -36,7 +36,7 @@ CREATE TABLE `cities` (
 
 LOCK TABLES `cities` WRITE;
 /*!40000 ALTER TABLE `cities` DISABLE KEYS */;
-INSERT INTO `cities` VALUES (110001,'Delhi',1),(110002,'Delhi',1),(110003,'Delhi',1),(110004,'Delhi',1),(110005,'Delhi',1),(700001,'Kolkata',1),(700002,'Kolkata',1),(700003,'Kolkata',1),(700004,'Kolkata',1),(700005,'Kolkata',1),(834001,'Ranchi',1),(834002,'Ranchi',1),(834003,'Ranchi',1),(834004,'Ranchi',1);
+INSERT INTO `cities` VALUES (110001,'Delhi',1),(110002,'Delhi',1),(110003,'Delhi',1),(110004,'Delhi',1),(110005,'Delhi',1),(700001,'Kolkata',1),(700002,'Kolkata',1),(700003,'Kolkata',1),(700004,'Kolkata',1),(700005,'Kolkata',1),(700126,'Kolkata',1),(834001,'Ranchi',1),(834002,'Ranchi',1),(834003,'Ranchi',1),(834004,'Ranchi',1),(834005,'Ranchi',1),(834006,'Ranchi',1);
 /*!40000 ALTER TABLE `cities` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-02 12:36:02
+-- Dump completed on 2022-02-02 17:19:53

@@ -96,6 +96,13 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         return "SUCCESS";
     }
 
+    public String clearSession() throws Exception {
+        sessionMap.put("cart", null);
+        sessionMap.put("cartList", null);
+        sessionMap.put("total", null);
+        return "SUCCESS";
+    }
+
     public String userLogin() throws Exception {
 
         setGeneratedOTP((String) sessionMap.get("otp"));
@@ -162,19 +169,19 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     public String registerOrders() throws Exception {
         if (sessionMap.get("cartList") == null) {
             return "CARTEMPTY";
-        } else {   
+        } else {
             setUserService(new UserService());
             setTotalPrice((double) sessionMap.get("total"));
-            setGrandTotal(getTotalPrice()+getTotalPrice()*0.05);
+            setGrandTotal(getTotalPrice() + getTotalPrice() * 0.05);
             sessionMap.put("grandTotal", getGrandTotal());
             try {
                 setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getGrandTotal(), getUsers_emailId(), (ArrayList<ServiceType>) sessionMap.get("cart")));
                 if (getCtr() > 0) {
                     getUserService().sendMail(getUsers_emailId(), "ORDER REGISTERED");
                     setMsg("Order Registered");
-                    sessionMap.put("cart", null);
-                    sessionMap.put("cartList", null);
-                    sessionMap.put("total", null);
+//                    sessionMap.put("cart", null);
+//                    sessionMap.put("cartList", null);
+//                    sessionMap.put("total", null);
                 } else {
                     setMsg("Some error");
                 }

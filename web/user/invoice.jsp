@@ -129,7 +129,7 @@
 
 
                                 <div>
-                                    <a href="index"><button>Home page</button></a>
+                                    <a href="clearSession"><button>Home page</button></a>
                                 </div>
                 </div>        
                 </body>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : contact
-    Created on : 28 Jan, 2022, 11:54:45 AM
-    Author     : PRADIP
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="org.apache.log4j.Logger" %>
 <!DOCTYPE html>
@@ -15,6 +9,7 @@
     <title>URBAN WARE</title>
     <meta name="description" content="Roxy">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
     <!-- External CSS -->
     <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
@@ -67,48 +62,20 @@
                             Contact Us
                         </h2>
                     </div>
-                    <form method="post" name="contact-us" action="">
-                        <div class="row">
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <input type="tel" id="phone" class="form-control" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required placeholder="Phone no">
-                            </div>
-                            
-                            <div class="col-md-12 form-group">
-                                <textarea class="form-control" id="message" name="message" rows="6" placeholder="Your Message ..."></textarea>
-                            </div>
-                            <div class="col-md-12 text-center">
-                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
+                    <ul class="list-inline py-2">
+                    <li class="list-inline-item text-center">
+                        <img class="rounded-circle" src="img/icons/animat-responsive.gif" alt="Generic placeholder image" width="150" height="150">
+                    <h3 class="mb-4">24*7 Customer Support</h3>
+                    <p><b>We are here for you 24/7.</b></p>
+                    <p class="fas fa-envelope">&nbsp; Email: urbanwareservice@gmail.com</p>
+                    <p class="fas fa-mobile-alt"><b>&nbsp; Contact No :+91-11-40517847.</b></p>
+                    </li>
+                </ul>
+                    
                 </div>
             </div>
             <div class="col-lg-4 offset-lg-1" data-aos="fade-left">
                <img src="img/contact.png">
-
-                <ul class="list-inline py-2">
-                    <!--li class="list-inline-item text-center">
-                        <span class="lnr fs-40 lnr-rocket"></span>
-                        <p>Fast delivery</p>
-                    </li-->
-                    <!--li class="list-inline-item text-center">
-                        <span class="lnr fs-40 lnr-magic-wand"></span>
-                        <p>Awesome design</p>
-                    </li-->
-                    <li class="list-inline-item text-center">
-                        <img class="rounded-circle" src="img/icons/animat-responsive.gif" alt="Generic placeholder image" width="150" height="150">
-                    <h5 class="mb-4">24*7 Customer Support</h5>
-                    <p>We are here for you 24/7.</p>
-                    <p>Email: urbanwareservice@gmail.com</p>
-                    <p>Contact No :+91-11-40517847.</p>
-                    </li>
-                </ul>
                 
                <p>Give your feedback.</p>
                 <a href="" class="#">
@@ -127,7 +94,7 @@
 
                     </div>
                     <div class="col-lg-4 col-md-12 d-flex align-items-center">
-                        <p class="mx-auto text-center mb-0">&copy; 2022 URBAN WARE</p>
+                        <p class="mx-auto text-center mb-0" >&copy; 2022 URBAN WARE</p>
                     </div>
 
                     <div class="col-lg-4 col-md-12">

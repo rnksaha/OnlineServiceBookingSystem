@@ -172,9 +172,9 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 if (getCtr() > 0) {
                     getUserService().sendMail(getUsers_emailId(), "ORDER REGISTERED");
                     setMsg("Order Registered");
-//                    sessionMap.put("cart", null);
-//                    sessionMap.put("cartList", null);
-//                    sessionMap.put("total", null);
+                    sessionMap.put("cart", null);
+                    sessionMap.put("cartList", null);
+                    sessionMap.put("total", null);
                 } else {
                     setMsg("Some error");
                 }

@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>--%>
 <!DOCTYPE html>
@@ -53,7 +54,7 @@
 
                             <div class="row pb-5 p-5">
                                 <div class="col-md-6">
-                                    
+
                                 </div>
 
                                 <div class="col-md-6 text-right">
@@ -82,10 +83,16 @@
                                         <thead>
                                             <tr>
                                                 <th class="border-0 text-uppercase small font-weight-bold">Item</th>
-                                                <th class="border-0 text-uppercase small font-weight-bold">Total</th>
+                                                <th class="border-0 text-uppercase small font-weight-bold">Price</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <c:forEach items="${sessionScope.cartList}" var="item">
+                                                <tr>
+                                                    <td><c:out value="${item.getType()}"></c:out></td>
+                                                    <td><c:out value="${item.getPrice()}"></c:out></td>
+                                                    </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>
@@ -95,7 +102,7 @@
                             <div class="d-flex flex-row-reverse bg-dark text-white p-4">
                                 <div class="py-3 px-5 text-right">
                                     <div class="mb-2">Grand Total </div>
-                                    <p class="h2 font-weight-light"><span id="finalVal">HERE</span></p>
+                                    <p class="h2 font-weight-light"><span id="finalVal"></span><c:out value="${sessionScope.grandTotal}"/></p>
                                     <script>
                                         /*net value VAT functions here
                                          let total=;
@@ -114,14 +121,16 @@
                                 <!-- Net value here-->
                                 <div class="py-3 px-5 text-right">
                                     <div class="mb-2">Net amount</div>
-                                    <p id="net" class="h2 font-weight-light">HERE</p>
+                                    <p id="net" class="h2 font-weight-light"><c:out value="${sessionScope.total}"/></p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
 
-
-                </div>
+                                <div>
+                                    <a href="index"><button>Home page</button></a>
+                                </div>
+                </div>        
                 </body>
                 </html>

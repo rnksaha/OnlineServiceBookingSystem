@@ -94,11 +94,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="about">About</a>
                         </li>
-                        <li class="nav-item">
+<!--                        <li class="nav-item">
                             <a id="side-search-open" class="nav-link" href="#">
                                 <span class="lnr lnr-magnifier"></span>
                             </a>
-                        </li>
+                        </li>-->
                         <c:if test="${applicationScope.validUser == true}">
                             <li class="nav-item only-desktop">
                                 <a class="nav-link" id="side-nav-open" href="#">

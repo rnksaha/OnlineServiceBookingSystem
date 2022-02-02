@@ -38,7 +38,7 @@
 
 
 </script>
-<select class="form-select" id="selectedPin" onchange="getServices()" aria-label="Default select example">
+<select class="form-select" style="width: 400px" id="selectedPin" onchange="getServices()" aria-label="Default select example">
     <option selected>Select Pin Code</option>
     <s:iterator value="pinCodeList">
         <option value="pinCode"><s:property value="pinCode" /></option>

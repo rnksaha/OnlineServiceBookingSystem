@@ -37,6 +37,16 @@
                 });
             });
 //            $('#otp').resetForm();
+
+            function checkEmail() {
+                var email = document.getElementById('emailId');
+                var filter = /^[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]+)*@[a-z0-9]+(\-[a-z0-9]+)*(\.[a-z0-9]+(\-[a-z0-9]+)*)*\.[a-z]{2,4}$/;
+                if (!filter.test(email.value)) {
+                    alert('Please provide a valid email address');
+                    email.focus;
+                    return false;
+                }
+            }
         </script>
         <title>Sign Up</title>
         <style>
@@ -101,9 +111,9 @@
 
         </style>
     </head>
-    
+
     <body>
-        <% Logger log = Logger.getLogger("signUp_new.jsp"); %>
+        <% Logger log = Logger.getLogger("signUp_new.jsp");%>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <div class="bg">
             <div class="signUp text-center">
@@ -114,7 +124,7 @@
                     <s:textfield id="emailId" cssClass = "form-control" placeholder="Enter Email" value="emailId"  name="emailId" size="50"/>
                     <s:textfield id="otp" cssClass = "form-control" value="otp" placeholder="Enter OTP" name="otp" size="50"/>
                     <s:submit cssClass="mt-1 w-100 btn btn-lg btn-primary" style="border:none;" id="btnOtp" name="btnOtp" value="GET OTP"/>
-                    <s:submit cssClass="mt-1 w-100 btn btn-lg btn-primary" style="border:none;" value="Login"/>
+                    <s:submit id="logButton" onclick='checkEmail();' cssClass="mt-1 w-100 btn btn-lg btn-primary" style="border:none;" value="Login"/>
                 </s:form>
             </div>     
         </div>

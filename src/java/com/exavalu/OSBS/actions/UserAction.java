@@ -162,7 +162,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     public String registerOrders() throws Exception {
         if (sessionMap.get("cartList") == null) {
             return "CARTEMPTY";
-        } else {
+        } else {   
             setUserService(new UserService());
             setTotalPrice((double) sessionMap.get("total"));
             setGrandTotal(getTotalPrice()+getTotalPrice()*0.05);
@@ -172,9 +172,9 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                 if (getCtr() > 0) {
                     getUserService().sendMail(getUsers_emailId(), "ORDER REGISTERED");
                     setMsg("Order Registered");
-//                    sessionMap.put("cart", null);
-//                    sessionMap.put("cartList", null);
-//                    sessionMap.put("total", null);
+                    sessionMap.put("cart", null);
+                    sessionMap.put("cartList", null);
+                    sessionMap.put("total", null);
                 } else {
                     setMsg("Some error");
                 }

@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>--%>
+<%@ page import="org.apache.log4j.Logger" %>
 
 <!DOCTYPE html>
 <html>
@@ -55,6 +56,7 @@
         <title>urbanware</title>
     </head>
     <body>
+        <% Logger log = Logger.getLogger("service.jsp"); %>
 
 
 

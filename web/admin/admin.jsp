@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
+<%@ page import="org.apache.log4j.Logger" %>
 <!DOCTYPE html>
 <html>
     <c:if test="${applicationScope.role != 1}">
@@ -33,6 +34,7 @@
 
 
     <body>
+        <% Logger log = Logger.getLogger("admin.jsp"); %>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 col-sm-12 col-12 header-part">

@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>--%>
-
+<%@ page import="org.apache.log4j.Logger" %>
 <!DOCTYPE html>
 <html>
 
@@ -69,6 +69,7 @@
         <!-- setting variable for admin & client ENDS HERE-->
 
     <body>
+        <% Logger log = Logger.getLogger("index.jsp"); %>
         <jsp:include page="header.jsp" ></jsp:include>
 
         <div class="jumbotron d-flex align-items-center">

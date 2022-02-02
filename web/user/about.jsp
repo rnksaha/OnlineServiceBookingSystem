@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="org.apache.log4j.Logger" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,6 +40,7 @@
 
     </head>
     <body>
+        <% Logger log = Logger.getLogger("about.jsp"); %>
         <style>
             @font-face {
                 font-family: myFirstFont;

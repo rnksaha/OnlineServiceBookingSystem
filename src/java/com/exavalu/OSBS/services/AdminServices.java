@@ -126,7 +126,7 @@ public class AdminServices {
                 order.setTotalPrice(rs.getDouble("totalPrice"));
                 order.setUsers_emailId(rs.getString("users_emailId"));
                 order.setServicetype_type(rs.getString("servicetype_type"));
-                order.setServices_serviceId(rs.getInt("services_serviceId"));
+//                order.setServices_serviceId(rs.getInt("services_serviceId"));
 
                 orderList.add(order);
             }

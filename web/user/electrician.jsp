@@ -61,7 +61,7 @@
     </head>
 
     <body data-spy="scroll" data-target="#navbar" class="static-layout">
-        <%-- <jsp:include page="header.jsp" ></jsp:include>--%>
+         <jsp:include page="header.jsp" ></jsp:include>
 
 
 

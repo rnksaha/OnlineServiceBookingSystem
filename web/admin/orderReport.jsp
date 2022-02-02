@@ -38,7 +38,7 @@
                             <th>Name</th>
                             <th>Email</th>
                             <th>Service Name</th>
-                            <th>Type</th>
+                            <!--<th>Type</th>-->
                             <th>Address</th>
                             <th>Phone No</th>
                             <th>Total Price</th>
@@ -50,9 +50,9 @@
 
                             <tr>
                                 <td><s:property value="name" /></td>
-                                <td><s:property value="emailId" /></td>
-                                <td><s:property value="serviceName" /></td>
-                                <td><s:property value="type" /></td>
+                                <td><s:property value="users_emailId" /></td>
+                                <td><s:property value="servicetype_type" /></td>
+                                <!--<td><s:property value="type" /></td>-->
                                 <td><s:property value="address" /></td>
                                 <td><s:property value="phoneNo" /></td>
                                 <td><s:property value="totalPrice" /></td>

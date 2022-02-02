@@ -17,8 +17,8 @@
                         Service Type Register
                     </h1>
                     <s:textfield cssClass = "form-control" name="type" placeholder="Type" />
-                    <s:textfield cssClass = "form-control" name="price" placeholder="Price" />
-                    <s:textfield cssClass = "form-control" name="services_serviceId" placeholder="Service Id" size="50"/>
+                    <s:textfield cssClass = "form-control" name="price" value="" placeholder="Price" />
+                    <s:textfield cssClass = "form-control" name="services_serviceId" value="" placeholder="Service Id" size="50"/>
                     <s:submit cssClass="w-100 btn btn-lg btn-primary" value="Register" />
                 </s:form>
                 <s:if test="ctr>0">

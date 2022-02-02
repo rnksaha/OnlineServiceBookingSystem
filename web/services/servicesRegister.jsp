@@ -17,7 +17,7 @@
                         Services Register
                     </h1>
                     <s:textfield cssClass = "form-control" name="serviceName" placeholder="Service Name" size="50"/>
-                    <s:textfield cssClass = "form-control" name="pinCode" placeholder="Pin Code" />
+                    <s:textfield cssClass = "form-control" name="pinCode" value="" placeholder="Pin Code" />
                     <s:submit cssClass="w-100 btn btn-lg btn-primary" value="Register" />
                 </s:form>
                 <s:if test="ctr>0">

@@ -30,17 +30,14 @@ CREATE TABLE `orders` (
   `totalPrice` double NOT NULL,
   `users_emailId` varchar(50) NOT NULL,
   `servicetype_type` varchar(100) NOT NULL,
-  `services_serviceId` int NOT NULL,
-  PRIMARY KEY (`orderId`,`servicetype_type`,`services_serviceId`),
+  PRIMARY KEY (`orderId`,`servicetype_type`),
   KEY `emailId_idx` (`orderId`),
   KEY `serviceName_idx` (`orderId`),
   KEY `fk_orders_users1_idx` (`users_emailId`),
   KEY `fk_orders_servicetype1_idx` (`servicetype_type`),
-  KEY `fk_orders_services1_idx` (`services_serviceId`),
-  CONSTRAINT `fk_orders_services1` FOREIGN KEY (`services_serviceId`) REFERENCES `services` (`serviceId`),
   CONSTRAINT `fk_orders_servicetype1` FOREIGN KEY (`servicetype_type`) REFERENCES `servicetype` (`type`),
   CONSTRAINT `fk_orders_users1` FOREIGN KEY (`users_emailId`) REFERENCES `users` (`emailId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -49,6 +46,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (2,'Sommojeet Choudhury','KT, 1st lane','07004501224',65,'sommojeet@gmail.com','Beard Trim'),(3,'Sommo','KT, lane 1','7004501225',180,'sommojeet@gmail.com','Facial'),(4,'Sommo','KT, lane 1','7004501225',180,'sommojeet@gmail.com','Hair Cut');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-01-28 11:20:29
+-- Dump completed on 2022-02-02 12:36:03

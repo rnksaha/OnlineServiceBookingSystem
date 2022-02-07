@@ -70,6 +70,6 @@ public class ServiceType {
     public void setServices_serviceId(int services_serviceId) {
         this.services_serviceId = services_serviceId;
     }
-    
+
     
 }

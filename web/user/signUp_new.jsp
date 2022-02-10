@@ -38,13 +38,15 @@
             });
 //            $('#otp').resetForm();
 
-            function checkEmail() {
+            function checkEmail(e) {
                 var email = document.getElementById('emailId');
                 var filter = /^[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]+)*@[a-z0-9]+(\-[a-z0-9]+)*(\.[a-z0-9]+(\-[a-z0-9]+)*)*\.[a-z]{2,4}$/;
                 if (!filter.test(email.value)) {
                     alert('Please provide a valid email address');
                     email.focus;
-                    return false;
+                    e = e || window.event;
+                    e.preventDefault();
+                   //return false;
                 }
             }
         </script>

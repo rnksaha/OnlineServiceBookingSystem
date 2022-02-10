@@ -17,7 +17,7 @@
         </action> 
         <action name="registerOrders" class="com.exavalu.OSBS.actions.UserAction" method="registerOrders">
             <result name="CARTEMPTY">/user/index.jsp</result>
-            <result name="REGISTERORDERS">/user/invoice.jsp</result>
+            <result name="REGISTERORDERS">/user/thankYou.jsp</result>
         </action>
         <action name="viewOrders" class="com.exavalu.OSBS.actions.UserAction" method="viewOrders">
             <result name="VIEWORDERS">/user/viewOrders.jsp</result>
@@ -71,6 +71,9 @@
         </action>
         <action name="index" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
             <result name="SUCCESS" >/user/index.jsp</result>
+        </action>
+        <action name="invoice" class="com.exavalu.OSBS.actions.UserAction" method="redirectPage">
+            <result name="SUCCESS" >/user/invoice.jsp</result>
         </action>
         <action name="clearSession" class="com.exavalu.OSBS.actions.UserAction" method="clearSession">
             <result name="SUCCESS" >/user/index.jsp</result>

@@ -27,6 +27,7 @@
                             <div class="row p-5">
                                 <div class="col-md-6">
                                     <!-- logo here -->
+                                    <h1>Thank You!</h1>
                                 </div>
 
                                 <div class="col-md-6 text-right">
@@ -54,7 +55,8 @@
 
                             <div class="row pb-5 p-5">
                                 <div class="col-md-6">
-
+                                    <p class="font-weight-bold mb-4"><c:out value="${sessionScope.name}"/></p>
+                                    <p class="font-weight-light mb-1"><c:out value="${sessionScope.address}"/></p>
                                 </div>
 
                                 <div class="col-md-6 text-right">

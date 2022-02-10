@@ -174,6 +174,8 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             setTotalPrice((double) sessionMap.get("total"));
             setGrandTotal(getTotalPrice() + getTotalPrice() * 0.05);
             sessionMap.put("grandTotal", getGrandTotal());
+            sessionMap.put("name", getName());
+            sessionMap.put("address", getAddress());
             try {
                 setCtr(getUserService().registerOrders(getName(), getAddress(), getPhoneNo(), getGrandTotal(), getUsers_emailId(), (ArrayList<ServiceType>) sessionMap.get("cart")));
                 if (getCtr() > 0) {

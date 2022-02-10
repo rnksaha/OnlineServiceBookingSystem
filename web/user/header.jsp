@@ -78,6 +78,11 @@
                         </c:if>
                         <!-- Checking for admin only ENDS HERE -->
 
+                        <c:if test="${applicationScope.validUser == true}">
+                            <li class="nav-item">
+                                <a class="nav-link" href="viewOrders">View Orders</a>
+                            </li>
+                        </c:if>
                         <c:if test="${applicationScope.validUser == null}">
                             <li class="nav-item">
                                 <a class="nav-link" href="loginuser">Login/Sign up</a>

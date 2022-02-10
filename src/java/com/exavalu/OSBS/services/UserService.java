@@ -7,6 +7,7 @@ package com.exavalu.OSBS.services;
 
 import com.exavalu.OSBS.core.ConnectionManager;
 import com.exavalu.OSBS.pojos.City;
+import com.exavalu.OSBS.pojos.Orders;
 import com.exavalu.OSBS.pojos.ServiceType;
 import com.exavalu.OSBS.pojos.User;
 import java.sql.Connection;
@@ -227,6 +228,41 @@ public class UserService {
                 } catch (SQLException ex) {
                     Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            }
+        }
+    }
+    
+    public List viewOrders(String emailId) throws SQLException, Exception {
+        ResultSet rs = null;
+        Connection con = null;
+        List<Orders> orderList = new ArrayList<>();
+        try {
+            String sql = "SELECT * FROM orders WHERE users_emailId=?";
+            con = ConnectionManager.getConnection();
+            System.out.println("Connection is " + con);
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, emailId);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+
+                Orders order = new Orders();
+                order.setOrderId(rs.getInt("orderId"));
+                order.setName(rs.getString("name"));
+                order.setAddress(rs.getString("address"));
+                order.setPhoneNo(rs.getString("phoneNo"));
+                order.setTotalPrice(rs.getDouble("totalPrice"));
+                order.setUsers_emailId(rs.getString("users_emailId"));
+                order.setServicetype_type(rs.getString("servicetype_type"));
+//                order.setServices_serviceId(rs.getInt("services_serviceId"));
+
+                orderList.add(order);
+            }
+            return orderList;
+        } catch (SQLException e) {
+            return null;
+        } finally {
+            if (con != null) {
+                con.close();
             }
         }
     }

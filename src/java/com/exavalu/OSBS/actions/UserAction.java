@@ -6,6 +6,7 @@
 package com.exavalu.OSBS.actions;
 
 import com.exavalu.OSBS.pojos.City;
+import com.exavalu.OSBS.pojos.Orders;
 import com.exavalu.OSBS.pojos.User;
 import com.exavalu.OSBS.pojos.ServiceType;
 import com.exavalu.OSBS.services.UserService;
@@ -51,6 +52,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
     private User user = new User();
     private int ctr = 0;
     private UserService userService = new UserService();
+    private List<Orders> orderList = null;
 
     private String receiverEmail;
 
@@ -120,6 +122,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                     map.put("role", roleId);
                     map.put("validUser", true);
                     map.put("user", userInfo);
+                    map.put("email", getEmailId());
                     return "LOGIN";
                 } else {
                     int i = getUserService().registerUser(getEmailId());
@@ -132,6 +135,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
                         map.put("role", roleId);
                         map.put("validUser", true);
                         map.put("user", userInfo);
+                        map.put("email", getEmailId());
 //                        ActionContext.getContext().getValueStack().push(map);
                         return "LOGIN";
                     } else {
@@ -192,6 +196,26 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         }
         return "REGISTERORDERS";
 
+    }
+    
+    public String viewOrders() throws Exception {
+        setUserService(new UserService());
+        setEmailId((String) map.get("email"));
+        System.out.println(getEmailId());
+        try {
+            setOrderList(new ArrayList<>());
+            setOrderList(getUserService().viewOrders(getEmailId()));
+
+            if (!orderList.isEmpty()) {
+                setNoData(false);
+                System.out.println("Orders retrieved = " + getOrderList().size());
+                System.out.println("setting nodata=false");
+            } else {
+                setNoData(true);
+            }
+        } catch (Exception e) {
+        }
+        return "VIEWORDERS";
     }
 
 //    public static void setCookie(HttpServletResponse response, String name, String value, int period) {
@@ -725,5 +749,19 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
      */
     public void setGrandTotal(Double grandTotal) {
         this.grandTotal = grandTotal;
+    }
+
+    /**
+     * @return the orderList
+     */
+    public List<Orders> getOrderList() {
+        return orderList;
+    }
+
+    /**
+     * @param orderList the orderList to set
+     */
+    public void setOrderList(List<Orders> orderList) {
+        this.orderList = orderList;
     }
 }

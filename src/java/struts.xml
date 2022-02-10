@@ -18,7 +18,10 @@
         <action name="registerOrders" class="com.exavalu.OSBS.actions.UserAction" method="registerOrders">
             <result name="CARTEMPTY">/user/index.jsp</result>
             <result name="REGISTERORDERS">/user/invoice.jsp</result>
-        </action>  
+        </action>
+        <action name="viewOrders" class="com.exavalu.OSBS.actions.UserAction" method="viewOrders">
+            <result name="VIEWORDERS">/user/viewOrders.jsp</result>
+        </action> 
         <action name="service" class="com.exavalu.OSBS.actions.UserAction" method="service">
             <result name="SUCCESS">/user/service.jsp</result>
         </action>

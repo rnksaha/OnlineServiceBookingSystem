@@ -123,8 +123,8 @@
                     <h1 class="mb-3 font-weight-normal">
                         <p style="color:white">Sign In</p>
                     </h1>
-                    <s:textfield id="emailId" cssClass = "form-control" placeholder="Enter Email" value="emailId"  name="emailId" size="50"/>
-                    <s:textfield id="otp" cssClass = "form-control" value="otp" placeholder="Enter OTP" name="otp" size="50"/>
+                    <s:textfield id="emailId" cssClass = "form-control" placeholder="Enter Email"  name="emailId" size="50"/>
+                    <s:textfield id="otp" cssClass = "form-control" placeholder="Enter OTP" name="otp" size="50"/>
                     <s:submit cssClass="mt-1 w-100 btn btn-lg btn-primary" style="border:none;" id="btnOtp" name="btnOtp" onclick='checkEmail();' value="GET OTP"/>
                     <s:submit id="logButton" onclick='checkEmail();' cssClass="mt-1 w-100 btn btn-lg btn-primary" style="border:none;" value="Login"/>
                 </s:form>

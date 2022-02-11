@@ -17,27 +17,7 @@
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script type="text/javascript">
 
-            $(function () {
-//                $("submit[name=btnOtp]").click(function () {
-                $("#btnOtp").click(function (e) {
-                    e.preventDefault();
-                    $.ajax({
-                        type: "POST",
-                        url: "otprequest",
-                        data: {'emailId': $("#emailId").val()},
-                        success: function (result) {
-                            alert("OTP Sent");
-                        },
-                        error: function (xhr, errmsg) {
-                            alert("Empty Field");
-                        }
-                    });
-                    $("#dvOTP").show();
-                    $("#dvSubmit").show();
-                });
-            });
 //            $('#otp').resetForm();
-
             function checkEmail(e) {
                 var email = document.getElementById('emailId');
                 var filter = /^[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]+)*@[a-z0-9]+(\-[a-z0-9]+)*(\.[a-z0-9]+(\-[a-z0-9]+)*)*\.[a-z]{2,4}$/;
@@ -46,8 +26,40 @@
                     email.focus;
                     e = e || window.event;
                     e.preventDefault();
-                    //return false;
+                    return false;
                 }
+
+            }
+            function checkOtp(e) {
+                var otpbx = document.getElementById('emailId');
+                if (otpbx.value.length === 0) {
+                    alert('Please provide a valid email address');
+                } else if (checkEmail() === false) {
+                    alert('Please provide a valid email address');
+                } else
+                {
+                    $(function () {
+//                $("submit[name=btnOtp]").click(function () {
+                        $("#btnOtp").click(function (e) {
+                            e.preventDefault();
+                            $.ajax({
+                                type: "POST",
+                                url: "otprequest",
+                                data: {'emailId': $("#emailId").val()},
+                                success: function (result) {
+                                    alert("OTP Sent");
+                                },
+                                error: function (xhr, errmsg) {
+                                    alert("Empty Field");
+                                }
+                            });
+                            $("#dvOTP").show();
+                            $("#dvSubmit").show();
+                        });
+                    });
+                }
+                e = e || window.event;
+                e.preventDefault();
             }
         </script>
         <title>Sign Up</title>
@@ -110,7 +122,6 @@
                 /*padding: 15px;*/
                 background: -webkit-linear-gradient(left, #9c69d5, #0c2e66);
             }
-
         </style>
     </head>
 
@@ -123,9 +134,9 @@
                     <h1 class="mb-3 font-weight-normal">
                         <p style="color:white">Sign In</p>
                     </h1>
-                    <s:textfield id="emailId" cssClass = "form-control" placeholder="Enter Email" value="emailId"  name="emailId" size="50"/>
-                    <s:textfield id="otp" cssClass = "form-control" value="otp" placeholder="Enter OTP" name="otp" size="50"/>
-                    <s:submit cssClass="mt-1 w-100 btn btn-lg btn-primary" style="border:none;" id="btnOtp" name="btnOtp" onclick='checkEmail();' value="GET OTP"/>
+                    <s:textfield id="emailId" cssClass = "form-control" placeholder="Enter Email" name="emailId" size="50"/>
+                    <s:textfield id="otp" cssClass = "form-control" placeholder="Enter OTP" name="otp" size="50"/>
+                    <s:submit cssClass="mt-1 w-100 btn btn-lg btn-primary" onclick='checkOtp();' style="border:none;" id="btnOtp" name="btnOtp" value="GET OTP"/>
                     <s:submit id="logButton" onclick='checkEmail();' cssClass="mt-1 w-100 btn btn-lg btn-primary" style="border:none;" value="Login"/>
                 </s:form>
             </div>     

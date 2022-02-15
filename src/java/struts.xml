@@ -12,6 +12,10 @@
             <result name="LOGIN" >/user/index.jsp</result>
             <result name="LOGINERROR" >/user/signUp_new.jsp</result>
         </action>
+        <action name="logingoogleuser" class="com.exavalu.OSBS.actions.UserAction" method="userGoogleLogin">
+            <result name="LOGIN" >/user/index.jsp</result>
+            <result name="LOGINERROR" >/user/signUp_new.jsp</result>
+        </action>
         <action name="registerFeedback" class="com.exavalu.OSBS.actions.UserAction" method="registerFeedback">
             <result name="REGISTERFEEDBACK">/user/feedback.jsp</result>
         </action> 

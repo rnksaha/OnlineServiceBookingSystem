@@ -13,6 +13,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="713448910334-42si6fhnaj92tvh2rgi30h0k4apadtgs.apps.googleusercontent.com">
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script type="text/javascript">
@@ -128,7 +130,31 @@
                     <s:submit cssClass="mt-1 w-100 btn btn-lg btn-primary" style="border:none;" id="btnOtp" name="btnOtp" onclick='checkEmail();' value="GET OTP"/>
                     <s:submit id="logButton" onclick='checkEmail();' cssClass="mt-1 w-100 btn btn-lg btn-primary" style="border:none;" value="Login"/>
                 </s:form>
-            </div>     
-        </div>
-    </body>
+            </div>
+            <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn" id="myP"></div>
+<!--            <img id="myImg"><br>
+            <p id="name"></p>
+            <div id="status">
+            </div>-->
+            <script type="text/javascript">
+            function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile();
+                var emailId = profile.getEmail();
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.disconnect();
+                $.ajax({
+                    type: "GET",
+                    url: "logingoogleuser",
+                    data: "emailId=" + emailId,
+                    success: function (result) {
+                        window.location.href = "index";
+                    },
+                    error: function (xhr, errmsg) {
+                        alert("No values found..!!");
+                    }
+                });
+            }</script>
+        </script>
+    </div>
+</body>
 </html>

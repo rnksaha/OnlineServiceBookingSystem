@@ -155,6 +155,57 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
             return "LOGINERROR";
         }
     }
+    
+    public String userGoogleLogin() throws Exception {
+
+//        setGeneratedOTP((String) sessionMap.get("otp"));
+//        setReceiverEmail((String) sessionMap.get("email"));
+        try {
+            if ((getEmailId() != null)) {
+
+//                map.put(getEmailId() + "session", mySession.getId());
+                User userInfo = getUserService().fetchUserDetails(getEmailId());
+                if (userInfo.getRoleId() == 1 || userInfo.getRoleId() == 2) {
+                    int roleId = userInfo.getRoleId();
+                    sessionMap.put("role", roleId);
+                    sessionMap.put("validuser", true);
+                    sessionMap.put("user", userInfo);
+                    map.put("role", roleId);
+                    map.put("validUser", true);
+                    map.put("user", userInfo);
+                    map.put("email", getEmailId());
+                    return "LOGIN";
+                } else {
+                    int i = getUserService().registerUser(getEmailId());
+                    if (i == 1) {
+                        User newUser = getUserService().fetchUserDetails(getEmailId());
+                        int roleId = newUser.getRoleId();
+                        sessionMap.put("role", roleId);
+                        sessionMap.put("validuser", true);
+                        sessionMap.put("user", userInfo);
+                        map.put("role", roleId);
+                        map.put("validUser", true);
+                        map.put("user", userInfo);
+                        map.put("email", getEmailId());
+//                        ActionContext.getContext().getValueStack().push(map);
+                        return "LOGIN";
+                    } else {
+                        sessionMap.invalidate();
+                        return "LOGINERROR";
+                    }
+                }
+//                    HttpServletResponse response = (HttpServletResponse) ActionContext.getContext().get(ServletActionContext.HTTP_RESPONSE);
+            } else {
+                sessionMap.invalidate();
+                return "LOGINERROR";
+            }
+
+        } catch (Exception e) {
+            sessionMap.invalidate();
+
+            return "LOGINERROR";
+        }
+    }
 
     public String registerFeedback() throws Exception {
         setUserService(new UserService());
@@ -336,6 +387,7 @@ public class UserAction extends ActionSupport implements ApplicationAware, Sessi
         sessionMap.invalidate();
         map.put("role", 0);
         map.put("validUser", null);
+        map.put("validGoogleUser", null);
         map.put("user", null);
 
         return "LOGOUT";

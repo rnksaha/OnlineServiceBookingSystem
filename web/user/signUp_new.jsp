@@ -51,6 +51,8 @@
                     //return false;
                 }
             }
+
+
         </script>
         <title>Sign Up</title>
         <style>
@@ -113,6 +115,12 @@
                 background: -webkit-linear-gradient(left, #9c69d5, #0c2e66);
             }
 
+            .g-signin2{
+                margin: auto;
+                width: 45%;
+                padding: 10px;
+            }
+
         </style>
     </head>
 
@@ -124,6 +132,8 @@
                 <s:form action="loginuser">   
                     <h1 class="mb-3 font-weight-normal">
                         <p style="color:white">Sign In</p>
+                        <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn" id="myP"></div>
+                        <p style="color:white;font-size:20px">OR</p>
                     </h1>
                     <s:textfield id="emailId" cssClass = "form-control" placeholder="Enter Email"  name="emailId" size="50"/>
                     <s:textfield id="otp" cssClass = "form-control" placeholder="Enter OTP" name="otp" size="50"/>
@@ -131,11 +141,11 @@
                     <s:submit id="logButton" onclick='checkEmail();' cssClass="mt-1 w-100 btn btn-lg btn-primary" style="border:none;" value="Login"/>
                 </s:form>
             </div>
-            <div class="g-signin2" data-longtitle="true" data-onsuccess="onSignIn" id="myP"></div>
-<!--            <img id="myImg"><br>
-            <p id="name"></p>
-            <div id="status">
-            </div>-->
+
+            <!--            <img id="myImg"><br>
+                        <p id="name"></p>
+                        <div id="status">
+                        </div>-->
             <script type="text/javascript">
             function onSignIn(googleUser) {
                 var profile = googleUser.getBasicProfile();
@@ -153,8 +163,8 @@
                         alert("No values found..!!");
                     }
                 });
-            }</script>
-        </script>
-    </div>
-</body>
+            }
+            </script>
+        </div>
+    </body>
 </html>

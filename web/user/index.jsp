@@ -72,7 +72,7 @@
         <% Logger log = Logger.getLogger("index.jsp"); %>
         <jsp:include page="header.jsp" ></jsp:include>
 
-        <div class="jumbotron d-flex align-items-center">
+        <div class="jumbotron-index d-flex align-items-center">
             <div class="container text-center">
                 <h1 class="display-1 mb-4">URBAN<br>WARE</h1>
             </div>
